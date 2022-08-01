@@ -13,7 +13,7 @@ import {
 import axios from 'axios';
 import { useState } from 'react';
 const api = axios.create({
-  baseURL: `http://localhost:3000/`
+  baseURL: `http://3.84.110.201:3001/`
 })
 function App() {
   const [logoutbtn, setlogoutbtn] = useState(false);

@@ -12,7 +12,7 @@ const ProductsDetailsForm = ({ rowdata, handleClose }) => {
     setUpdaterowdata(rowdata);
   }, [])
   const submiteventclicked = () => {
-    axios.put('http://localhost:3000/product/updateProductsDetails', {
+    axios.put('http://3.84.110.201:3001/product/updateProductsDetails', {
       params: {
         updaterowdata
       }

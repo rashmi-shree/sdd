@@ -16,7 +16,7 @@ const DownloadDelivery = ({setTableDataEvent}) => {
     tosetselecteddate(e);
   }
   const searchbuttonclicked = () => {
-    axios.post('http://localhost:3000/delivery/customizeddatefetchdeliverydata',{
+    axios.post('http://3.84.110.201:3001/delivery/customizeddatefetchdeliverydata',{
       params:{
         fromdate:fromselecteddate,
         todate:toselecteddate
@@ -55,7 +55,7 @@ const DownloadDelivery = ({setTableDataEvent}) => {
     lastday = lastday.toString();
     lastday = lastday.split(" "); 
     var todate = lastday[3]+"-"+months[lastday[1]]+"-"+lastday[2];
-    axios.post('http://localhost:3000/delivery/customizeddatefetchdeliverydata',{
+    axios.post('http://3.84.110.201:3001/delivery/customizeddatefetchdeliverydata',{
       params:{
         fromdate:fromdate,
         todate:todate
@@ -89,7 +89,7 @@ const DownloadDelivery = ({setTableDataEvent}) => {
     lastday = lastday.split(" "); 
     var fromdate = lastday[3]+"-"+months[lastday[1]]+"-"+'01';
     var todate = lastday[3]+"-"+months[lastday[1]]+"-"+lastday[2];
-    axios.post('http://localhost:3000/delivery/customizeddatefetchdeliverydata',{
+    axios.post('http://3.84.110.201:3001/delivery/customizeddatefetchdeliverydata',{
       params:{
         fromdate:fromdate,
         todate:todate
@@ -122,7 +122,7 @@ const DownloadDelivery = ({setTableDataEvent}) => {
     lastday = lastday.split(" "); 
     var fromdate = lastday[3]+"-"+"01"+"-"+'01';
     var todate = lastday[3]+"-"+months[lastday[1]]+"-"+lastday[2];
-    axios.post('http://localhost:3000/delivery/customizeddatefetchdeliverydata',{
+    axios.post('http://3.84.110.201:3001/delivery/customizeddatefetchdeliverydata',{
       params:{
         fromdate:fromdate,
         todate:todate

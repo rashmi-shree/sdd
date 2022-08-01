@@ -46,7 +46,7 @@ const DisplayProductDetailsTable = ({
         setrowdata(e);
     }
     const displayProductDetailsData = () => {
-        axios.get(`http://localhost:3000/product/displayProductDetailsData`)
+        axios.get(`http://3.84.110.201:3001/product/displayProductDetailsData`)
         .then((res)=>{
             setProductsdetailsdata(res.data);
             setfilterflag(true);
@@ -58,7 +58,7 @@ const DisplayProductDetailsTable = ({
         }
     },[searchvalue])
     const productstatusfilter = () => {
-        axios.post(`http://localhost:3000/product/productstatusfilter`,{
+        axios.post(`http://3.84.110.201:3001/product/productstatusfilter`,{
             params:{
                 status:currentstatus
             }
@@ -82,7 +82,7 @@ const DisplayProductDetailsTable = ({
         setEditFormData(formValues);
     }
     const deleteevent = (id) => {
-        axios.delete(`http://localhost:3000/product/deletefromproductdetailstable`, 
+        axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`, 
         { 
             data: { 
                 id:id 
@@ -96,7 +96,7 @@ const DisplayProductDetailsTable = ({
         setSearchvalue(e.target.value);
       }
       const searchclicked = () => {
-        axios.post(`http://localhost:3000/product/getProductDetailsData`,{
+        axios.post(`http://3.84.110.201:3001/product/getProductDetailsData`,{
             params:{
                 product_name:searchvalue,
                 product_hsn:searchvalue

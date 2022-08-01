@@ -11,7 +11,7 @@ const EditDealersReportForm = ({ rowdata, handleClose }) => {
         setUpdaterowdata(rowdata);
     }, [])
     const submiteventclicked = (e) => {
-        axios.put('http://localhost:3000/dealers/updateDealersDetails', {
+        axios.put('http://3.84.110.201:3001/dealers/updateDealersDetails', {
             params: {
                 updaterowdata
             }

@@ -41,13 +41,13 @@ const DealersInvoiceFormGenerate = ({
         }
     }, [fetchdealersdatatoverify])
     useEffect(() => {
-        axios.get('http://localhost:3000/delivery/fetchinvoicesfromdeliverytable')
+        axios.get('http://3.84.110.201:3001/delivery/fetchinvoicesfromdeliverytable')
             .then((res) => {
                 setlistofinvoices(res.data);
             })
     }, [])
     useEffect(() => {
-        axios.post('http://localhost:3000/jointables/downloadinvoicedisplayedastable', {
+        axios.post('http://3.84.110.201:3001/jointables/downloadinvoicedisplayedastable', {
             params: {
                 invoice_no: invoiceno,
                 customer_reference_no: custrefno

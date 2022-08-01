@@ -70,7 +70,7 @@ const DisplayDealersDetailsTable = ({
         })
       }
       const deleteevent = (id) => {
-        api.delete(`http://localhost:3000/dealers/deletefromdealersdetailstable`, 
+        api.delete(`http://3.84.110.201:3001/dealers/deletefromdealersdetailstable`, 
         { 
             data: { 
                 id:id 

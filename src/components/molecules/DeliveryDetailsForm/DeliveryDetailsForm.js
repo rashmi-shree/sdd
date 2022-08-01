@@ -16,7 +16,7 @@ const DeliveryDetailsForm = ({ rowdata, handleClose }) => {
   }, [])
   const [comboboxdata, setComboboxdata] = useState();
   useEffect(() => {
-    axios.get(`http://localhost:3000/product/displayProductDetailsDataforcombobox`)
+    axios.get(`http://3.84.110.201:3001/product/displayProductDetailsDataforcombobox`)
     .then((res)=>{
       var data = res.data;
       let productnamesarray = [];
@@ -35,7 +35,7 @@ const DeliveryDetailsForm = ({ rowdata, handleClose }) => {
     setupdatedDeliverystatus(e);
   }
   const submiteventclicked = () => {
-    axios.put(`http://localhost:3000/delivery/updateDeliveryDetails`,{
+    axios.put(`http://3.84.110.201:3001/delivery/updateDeliveryDetails`,{
       params:{
         updaterowdata
       }

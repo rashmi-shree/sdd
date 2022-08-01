@@ -22,7 +22,7 @@ const DealersDetailsForm = ({
     fetchalldatafromcust();
   }, [])
   const fetchalldatafromcust = () => {
-    axios.post('http://localhost:3000/delivery/getalldataofcustomer', {
+    axios.post('http://3.84.110.201:3001/delivery/getalldataofcustomer', {
         params: {
           currentCustomerReferenceNo: currentInvoiceno
         }
@@ -60,38 +60,38 @@ const DealersDetailsForm = ({
       custrefno = data.customer_reference_no;
       statecode = data.state_code;
     })
-    axios.post('http://localhost:3000/delivery/setverificationstatus', {
+    axios.post('http://3.84.110.201:3001/delivery/setverificationstatus', {
       params: {
         customer_reference_no: custrefno
       }
     })
-      axios.put('http://localhost:3000/delivery/updatepurchasestatusofdeliverytable', {
+      axios.put('http://3.84.110.201:3001/delivery/updatepurchasestatusofdeliverytable', {
       params: {
         customer_reference_no: custrefno
       }
     })
-      axios.put('http://localhost:3000/delivery/updateDeliveryDatafromdealersform', {
+      axios.put('http://3.84.110.201:3001/delivery/updateDeliveryDatafromdealersform', {
       params: {
         rowdatadisplayed: Rowdatadisplayed
       }
     })
-      axios.post('http://localhost:3000/jointables/calculaterateofdeliveryofdealers', {
+      axios.post('http://3.84.110.201:3001/jointables/calculaterateofdeliveryofdealers', {
       params: {
         rowdatadisplayed: Rowdatadisplayed
       }
     })
     if (statecode == 29) {
-      axios.put('http://localhost:3000/jointables/updatekarnatakagstratesfromdealers', {
+      axios.put('http://3.84.110.201:3001/jointables/updatekarnatakagstratesfromdealers', {
         params: {
           customer_reference_no: custrefno
         }
       })
-        axios.put('http://localhost:3000/jointables/updatefinalamountdeliveryfromdealers', {
+        axios.put('http://3.84.110.201:3001/jointables/updatefinalamountdeliveryfromdealers', {
         params: {
           customer_reference_no: custrefno
         }
       })
-        axios.put('http://localhost:3000/jointables/updatebalanceamountdeliveryfromdealers', {
+        axios.put('http://3.84.110.201:3001/jointables/updatebalanceamountdeliveryfromdealers', {
         params: {
           rowdatadisplayed: Rowdatadisplayed
         }
@@ -105,21 +105,21 @@ const DealersDetailsForm = ({
         })
     }
     else {
-      axios.put('http://localhost:3000/jointables/updateotherstatesgstratesfromdealers', {
+      axios.put('http://3.84.110.201:3001/jointables/updateotherstatesgstratesfromdealers', {
         params: {
           customer_reference_no: custrefno
         }
       })
         .then((res) => {
         })
-        axios.put('http://localhost:3000/jointables/updatefinalamountdeliveryfromdealers', {
+        axios.put('http://3.84.110.201:3001/jointables/updatefinalamountdeliveryfromdealers', {
         params: {
           customer_reference_no: custrefno
         }
       })
         .then((res) => {
         })
-        axios.put('http://localhost:3000/jointables/updatebalanceamountdeliveryfromdealers', {
+        axios.put('http://3.84.110.201:3001/jointables/updatebalanceamountdeliveryfromdealers', {
         params: {
           rowdatadisplayed: Rowdatadisplayed
         }

@@ -6,7 +6,7 @@ const selecteventforstate = (e) => {
     setUpdaterowdata({...updaterowdata, "statename":e.target.outerText})
   }
   useEffect(()=>{
-    fetch('http://localhost:3000/getstateandstatecodes',{
+    fetch('http://3.84.110.201:3001/getstateandstatecodes',{
       method:'get',
       mode:'cors',
     })
@@ -21,7 +21,7 @@ const selectedProductNameEvent = (e) => {
     setSelectedProductName(e)
 }
 useEffect(()=>{
-    fetch('http://localhost:3000/fetchproductdetailsonproductname',{
+    fetch('http://3.84.110.201:3001/fetchproductdetailsonproductname',{
         method:'post',
         headers:{
             'Content-Type':'application/json'
@@ -39,7 +39,7 @@ useEffect(()=>{
     })
 },[selectedProductName])
 useEffect(()=>{
-    fetch('http://localhost:3000/fetchproductsnamefromproductstable',{
+    fetch('http://3.84.110.201:3001/fetchproductsnamefromproductstable',{
         method:'get',
         mode:'cors',
     })
@@ -52,7 +52,7 @@ useEffect(()=>{
 },[])
 
 useEffect(()=>{
-    fetch('http://localhost:3000/fetchinvoicesfromdeliverytable',{
+    fetch('http://3.84.110.201:3001/fetchinvoicesfromdeliverytable',{
         method:'get',
         mode:'cors',
     })
@@ -137,7 +137,7 @@ if(productdetails[0]){
         setrateofproduct(finalproductrate);
     }
 }
-fetch("http://localhost:3000/insertintodeliveryfromdealers",{
+fetch("http://3.84.110.201:3001/insertintodeliveryfromdealers",{
         method:'post',
         headers:{
             'Content-Type':'application/json'

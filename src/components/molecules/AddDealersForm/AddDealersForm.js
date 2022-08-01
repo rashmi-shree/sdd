@@ -26,7 +26,7 @@ const AddDealersForm = ({ handleClose }) => {
   }
   currentDate();
   const submiteventclicked = () => {
-    axios.post(`http://localhost:3000/dealers/addDealersData`,{
+    axios.post(`http://3.84.110.201:3001/dealers/addDealersData`,{
       params:{
         data: customerdata
       }

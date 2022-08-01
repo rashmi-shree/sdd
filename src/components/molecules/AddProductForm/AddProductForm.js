@@ -24,7 +24,7 @@ const AddProductForm = ({ handleClose }) => {
   }
   currentDate();
   const submiteventclicked = () => {
-    axios.post('http://localhost:3000/product/addProductData', {
+    axios.post('http://3.84.110.201:3001/product/addProductData', {
       params: {
         data: customerdata
       }
