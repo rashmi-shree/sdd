@@ -91,7 +91,7 @@ const GenerateReport = ({
         </div>
         <Box sx={{ width: '100%', color: 'white' }}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+            <Tabs variant="scrollable" value={value} onChange={handleChange} aria-label="basic tabs example">
               <Tab style={style} label="Delivery Reports" {...a11yProps(0)} />
               <Tab style={style} label="Customer Follow Up Report" {...a11yProps(1)} />
               <Tab style={style} label="Product Details Report" {...a11yProps(2)} />
