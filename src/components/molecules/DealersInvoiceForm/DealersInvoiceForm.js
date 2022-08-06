@@ -139,6 +139,7 @@ const DealersInvoiceForm = ({
       })
   }, [])
   const selecteventforstate = (e) => {
+    console.log("state e", e);
     setselectedstate(e.target.outerText);
   }
   const changeevent = (e) => {
