@@ -82,15 +82,16 @@ const DisplayProductDetailsTable = ({
         setEditFormData(formValues);
     }
     const deleteevent = (id) => {
-        axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`, 
-        { 
-            data: { 
-                id:id 
-            }
-         })
-         .then((res)=>{
-                displayProductDetailsData();
-         })
+        alert("hi");
+        // axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`, 
+        // { 
+        //     data: { 
+        //         id:id 
+        //     }
+        //  })
+        //  .then((res)=>{
+        //         displayProductDetailsData();
+        //  })
     }
     const searchHandle = (e) => {
         setSearchvalue(e.target.value);

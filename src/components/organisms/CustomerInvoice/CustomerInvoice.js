@@ -3,6 +3,7 @@ import CustomizedSearchBar from "../../atoms/CustomizedSearchBar/CustomizedSearc
 import OpenModal from "../../molecules/OpenModal/OpenModal";
 import CustomizedBtn from "../../atoms/CustomizedBtn/CustomizedBtn";
 import moment from 'moment';
+import FullScreenModal from "../../molecules/FullScreenModal/FullScreenModal";
 import '../../../style/style.css';
 
 const CustomerInvoice = ({
@@ -164,7 +165,29 @@ const CustomerInvoice = ({
                                     />
                                 </td>
                                 <td>
-                                <CustomizedBtn 
+                                <div className='btnstyle'>
+                                <button 
+                                    // type="button" 
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"
+                                    onClick={()=>{
+                                        openinvoiceevent(data.customer_reference_no);
+                                    }}
+                                    class="btnstyle"
+                                    >
+                                        Generate Invoice
+                                </button>
+                                </div>
+                                <FullScreenModal 
+                                    api={api}
+                                    modalview={modalview}
+                                    open={open}
+                                    openevent={openevent}
+                                    invoiceFormData={invoiceFormData}
+                                    openinvoiceevent={openinvoiceevent}
+                                    currentCustomerReferenceNoCustomerInvoice={currentCustomerReferenceNoCustomerInvoice}
+                                />
+                                {/* <CustomizedBtn 
                                         BtnName="Generate Invoice"
                                         onClick={()=>{
                                             openinvoiceevent(data.customer_reference_no);
@@ -172,7 +195,7 @@ const CustomerInvoice = ({
                                             openevent(true);
                                         }}
                                     />
-                                
+                                 */}
                                     
                                 </td>
                                 </tr>
