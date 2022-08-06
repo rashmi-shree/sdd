@@ -90,7 +90,7 @@ const GenerateReport = ({
           <p onClick={() => { navigate('/main') }}><ArrowBackIcon /></p>
         </div>
         <Box sx={{ width: '100%', color: 'white' }}>
-          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider', borderLeft:2 }}>
             <Tabs variant="scrollable" value={value} onChange={handleChange} aria-label="basic tabs example">
               <Tab style={style} label="Delivery Reports" {...a11yProps(0)} />
               <Tab style={style} label="Customer Follow Up Report" {...a11yProps(1)} />
