@@ -654,7 +654,7 @@ height: 100px;
 }
 @media screen and (max-width: 420px) {
     .backarrowcustomerpage{
-        border: 2px solid black;
+        margin-left: 26rem;
     }
     .footercontainer {
         background-color: white;
@@ -687,8 +687,8 @@ height: 100px;
         float: none;
     }
     .table-responsive {
-        width: 42rem;
-        margin-left: 1rem;
+        margin-left: 3rem;
+        width: 37rem;
     }
     .css-1ukj8j3 {
         position: absolute;
