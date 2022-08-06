@@ -653,6 +653,9 @@ height: 100px;
     width: 28rem;
 }
 @media screen and (max-width: 420px) {
+    .loginPageBtnContainer{
+        border: 2px solid yellow;
+    }
     .footercontainer {
         background-color: white;
         z-index: 100;
@@ -670,13 +673,14 @@ height: 100px;
         margin-left: 17rem;
     }
     .pageheading {
-        font-size: 23px;
+        font-size: 15px;
         display: -webkit-inline-box;
         font-weight: 600;
     }
     .custsearchbarcontainer {
         display: flex;
         margin-left: 21rem;
+        font-size: 70%;
     }
     .backarrow {
         margin-left: 37rem !important;
