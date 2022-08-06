@@ -1,6 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useReactToPrint } from "react-to-print";
-import CustomizedPrint from "../../atoms/CustomizedPrint/CustomizedPrint";
+import React, { useEffect, useState } from "react";
 import { ToWords } from 'to-words';
 import moment from 'moment';
 import '../../../style/style.css';
@@ -11,10 +9,6 @@ const InvoiceFormat = ({
     const [constantinvoicedata, setconstantinvoicedata] = useState();
     const [totalamount, settotalamount] = useState();
     const [totalinwords, settotalinwords] = useState();
-    const componentRef = useRef();
-    const handlePrint = useReactToPrint({
-        content: () => componentRef.current,
-    });
     const toWords = new ToWords();
     useEffect(() => {
         if (invoiceFormData) {
@@ -33,31 +27,27 @@ const InvoiceFormat = ({
     }, [invoiceFormData])
     return (
         <div className="invoiceformatcontainer">
-            <div className="invoiceheader">
-                <div><CustomizedPrint
-                    onClick={handlePrint}
-                />
-                </div>
-            </div>
             <div className="table-responsive" id="tableprint" >
                 {
                     constantinvoicedata
                         ?
-                        <div ref={componentRef}>
+                        <div>
+                            <div className="invoicecontainer">
+                                <div>
+                                    <p> <span className="lightstyle">Address:</span> Shop #05,Medhini Arcade, <br></br>
+                                        Kithaganahalli Gate, <br></br>Opp Anna Building,
+                                        Hosur Main Road<br></br> Bangalore-560099,
+                                        <br></br></p>
+                                    <p> <span className="lightstyle">GSTIN/UIN:</span>29AYSPB6397D1ZX <br></br>
+                                       <span className="lightstyle">State: </span> {constantinvoicedata.state} <br></br>
+                                       <span className="lightstyle">State Code: </span> {constantinvoicedata.state_code}</p>
+                                </div>
+                                <div>
+                                    <span className="invoicenamestyle">SHREE PARAMANANDA ENTERPRISES</span>
+                                    <p><span className="lightstyle">Contact Us:</span> 9035757145/9141070705</p>
+                                </div>
+                            </div>
                             <table className="tbl">
-                                <thead>
-                                    <tr>
-                                        <th colspan="6" scope="col">
-                                            <div className="theaddiv">
-                                                <h6>TAX INVOICE</h6>
-                                                <h5><bold>SHREE PARAMANANDA ENTERPRISES</bold></h5>
-                                                <p>Shop #05,Medhini Arcade,Kithaganahalli Gate,Opp Anna Building,Hosur Main Road Bangalore-560099,Mobile: 9035757145/9902880851/9141070705</p>
-                                                <p>Email ID:shreeparamananda@gmail.com</p>
-                                                <p>GSTIN/UIN:29AYSPB6397D1ZX,{constantinvoicedata.state} State Code:{constantinvoicedata.state_code}</p>
-                                            </div>
-                                        </th>
-                                    </tr>
-                                </thead>
                                 <tbody>
                                     <tr>
                                         <td rowSpan="3">Buyer:</td>
@@ -70,8 +60,8 @@ const InvoiceFormat = ({
                                         <td colspan="3">Date of supply:-</td>
                                         <td colspan="7">
                                             {constantinvoicedata.delivery_date != null ?
-                                             moment(constantinvoicedata.delivery_date).format('YYYY-MM-DD'):
-                                             constantinvoicedata.delivery_date
+                                                moment(constantinvoicedata.delivery_date).format('YYYY-MM-DD') :
+                                                constantinvoicedata.delivery_date
                                             }
                                         </td>
                                     </tr>
@@ -121,7 +111,7 @@ const InvoiceFormat = ({
                                                 <td >{d.product}</td>
                                                 <td >{d.product_hsn_code}</td>
                                                 <td >{d.quantity}</td>
-                                                <td >{d.rate/d.quantity}</td>
+                                                <td >{d.rate / d.quantity}</td>
                                                 <td >{d.rate}</td>
                                                 <td >{d.cgst}</td>
                                                 <td >{d.sgst}</td>
@@ -135,7 +125,7 @@ const InvoiceFormat = ({
                                         <td colspan="7">{totalamount}</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="3" rowSpan="5">
+                                        <td colspan="5" rowSpan="5">
                                             Terms &Conditions :
                                             <ol>
                                                 <li>Payment only by DD/CHQ,In faver of Shree Paramananda Enterprises</li>

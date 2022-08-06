@@ -404,6 +404,7 @@ height: 100px;
 
 /* invoice format start  */
 .invoiceformatcontainer{
+    margin-top: -7rem;
     color: black;
     padding: 1rem;
     background-color: white;
@@ -655,6 +656,18 @@ height: 100px;
 .comboboxselectstyle{
     width: 28rem;
 }
+.invoicecontainer{
+    display: flex;
+    justify-content: space-between;
+}
+.lightstyle{
+    font-weight: lighter;
+}
+.invoicenamestyle{
+    font-size: larger;
+    font-weight: bold;
+    font-family: monospace;
+}
 @media screen and (max-width: 420px) {
     .backarrowcustomerpage{
         margin-left: 26rem;
@@ -691,6 +704,7 @@ height: 100px;
         margin-top: -1rem;
     }
     .table-responsive {
+
         margin-left: 1rem;
         width: 37rem;
     }
