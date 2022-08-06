@@ -231,7 +231,7 @@ const AddCustomerPage = ({
                     currentCustomerReferenceNo={currentCustomerReferenceNo}
                     setpurchasemsgevent={setpurchasemsgevent}
                 />
-                  <p onClick={() => { navigate('/main') }}><ArrowBackIcon /></p>
+                  <p className="backarrowcustomerpage" onClick={() => { navigate('/main') }}><ArrowBackIcon /></p>
             </div>
             <div className='table-responsive tableContainer'>
               <p>

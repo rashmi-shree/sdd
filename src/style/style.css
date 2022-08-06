@@ -653,8 +653,8 @@ height: 100px;
     width: 28rem;
 }
 @media screen and (max-width: 420px) {
-    .loginPageBtnContainer{
-        border: 2px solid yellow;
+    .backarrowcustomerpage{
+        border: 2px solid black;
     }
     .footercontainer {
         background-color: white;
