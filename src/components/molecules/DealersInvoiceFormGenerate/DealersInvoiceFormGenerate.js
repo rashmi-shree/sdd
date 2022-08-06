@@ -100,11 +100,11 @@ const DealersInvoiceFormGenerate = ({
                     }
                 </div>
             </div>
-            <div className="table-responsive" id="tableprint">
+            <div ref={componentRef} className="table-responsive" id="tableprint">
                 {
                     constantinvoicedata
                         ?
-                        <table className="tbl" ref={componentRef}>
+                        <table className="tbl">
                             <thead>
                                 <tr>
                                     <th colspan="6" scope="col">
