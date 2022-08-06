@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import HeaderWithLogout from '../../pages/Header/HeaderWithLogout';
 import CustomizedBtn from "../../components/atoms/CustomizedBtn/CustomizedBtn";
 import moment from 'moment';
+import FullScreenModal from "../../components/molecules/FullScreenModal/FullScreenModal";
 import '../../style/style.css';
 
 const ViewInvoicePage = ({
@@ -102,14 +103,33 @@ const ViewInvoicePage = ({
                                                 <td>{data.invoice_no}</td>
                                                 <td>{data.customer_name}</td>
                                                 <td>
-                                                <CustomizedBtn 
+                                                <div className='btnstyle'>
+                                                    <button 
+                                                        // type="button" 
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal"
+                                                        onClick={()=>{
+                                                            openinvoiceevent(data.invoice_no);
+                                                        }}
+                                                        class="btnstyle"
+                                                        >
+                                                            Generate Invoice
+                                                    </button>
+                                                    </div>
+                                                    <FullScreenModal 
+                                                       api={api}
+                                                    //    modalview={modalview}
+                                                    //    open={open}
+                                                    //    openevent={openevent}
+                                                       invoiceFormData={invoiceFormData}                                                    />
+                                                {/* <CustomizedBtn 
                                                     BtnName="View Invoice"
                                                     onClick={()=>{
                                                         openinvoiceevent(data.invoice_no);
                                                         setModalview("invoiceformat");
                                                         openevent(true);
                                                     }}
-                                                />
+                                                /> */}
                                                 </td>
                                             </tr>
                                         ))
