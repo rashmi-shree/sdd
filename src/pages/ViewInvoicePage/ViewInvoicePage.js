@@ -113,7 +113,7 @@ const ViewInvoicePage = ({
                                                         }}
                                                         class="btnstyle"
                                                         >
-                                                            Generate Invoice
+                                                            View Invoice
                                                     </button>
                                                     </div>
                                                     <FullScreenModal 

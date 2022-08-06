@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import OpenModal from "../../molecules/OpenModal/OpenModal";
 import CustomizedBtn from "../../atoms/CustomizedBtn/CustomizedBtn";
+import FullScreenModal from "../FullScreenModal/FullScreenModal";
 import '../../../style/style.css';
 const DealersInvoicesListForm = ({
     deliveryinvoices,
@@ -145,13 +146,35 @@ const DealersInvoicesListForm = ({
                                             />
                                         </td>
                                         <td>
-                                            <CustomizedBtn 
+                                        <div className='btnstyle'>
+                                            <button 
+                                                // type="button" 
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal"
+                                                // onClick={()=>{
+                                                //     openinvoiceevent(data.customer_reference_no);
+                                                // }}
+                                                class="btnstyle"
+                                                >
+                                                    Download Invoice
+                                            </button>
+                                            </div>
+                                            <FullScreenModal 
+                                                api={api}
+                                                modalview={modalview}
+                                                open={open}
+                                                openevent={openevent}
+                                                currentInvoiceno={currentInvoiceno}
+                                                verificationstatus={verificationstatus}
+                                                fetchdealersdatatoverify={fetchdealersdatatoverify}
+                                            />
+                                            {/* <CustomizedBtn 
                                                 BtnName="Download Invoice"
                                                 onClick={()=>{
                                                     setModalview("DealersInvoiceFormGenerateFormat");
                                                     openevent(true);
                                                 }}
-                                            />
+                                            /> */}
                                         </td>
                                     </tr>
                                 ))
