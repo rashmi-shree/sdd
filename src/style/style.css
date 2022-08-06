@@ -688,6 +688,7 @@ height: 100px;
     .backarrow {
         margin-left: 37rem !important;
         float: none;
+        margin-top: -1rem;
     }
     .table-responsive {
         margin-left: 1rem;
