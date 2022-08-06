@@ -146,7 +146,7 @@ const DealersInvoicesListForm = ({
                                             />
                                         </td>
                                         <td>
-                                        <div className='btnstyle'>
+                                        {/* <div className='btnstyle'>
                                             <button 
                                                 // type="button" 
                                                 data-bs-toggle="modal"
@@ -167,14 +167,14 @@ const DealersInvoicesListForm = ({
                                                 currentInvoiceno={currentInvoiceno}
                                                 verificationstatus={verificationstatus}
                                                 fetchdealersdatatoverify={fetchdealersdatatoverify}
-                                            />
-                                            {/* <CustomizedBtn 
+                                            /> */}
+                                            <CustomizedBtn 
                                                 BtnName="Download Invoice"
                                                 onClick={()=>{
                                                     setModalview("DealersInvoiceFormGenerateFormat");
                                                     openevent(true);
                                                 }}
-                                            /> */}
+                                            />
                                         </td>
                                     </tr>
                                 ))
