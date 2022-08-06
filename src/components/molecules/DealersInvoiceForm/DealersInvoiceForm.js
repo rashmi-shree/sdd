@@ -16,7 +16,7 @@ const DealersInvoiceForm = ({
     product_status: ""
   });
   const [state, setstate] = useState([]);
-  const [selectedstate, setselectedstate] = useState();
+  const [selectedstate, setselectedstate] = useState("Karnataka");
   const [changeddata, setchangeddata] = useState();
   let finalCustomerRefNo = '';
   const generateCustomerReferenceNo = () => {
@@ -140,7 +140,7 @@ const DealersInvoiceForm = ({
   }, [])
   const selecteventforstate = (e) => {
     console.log("state e", e);
-    setselectedstate(e.target.outerText);
+    setselectedstate(e.label);
   }
   const changeevent = (e) => {
     setchangeddata({ ...changeddata, [e.target.name]: e.target.value });
