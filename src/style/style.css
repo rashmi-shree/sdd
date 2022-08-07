@@ -669,6 +669,10 @@ height: 100px;
     font-weight: bold;
     font-family: monospace;
 }
+.printdealerspage{
+    border: 2px solid black;
+    margin-bottom: -8rem;
+}
 @media screen and (max-width: 420px) {
     .backarrowcustomerpage{
         margin-left: 26rem;
