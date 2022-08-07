@@ -12,8 +12,9 @@ const CustomerFollowUpForm = ({
   handleClose
 }) => {
   const [updaterowdata, setUpdaterowdata] = useState({
-    "follow_up_call" :"0/0/0000"
+    "follow_up_call" :"0000-00-00"
   });
+  console.log("updaterowdata",updaterowdata);
   const [finalstatus, setfinalstatus] = useState(["Booked", "Cancelled", "Follow Up In Progress"]);
   useEffect(() => {
     setUpdaterowdata(rowdata);
