@@ -114,6 +114,9 @@ table .theadalter{
 
 /* Customized Button start */
 
+#btnalterstyle{
+    font-size: 15px;
+}
 .btnstyle Button{
     background-color: black;
     display: flex;
