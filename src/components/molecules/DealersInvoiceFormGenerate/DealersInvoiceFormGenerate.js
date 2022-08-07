@@ -89,8 +89,9 @@ const DealersInvoiceFormGenerate = ({
     return (
         <div className="invoiceformatcontainer">
             <div className="invoiceheader">
-                <div className="printdealerspage">
+                <div>
                     <CustomizedPrint
+                    className="printdealerspage"
                     onClick={handlePrint}
                 />
                 </div>
