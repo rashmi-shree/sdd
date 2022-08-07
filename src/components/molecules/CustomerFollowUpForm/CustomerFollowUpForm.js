@@ -178,13 +178,21 @@ const CustomerFollowUpForm = ({
               Comments:
             </div>
             <div className="formdatainputstyle">
+              <textarea
+                name="comments"
+                onChange={changeevent}
+                defaultValue={rowdata.comments}
+                type="text"
+              />
+            </div>
+            {/* <div className="formdatainputstyle">
               <input
                 name="comments"
                 onChange={changeevent}
                 value={rowdata.comments}
                 type="text"
               />
-            </div>
+            </div> */}
           </label>
         </div>
         <div className="nameandinputcontainer">
