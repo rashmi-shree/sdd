@@ -91,7 +91,6 @@ const DealersInvoiceFormGenerate = ({
             <div className="invoiceheader">
                 <div>
                     <CustomizedPrint
-                    className="printdealerspage"
                     onClick={handlePrint}
                 />
                 </div>

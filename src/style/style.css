@@ -405,7 +405,7 @@ height: 100px;
 /* invoice format start  */
 .invoiceformatcontainer{
     /* border: 2px solid black; */
-    margin-top: -7rem;
+    margin-top: -3rem;
     color: black;
     padding: 1rem;
     background-color: white;
@@ -668,10 +668,6 @@ height: 100px;
     font-size: larger;
     font-weight: bold;
     font-family: monospace;
-}
-.printdealerspage{
-    border: 2px solid black;
-    margin-bottom: -8rem;
 }
 @media screen and (max-width: 420px) {
     .backarrowcustomerpage{
