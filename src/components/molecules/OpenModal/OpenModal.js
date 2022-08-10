@@ -30,8 +30,7 @@ const style = {
   p: 4,
   overflow: "scroll"
 };
-const { forwardRef, useRef, useImperativeHandle } = React;
-const OpenModal = forwardRef(({
+const OpenModal = ({
   api,
   displayDealersDetailsData,
   displayProductDetailsData,
@@ -58,15 +57,7 @@ const OpenModal = forwardRef(({
   openevent,
   currentCustomerReferenceNoCustomerInvoice,
   setpurchasemsgevent
-}, ref
-) => {
-  
-  useImperativeHandle(ref, () => ({
-    getAlert() {
-      handleClose();
-    }
-
-  }));
+}) => {
   const handleClose = () => {
     openevent(false);
     if (modalview === 'productdetailsform') {
@@ -236,5 +227,5 @@ const OpenModal = forwardRef(({
       </Modal>
     </div>
   );
-})
+}
 export default OpenModal;
