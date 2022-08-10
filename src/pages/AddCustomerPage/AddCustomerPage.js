@@ -307,6 +307,17 @@ const AddCustomerPage = ({
                                           }}
                                           />
                                           :
+                                          <>
+                                          <CustomizedBtn 
+                                            BtnName="Update booking"
+                                            onClick={()=>{
+                                              currentCustomerRefNo(data.customer_reference_no);
+                                              fetchalldatafromcust(data.customer_reference_no);
+                                              fetchupdateddatafromcust(data.customer_reference_no);
+                                              setModalview("customerdetailsform");
+                                              openevent(true);
+                                            }}
+                                            />
                                           <CustomizedBtn 
                                             BtnName="Book Order"
                                             onClick={()=>{
@@ -317,6 +328,7 @@ const AddCustomerPage = ({
                                               openevent(true);
                                             }}
                                             />
+                                            </>
                                           }
                                         </td>
                                     </tr>
