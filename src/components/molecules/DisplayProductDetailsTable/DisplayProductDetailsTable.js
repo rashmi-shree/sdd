@@ -172,7 +172,8 @@ const DisplayProductDetailsTable = ({
                                                     }}
                                                 />
                                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                <DeleteIcon />
+                                                <div className="deleteiconcontainer"><DeleteIcon id="deleteicon" />
+                                                </div>
                                                 {/* <CustomizedDeleteIcon  
                                                      onClick={()=>(deleteevent(data.product_hsn_code))} 
                                                  /> */}
