@@ -40,47 +40,25 @@ const AddCustomerPage = ({
     const openevent = (e) =>{
       setOpen(e)
     }
-    useEffect(()=>{
-        if(temprowdataonbooking){
-          api.put('/jointables/updaterateofdeliverytableonbook', {
-            params: {
-              data:temprowdataonbooking
-            }
-          })
-          .then((res) => {
-          })
-          api.post('/delivery/getstatecodefromdeliverytableonbook', {
-            params: {
-              data:temprowdataonbooking
-            }
-          })
-          .then((res) => {
-            const data = res.data;
-            for (var i =0; i< data.length; i++){
-              if (data[i].state_code === 29){
-                api.put('/jointables/updatekarnatakagstratesdeliverytableonbook', {
-                  params: {
-                    data:temprowdataonbooking
-                  }
-                })
-                api.put('/jointables/updatefinalamountdeliverytableonbook', {
-                  params: {
-                    data:temprowdataonbooking
-                  }
-                })
-                api.put('/jointables/updatebalanceamountdeliverytableonbook',{
-                  params:{
-                    data:temprowdataonbooking
-                  }
-                })
-                api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
-                  params:{
-                    data:temprowdataonbooking
-                  }
-                })
-            }
-            else {
-              api.put('/jointables/updateotherstatesgstratesdeliverytableonbook', {
+    const updatebookingdataevent = () => {
+      if(temprowdataonbooking){
+        api.put('/jointables/updaterateofdeliverytableonbook', {
+          params: {
+            data:temprowdataonbooking
+          }
+        })
+        .then((res) => {
+        })
+        api.post('/delivery/getstatecodefromdeliverytableonbook', {
+          params: {
+            data:temprowdataonbooking
+          }
+        })
+        .then((res) => {
+          const data = res.data;
+          for (var i =0; i< data.length; i++){
+            if (data[i].state_code === 29){
+              api.put('/jointables/updatekarnatakagstratesdeliverytableonbook', {
                 params: {
                   data:temprowdataonbooking
                 }
@@ -101,10 +79,97 @@ const AddCustomerPage = ({
                 }
               })
           }
-            }
-          })
+          else {
+            api.put('/jointables/updateotherstatesgstratesdeliverytableonbook', {
+              params: {
+                data:temprowdataonbooking
+              }
+            })
+            api.put('/jointables/updatefinalamountdeliverytableonbook', {
+              params: {
+                data:temprowdataonbooking
+              }
+            })
+            api.put('/jointables/updatebalanceamountdeliverytableonbook',{
+              params:{
+                data:temprowdataonbooking
+              }
+            })
+            api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
+              params:{
+                data:temprowdataonbooking
+              }
+            })
         }
-    },[temprowdataonbooking])
+          }
+        })
+      }
+    }
+    // useEffect(()=>{
+    //     if(temprowdataonbooking){
+    //       api.put('/jointables/updaterateofdeliverytableonbook', {
+    //         params: {
+    //           data:temprowdataonbooking
+    //         }
+    //       })
+    //       .then((res) => {
+    //       })
+    //       api.post('/delivery/getstatecodefromdeliverytableonbook', {
+    //         params: {
+    //           data:temprowdataonbooking
+    //         }
+    //       })
+    //       .then((res) => {
+    //         const data = res.data;
+    //         for (var i =0; i< data.length; i++){
+    //           if (data[i].state_code === 29){
+    //             api.put('/jointables/updatekarnatakagstratesdeliverytableonbook', {
+    //               params: {
+    //                 data:temprowdataonbooking
+    //               }
+    //             })
+    //             api.put('/jointables/updatefinalamountdeliverytableonbook', {
+    //               params: {
+    //                 data:temprowdataonbooking
+    //               }
+    //             })
+    //             api.put('/jointables/updatebalanceamountdeliverytableonbook',{
+    //               params:{
+    //                 data:temprowdataonbooking
+    //               }
+    //             })
+    //             api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
+    //               params:{
+    //                 data:temprowdataonbooking
+    //               }
+    //             })
+    //         }
+    //         else {
+    //           api.put('/jointables/updateotherstatesgstratesdeliverytableonbook', {
+    //             params: {
+    //               data:temprowdataonbooking
+    //             }
+    //           })
+    //           api.put('/jointables/updatefinalamountdeliverytableonbook', {
+    //             params: {
+    //               data:temprowdataonbooking
+    //             }
+    //           })
+    //           api.put('/jointables/updatebalanceamountdeliverytableonbook',{
+    //             params:{
+    //               data:temprowdataonbooking
+    //             }
+    //           })
+    //           api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
+    //             params:{
+    //               data:temprowdataonbooking
+    //             }
+    //           })
+    //       }
+    //         }
+    //       })
+    //     }
+    // },[temprowdataonbooking])
     useEffect(() => {
         displaycustomerfollowupevent();
     }, [])
@@ -311,11 +376,7 @@ const AddCustomerPage = ({
                                           <CustomizedBtn 
                                             BtnName="Update booking"
                                             onClick={()=>{
-                                              currentCustomerRefNo(data.customer_reference_no);
-                                              fetchalldatafromcust(data.customer_reference_no);
-                                              fetchupdateddatafromcust(data.customer_reference_no);
-                                              setModalview("customerdetailsform");
-                                              openevent(true);
+                                              updatebookingdataevent();
                                             }}
                                             />
                                           <CustomizedBtn 
