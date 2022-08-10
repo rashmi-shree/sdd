@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import CustomizedEditIcon from '../../atoms/CustomizedEditIcon/CustomizedEditIcon';
 import OpenModal from '../OpenModal/OpenModal';
 import CustomizedSearchBar from '../../atoms/CustomizedSearchBar/CustomizedSearchBar';
@@ -9,7 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import '../../../style/style.css';
 
 const DisplayProductDetailsTable = ({
-    currentstatus,  
+    currentstatus,
 }) => {
     const [productsdetailsdata, setProductsdetailsdata] = useState({});
     const [filterflag, setfilterflag] = useState(false);
@@ -19,28 +19,28 @@ const DisplayProductDetailsTable = ({
     const [changedmodalview, setChangedmodalview] = useState('');
     const [modalview, setmodalview] = useState();
     const [open, setOpen] = useState(false);
-    const openevent = (e) =>{
-      setOpen(e)
+    const openevent = (e) => {
+        setOpen(e)
     }
     const [editFormData, setEditFormData] = useState({
-        product_hsn_code:"",
-        product_name:"",
-        product_description:"",
-        unit_of_measure:"",
-        rate_per_unit:"",
-        gst_rate:"",
-        product_status:"",
-        stock:""
+        product_hsn_code: "",
+        product_name: "",
+        product_description: "",
+        unit_of_measure: "",
+        rate_per_unit: "",
+        gst_rate: "",
+        product_status: "",
+        stock: ""
     })
-    useEffect(()=>{
-        if(filterflag && currentstatus){
+    useEffect(() => {
+        if (filterflag && currentstatus) {
             productstatusfilter();
         }
         else {
             displayProductDetailsData();
         }
-    },[currentstatus])
-    const modalviewchange = () =>{
+    }, [currentstatus])
+    const modalviewchange = () => {
         setChangedmodalview("addproductform");
     }
     const rowdataevent = (e) => {
@@ -48,84 +48,84 @@ const DisplayProductDetailsTable = ({
     }
     const displayProductDetailsData = () => {
         axios.get(`http://3.84.110.201:3001/product/displayProductDetailsData`)
-        .then((res)=>{
-            setProductsdetailsdata(res.data);
-            setfilterflag(true);
-        })
+            .then((res) => {
+                setProductsdetailsdata(res.data);
+                setfilterflag(true);
+            })
     }
-    useEffect(()=>{
-        if (searchvalue === ""){
+    useEffect(() => {
+        if (searchvalue === "") {
             displayProductDetailsData();
         }
-    },[searchvalue])
+    }, [searchvalue])
     const productstatusfilter = () => {
-        axios.post(`http://3.84.110.201:3001/product/productstatusfilter`,{
-            params:{
-                status:currentstatus
+        axios.post(`http://3.84.110.201:3001/product/productstatusfilter`, {
+            params: {
+                status: currentstatus
             }
         })
-        .then((res)=>{
-            setProductsdetailsdata(res.data);
-        })
+            .then((res) => {
+                setProductsdetailsdata(res.data);
+            })
     }
-    const editevent = (event, data ) => {
+    const editevent = (event, data) => {
         setEditRow(data.product_hsn_code);
         const formValues = {
-            product_hsn_code:data.product_hsn_code,
-            product_name:data.product_name,
-            product_description:data.product_description,
-            unit_of_measure:data.unit_of_measure,
-            rate_per_unit:data.rate_per_unit,
-            gst_rate:data.gst_rate,
-            product_status:data.product_status,
-            stock:data.stock
+            product_hsn_code: data.product_hsn_code,
+            product_name: data.product_name,
+            product_description: data.product_description,
+            unit_of_measure: data.unit_of_measure,
+            rate_per_unit: data.rate_per_unit,
+            gst_rate: data.gst_rate,
+            product_status: data.product_status,
+            stock: data.stock
         }
         setEditFormData(formValues);
     }
     const deleteevent = (id) => {
-        axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`, 
-        { 
-            data: { 
-                id:id 
-            }
-         })
-         .then((res)=>{
+        axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`,
+            {
+                data: {
+                    id: id
+                }
+            })
+            .then((res) => {
                 displayProductDetailsData();
-         })
+            })
     }
     const searchHandle = (e) => {
         setSearchvalue(e.target.value);
-      }
-      const searchclicked = () => {
-        axios.post(`http://3.84.110.201:3001/product/getProductDetailsData`,{
-            params:{
-                product_name:searchvalue,
-                product_hsn:searchvalue
+    }
+    const searchclicked = () => {
+        axios.post(`http://3.84.110.201:3001/product/getProductDetailsData`, {
+            params: {
+                product_name: searchvalue,
+                product_hsn: searchvalue
             }
         })
-        .then((res)=>{
-            setProductsdetailsdata(res.data);  
-        })
-      }
-    return(
+            .then((res) => {
+                setProductsdetailsdata(res.data);
+            })
+    }
+    return (
         <div>
-            <OpenModal 
+            <OpenModal
                 modalview={modalview}
                 open={open}
                 openevent={openevent}
                 displayProductDetailsData={displayProductDetailsData}
                 rowdata={rowdata}
             />
-            <CustomizedSearchBar 
-            labelname="product name / product hsn"
-            Btnname="search"
-            onHandleChangeEvent={searchHandle}
-            goEventClicked={searchclicked}
+            <CustomizedSearchBar
+                labelname="product name / product hsn"
+                Btnname="search"
+                onHandleChangeEvent={searchHandle}
+                goEventClicked={searchclicked}
             />
             <div className='adddealersbtnstyle'>
-                <CustomizedBtn 
+                <CustomizedBtn
                     BtnName="Add Product"
-                    onClick={()=>{
+                    onClick={() => {
                         setmodalview("addproductform");
                         openevent(true);
                     }}
@@ -138,11 +138,11 @@ const DisplayProductDetailsTable = ({
                             <tr>
                                 <th>Product HSN code</th>
                                 <th>Product Name</th>
-                                <th>Product Description</th>	
+                                <th>Product Description</th>
                                 <th>Unit of Measure</th>
                                 <th>Rate per unit (₹)</th>
                                 <th>GST Rate (%)</th>
-                                <th>Product Status</th>	
+                                <th>Product Status</th>
                                 <th>Product Discount (%)</th>
                                 <th>Stock</th>
                                 <th>Action</th>
@@ -150,63 +150,55 @@ const DisplayProductDetailsTable = ({
                         </thead>
                         <tbody>
                             {
-                                productsdetailsdata && productsdetailsdata.length 
-                                ? productsdetailsdata.map((data)=>(
-                                    <tr>
-                                        <td>{data.product_hsn_code}</td>
-                                        <td>{data.product_name}</td>
-                                        <td>{data.product_description}</td>
-                                        <td>{data.unit_of_measure}</td>
-                                        <td>{data.rate_per_unit}</td>
-                                        <td>{data.gst_rate}</td>
-                                        <td>{data.product_status}</td>
-                                        <td>{data.discount}</td>
-                                        <td>{data.stock}</td>
-                                        <td>
-                                            <div className='editdeletecontainer'>
-                                                <CustomizedEditIcon 
-                                                    onClick={()=>{
-                                                        rowdataevent(data);
-                                                        setmodalview("productdetailsform");
-                                                        openevent(true);
-                                                    }}
-                                                />
-                                                 {/* <button   */}
-                                                // type="button" 
-                                                // class="btn btn-primary"
-                                                //  data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                <div 
-                                                className="deleteiconcontainer"
-                                                data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                ><DeleteIcon id="deleteicon" />
+                                productsdetailsdata && productsdetailsdata.length
+                                    ? productsdetailsdata.map((data) => (
+                                        <tr>
+                                            <td>{data.product_hsn_code}</td>
+                                            <td>{data.product_name}</td>
+                                            <td>{data.product_description}</td>
+                                            <td>{data.unit_of_measure}</td>
+                                            <td>{data.rate_per_unit}</td>
+                                            <td>{data.gst_rate}</td>
+                                            <td>{data.product_status}</td>
+                                            <td>{data.discount}</td>
+                                            <td>{data.stock}</td>
+                                            <td>
+                                                <div className='editdeletecontainer'>
+                                                    <CustomizedEditIcon
+                                                        onClick={() => {
+                                                            rowdataevent(data);
+                                                            setmodalview("productdetailsform");
+                                                            openevent(true);
+                                                        }}
+                                                    />
+                                                    <div
+                                                        className="deleteiconcontainer"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                    ><DeleteIcon id="deleteicon" />
+                                                    </div>
+                                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                            <div class="modal-content">
+                                                                <div class="modal-body">
+                                                                    <p>Are you sure you want to delete ?</p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={() => (deleteevent(data.product_hsn_code))}  >Confirm</button>
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                {/* <CustomizedDeleteIcon  
-                                                     onClick={()=>(deleteevent(data.product_hsn_code))} 
-                                                 /> */}
-                                                {/* </button> */}
-                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                                        <div class="modal-content">
-                                                        <div class="modal-body">
-                                                            <p>Are you sure you want to delete ?</p>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={()=>(deleteevent(data.product_hsn_code))}  >Confirm</button>
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                        </div>
-                                                        </div>
-                                                    </div>
-                                                    </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                ))
-                                : 
+                                            </td>
+                                        </tr>
+                                    ))
+                                    :
                                     <tr>
                                         <td colSpan={9}>No Record!</td>
                                     </tr>
                             }
-                            
+
                         </tbody>
                     </table>
                 </form>
