@@ -156,15 +156,15 @@ const DealersInvoice = ({
                                     </button>
                                     <FullScreenModalOne
                                         api={api}
-                                        open={open}
-                                        openevent={openevent}
-                                        dealersdata={dealersdata}
-                                        modalview={modalview}
-                                        invoiceFormData={invoiceFormData} 
+                                        // open={open}
+                                        // openevent={openevent}
+                                        // dealersdata={dealersdata}
+                                        // modalview={modalview}
+                                        // invoiceFormData={invoiceFormData} 
                                         deliveryinvoices={deliveryinvoices}
                                     />
                                 </div>
-                                    <CustomizedBtn 
+                                    {/* <CustomizedBtn 
                                         BtnName="View Invoice"
                                         onClick={()=>{
                                             dealersdataevent(data);
@@ -174,7 +174,7 @@ const DealersInvoice = ({
                                             fetchinvoicesfromdelivery(data.gstin_number);
                                             openevent(true);
                                         }}
-                                    />
+                                    /> */}
                                 </td>
                             </tr>
                         ))
