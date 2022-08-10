@@ -105,6 +105,7 @@ const ViewInvoicePage = ({
                                                 <td>
                                                 <div className='btnstyle'>
                                                     <button 
+                                                        id="btn"
                                                         // type="button" 
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#exampleModal"

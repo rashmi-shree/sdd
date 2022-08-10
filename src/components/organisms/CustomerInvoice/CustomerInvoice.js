@@ -165,8 +165,9 @@ const CustomerInvoice = ({
                                     />
                                 </td>
                                 <td>
-                                <div className='btnstyle' id="btnalterstyle">
+                                <div className='btnstyle'>
                                 <button 
+                                    id="btn"
                                     // type="button" 
                                     data-bs-toggle="modal"
                                     data-bs-target="#exampleModal"

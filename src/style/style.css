@@ -120,11 +120,9 @@ table .theadalter{
 .btndesign .cbtn{
     padding: 0.2rem;
 }
-#btnalterstyle button{
-    font-size: 15px;
-}
 .btnstyle #btn {
-    border: 2px solid red;
+    font-size: 9px;
+    padding: 3%;
 }
 .btnstyle Button{
     background-color: black;
