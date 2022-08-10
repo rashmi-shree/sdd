@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import OpenModal from "../../molecules/OpenModal/OpenModal";
 import CustomizedBtn from "../../atoms/CustomizedBtn/CustomizedBtn";
 import FullScreenModalTwo from "../FullScreenModalTwo/FullScreenModalTwo";
+import Button from '@mui/material/Button';
 import '../../../style/style.css';
 const DealersInvoicesListForm = ({
     deliveryinvoices,
@@ -177,8 +178,8 @@ const DealersInvoicesListForm = ({
                                         </td>
                                         <td>
                                             <div className='btnstyle'>
-                                                <button 
-                                                    id="btn"
+                                                <Button 
+                                                    // id="btn"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal"
                                                     onClick={()=>{
@@ -187,7 +188,7 @@ const DealersInvoicesListForm = ({
                                                     class="btnstyle"
                                                     >
                                                         Download Invoice
-                                                </button>
+                                                </Button>
                                             </div>
                                             <FullScreenModalTwo 
                                              api={api}
