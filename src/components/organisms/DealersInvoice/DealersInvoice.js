@@ -2,7 +2,7 @@ import React,{useState, useEffect} from "react";
 import CustomizedSearchBar from "../../atoms/CustomizedSearchBar/CustomizedSearchBar";
 import OpenModal from "../../molecules/OpenModal/OpenModal";
 import CustomizedBtn from "../../atoms/CustomizedBtn/CustomizedBtn";
-import FullScreenModal from "../../molecules/FullScreenModal/FullScreenModal";
+import FullScreenModalOne from "../../molecules/FullScreenModalOne/FullScreenModalOne";
 import '../../../style/style.css';
 
 const DealersInvoice = ({
@@ -154,7 +154,7 @@ const DealersInvoice = ({
                                         >
                                             View Invoice
                                     </button>
-                                    <FullScreenModal
+                                    <FullScreenModalOne
                                         api={api}
                                         open={open}
                                         openevent={openevent}
