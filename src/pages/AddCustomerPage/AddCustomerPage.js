@@ -15,7 +15,6 @@ const AddCustomerPage = ({
     const [customertable, setCustomertable] = useState([]);
     const [currentCustomerReferenceNo, setCurrentCustomerReferenceNo] = useState('');
     const [rowdataonbooking, setrowdataonbooking] = useState();
-    const [temprowdataonbooking, settemprowdataonbooking] = useState();
     const [purchasestatus, setpurchasestatus] = useState();
     const [searchData, setSearchData] = useState('');
     const [modalview, setModalview] = useState('');
@@ -40,71 +39,6 @@ const AddCustomerPage = ({
     const openevent = (e) =>{
       setOpen(e)
     }
-    // useEffect(()=>{
-    //     if(temprowdataonbooking){
-    //       api.put('/jointables/updaterateofdeliverytableonbook', {
-    //         params: {
-    //           data:temprowdataonbooking
-    //         }
-    //       })
-    //       .then((res) => {
-    //       })
-    //       api.post('/delivery/getstatecodefromdeliverytableonbook', {
-    //         params: {
-    //           data:temprowdataonbooking
-    //         }
-    //       })
-    //       .then((res) => {
-    //         const data = res.data;
-    //         for (var i =0; i< data.length; i++){
-    //           if (data[i].state_code === 29){
-    //             api.put('/jointables/updatekarnatakagstratesdeliverytableonbook', {
-    //               params: {
-    //                 data:temprowdataonbooking
-    //               }
-    //             })
-    //             api.put('/jointables/updatefinalamountdeliverytableonbook', {
-    //               params: {
-    //                 data:temprowdataonbooking
-    //               }
-    //             })
-    //             api.put('/jointables/updatebalanceamountdeliverytableonbook',{
-    //               params:{
-    //                 data:temprowdataonbooking
-    //               }
-    //             })
-    //             api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
-    //               params:{
-    //                 data:temprowdataonbooking
-    //               }
-    //             })
-    //         }
-    //         else {
-    //           api.put('/jointables/updateotherstatesgstratesdeliverytableonbook', {
-    //             params: {
-    //               data:temprowdataonbooking
-    //             }
-    //           })
-    //           api.put('/jointables/updatefinalamountdeliverytableonbook', {
-    //             params: {
-    //               data:temprowdataonbooking
-    //             }
-    //           })
-    //           api.put('/jointables/updatebalanceamountdeliverytableonbook',{
-    //             params:{
-    //               data:temprowdataonbooking
-    //             }
-    //           })
-    //           api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
-    //             params:{
-    //               data:temprowdataonbooking
-    //             }
-    //           })
-    //       }
-    //         }
-    //       })
-    //     }
-    // },[temprowdataonbooking])
     useEffect(() => {
         displaycustomerfollowupevent();
     }, [])
@@ -115,7 +49,6 @@ const AddCustomerPage = ({
         }
       })
       .then((res) => {
-        // settemprowdataonbooking(res.data);
         const temprowdataonbooking = res.data;
           api.put('/jointables/updaterateofdeliverytableonbook', {
             params: {
@@ -176,6 +109,7 @@ const AddCustomerPage = ({
           }
             }
           })
+          alert("Updated successfully");
       })
     }
     const fetchupdateddatafromcust = (currentCustomerReferenceNo) => {
