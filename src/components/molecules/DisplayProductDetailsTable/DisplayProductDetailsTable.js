@@ -171,15 +171,19 @@ const DisplayProductDetailsTable = ({
                                                         openevent(true);
                                                     }}
                                                 />
-                                                <button type="button" 
+                                                 {/* <button   */}
+                                                // type="button" 
                                                 // class="btn btn-primary"
-                                                 data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                <div className="deleteiconcontainer"><DeleteIcon id="deleteicon" />
+                                                //  data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                <div 
+                                                className="deleteiconcontainer"
+                                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                ><DeleteIcon id="deleteicon" />
                                                 </div>
                                                 {/* <CustomizedDeleteIcon  
                                                      onClick={()=>(deleteevent(data.product_hsn_code))} 
                                                  /> */}
-                                                </button>
+                                                {/* </button> */}
                                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                                         <div class="modal-content">
