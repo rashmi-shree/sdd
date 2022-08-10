@@ -373,7 +373,7 @@ const AddCustomerPage = ({
                               }}
                             />
                             :
-                            <>
+                            <div className="btndesign">
                               <CustomizedBtn
                                 BtnName="Update booking"
                                 onClick={() => {
@@ -390,7 +390,7 @@ const AddCustomerPage = ({
                                   openevent(true);
                                 }}
                               />
-                            </>
+                            </div>
                           }
                         </td>
                       </tr>
