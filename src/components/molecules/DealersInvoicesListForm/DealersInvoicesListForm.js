@@ -12,9 +12,9 @@ const DealersInvoicesListForm = ({
     const [currentInvoiceno, setcurrentInvoiceno] = useState();
     const [modalview, setModalview] = useState('');
     const [open, setOpen] = useState(false);
-    console.log("deliveryinvoices",deliveryinvoices);
-    const openevent = (e) =>{
-      setOpen(e)
+    console.log("deliveryinvoices", deliveryinvoices);
+    const openevent = (e) => {
+        setOpen(e)
     }
     const currentInvoicenoevent = (e) => {
         setcurrentInvoiceno(e);
@@ -56,16 +56,16 @@ const DealersInvoicesListForm = ({
                                         data: fetchdealersdatatoverify
                                     }
                                 })
-                                api.put('/jointables/updatebalanceamountdeliverytableonbook',{
-                                    params:{
-                                      data:fetchdealersdatatoverify
+                                api.put('/jointables/updatebalanceamountdeliverytableonbook', {
+                                    params: {
+                                        data: fetchdealersdatatoverify
                                     }
-                                  })
-                                  api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
-                                    params:{
-                                      data:fetchdealersdatatoverify
+                                })
+                                api.put('/jointables/updatepaymentstatusdeliverytableonbook', {
+                                    params: {
+                                        data: fetchdealersdatatoverify
                                     }
-                                  })
+                                })
                             }
                             else {
                                 api.put('jointables/updateotherstatesgstratesdeliverytableonbook', {
@@ -80,20 +80,20 @@ const DealersInvoicesListForm = ({
                                         data: fetchdealersdatatoverify
                                     }
                                 })
-                                api.put('/jointables/updatebalanceamountdeliverytableonbook',{
-                                    params:{
-                                      data:fetchdealersdatatoverify
+                                api.put('/jointables/updatebalanceamountdeliverytableonbook', {
+                                    params: {
+                                        data: fetchdealersdatatoverify
                                     }
-                                  })
-                                  api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
-                                    params:{
-                                      data:fetchdealersdatatoverify
+                                })
+                                api.put('/jointables/updatepaymentstatusdeliverytableonbook', {
+                                    params: {
+                                        data: fetchdealersdatatoverify
                                     }
-                                  })
+                                })
                             }
                         }
                     })
-                    alert ("Updated Successfully");
+                alert("Updated Successfully");
             })
     }
     // useEffect(() => {
@@ -177,7 +177,7 @@ const DealersInvoicesListForm = ({
     }
     return (
         <div>
-             <OpenModal
+            <OpenModal
                 api={api}
                 modalview={modalview}
                 open={open}
@@ -202,44 +202,45 @@ const DealersInvoicesListForm = ({
                                     <tr>
                                         <td>{data.invoice_no}</td>
                                         <td>{
-                                            data.purchase_status == 1 
-                                            ? <div className="btndesign">
-                                            <span className="cbtn"><CustomizedBtn 
-                                                BtnName="Update Invoice"
-                                                onClick={()=>{
-                                                    fetchdealersdatatoverifyevent(data.invoice_no);
-                                                }}
-                                            />
-                                            </span>
-                                            <span className="cbtn"><CustomizedBtn 
-                                                BtnName="Verify Invoice"
-                                                onClick={()=>{
-                                                    // fetchdealersdatatoverifyevent(data.invoice_no);
-                                                    fetchverificationstatusevent(data.invoice_no);
-                                                    currentInvoicenoevent(data.invoice_no);
-                                                    setModalview("dealersdetailsform");
-                                                    openevent(true);
-                                                }}
-                                            />
-                                            </span>
-                                            </div>
-                                            : 
-                                            <CustomizedBtn 
-                                                BtnName="View"
-                                                onClick={()=>{
-                                                    // fetchdealersdatatoverifyevent(data.invoice_no);
-                                                    fetchverificationstatusevent(data.invoice_no);
-                                                    currentInvoicenoevent(data.invoice_no);
-                                                    setModalview("dealersdetailsform");
-                                                    openevent(true);
-                                                }}
-                                            />
-                                            }
+                                            data.purchase_status == 1
+                                                ?
+                                                <CustomizedBtn
+                                                    BtnName="View"
+                                                    onClick={() => {
+                                                        // fetchdealersdatatoverifyevent(data.invoice_no);
+                                                        fetchverificationstatusevent(data.invoice_no);
+                                                        currentInvoicenoevent(data.invoice_no);
+                                                        setModalview("dealersdetailsform");
+                                                        openevent(true);
+                                                    }}
+                                                />
+                                                :
+                                                <div className="btndesign">
+                                                    <span className="cbtn"><CustomizedBtn
+                                                        BtnName="Update Invoice"
+                                                        onClick={() => {
+                                                            fetchdealersdatatoverifyevent(data.invoice_no);
+                                                        }}
+                                                    />
+                                                    </span>
+                                                    <span className="cbtn"><CustomizedBtn
+                                                        BtnName="Verify Invoice"
+                                                        onClick={() => {
+                                                            // fetchdealersdatatoverifyevent(data.invoice_no);
+                                                            fetchverificationstatusevent(data.invoice_no);
+                                                            currentInvoicenoevent(data.invoice_no);
+                                                            setModalview("dealersdetailsform");
+                                                            openevent(true);
+                                                        }}
+                                                    />
+                                                    </span>
+                                                </div>
+                                        }
                                         </td>
                                         <td>
-                                            <CustomizedBtn 
+                                            <CustomizedBtn
                                                 BtnName="Download Invoice"
-                                                onClick={()=>{
+                                                onClick={() => {
                                                     setModalview("DealersInvoiceFormGenerateFormat");
                                                     openevent(true);
                                                 }}
@@ -247,10 +248,10 @@ const DealersInvoicesListForm = ({
                                         </td>
                                     </tr>
                                 ))
-                                : 
-                                    <tr>
-                                        <td colSpan={3}>No Record!</td>
-                                    </tr>
+                                :
+                                <tr>
+                                    <td colSpan={3}>No Record!</td>
+                                </tr>
                         }
                     </tbody>
                 </table>
