@@ -2,7 +2,7 @@ import React,{useState, useEffect} from "react";
 import CustomizedSearchBar from "../../atoms/CustomizedSearchBar/CustomizedSearchBar";
 import OpenModal from "../../molecules/OpenModal/OpenModal";
 import CustomizedBtn from "../../atoms/CustomizedBtn/CustomizedBtn";
-import FullScreenModalOne from "../../molecules/FullScreenModalOne/FullScreenModalOne";
+import DealersInvoicesListForm from "../../molecules/DealersInvoicesListForm/DealersInvoicesListForm";
 import '../../../style/style.css';
 
 const DealersInvoice = ({
@@ -97,6 +97,12 @@ const DealersInvoice = ({
                 labelname="phone number/ name" 
                 Btnname="Search"
             />
+            <div>
+            <DealersInvoicesListForm 
+                api={api}
+                deliveryinvoices={deliveryinvoices}
+            />
+            </div>
             <div className='table-responsive'>
                 <table className="table table-striped table-bordered tablebackground">
                     <thead className="theadalter">
@@ -137,7 +143,17 @@ const DealersInvoice = ({
                                     />
                                 </td>
                                 <td>
-                                <div className='btnstyle'>
+                                    <button
+                                     onClick={()=>{
+                                        dealersdataevent(data);
+                                        openinvoiceevent(data.gstin_number);
+                                        fetchdeliverydatamatchinggstevent(data.gstin_number);
+                                        fetchinvoicesfromdelivery(data.gstin_number);
+                                    }}
+                                    >
+                                        View Invoices
+                                    </button>
+                                {/* <div className='btnstyle'>
                                     <button 
                                         // type="button" 
                                         data-bs-toggle="modal"
@@ -156,14 +172,14 @@ const DealersInvoice = ({
                                     </button>
                                     <FullScreenModalOne
                                         api={api}
-                                        // open={open}
-                                        // openevent={openevent}
-                                        // dealersdata={dealersdata}
-                                        // modalview={modalview}
-                                        // invoiceFormData={invoiceFormData} 
+                                        open={open}
+                                        openevent={openevent}
+                                        dealersdata={dealersdata}
+                                        modalview={modalview}
+                                        invoiceFormData={invoiceFormData} 
                                         deliveryinvoices={deliveryinvoices}
                                     />
-                                </div>
+                                </div> */}
                                     {/* <CustomizedBtn 
                                         BtnName="View Invoice"
                                         onClick={()=>{
