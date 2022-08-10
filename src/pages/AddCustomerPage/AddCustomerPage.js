@@ -323,6 +323,7 @@ const AddCustomerPage = ({
                               <span className="cbtn"><CustomizedBtn
                                 BtnName="Update booking"
                                 onClick={() => {
+                                  fetchalldatafromcust(data.customer_reference_no);
                                   updatebookingdataevent();
                                 }}
                               />
