@@ -83,16 +83,15 @@ const DisplayProductDetailsTable = ({
         setEditFormData(formValues);
     }
     const deleteevent = (id) => {
-        alert("hi");
-        // axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`, 
-        // { 
-        //     data: { 
-        //         id:id 
-        //     }
-        //  })
-        //  .then((res)=>{
-        //         displayProductDetailsData();
-        //  })
+        axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`, 
+        { 
+            data: { 
+                id:id 
+            }
+         })
+         .then((res)=>{
+                displayProductDetailsData();
+         })
     }
     const searchHandle = (e) => {
         setSearchvalue(e.target.value);
@@ -181,16 +180,12 @@ const DisplayProductDetailsTable = ({
                                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                                         <div class="modal-content">
-                                                        {/* <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div> */}
                                                         <div class="modal-body">
                                                             <p>Are you sure you want to delete ?</p>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary">Confirm</button>
+                                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={()=>(deleteevent(data.product_hsn_code))}  >Confirm</button>
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                                         </div>
                                                         </div>
                                                     </div>
