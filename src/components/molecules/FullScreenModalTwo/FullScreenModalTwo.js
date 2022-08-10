@@ -1,6 +1,10 @@
 import React from "react";
-
-const FullScreenModalTwo = () => {
+import DealersInvoiceFormGenerate from "../DealersInvoiceFormGenerate/DealersInvoiceFormGenerate";
+const FullScreenModalTwo = ({
+    api,
+    invoiceFormData,
+    fetchdealersdatatoverify
+}) => {
     return(
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen modal-dialog-scrollable">
@@ -10,7 +14,10 @@ const FullScreenModalTwo = () => {
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                    HI
+                    <DealersInvoiceFormGenerate 
+                     api={api}
+                     fetchdealersdatatoverify={fetchdealersdatatoverify}
+                    />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

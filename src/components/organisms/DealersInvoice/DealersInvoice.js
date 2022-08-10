@@ -143,54 +143,15 @@ const DealersInvoice = ({
                                     />
                                 </td>
                                 <td>
-                                    <button
-                                     onClick={()=>{
-                                        dealersdataevent(data);
-                                        openinvoiceevent(data.gstin_number);
-                                        fetchdeliverydatamatchinggstevent(data.gstin_number);
-                                        fetchinvoicesfromdelivery(data.gstin_number);
-                                    }}
-                                    >
-                                        View Invoices
-                                    </button>
-                                {/* <div className='btnstyle'>
-                                    <button 
-                                        // type="button" 
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal"
+                                    <CustomizedBtn 
+                                        BtnName="View Invoices"
                                         onClick={()=>{
                                             dealersdataevent(data);
                                             openinvoiceevent(data.gstin_number);
                                             fetchdeliverydatamatchinggstevent(data.gstin_number);
-                                            setModalview("DealersInvoicesListForm");
                                             fetchinvoicesfromdelivery(data.gstin_number);
-                                            openevent(true);
                                         }}
-                                        class="btnstyle"
-                                        >
-                                            View Invoice
-                                    </button>
-                                    <FullScreenModalOne
-                                        api={api}
-                                        open={open}
-                                        openevent={openevent}
-                                        dealersdata={dealersdata}
-                                        modalview={modalview}
-                                        invoiceFormData={invoiceFormData} 
-                                        deliveryinvoices={deliveryinvoices}
                                     />
-                                </div> */}
-                                    {/* <CustomizedBtn 
-                                        BtnName="View Invoice"
-                                        onClick={()=>{
-                                            dealersdataevent(data);
-                                            openinvoiceevent(data.gstin_number);
-                                            fetchdeliverydatamatchinggstevent(data.gstin_number);
-                                            setModalview("DealersInvoicesListForm");
-                                            fetchinvoicesfromdelivery(data.gstin_number);
-                                            openevent(true);
-                                        }}
-                                    /> */}
                                 </td>
                             </tr>
                         ))

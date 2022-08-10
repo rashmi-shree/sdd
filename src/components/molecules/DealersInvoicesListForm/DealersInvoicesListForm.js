@@ -190,7 +190,15 @@ const DealersInvoicesListForm = ({
                                                         Download Invoice
                                                 </button>
                                             </div>
-                                            <FullScreenModalTwo />
+                                            <FullScreenModalTwo 
+                                             api={api}
+                                             modalview={modalview}
+                                             open={open}
+                                             openevent={openevent}
+                                             currentInvoiceno={currentInvoiceno}
+                                             verificationstatus={verificationstatus}
+                                             fetchdealersdatatoverify={fetchdealersdatatoverify}
+                                              />
                                             {/* <CustomizedBtn
                                                 BtnName="Download Invoice"
                                                 onClick={() => {
