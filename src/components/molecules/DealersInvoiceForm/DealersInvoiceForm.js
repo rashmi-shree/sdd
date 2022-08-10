@@ -56,8 +56,6 @@ const DealersInvoiceForm = ({
       })
   }, [])
   const submiteventclicked = () => {
-    console.log("hiiiii", state);
-    console.log("selectedstate", selectedstate);
     api.post('product/fetchallproductdetails', {
       params: {
         productsdata: products
@@ -139,7 +137,6 @@ const DealersInvoiceForm = ({
       })
   }, [])
   const selecteventforstate = (e) => {
-    console.log("state e", e);
     setselectedstate(e.label);
   }
   const changeevent = (e) => {

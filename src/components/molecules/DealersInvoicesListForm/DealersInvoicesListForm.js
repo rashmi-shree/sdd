@@ -12,7 +12,6 @@ const DealersInvoicesListForm = ({
     const [currentInvoiceno, setcurrentInvoiceno] = useState();
     const [modalview, setModalview] = useState('');
     const [open, setOpen] = useState(false);
-    console.log("deliveryinvoices", deliveryinvoices);
     const openevent = (e) => {
         setOpen(e)
     }
