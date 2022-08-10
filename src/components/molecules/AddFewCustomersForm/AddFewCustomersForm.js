@@ -21,10 +21,6 @@ const AddFewCustomersForm = ({
       phonenoalterone: "",
       phonenoaltertwo: "",
       finalStatus: "",
-
-
-
-      
       phone_number: "",
       phone_number_alter_one: "",
       phone_number_alter_two: "",

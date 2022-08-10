@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import CustomizedEditIcon from '../../atoms/CustomizedEditIcon/CustomizedEditIcon';
 import OpenModal from '../OpenModal/OpenModal';
 import CustomizedSearchBar from '../../atoms/CustomizedSearchBar/CustomizedSearchBar';
-import CustomizedDeleteIcon from '../../atoms/CustomizedDeleteIcon/CustomizedDeleteIcon';
 import CustomizedBtn from '../../atoms/CustomizedBtn/CustomizedBtn';
 import axios from 'axios';
 import DeleteIcon from '@mui/icons-material/Delete';
