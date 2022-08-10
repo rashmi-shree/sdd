@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState } from "react";
+import React, {useRef } from "react";
 import AddFewCustomersForm from "../AddFewCustomersForm/AddFewCustomersForm";
 import InvoiceFormat from "../InvoiceFormat/InvoiceFormat";
 import CustomizedPrint from "../../atoms/CustomizedPrint/CustomizedPrint";
@@ -23,21 +23,12 @@ const FullScreenModal = ({
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div ref={componentRef} class="modal-body">
-                        {
-                            invoiceFormData 
-                            ?
-                            <InvoiceFormat
-                                api={api}
-                                invoiceFormData={invoiceFormData}
-                                custrefno={custrefno}
-                                openinvoiceevent={openinvoiceevent}
-                            />
-                            : api 
-                            ? <AddFewCustomersForm api={api}/>
-                            : 
-                            <></>
-
-                        }
+                    <InvoiceFormat
+                        api={api}
+                        invoiceFormData={invoiceFormData}
+                        custrefno={custrefno}
+                        openinvoiceevent={openinvoiceevent}
+                    />
                     </div>
                     <div class="modal-footer">
                         {/* <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}

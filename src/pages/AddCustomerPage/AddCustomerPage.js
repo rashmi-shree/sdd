@@ -6,7 +6,6 @@ import OpenModal from "../../components/molecules/OpenModal/OpenModal";
 import '../../style/style.css';
 import HeaderWithLogout from '../../pages/Header/HeaderWithLogout';
 import CustomizedBtn from "../../components/atoms/CustomizedBtn/CustomizedBtn";
-import FullScreenModal from "../../components/molecules/FullScreenModal/FullScreenModal";
 import {useNavigate} from 'react-router-dom';
 const AddCustomerPage = ({
     api
@@ -110,7 +109,7 @@ const AddCustomerPage = ({
           }
             }
           })
-          alert("Updated successfully");
+          alert("Updated successfully")
       })
     }
     const fetchupdateddatafromcust = (currentCustomerReferenceNo) => {
@@ -209,36 +208,13 @@ const AddCustomerPage = ({
                 Btnname="search"
             />
             <div className="modalandback">
-             <div className='btnstyle'>
-                <button 
-                    // type="button" 
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                    // onClick={()=>{
-                    //     openinvoiceevent(data.invoice_no);
-                    // }}
-                    class="btnstyle"
-                    >
-                        Add Customer
-                </button>
-                </div>
-                <FullScreenModal
-                  api={api}
-                  modalview={modalview}
-                  displaycustomerfollowupevent={displaycustomerfollowupevent}
-                  open={open}
-                  openevent={openevent}
-                  purchasestatus={purchasestatus}
-                  currentCustomerReferenceNo={currentCustomerReferenceNo}
-                  setpurchasemsgevent={setpurchasemsgevent}                
-                />
-              {/* <CustomizedBtn 
+              <CustomizedBtn 
               BtnName="Add Customer"
               onClick={()=>{
                 setModalview("addcustomerform");
                 openevent(true);
               }}
-              /> */}
+              />
                   <OpenModal
                     api={api}
                     modalview={modalview}
