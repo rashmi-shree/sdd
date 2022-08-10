@@ -178,7 +178,7 @@ const DealersInvoicesListForm = ({
                                         <td>
                                             <div className='btnstyle'>
                                                 <button 
-                                                    className="btn"
+                                                    id="btn"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal"
                                                     onClick={()=>{
