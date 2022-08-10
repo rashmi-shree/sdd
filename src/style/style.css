@@ -123,6 +123,9 @@ table .theadalter{
 #btnalterstyle button{
     font-size: 15px;
 }
+.btnstyle .btn {
+    border: 2px solid red;
+}
 .btnstyle Button{
     background-color: black;
     display: flex;
@@ -132,7 +135,7 @@ table .theadalter{
     border: none;
     cursor: pointer;
     color: white;
-    font-size: 10px;
+    font-size: 8px;
 } 
 .btnstyle Button:hover {
     background-color: #999;

@@ -165,7 +165,6 @@ const DealersInvoicesListForm = ({
                                                     <span className="cbtn"><CustomizedBtn
                                                         BtnName="Verify Invoice"
                                                         onClick={() => {
-                                                            // fetchdealersdatatoverifyevent(data.invoice_no);
                                                             fetchverificationstatusevent(data.invoice_no);
                                                             currentInvoicenoevent(data.invoice_no);
                                                             setModalview("dealersdetailsform");
@@ -179,7 +178,7 @@ const DealersInvoicesListForm = ({
                                         <td>
                                             <div className='btnstyle'>
                                                 <button 
-                                                    // type="button" 
+                                                    className="btn"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal"
                                                     onClick={()=>{
@@ -199,14 +198,6 @@ const DealersInvoicesListForm = ({
                                              verificationstatus={verificationstatus}
                                              fetchdealersdatatoverify={fetchdealersdatatoverify}
                                               />
-                                            {/* <CustomizedBtn
-                                                BtnName="Download Invoice"
-                                                onClick={() => {
-                                                    updatedownloadinvoiceevent(data.invoice_no);
-                                                    setModalview("DealersInvoiceFormGenerateFormat");
-                                                    openevent(true);
-                                                }}
-                                            /> */}
                                         </td>
                                     </tr>
                                 ))
