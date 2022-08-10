@@ -26,7 +26,6 @@ const DealersInvoicesListForm = ({
             }
         })
             .then((res) => {
-                setfetchdealersdatatoverify(res.data);
                 const fetchdealersdatatoverify = res.data;
                 api.put('jointables/updaterateofdeliverytableonbook', {
                     params: {
@@ -95,6 +94,16 @@ const DealersInvoicesListForm = ({
                     })
                 alert("Updated Successfully");
             })
+    }
+    const updatedownloadinvoiceevent = (e) =>{
+        api.post('delivery/fetchdealersdatatoverify', {
+            params: {
+                invoice_no: e
+            }
+        })
+        .then((res) => {
+            setfetchdealersdatatoverify(res.data);
+        })
     }
     // useEffect(() => {
     //     if (fetchdealersdatatoverify) {
@@ -241,7 +250,7 @@ const DealersInvoicesListForm = ({
                                             <CustomizedBtn
                                                 BtnName="Download Invoice"
                                                 onClick={() => {
-                                                    fetchdealersdatatoverifyevent(data.invoice_no);
+                                                    updatedownloadinvoiceevent(data.invoice_no);
                                                     setModalview("DealersInvoiceFormGenerateFormat");
                                                     openevent(true);
                                                 }}
