@@ -171,7 +171,9 @@ const DisplayProductDetailsTable = ({
                                                         openevent(true);
                                                     }}
                                                 />
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <button type="button" 
+                                                // class="btn btn-primary"
+                                                 data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                 <div className="deleteiconcontainer"><DeleteIcon id="deleteicon" />
                                                 </div>
                                                 {/* <CustomizedDeleteIcon  
