@@ -26,7 +26,7 @@ const DealersInvoicesListForm = ({
             }
         })
             .then((res) => {
-                // setfetchdealersdatatoverify(res.data);
+                setfetchdealersdatatoverify(res.data);
                 const fetchdealersdatatoverify = res.data;
                 api.put('jointables/updaterateofdeliverytableonbook', {
                     params: {
@@ -241,6 +241,7 @@ const DealersInvoicesListForm = ({
                                             <CustomizedBtn
                                                 BtnName="Download Invoice"
                                                 onClick={() => {
+                                                    fetchdealersdatatoverifyevent(data.invoice_no);
                                                     setModalview("DealersInvoiceFormGenerateFormat");
                                                     openevent(true);
                                                 }}
