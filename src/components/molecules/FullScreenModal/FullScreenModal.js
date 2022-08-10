@@ -32,10 +32,11 @@ const FullScreenModal = ({
                     </div>
                     <div class="modal-footer">
                         {/* <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
-                        <div><CustomizedPrint
-                    onClick={handlePrint}
-                />
-                </div>
+                        <div>
+                            <CustomizedPrint
+                                onClick={handlePrint}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

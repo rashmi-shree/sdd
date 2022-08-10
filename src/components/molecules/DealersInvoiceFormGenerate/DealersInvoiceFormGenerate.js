@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 import CustomizedPrint from "../../atoms/CustomizedPrint/CustomizedPrint";
 import CustomizedDownload from "../../atoms/CustomizedDownload/CustomizedDownload";
@@ -17,14 +17,14 @@ const DealersInvoiceFormGenerate = ({
 }) => {
     const [listofinvoices, setlistofinvoices] = useState([]);
     const [tabledata, setTabledata] = React.useState({});
-    const componentRef = useRef();
+    // const componentRef = useRef();
     const [constantinvoicedata, setconstantinvoicedata] = useState();
     const [totalamount, settotalamount] = useState();
     const [totalinwords, settotalinwords] = useState();
     const toWords = new ToWords();
-    const handlePrint = useReactToPrint({
-        content: () => componentRef.current,
-    });
+    // const handlePrint = useReactToPrint({
+    //     content: () => componentRef.current,
+    // });
     useEffect(() => {
         if (fetchdealersdatatoverify) {
             const tempdata = [...new Set(fetchdealersdatatoverify.map((e) => e.customer_reference_no))];
@@ -89,24 +89,40 @@ const DealersInvoiceFormGenerate = ({
     return (
         <div className="invoiceformatcontainer">
             <div className="invoiceheader">
-                <div>
+                {/* <div>
                     <CustomizedPrint
                     onClick={handlePrint}
                 />
-                </div>
-                <div>
+                </div> */}
+                {/* <div>
                     {
                         tabledata && tabledata.length ?
                             <CSVLink {...csvReport}><CustomizedDownload /></CSVLink> : null
                     }
-                </div>
+                </div> */}
             </div>
-            <div ref={componentRef} className="table-responsive" id="tableprint">
+            <div className="table-responsive" id="tableprint">
                 {
                     constantinvoicedata
                         ?
+                        <div>
+                        <div className="invoicecontainer">
+                                <div>
+                                    <p> <span className="lightstyle">Address:</span> Shop #05,Medhini Arcade, <br></br>
+                                        Kithaganahalli Gate, <br></br>Opp Anna Building,
+                                        Hosur Main Road<br></br> Bangalore-560099,
+                                        <br></br></p>
+                                    <p> <span className="lightstyle">GSTIN/UIN:</span>29AYSPB6397D1ZX <br></br>
+                                       <span className="lightstyle">State: </span> {constantinvoicedata.state} <br></br>
+                                       <span className="lightstyle">State Code: </span> {constantinvoicedata.state_code}</p>
+                                </div>
+                                <div>
+                                    <span className="invoicenamestyle">SHREE PARAMANANDA ENTERPRISES</span>
+                                    <p><span className="lightstyle">Contact Us:</span> 9035757145/9141070705</p>
+                                </div>
+                            </div>
                         <table className="tbl">
-                            <thead>
+                            {/* <thead>
                                 <tr>
                                     <th colspan="6" scope="col">
                                         <div className="theaddiv">
@@ -118,7 +134,7 @@ const DealersInvoiceFormGenerate = ({
                                         </div>
                                     </th>
                                 </tr>
-                            </thead>
+                            </thead> */}
                             <tbody>
                                 <tr>
                                     <td rowSpan="3">Buyer:</td>
@@ -177,9 +193,9 @@ const DealersInvoiceFormGenerate = ({
                                 </tr>
                                 {
                                     fetchdealersdatatoverify && fetchdealersdatatoverify.length &&
-                                    fetchdealersdatatoverify.map((d) => (
+                                    fetchdealersdatatoverify.map((d, index) => (
                                         <tr>
-                                            <td >1</td>
+                                            <td >{index +1}</td>
                                             <td >{d.product}</td>
                                             <td >{d.product_hsn_code}</td>
                                             <td >{d.quantity}</td>
@@ -232,6 +248,7 @@ const DealersInvoiceFormGenerate = ({
                                 </tr>
                             </tbody>
                         </table>
+                        </div>
                         : <></>
                 }
             </div>
