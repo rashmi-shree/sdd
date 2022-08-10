@@ -128,6 +128,7 @@ const AddCustomerPage = ({
     })
       .then((res) => {
         settemprowdataonbooking(res.data);
+        console.log("temprowdataonbooking",res.data);
       })
   }
   const fetchupdateddatafromcust = (currentCustomerReferenceNo) => {
@@ -325,8 +326,7 @@ const AddCustomerPage = ({
                                 onClick={() => {
                                   currentCustomerRefNo(data.customer_reference_no);
                                   fetchalldatafromcust(data.customer_reference_no);
-                                  fetchupdateddatafromcust(data.customer_reference_no);
-                                  updatebookingdataevent();
+                                  // updatebookingdataevent();
                                 }}
                               />
                               </span>
@@ -334,7 +334,7 @@ const AddCustomerPage = ({
                                 BtnName="Book Order"
                                 onClick={() => {
                                   currentCustomerRefNo(data.customer_reference_no);
-                                  fetchalldatafromcust(data.customer_reference_no);
+                                  // fetchalldatafromcust(data.customer_reference_no);
                                   fetchupdateddatafromcust(data.customer_reference_no);
                                   setModalview("customerdetailsform");
                                   openevent(true);
