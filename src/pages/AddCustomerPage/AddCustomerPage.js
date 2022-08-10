@@ -129,6 +129,17 @@ const AddCustomerPage = ({
       .then((res) => {
         settemprowdataonbooking(res.data);
         console.log("temprowdataonbooking",res.data);
+        const temprowdataonbooking = res.data;
+        api.put('/jointables/updaterateofdeliverytableonbook', {
+          params: {
+            data: temprowdataonbooking
+          }
+        })
+        .then((res) => {
+          if (res.data){
+            alert("successful");
+          }
+        })
       })
   }
   const fetchupdateddatafromcust = (currentCustomerReferenceNo) => {
