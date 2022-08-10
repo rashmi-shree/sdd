@@ -63,7 +63,7 @@ const OpenModal = forwardRef(({
   
   useImperativeHandle(ref, () => ({
     getAlert() {
-      alert("getAlert from Child");
+      handleClose();
     }
 
   }));
