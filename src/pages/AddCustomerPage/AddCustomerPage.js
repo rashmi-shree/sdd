@@ -41,6 +41,7 @@ const AddCustomerPage = ({
     setOpen(e)
   }
   const updatebookingdataevent = () => {
+    console.log("temprowdataonbooking",temprowdataonbooking);
     api.put('/jointables/updaterateofdeliverytableonbook', {
       params: {
         data: temprowdataonbooking
