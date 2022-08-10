@@ -367,14 +367,15 @@ const AddCustomerPage = ({
                                           }}
                                           />
                                           :
-                                          <div>
-                                            <CustomizedBtn 
+                                          <div className="btndesign">
+                                            <span className="cbtn"><CustomizedBtn 
                                               BtnName="Update Booking"
                                               onClick={()=>{
                                                 fetchalldatafromcust(data.customer_reference_no);
                                               }}
                                               />
-                                            <CustomizedBtn 
+                                              </span>
+                                              <span className="cbtn"><CustomizedBtn 
                                               BtnName="Book Order"
                                               onClick={()=>{
                                                 currentCustomerRefNo(data.customer_reference_no);
@@ -384,6 +385,7 @@ const AddCustomerPage = ({
                                                 openevent(true);
                                               }}
                                               />
+                                              </span>
                                           </div>
                                           }
                                         </td>
