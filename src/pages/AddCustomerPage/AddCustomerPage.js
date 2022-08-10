@@ -40,13 +40,13 @@ const AddCustomerPage = ({
     const openevent = (e) =>{
       setOpen(e)
     }
-    useEffect(()=>{
-        if(temprowdataonbooking){
-          api.put('/jointables/updaterateofdeliverytableonbook', {
-            params: {
-              data:temprowdataonbooking
-            }
-          })
+    // useEffect(()=>{
+        // if(temprowdataonbooking){
+        //   api.put('/jointables/updaterateofdeliverytableonbook', {
+        //     params: {
+        //       data:temprowdataonbooking
+        //     }
+        //   })
           // .then((res) => {
           // })
           // api.post('/delivery/getstatecodefromdeliverytableonbook', {
@@ -103,8 +103,8 @@ const AddCustomerPage = ({
           // }
           //   }
           // })
-        }
-    },[temprowdataonbooking])
+    //     }
+    // },[temprowdataonbooking])
     useEffect(() => {
         displaycustomerfollowupevent();
     }, [])
@@ -115,7 +115,13 @@ const AddCustomerPage = ({
         }
       })
       .then((res) => {
-        settemprowdataonbooking(res.data);
+        // settemprowdataonbooking(res.data);
+        const temprowdataonbooking = res.data;
+        api.put('/jointables/updaterateofdeliverytableonbook', {
+          params: {
+            data:temprowdataonbooking
+          }
+        })
       })
     }
     const fetchupdateddatafromcust = (currentCustomerReferenceNo) => {
@@ -307,16 +313,24 @@ const AddCustomerPage = ({
                                           }}
                                           />
                                           :
-                                          <CustomizedBtn 
-                                            BtnName="Book Order"
-                                            onClick={()=>{
-                                              currentCustomerRefNo(data.customer_reference_no);
-                                              fetchalldatafromcust(data.customer_reference_no);
-                                              fetchupdateddatafromcust(data.customer_reference_no);
-                                              setModalview("customerdetailsform");
-                                              openevent(true);
-                                            }}
-                                            />
+                                          <div>
+                                            <CustomizedBtn 
+                                              BtnName="Update Booking"
+                                              onClick={()=>{
+                                                fetchalldatafromcust(data.customer_reference_no);
+                                              }}
+                                              />
+                                            <CustomizedBtn 
+                                              BtnName="Book Order"
+                                              onClick={()=>{
+                                                currentCustomerRefNo(data.customer_reference_no);
+                                                // fetchalldatafromcust(data.customer_reference_no);
+                                                fetchupdateddatafromcust(data.customer_reference_no);
+                                                setModalview("customerdetailsform");
+                                                openevent(true);
+                                              }}
+                                              />
+                                          </div>
                                           }
                                         </td>
                                     </tr>
