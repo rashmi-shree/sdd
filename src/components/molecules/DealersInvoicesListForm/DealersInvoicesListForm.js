@@ -12,7 +12,7 @@ const DealersInvoicesListForm = ({
     const [currentInvoiceno, setcurrentInvoiceno] = useState();
     const [modalview, setModalview] = useState('');
     const [open, setOpen] = useState(false);
-    console.log("deliveryinvoices", deliveryinvoices);
+    console.log("deliveryinvoices",deliveryinvoices);
     const openevent = (e) =>{
       setOpen(e)
     }
@@ -201,8 +201,9 @@ const DealersInvoicesListForm = ({
                                 ? deliveryinvoices.map((data) => (
                                     <tr>
                                         <td>{data.invoice_no}</td>
-                                        <td>
-                                        <div className="btndesign">
+                                        <td>{
+                                            data.purchase_status == 1 
+                                            ? <div className="btndesign">
                                             <span className="cbtn"><CustomizedBtn 
                                                 BtnName="Update Invoice"
                                                 onClick={()=>{
@@ -222,6 +223,18 @@ const DealersInvoicesListForm = ({
                                             />
                                             </span>
                                             </div>
+                                            : 
+                                            <CustomizedBtn 
+                                                BtnName="View"
+                                                onClick={()=>{
+                                                    // fetchdealersdatatoverifyevent(data.invoice_no);
+                                                    fetchverificationstatusevent(data.invoice_no);
+                                                    currentInvoicenoevent(data.invoice_no);
+                                                    setModalview("dealersdetailsform");
+                                                    openevent(true);
+                                                }}
+                                            />
+                                            }
                                         </td>
                                         <td>
                                             <CustomizedBtn 

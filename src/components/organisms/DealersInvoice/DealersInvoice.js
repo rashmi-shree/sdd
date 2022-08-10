@@ -76,7 +76,6 @@ const DealersInvoice = ({
             }
         })
         .then((res)=>{
-            console.log("hi", res.data);
             setdeliveryinvoices(res.data);
         })
     }
