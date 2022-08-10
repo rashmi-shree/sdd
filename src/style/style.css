@@ -123,7 +123,7 @@ table .theadalter{
 #btnalterstyle button{
     font-size: 15px;
 }
-.btnstyle button {
+.btnstyle #btn {
     border: 2px solid red;
 }
 .btnstyle Button{
