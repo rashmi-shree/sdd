@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import OpenModal from "../../molecules/OpenModal/OpenModal";
 import CustomizedBtn from "../../atoms/CustomizedBtn/CustomizedBtn";
-import FullScreenModal from "../FullScreenModal/FullScreenModal";
+import FullScreenModalTwo from "../FullScreenModalTwo/FullScreenModalTwo";
 import '../../../style/style.css';
 const DealersInvoicesListForm = ({
     deliveryinvoices,
@@ -187,18 +187,18 @@ const DealersInvoicesListForm = ({
                                                     }}
                                                     class="btnstyle"
                                                     >
-                                                        View Invoice
+                                                        Download Invoice
                                                 </button>
                                             </div>
-                                            <FullScreenModal />
-                                            <CustomizedBtn
+                                            <FullScreenModalTwo />
+                                            {/* <CustomizedBtn
                                                 BtnName="Download Invoice"
                                                 onClick={() => {
                                                     updatedownloadinvoiceevent(data.invoice_no);
                                                     setModalview("DealersInvoiceFormGenerateFormat");
                                                     openevent(true);
                                                 }}
-                                            />
+                                            /> */}
                                         </td>
                                     </tr>
                                 ))
