@@ -115,7 +115,10 @@ table .theadalter{
 /* Customized Button start */
 
 .btndesign{
-    border: 2px solid black;
+    display: flex;
+}
+.btndesign .cbtn{
+    padding: 1rem;
 }
 #btnalterstyle button{
     font-size: 15px;
