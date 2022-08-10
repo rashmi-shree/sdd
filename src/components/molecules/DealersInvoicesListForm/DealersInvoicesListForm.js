@@ -7,6 +7,8 @@ const DealersInvoicesListForm = ({
     deliveryinvoices,
     api
 }) => {
+    const { forwardRef, useRef, useImperativeHandle } = React;
+    const childRef = useRef();
     const [fetchdealersdatatoverify, setfetchdealersdatatoverify] = useState();
     const [verificationstatus, setverificationstatus] = useState();
     const [currentInvoiceno, setcurrentInvoiceno] = useState();
@@ -117,6 +119,7 @@ const DealersInvoicesListForm = ({
     return (
         <div>
             <OpenModal
+                ref={childRef}
                 api={api}
                 modalview={modalview}
                 open={open}
@@ -183,6 +186,7 @@ const DealersInvoicesListForm = ({
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal"
                                                     onClick={()=>{
+                                                        childRef.current.getAlert();
                                                         updatedownloadinvoiceevent(data.invoice_no);
                                                     }}
                                                     class="btnstyle"

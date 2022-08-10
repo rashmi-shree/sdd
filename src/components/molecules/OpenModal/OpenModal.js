@@ -57,7 +57,15 @@ const OpenModal = ({
   openevent,
   currentCustomerReferenceNoCustomerInvoice,
   setpurchasemsgevent
-}) => {
+}, ref
+) => {
+  const { forwardRef, useRef, useImperativeHandle } = React;
+  useImperativeHandle(ref, () => ({
+    getAlert() {
+      alert("getAlert from Child");
+    }
+
+  }));
   const handleClose = () => {
     openevent(false);
     if (modalview === 'productdetailsform') {
