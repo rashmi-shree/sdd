@@ -115,7 +115,7 @@ const ViewInvoicePage = ({
                                                         >
                                                             View Invoice
                                                     </button>
-                                                    </div>
+                                                </div>
                                                     <FullScreenModal 
                                                        api={api}
                                                     //    modalview={modalview}

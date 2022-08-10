@@ -177,6 +177,20 @@ const DealersInvoicesListForm = ({
                                         }
                                         </td>
                                         <td>
+                                            <div className='btnstyle'>
+                                                <button 
+                                                    // type="button" 
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"
+                                                    onClick={()=>{
+                                                        updatedownloadinvoiceevent(data.invoice_no);
+                                                    }}
+                                                    class="btnstyle"
+                                                    >
+                                                        View Invoice
+                                                </button>
+                                            </div>
+                                            <FullScreenModal />
                                             <CustomizedBtn
                                                 BtnName="Download Invoice"
                                                 onClick={() => {
