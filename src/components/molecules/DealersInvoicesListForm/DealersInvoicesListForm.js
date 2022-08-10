@@ -25,78 +25,144 @@ const DealersInvoicesListForm = ({
             }
         })
             .then((res) => {
-                setfetchdealersdatatoverify(res.data);
-            })
-    }
-    useEffect(() => {
-        if (fetchdealersdatatoverify) {
-            api.put('jointables/updaterateofdeliverytableonbook', {
-                params: {
-                    data: fetchdealersdatatoverify
-                }
-            })
-                .then((res) => {
-                })
-            api.post('delivery/getstatecodefromdeliverytableonbook', {
-                params: {
-                    data: fetchdealersdatatoverify
-                }
-            })
-                .then((res) => {
-                    var data = res.data;
-                    for (var i = 0; i < data.length; i++) {
-                        if (data[i].state_code === 29) {
-                            api.put('jointables/updatekarnatakagstratesdeliverytableonbook', {
-                                params: {
-                                    data: fetchdealersdatatoverify
-                                }
-                            })
-                                .then((res) => {
-                                })
-                            api.put('jointables/updatefinalamountdeliverytableonbook', {
-                                params: {
-                                    data: fetchdealersdatatoverify
-                                }
-                            })
-                            api.put('/jointables/updatebalanceamountdeliverytableonbook',{
-                                params:{
-                                  data:fetchdealersdatatoverify
-                                }
-                              })
-                              api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
-                                params:{
-                                  data:fetchdealersdatatoverify
-                                }
-                              })
-                        }
-                        else {
-                            api.put('jointables/updateotherstatesgstratesdeliverytableonbook', {
-                                params: {
-                                    data: fetchdealersdatatoverify
-                                }
-                            })
-                                .then((res) => {
-                                })
-                            api.put('jointables/updatefinalamountdeliverytableonbook', {
-                                params: {
-                                    data: fetchdealersdatatoverify
-                                }
-                            })
-                            api.put('/jointables/updatebalanceamountdeliverytableonbook',{
-                                params:{
-                                  data:fetchdealersdatatoverify
-                                }
-                              })
-                              api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
-                                params:{
-                                  data:fetchdealersdatatoverify
-                                }
-                              })
-                        }
+                // setfetchdealersdatatoverify(res.data);
+                const fetchdealersdatatoverify = res.data;
+                api.put('jointables/updaterateofdeliverytableonbook', {
+                    params: {
+                        data: fetchdealersdatatoverify
                     }
                 })
-        }
-    }, [fetchdealersdatatoverify])
+                    .then((res) => {
+                    })
+                api.post('delivery/getstatecodefromdeliverytableonbook', {
+                    params: {
+                        data: fetchdealersdatatoverify
+                    }
+                })
+                    .then((res) => {
+                        var data = res.data;
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].state_code === 29) {
+                                api.put('jointables/updatekarnatakagstratesdeliverytableonbook', {
+                                    params: {
+                                        data: fetchdealersdatatoverify
+                                    }
+                                })
+                                    .then((res) => {
+                                    })
+                                api.put('jointables/updatefinalamountdeliverytableonbook', {
+                                    params: {
+                                        data: fetchdealersdatatoverify
+                                    }
+                                })
+                                api.put('/jointables/updatebalanceamountdeliverytableonbook',{
+                                    params:{
+                                      data:fetchdealersdatatoverify
+                                    }
+                                  })
+                                  api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
+                                    params:{
+                                      data:fetchdealersdatatoverify
+                                    }
+                                  })
+                            }
+                            else {
+                                api.put('jointables/updateotherstatesgstratesdeliverytableonbook', {
+                                    params: {
+                                        data: fetchdealersdatatoverify
+                                    }
+                                })
+                                    .then((res) => {
+                                    })
+                                api.put('jointables/updatefinalamountdeliverytableonbook', {
+                                    params: {
+                                        data: fetchdealersdatatoverify
+                                    }
+                                })
+                                api.put('/jointables/updatebalanceamountdeliverytableonbook',{
+                                    params:{
+                                      data:fetchdealersdatatoverify
+                                    }
+                                  })
+                                  api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
+                                    params:{
+                                      data:fetchdealersdatatoverify
+                                    }
+                                  })
+                            }
+                        }
+                    })
+            })
+    }
+    // useEffect(() => {
+    //     if (fetchdealersdatatoverify) {
+    //         api.put('jointables/updaterateofdeliverytableonbook', {
+    //             params: {
+    //                 data: fetchdealersdatatoverify
+    //             }
+    //         })
+    //             .then((res) => {
+    //             })
+    //         api.post('delivery/getstatecodefromdeliverytableonbook', {
+    //             params: {
+    //                 data: fetchdealersdatatoverify
+    //             }
+    //         })
+    //             .then((res) => {
+    //                 var data = res.data;
+    //                 for (var i = 0; i < data.length; i++) {
+    //                     if (data[i].state_code === 29) {
+    //                         api.put('jointables/updatekarnatakagstratesdeliverytableonbook', {
+    //                             params: {
+    //                                 data: fetchdealersdatatoverify
+    //                             }
+    //                         })
+    //                             .then((res) => {
+    //                             })
+    //                         api.put('jointables/updatefinalamountdeliverytableonbook', {
+    //                             params: {
+    //                                 data: fetchdealersdatatoverify
+    //                             }
+    //                         })
+    //                         api.put('/jointables/updatebalanceamountdeliverytableonbook',{
+    //                             params:{
+    //                               data:fetchdealersdatatoverify
+    //                             }
+    //                           })
+    //                           api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
+    //                             params:{
+    //                               data:fetchdealersdatatoverify
+    //                             }
+    //                           })
+    //                     }
+    //                     else {
+    //                         api.put('jointables/updateotherstatesgstratesdeliverytableonbook', {
+    //                             params: {
+    //                                 data: fetchdealersdatatoverify
+    //                             }
+    //                         })
+    //                             .then((res) => {
+    //                             })
+    //                         api.put('jointables/updatefinalamountdeliverytableonbook', {
+    //                             params: {
+    //                                 data: fetchdealersdatatoverify
+    //                             }
+    //                         })
+    //                         api.put('/jointables/updatebalanceamountdeliverytableonbook',{
+    //                             params:{
+    //                               data:fetchdealersdatatoverify
+    //                             }
+    //                           })
+    //                           api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
+    //                             params:{
+    //                               data:fetchdealersdatatoverify
+    //                             }
+    //                           })
+    //                     }
+    //                 }
+    //             })
+    //     }
+    // }, [fetchdealersdatatoverify])
     const fetchverificationstatusevent = (e) => {
         api.post('delivery/getverificationstatus', {
             params: {
@@ -134,40 +200,28 @@ const DealersInvoicesListForm = ({
                                     <tr>
                                         <td>{data.invoice_no}</td>
                                         <td>
-                                            <CustomizedBtn 
-                                                BtnName="Verify Invoice"
+                                        <div className="btndesign">
+                                            <span className="cbtn"><CustomizedBtn 
+                                                BtnName="Update Invoice"
                                                 onClick={()=>{
                                                     fetchdealersdatatoverifyevent(data.invoice_no);
+                                                }}
+                                            />
+                                            </span>
+                                            <span className="cbtn"><CustomizedBtn 
+                                                BtnName="Verify Invoice"
+                                                onClick={()=>{
+                                                    // fetchdealersdatatoverifyevent(data.invoice_no);
                                                     fetchverificationstatusevent(data.invoice_no);
                                                     currentInvoicenoevent(data.invoice_no);
                                                     setModalview("dealersdetailsform");
                                                     openevent(true);
                                                 }}
                                             />
+                                            </span>
+                                            </div>
                                         </td>
                                         <td>
-                                        {/* <div className='btnstyle'>
-                                            <button 
-                                                // type="button" 
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"
-                                                // onClick={()=>{
-                                                //     openinvoiceevent(data.customer_reference_no);
-                                                // }}
-                                                class="btnstyle"
-                                                >
-                                                    Download Invoice
-                                            </button>
-                                            </div>
-                                            <FullScreenModal 
-                                                api={api}
-                                                modalview={modalview}
-                                                open={open}
-                                                openevent={openevent}
-                                                currentInvoiceno={currentInvoiceno}
-                                                verificationstatus={verificationstatus}
-                                                fetchdealersdatatoverify={fetchdealersdatatoverify}
-                                            /> */}
                                             <CustomizedBtn 
                                                 BtnName="Download Invoice"
                                                 onClick={()=>{
