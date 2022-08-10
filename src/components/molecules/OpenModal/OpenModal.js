@@ -30,7 +30,8 @@ const style = {
   p: 4,
   overflow: "scroll"
 };
-const OpenModal = ({
+const { forwardRef, useRef, useImperativeHandle } = React;
+const OpenModal = forwardRef(({
   api,
   displayDealersDetailsData,
   displayProductDetailsData,
@@ -59,7 +60,7 @@ const OpenModal = ({
   setpurchasemsgevent
 }, ref
 ) => {
-  const { forwardRef, useRef, useImperativeHandle } = React;
+  
   useImperativeHandle(ref, () => ({
     getAlert() {
       alert("getAlert from Child");
@@ -235,5 +236,5 @@ const OpenModal = ({
       </Modal>
     </div>
   );
-}
+})
 export default OpenModal;
