@@ -7,7 +7,8 @@ const CustomizedTextInput = ({
   onHandleChangeEvent,
   type,
   defaultValue,
-  index
+  index,
+  typeofinput
  }) => {
   return (
     <Box
@@ -21,7 +22,7 @@ const CustomizedTextInput = ({
       <TextField 
         value={defaultValue} 
         name={type} 
-        type="password"
+        type={typeofinput}
         onChange={onHandleChangeEvent} 
         id="standard-basic" 
         placeholder={labelname}

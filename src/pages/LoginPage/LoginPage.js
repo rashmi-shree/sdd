@@ -38,10 +38,12 @@ const LoginPage = ({
             <TextAndTextInput
               onChangeEvent={onChangeEvent}
               type="username"
+              typeofinput="text"
               textname="USER NAME:-" />
             <TextAndTextInput
               onChangeEvent={onChangeEvent}
               type="password"
+              typeofinput="password"
               textname="PASSWORD:-" />
           </div>
           <div className="loginPageBtnContainer">
