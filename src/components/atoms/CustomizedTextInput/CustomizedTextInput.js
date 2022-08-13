@@ -21,6 +21,7 @@ const CustomizedTextInput = ({
       <TextField 
         value={defaultValue} 
         name={type} 
+        type="password"
         onChange={onHandleChangeEvent} 
         id="standard-basic" 
         placeholder={labelname}
