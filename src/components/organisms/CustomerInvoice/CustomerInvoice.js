@@ -5,6 +5,7 @@ import CustomizedBtn from "../../atoms/CustomizedBtn/CustomizedBtn";
 import moment from 'moment';
 import FullScreenModal from "../../molecules/FullScreenModal/FullScreenModal";
 import '../../../style/style.css';
+import Button from '@mui/material/Button';
 
 const CustomerInvoice = ({
     searchData,
@@ -166,7 +167,7 @@ const CustomerInvoice = ({
                                 </td>
                                 <td>
                                 <div className='btnstyle'>
-                                <button 
+                                <Button
                                     id="btn"
                                     // type="button" 
                                     data-bs-toggle="modal"
@@ -177,7 +178,7 @@ const CustomerInvoice = ({
                                     class="btnstyle"
                                     >
                                         Generate Invoice
-                                </button>
+                                </Button>
                                 </div>
                                 <FullScreenModal 
                                     api={api}

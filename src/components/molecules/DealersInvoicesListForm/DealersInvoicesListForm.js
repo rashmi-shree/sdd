@@ -3,6 +3,8 @@ import OpenModal from "../../molecules/OpenModal/OpenModal";
 import CustomizedBtn from "../../atoms/CustomizedBtn/CustomizedBtn";
 import FullScreenModalTwo from "../FullScreenModalTwo/FullScreenModalTwo";
 import '../../../style/style.css';
+import Button from '@mui/material/Button';
+
 const DealersInvoicesListForm = ({
     deliveryinvoices,
     fetchinvoicesfromdelivery,
@@ -179,7 +181,7 @@ const DealersInvoicesListForm = ({
                                         </td>
                                         <td>
                                             <div className='btnstyle'>
-                                                <button 
+                                                <Button 
                                                     id="btn"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#exampleModal"
@@ -189,7 +191,7 @@ const DealersInvoicesListForm = ({
                                                     class="btnstyle"
                                                     >
                                                         Download Invoice
-                                                </button>
+                                                </Button>
                                             </div>
                                             <FullScreenModalTwo 
                                              api={api}
