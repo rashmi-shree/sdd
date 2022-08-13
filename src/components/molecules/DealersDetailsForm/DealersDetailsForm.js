@@ -85,7 +85,7 @@ const DealersDetailsForm = ({
     if (statecode == 29) {
       axios.put('http://3.84.110.201:3001/jointables/updatekarnatakagstratesfromdealers', {
         params: {
-          customer_reference_no: custrefno
+          rowdatadisplayed: Rowdatadisplayed
         }
       })
         axios.put('http://3.84.110.201:3001/jointables/updatefinalamountdeliveryfromdealers', {
@@ -110,7 +110,7 @@ const DealersDetailsForm = ({
     else {
       axios.put('http://3.84.110.201:3001/jointables/updateotherstatesgstratesfromdealers', {
         params: {
-          customer_reference_no: custrefno
+          rowdatadisplayed: Rowdatadisplayed
         }
       })
         .then((res) => {
