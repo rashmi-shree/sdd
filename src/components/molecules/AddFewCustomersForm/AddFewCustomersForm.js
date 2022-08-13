@@ -218,7 +218,7 @@ const AddFewCustomersForm = ({
       <div className="pageheading">
         Add New Customer
       </div>
-      <React.Fragment>
+      <form className="formcontainer">
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
@@ -340,7 +340,7 @@ const AddFewCustomersForm = ({
             onClick={submiteventclicked}
           />
         </div>
-      </React.Fragment>
+        </form>
     </div>
   )
 }
