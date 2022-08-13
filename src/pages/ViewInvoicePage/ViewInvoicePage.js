@@ -8,6 +8,7 @@ import CustomizedBtn from "../../components/atoms/CustomizedBtn/CustomizedBtn";
 import moment from 'moment';
 import FullScreenModal from "../../components/molecules/FullScreenModal/FullScreenModal";
 import '../../style/style.css';
+import Button from '@mui/material/Button';
 
 const ViewInvoicePage = ({
     api
@@ -104,7 +105,7 @@ const ViewInvoicePage = ({
                                                 <td>{data.customer_name}</td>
                                                 <td>
                                                 <div className='btnstyle'>
-                                                    <button 
+                                                    <Button 
                                                         id="btn"
                                                         // type="button" 
                                                         data-bs-toggle="modal"
@@ -112,10 +113,10 @@ const ViewInvoicePage = ({
                                                         onClick={()=>{
                                                             openinvoiceevent(data.invoice_no);
                                                         }}
-                                                        class="btnstyle"
+                                                        // class="btnstyle"
                                                         >
                                                             View Invoice
-                                                    </button>
+                                                    </Button>
                                                 </div>
                                                     <FullScreenModal 
                                                        api={api}
