@@ -101,6 +101,7 @@ const DealersInvoice = ({
             <DealersInvoicesListForm 
                 api={api}
                 deliveryinvoices={deliveryinvoices}
+                fetchinvoicesfromdelivery={fetchinvoicesfromdelivery}
             />
             </div>
             <div className='table-responsive'>

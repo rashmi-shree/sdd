@@ -56,7 +56,8 @@ const OpenModal = ({
   open,
   openevent,
   currentCustomerReferenceNoCustomerInvoice,
-  setpurchasemsgevent
+  setpurchasemsgevent,
+  fetchinvoicesfromdelivery
 }) => {
   const handleClose = () => {
     openevent(false);
@@ -174,6 +175,7 @@ const OpenModal = ({
             {
               modalview === "dealersdetailsform" &&
               <DealersDetailsForm
+                fetchinvoicesfromdelivery={fetchinvoicesfromdelivery}
                 api={api}
                 currentInvoiceno={currentInvoiceno}
                 verificationstatus={verificationstatus}

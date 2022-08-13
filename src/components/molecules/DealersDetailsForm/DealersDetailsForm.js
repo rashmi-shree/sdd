@@ -10,10 +10,12 @@ const DealersDetailsForm = ({
   handleClose,
   fetchdealersdatatoverify,
   verificationstatus,
-  currentInvoiceno
+  currentInvoiceno,
+  fetchinvoicesfromdelivery
 }) => {
   const [updaterowdata, setUpdaterowdata] = useState();
   const [Rowdatadisplayed, setRowdatadisplayed] = useState();
+  const [gstno, setgstno] = useState();
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -53,7 +55,7 @@ const DealersDetailsForm = ({
       })
     }
   }, [fetchdealersdatatoverify])
-  const submiteventclicked = () => {
+  const submiteventclicked = (gstno) => {
     let custrefno = "";
     let statecode;
     Rowdatadisplayed.map((data) => {
@@ -103,6 +105,7 @@ const DealersDetailsForm = ({
             handleClose();
           }
         })
+        fetchinvoicesfromdelivery(gstno);
     }
     else {
       axios.put('http://3.84.110.201:3001/jointables/updateotherstatesgstratesfromdealers', {
@@ -129,10 +132,19 @@ const DealersDetailsForm = ({
             const res = purchasesuccessmsg({});
             alert(res.msg);
             handleClose();
+            fetchinvoicesfromdelivery(gstno);
           }
         })
     }
   }
+  
+  useEffect(()=>{
+    if (Rowdatadisplayed){
+      Rowdatadisplayed.map((data,i)=>(
+        setgstno(data.gst)
+      ))
+    }
+  },[Rowdatadisplayed])
   const changeevent = (event, index) => {
     let updateRowDataByIndex = [...Rowdatadisplayed];
     Rowdatadisplayed.find((item, i) => {
@@ -464,7 +476,14 @@ const DealersDetailsForm = ({
                 </>
               ))
               : <p>No Record!</p>
-          }
+            }
+            {/* <CustomizedBtn
+            BtnName="submit"
+            // onClick={submiteventclicked}
+            onClick={() => {
+              submiteventclicked(data.gst);
+          }}
+          /> */}
         </form>
       </div>
       {
@@ -473,7 +492,10 @@ const DealersDetailsForm = ({
           : <div className="submitcontainee">
             <CustomizedBtn
               BtnName="submit"
-              onClick={submiteventclicked}
+              // onClick={submiteventclicked}
+              onClick={()=>{
+                submiteventclicked(gstno);
+              }}
             />
           </div>
       }

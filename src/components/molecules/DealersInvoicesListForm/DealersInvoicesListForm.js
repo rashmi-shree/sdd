@@ -5,6 +5,7 @@ import FullScreenModalTwo from "../FullScreenModalTwo/FullScreenModalTwo";
 import '../../../style/style.css';
 const DealersInvoicesListForm = ({
     deliveryinvoices,
+    fetchinvoicesfromdelivery,
     api
 }) => {
     const [fetchdealersdatatoverify, setfetchdealersdatatoverify] = useState();
@@ -124,6 +125,7 @@ const DealersInvoicesListForm = ({
                 currentInvoiceno={currentInvoiceno}
                 verificationstatus={verificationstatus}
                 fetchdealersdatatoverify={fetchdealersdatatoverify}
+                fetchinvoicesfromdelivery={fetchinvoicesfromdelivery}
             />
             <div className='table-responsive'>
                 <table className="table table-striped table-bordered ">
