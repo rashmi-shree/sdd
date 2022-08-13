@@ -338,7 +338,7 @@ const DealersDetailsForm = ({
                       <div className="formdatainputstyle">
                         <input
                           defaultValue={data.extended_discount}
-                          type="text"
+                          type="number"
                           onChange={(event) => changeevent(event, data.delivery_id)}
                           name="extended_discount"
                         />
