@@ -125,7 +125,7 @@ const InvoiceFormat = ({
                                         <td colspan="7">{totalamount}</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="5" rowSpan="5">
+                                        <td colspan="3" rowSpan="5">
                                             Terms &Conditions :
                                             <ol>
                                                 <li>Payment only by DD/CHQ,In faver of Shree Paramananda Enterprises</li>

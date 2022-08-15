@@ -106,30 +106,30 @@ const AddFewCustomersForm = ({
       })
       .then((res) => {
       })
-    api.post('delivery/addDeliveryData', {
-      params: {
-        customerReferenceNo: finalCustomerRefNo,
-        customerAddress: customerdata.customer_address,
-        statename: customerdata.statename,
-        phone_number: customerdata.phone_number,
-        phone_number_alter_one: customerdata.phone_number_alter_one,
-        phone_number_alter_two: customerdata.phone_number_alter_two,
-        product_hsn_code: producthsncodeonly,
-        product: productnameonly,
-        quantity: productquantityonly,
-        customer_name: customerdata.customer_name
-      }
-    })
-      .then((res) => {
-        if (res) {
-          const res = customeraddedsuccessmsg({})
-          alert(res.msg);
-          handleClose();
-        }
-      })
-      api.put('product/updateProductsDetailsProductData',{
-        params:products
-      })
+    // api.post('delivery/addDeliveryData', {
+    //   params: {
+    //     customerReferenceNo: finalCustomerRefNo,
+    //     customerAddress: customerdata.customer_address,
+    //     statename: customerdata.statename,
+    //     phone_number: customerdata.phone_number,
+    //     phone_number_alter_one: customerdata.phone_number_alter_one,
+    //     phone_number_alter_two: customerdata.phone_number_alter_two,
+    //     product_hsn_code: producthsncodeonly,
+    //     product: productnameonly,
+    //     quantity: productquantityonly,
+    //     customer_name: customerdata.customer_name
+    //   }
+    // })
+    //   .then((res) => {
+    //     if (res) {
+    //       const res = customeraddedsuccessmsg({})
+    //       alert(res.msg);
+    //       handleClose();
+    //     }
+    //   })
+    //   api.put('product/updateProductsDetailsProductData',{
+    //     params:products
+    //   })
   }
   const selectevent = (e) => {
     setProductname(e.target.outerText);
