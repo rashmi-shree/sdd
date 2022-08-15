@@ -207,7 +207,7 @@ const DealersInvoiceForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Enquired Product:
+            <sup className="asteriskstyle">*</sup>Enquired Product:
             </div>
             <div className="formdatainputstyle">
               <CustomizedComboboxMultipleSelect
@@ -238,7 +238,7 @@ const DealersInvoiceForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              PO Number:
+            <sup className="asteriskstyle">*</sup>PO Number:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -249,24 +249,10 @@ const DealersInvoiceForm = ({
             </div>
           </label>
         </div>
-        {/* <div className="nameandinputcontainer">
-          <label className="formdatalabelstyle">
-            <div className="formnamestyle">
-              Pan Number:
-            </div>
-            <div className="formdatainputstyle">
-              <input
-                name="pan_number"
-                type="text"
-                onChange={changeevent}
-              />
-            </div>
-          </label>
-        </div> */}
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Vehicle Number:
+            <sup className="asteriskstyle">*</sup>Vehicle Number:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -280,7 +266,7 @@ const DealersInvoiceForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Place of Supply:
+            <sup className="asteriskstyle">*</sup>Place of Supply:
             </div>
             <div className="formdatainputstyle">
               <input
