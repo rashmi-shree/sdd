@@ -191,6 +191,7 @@ const CustomerInvoiceForm = ({
                                 </div>
                                 <div>
                                     <SelectDate
+                                        disable="yes"
                                         type="delivery_date"
                                         typeOne="delivery_date"
                                         onHandleChangeEvent={(event) => changeevent(event, data.delivery_id)}
