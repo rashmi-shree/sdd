@@ -222,7 +222,7 @@ const AddFewCustomersForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Customer Name:
+              Customer Name <div className="asteriskstyle">*</div>:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -236,7 +236,7 @@ const AddFewCustomersForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Customer Address:
+              Customer Address <div className="asteriskstyle">*</div>:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -264,7 +264,7 @@ const AddFewCustomersForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Ph no:
+              Ph no <div className="asteriskstyle">*</div>:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -306,7 +306,7 @@ const AddFewCustomersForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Enquired Product:
+              Enquired Product <div className="asteriskstyle">*</div>:
             </div>
             <div className="formdatainputstyle">
               <CustomizedComboboxMultipleSelect

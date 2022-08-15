@@ -680,6 +680,9 @@ height: 100px;
     font-weight: bold;
     font-family: monospace;
 }
+.asteriskstyle{
+    border: 2px solid black;
+}
 @media screen and (max-width: 420px) {
     .backarrowcustomerpage{
         margin-left: 26rem;
