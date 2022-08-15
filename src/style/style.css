@@ -681,7 +681,7 @@ height: 100px;
     font-family: monospace;
 }
 .asteriskstyle{
-    border: 2px solid black;
+    color: red;
 }
 @media screen and (max-width: 420px) {
     .backarrowcustomerpage{
