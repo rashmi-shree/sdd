@@ -163,6 +163,8 @@ const DisplayDeliveryReportsTable = ({
                             <th>Customer Address</th>
                             <th>GSTIN/UIN:</th>
                             <th>Phone number</th>
+                            <th>Phone number alter one</th>
+                            <th>Phone number alter two</th>
                             <th>Product HSN Code </th>
                             <th>Product</th>
                             <th>Quantity</th>
@@ -212,6 +214,8 @@ const DisplayDeliveryReportsTable = ({
                                     <td>{data.customer_address}</td>
                                     <td>{data.gst}</td>
                                     <td>{data.phone_number}</td>
+                                    <td>{data.phone_number_alter_one}</td>
+                                    <td>{data.phone_number_alter_two}</td>
                                     <td>{data.product_hsn_code}</td>
                                     <td>{data.product}</td>
                                     <td>{data.quantity}</td>
