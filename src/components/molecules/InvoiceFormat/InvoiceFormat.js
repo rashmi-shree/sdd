@@ -135,8 +135,8 @@ const InvoiceFormat = ({
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colSpan="4">Round off:</td>
-                                        <td colspan="3">{Math.round(totalamount)}</td>
+                                        <td colSpan="5">Round off:</td>
+                                        <td colspan="4">{Math.round(totalamount)}</td>
                                     </tr>
                                     <tr>
                                         <td colSpan="4">TOTAL:</td>
