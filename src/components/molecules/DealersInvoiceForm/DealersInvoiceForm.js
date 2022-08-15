@@ -158,6 +158,7 @@ const DealersInvoiceForm = ({
                 type="text"
                 defaultValue={dealersdata.gstin_number}
                 readOnly
+                disabled
               />
             </div>
           </label>
@@ -172,6 +173,7 @@ const DealersInvoiceForm = ({
                 type="text"
                 defaultValue={dealersdata.enterprise_name}
                 readOnly
+                disabled
               />
             </div>
           </label>
@@ -186,6 +188,7 @@ const DealersInvoiceForm = ({
                 type="text"
                 defaultValue={dealersdata.enterprise_address}
                 readOnly
+                disabled
               />
             </div>
           </label>
@@ -200,6 +203,7 @@ const DealersInvoiceForm = ({
                 type="text"
                 defaultValue={dealersdata.proprietor_phone_number}
                 readOnly
+                disabled
               />
             </div>
           </label>
@@ -280,7 +284,7 @@ const DealersInvoiceForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              State:
+            <sup className="asteriskstyle">*</sup>State:
             </div>
             <div className="formdatainputstyle">
               <CustomizedComboboxForState

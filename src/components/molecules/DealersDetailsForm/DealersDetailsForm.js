@@ -186,6 +186,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.customer_name}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -200,6 +201,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.customer_address}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -214,6 +216,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.invoice_no}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -228,6 +231,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.gst}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -242,6 +246,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.phone_number}
                           type="number"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -256,6 +261,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.phone_number_alter_one}
                           type="number"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -270,6 +276,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.phone_number_alter_two}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -284,6 +291,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.product}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -298,6 +306,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.quantity}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -312,6 +321,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.rate}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -326,6 +336,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.discount}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -355,6 +366,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.cgst}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -369,6 +381,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.sgst}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -383,6 +396,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.igst}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -397,6 +411,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.final_amount}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -411,6 +426,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.balance_amount}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -425,6 +441,7 @@ const DealersDetailsForm = ({
                                   type="text"
                                   defaultValue={data.payment_status}
                                   readOnly
+                                  disabled
                               />
                           </div> 
                       </label>
@@ -454,6 +471,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.po_number}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
@@ -468,6 +486,7 @@ const DealersDetailsForm = ({
                           defaultValue={data.vehicle_number}
                           type="text"
                           readOnly
+                          disabled
                         />
                       </div>
                     </label>
