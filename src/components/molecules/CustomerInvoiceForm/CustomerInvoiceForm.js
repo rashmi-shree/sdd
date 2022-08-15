@@ -133,6 +133,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.customer_address}
                                         type="text"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -147,6 +148,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.state}
                                         type="text"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -154,7 +156,7 @@ const CustomerInvoiceForm = ({
                         <div className="nameandinputcontainer">
                             <label className="formdatalabelstyle">
                                 <div className="formnamestyle">
-                                    Place of supply:
+                                <sup className="asteriskstyle">*</sup>Place of supply:
                                 </div>
                                 <div className="formdatainputstyle">
                                     <input
@@ -177,6 +179,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.invoice_no}
                                         type="text"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -203,7 +206,7 @@ const CustomerInvoiceForm = ({
                         <div className="nameandinputcontainer">
                             <label className="formdatalabelstyle">
                                 <div className="formnamestyle">
-                                    PO no:
+                                <sup className="asteriskstyle">*</sup>PO no:
                                 </div>
                                 <div className="formdatainputstyle">
                                     <input
@@ -219,7 +222,7 @@ const CustomerInvoiceForm = ({
                         <div className="nameandinputcontainer">
                             <label className="formdatalabelstyle">
                                 <div className="formnamestyle">
-                                    Vehicle No:
+                                <sup className="asteriskstyle">*</sup>Vehicle No:
                                 </div>
                                 <div className="formdatainputstyle">
                                     <input
@@ -242,6 +245,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.phone_number}
                                         type="number"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -256,6 +260,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.phone_number_alter_one}
                                         type="number"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -270,6 +275,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.phone_number_alter_two}
                                         type="number"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -283,6 +289,7 @@ const CustomerInvoiceForm = ({
                                     <input
                                         defaultValue={data.product}
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -297,6 +304,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.product_hsn_code}
                                         type="text"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -311,6 +319,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.quantity}
                                         type="number"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -325,6 +334,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.rate}
                                         type="text"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -339,6 +349,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.final_amount}
                                         type="number"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -353,6 +364,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.final_amount}
                                         type="number"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -367,6 +379,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.cgst}
                                         type="number"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -381,6 +394,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.sgst}
                                         type="number"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -395,6 +409,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.igst}
                                         type="number"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -409,6 +424,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.final_amount}
                                         type="number"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
@@ -423,6 +439,7 @@ const CustomerInvoiceForm = ({
                                         defaultValue={data.final_amount}
                                         type="number"
                                         readOnly
+                                        disabled
                                     />
                                 </div>
                             </label>
