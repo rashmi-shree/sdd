@@ -225,7 +225,7 @@ const AddFewCustomersForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Customer Name <sup className="asteriskstyle">*</sup>:
+            <sup className="asteriskstyle">*</sup>Customer Name:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -239,7 +239,7 @@ const AddFewCustomersForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Customer Address <sup className="asteriskstyle">*</sup>:
+            <sup className="asteriskstyle">*</sup>Customer Address:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -253,7 +253,7 @@ const AddFewCustomersForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              State:
+            <sup className="asteriskstyle">*</sup>State:
             </div>
             <div className="formdatainputstyle">
               <CustomizedComboboxForState
@@ -267,7 +267,7 @@ const AddFewCustomersForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Ph no <sup className="asteriskstyle">*</sup>:
+            <sup className="asteriskstyle">*</sup>Ph no:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -309,7 +309,7 @@ const AddFewCustomersForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Enquired Product <sup className="asteriskstyle">*</sup>:
+            <sup className="asteriskstyle">*</sup>Enquired Product:
             </div>
             <div className="formdatainputstyle">
               <CustomizedComboboxMultipleSelect
