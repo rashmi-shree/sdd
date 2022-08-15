@@ -105,6 +105,9 @@ const AddFewCustomersForm = ({
         }
       })
       .then((res) => {
+        if(res){
+          alert(res);
+        }
       })
     api.post('delivery/addDeliveryData', {
       params: {
