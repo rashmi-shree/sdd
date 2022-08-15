@@ -144,17 +144,17 @@ const DisplayDealersDetailsTable = ({
                                                     data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                 ><DeleteIcon id="deleteicon" />
                                                 </div>
-                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                                        <div class="modal-content">
-                                                            <div class="modal-body">
+                                                <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                        <div className="modal-content">
+                                                            <div className="modal-body">
                                                                 <p>Are you sure you want to delete ?</p>
                                                             </div>
-                                                            <div class="modal-footer">
+                                                            <div className="modal-footer">
                                                                 <div className='btnstyle'>
                                                                     <Button
                                                                         type="button"
-                                                                        class="btn btn-primary"
+                                                                        className="btn btn-primary"
                                                                         data-bs-dismiss="modal"
                                                                         onClick={() => (deleteevent(data.gstin_number))}  >
                                                                         Confirm
@@ -163,7 +163,7 @@ const DisplayDealersDetailsTable = ({
                                                                 <div className='btnstyle'>
                                                                     <Button
                                                                         type="button"
-                                                                        class="btn btn-secondary"
+                                                                        className="btn btn-secondary"
                                                                         data-bs-dismiss="modal">
                                                                         Cancel
                                                                     </Button>

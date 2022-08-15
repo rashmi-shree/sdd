@@ -113,7 +113,7 @@ const ViewInvoicePage = ({
                                                         onClick={()=>{
                                                             openinvoiceevent(data.invoice_no);
                                                         }}
-                                                        // class="btnstyle"
+                                                        // className="btnstyle"
                                                         >
                                                             View Invoice
                                                     </Button>

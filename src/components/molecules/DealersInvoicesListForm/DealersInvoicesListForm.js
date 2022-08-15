@@ -188,7 +188,6 @@ const DealersInvoicesListForm = ({
                                                     onClick={()=>{
                                                         updatedownloadinvoiceevent(data.invoice_no);
                                                     }}
-                                                    // class="btnstyle"
                                                     >
                                                         Download Invoice
                                                 </Button>

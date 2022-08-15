@@ -175,7 +175,7 @@ const CustomerInvoice = ({
                                     onClick={()=>{
                                         openinvoiceevent(data.customer_reference_no);
                                     }}
-                                    // class="btnstyle"
+                                    // className="btnstyle"
                                     >
                                         Generate Invoice
                                 </Button>

@@ -5,6 +5,7 @@ import CustomizedSearchBar from '../../atoms/CustomizedSearchBar/CustomizedSearc
 import CustomizedBtn from '../../atoms/CustomizedBtn/CustomizedBtn';
 import axios from 'axios';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Button from '@mui/material/Button';
 import '../../../style/style.css';
 
 const DisplayProductDetailsTable = ({
@@ -175,15 +176,30 @@ const DisplayProductDetailsTable = ({
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                     ><DeleteIcon id="deleteicon" />
                                                     </div>
-                                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                                                            <div class="modal-content">
-                                                                <div class="modal-body">
+                                                    <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                            <div className="modal-content">
+                                                                <div className="modal-body">
                                                                     <p>Are you sure you want to delete ?</p>
                                                                 </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={() => (deleteevent(data.product_hsn_code))}  >Confirm</button>
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                                <div className="modal-footer">
+                                                                    <div className='btnstyle'>
+                                                                        <Button
+                                                                            type="button"
+                                                                            className="btn btn-primary"
+                                                                            data-bs-dismiss="modal"
+                                                                            onClick={() => (deleteevent(data.product_hsn_code))}  >
+                                                                            Confirm
+                                                                        </Button>
+                                                                    </div>
+                                                                    <div className='btnstyle'>
+                                                                        <Button
+                                                                            type="button"
+                                                                            className="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">
+                                                                            Cancel
+                                                                        </Button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
