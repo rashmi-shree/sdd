@@ -21,6 +21,7 @@ const LoginPage = ({
     }
     )
       .then((res) => {
+        console.log("res", res);
         if (res) {
           logoutbuttonevent(true);
           navigate('/main');
