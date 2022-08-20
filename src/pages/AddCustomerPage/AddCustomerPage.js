@@ -275,7 +275,7 @@ const AddCustomerPage = ({
                                 ? customertable.filter((user=>
                                   user.customer_name.toLowerCase().includes(query) || 
                                   user.phone_number.toString().includes(query) ||
-                                  user.phone_number_alter_one.toString().includes(query) ||
+                                  user.phone_number_alter_one.includes(query) ||
                                   user.phone_number_alter_two.toString().includes(query)
                                   )).map((data, i) => (
                                     <tr key={i}>
