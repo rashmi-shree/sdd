@@ -274,6 +274,7 @@ const AddFewCustomersForm = ({
                 name="phone_number"
                 type="number"
                 onChange={changeevent}
+                class="noscroll"
               />
             </div>
           </label>
