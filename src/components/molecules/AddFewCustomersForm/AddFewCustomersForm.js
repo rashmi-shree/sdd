@@ -130,9 +130,9 @@ const AddFewCustomersForm = ({
           handleClose();
         }
       })
-      api.put('product/updateProductsDetailsProductData',{
-        params:products
-      })
+      // api.put('product/updateProductsDetailsProductData',{
+      //   params:products
+      // })
   }
   const selectevent = (e) => {
     setProductname(e.target.outerText);

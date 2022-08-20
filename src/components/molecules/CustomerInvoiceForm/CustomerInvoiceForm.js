@@ -52,6 +52,7 @@ const CustomerInvoiceForm = ({
         }
     }, [listofinvoices])
     const submiteventclicked = (customer_reference_no) => {
+        console.log('rowdatadisplayed',rowdatadisplayed);
         let date = new Date();
         var date1 = date.toISOString();
         var date2 = date1.split("-");
@@ -104,6 +105,10 @@ const CustomerInvoiceForm = ({
                     handleClose();
                 }
             })
+
+        // api.put('product/updateProductsDetailsProductData',{
+        //     params:products
+        // })
     }
     const changeevent = (event, index) => {
         let updateRowDataByIndex = [...rowdatadisplayed];
