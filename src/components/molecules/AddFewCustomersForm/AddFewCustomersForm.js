@@ -274,7 +274,7 @@ const AddFewCustomersForm = ({
                 name="phone_number"
                 type="number"
                 onChange={changeevent}
-                class="noscroll"
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>
