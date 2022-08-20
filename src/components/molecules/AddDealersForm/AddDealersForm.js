@@ -117,6 +117,7 @@ const AddDealersForm = ({ handleClose }) => {
                 name="proprietor_phone_number"
                 type="number"
                 onChange={changeevent}
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>

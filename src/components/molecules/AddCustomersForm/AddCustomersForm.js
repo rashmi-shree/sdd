@@ -301,6 +301,7 @@ const AddCustomersForm = ({
                                             type="number"
                                             name="phone_number"
                                             defaultValue={data.phone_number}
+                                            onWheel={(e) => e.target.blur()}
                                         />
                                     </div>
                                 </label>
@@ -314,6 +315,7 @@ const AddCustomersForm = ({
                                         <input
                                             type="number"
                                             defaultValue={data.product_hsn_code}
+                                            onWheel={(e) => e.target.blur()}
                                         />
                                     </div>
                                 </label>
@@ -386,6 +388,7 @@ const AddCustomersForm = ({
                                             name="extended_discount"
                                             onChange={(event) => changeevent(event, data.delivery_id)}
                                             defaultValue={data.extended_discount}
+                                            onWheel={(e) => e.target.blur()}
                                         />
                                     </div>
                                 </label>
@@ -499,6 +502,7 @@ const AddCustomersForm = ({
                                             name="booking_advance_amount"
                                             defaultValue={data.booking_advance_amount}
                                             onChange={(event) => changeevent(event, data.delivery_id)}
+                                            onWheel={(e) => e.target.blur()}
                                         />
                                     </div>
                                 </label>

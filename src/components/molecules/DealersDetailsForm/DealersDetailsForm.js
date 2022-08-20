@@ -352,6 +352,7 @@ const DealersDetailsForm = ({
                           type="number"
                           onChange={(event) => changeevent(event, data.delivery_id)}
                           name="extended_discount"
+                          onWheel={(e) => e.target.blur()}
                         />
                       </div>
                     </label>
@@ -457,6 +458,7 @@ const DealersDetailsForm = ({
                           type="number"
                           onChange={(event) => changeevent(event, data.delivery_id)}
                           name="booking_advance_amount"
+                          onWheel={(e) => e.target.blur()}
                         />
                       </div>
                     </label>

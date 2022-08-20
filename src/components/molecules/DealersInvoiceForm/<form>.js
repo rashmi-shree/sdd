@@ -424,6 +424,7 @@ fetch("http://3.84.110.201:3001/insertintodeliveryfromdealers",{
                     type="number"
                     onChange={changeevent}
                     name="Quantity"
+                    onWheel={(e) => e.target.blur()}
                 />
             </div>
         </label>

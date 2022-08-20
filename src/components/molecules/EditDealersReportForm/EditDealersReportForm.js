@@ -92,6 +92,7 @@ const EditDealersReportForm = ({ rowdata, handleClose }) => {
                                 defaultValue={rowdata.proprietor_phone_number}
                                 onChange={changeevent}
                                 type="number"
+                                onWheel={(e) => e.target.blur()}
                             />
                         </div>
                     </label>

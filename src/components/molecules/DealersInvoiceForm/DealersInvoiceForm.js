@@ -306,6 +306,7 @@ const DealersInvoiceForm = ({
                 name="phone_number_alter_one"
                 type="number"
                 onChange={changeevent}
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>
@@ -320,6 +321,7 @@ const DealersInvoiceForm = ({
                 name="phone_number_alter_two"
                 type="number"
                 onChange={changeevent}
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>

@@ -48,6 +48,7 @@ const ProductsDetailsForm = ({ rowdata, handleClose }) => {
                 defaultValue={rowdata.product_hsn_code}
                 onChange={changeevent}
                 type="number"
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>
@@ -108,6 +109,7 @@ const ProductsDetailsForm = ({ rowdata, handleClose }) => {
                 onChange={changeevent}
                 defaultValue={rowdata.rate_per_unit}
                 type="number"
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>
@@ -123,6 +125,7 @@ const ProductsDetailsForm = ({ rowdata, handleClose }) => {
                 onChange={changeevent}
                 defaultValue={rowdata.gst_rate}
                 type="number"
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>
@@ -152,6 +155,7 @@ const ProductsDetailsForm = ({ rowdata, handleClose }) => {
                 onChange={changeevent}
                 defaultValue={rowdata.discount}
                 type="number"
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>
@@ -167,6 +171,7 @@ const ProductsDetailsForm = ({ rowdata, handleClose }) => {
                 onChange={changeevent}
                 defaultValue={rowdata.stock}
                 type="number"
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>

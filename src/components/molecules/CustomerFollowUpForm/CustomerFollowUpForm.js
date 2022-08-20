@@ -122,6 +122,7 @@ const CustomerFollowUpForm = ({
                 onChange={changeevent}
                 defaultValue={rowdata.phone_number}
                 type="number"
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>

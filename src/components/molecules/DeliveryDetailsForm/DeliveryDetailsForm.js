@@ -85,6 +85,7 @@ const DeliveryDetailsForm = ({ rowdata, handleClose }) => {
                 onChange={changeevent}
                 name="product_sl_no"
                 type="number"
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>
@@ -203,6 +204,7 @@ const DeliveryDetailsForm = ({ rowdata, handleClose }) => {
                 onChange={changeevent}
                 defaultValue={rowdata.phone_number}
                 type="number"
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>
@@ -218,6 +220,7 @@ const DeliveryDetailsForm = ({ rowdata, handleClose }) => {
                 onChange={changeevent}
                 defaultValue={rowdata.phone_number_alter_one}
                 type="number"
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>
@@ -233,6 +236,7 @@ const DeliveryDetailsForm = ({ rowdata, handleClose }) => {
                 onChange={changeevent}
                 defaultValue={rowdata.phone_number_alter_two}
                 type="number"
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>
@@ -385,6 +389,7 @@ const DeliveryDetailsForm = ({ rowdata, handleClose }) => {
                 defaultValue={rowdata.balance_amount}
                 type="number"
                 onChange={changeevent}
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>
