@@ -192,15 +192,15 @@ const AddCustomerPage = ({
         setSearchData(event.target.value);
     }
     const [query, setQuery] = useState('');
-    console.log(customertable.filter(user=>
-      user.customer_name.toLowerCase().includes("r") ));
-    const handleKeypress = (e) => {
-      //it triggers by pressing the enter key
-    if (e.key === 'Enter') {
-      goEventClicked();
-      e.preventDefault();
-    }
-  };
+    // console.log(customertable.filter(user=>
+    //   user.customer_name.toLowerCase().includes("r") ));
+  //   const handleKeypress = (e) => {
+  //     //it triggers by pressing the enter key
+  //   if (e.key === 'Enter') {
+  //     goEventClicked();
+  //     e.preventDefault();
+  //   }
+  // };
     return (
       <div>
         <div>
@@ -273,7 +273,8 @@ const AddCustomerPage = ({
                         {
                             customertable && customertable.length
                                 ? customertable.filter((user=>
-                                  user.customer_name.toLowerCase().includes(query)
+                                  user.customer_name.toLowerCase().includes(query) || 
+                                  user.phone_number.includes(query)
                                   )).map((data, i) => (
                                     <tr key={i}>
                                         <td>{data.customer_reference_no}</td>
