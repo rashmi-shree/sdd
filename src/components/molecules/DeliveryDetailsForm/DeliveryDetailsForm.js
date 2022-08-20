@@ -35,6 +35,11 @@ const DeliveryDetailsForm = ({ rowdata, handleClose }) => {
     setupdatedDeliverystatus(e);
   }
   const submiteventclicked = () => {
+    axios.put(`http://3.84.110.201:3001/product/updateProductsDetailsProductDataIncrement`,{
+      params:{
+        updaterowdata
+      }
+    })
     axios.put(`http://3.84.110.201:3001/delivery/updateDeliveryDetails`,{
       params:{
         updaterowdata

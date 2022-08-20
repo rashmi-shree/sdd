@@ -109,7 +109,7 @@ const CustomerInvoiceForm = ({
                 }
             })
 
-        api.put('product/updateProductsDetailsProductData',{
+        api.put('product/updateProductsDetailsProductDataDecrement',{
             rowdatadisplayed
         })
     }
