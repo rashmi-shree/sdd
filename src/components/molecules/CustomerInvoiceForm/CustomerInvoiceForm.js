@@ -106,9 +106,9 @@ const CustomerInvoiceForm = ({
                 }
             })
 
-        // api.put('product/updateProductsDetailsProductData',{
-        //     params:products
-        // })
+        api.put('product/updateProductsDetailsProductData',{
+            params:rowdatadisplayed
+        })
     }
     const changeevent = (event, index) => {
         let updateRowDataByIndex = [...rowdatadisplayed];
