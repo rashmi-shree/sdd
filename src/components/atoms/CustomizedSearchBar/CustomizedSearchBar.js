@@ -8,7 +8,8 @@ const CustomizedSearchBar = ({
     onHandleChangeEvent,
     type,
     labelname,
-    Btnname
+    Btnname,
+    onKeyPress
     }) => {
     return(
         <div className="custsearchbarcontainer">
@@ -16,6 +17,7 @@ const CustomizedSearchBar = ({
                 type={type} 
                 onHandleChangeEvent={onHandleChangeEvent} 
                 labelname={labelname}
+                onKeyPress={onKeyPress}
             />
             <CustomizedBtn 
                 onClick={goEventClicked} 

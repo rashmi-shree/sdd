@@ -8,7 +8,8 @@ const CustomizedTextInput = ({
   type,
   defaultValue,
   index,
-  typeofinput
+  typeofinput,
+  onKeyPress
  }) => {
   return (
     <Box
@@ -28,6 +29,7 @@ const CustomizedTextInput = ({
         placeholder={labelname}
         variant="standard" 
         index={index}
+        onKeyPress={onKeyPress}
         />
     </Box>
   );

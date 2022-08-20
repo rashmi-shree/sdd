@@ -191,6 +191,12 @@ const AddCustomerPage = ({
     const onHandleChangeEvent = (event) => {
         setSearchData(event.target.value);
     }
+    const handleKeypress = (e) => {
+      //it triggers by pressing the enter key
+    if (e.keyCode === 13) {
+      goEventClicked();
+    }
+  };
     return (
       <div>
         <div>
@@ -202,6 +208,7 @@ const AddCustomerPage = ({
                 Manage Customer Data
             </div>
             <CustomizedSearchBar
+                onKeyPress={handleKeypress}
                 onHandleChangeEvent={onHandleChangeEvent}
                 goEventClicked={goEventClicked}
                 labelname="phone number/ customer name"
