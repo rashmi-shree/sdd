@@ -191,6 +191,8 @@ const AddCustomerPage = ({
     const onHandleChangeEvent = (event) => {
         setSearchData(event.target.value);
     }
+    const [query, setQuery] = useState('');
+    console.log(customertable.filter(user=>user.customer_name.toLowerCase().includes("p")));
     const handleKeypress = (e) => {
       //it triggers by pressing the enter key
     if (e.key === 'Enter') {
@@ -208,6 +210,11 @@ const AddCustomerPage = ({
             <div className="pageheading">
                 Manage Customer Data
             </div>
+            <input
+              type="text"
+              placeholder="search"
+              onChange={(e)=>setQuery(e.target.value)}
+            />
             <CustomizedSearchBar
                 onKeyPress={handleKeypress}
                 onHandleChangeEvent={onHandleChangeEvent}
