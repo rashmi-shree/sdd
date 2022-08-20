@@ -18,8 +18,10 @@
     /* margin-left: 22rem; */
     width: 16rem;
     border-bottom: 2px solid;
-    font-weight: lighter;
 }
+.searchbarstyle input:focus {
+    border: none;
+  }
 /* header start */
 .headercontainer{
     background-color: white;
