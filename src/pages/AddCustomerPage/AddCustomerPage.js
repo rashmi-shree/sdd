@@ -211,18 +211,20 @@ const AddCustomerPage = ({
             <div className="pageheading">
                 Manage Customer Data
             </div>
+            <div className="searchbarstyle">
             <input
               type="text"
-              placeholder="search"
+              placeholder="Phone Number / Customer Name"
               onChange={(e)=>setQuery(e.target.value)}
             />
-            <CustomizedSearchBar
+            </div>
+            {/* <CustomizedSearchBar
                 onKeyPress={handleKeypress}
                 onHandleChangeEvent={onHandleChangeEvent}
                 goEventClicked={goEventClicked}
                 labelname="phone number/ customer name"
                 Btnname="search"
-            />
+            /> */}
             <div className="modalandback">
               <CustomizedBtn 
               BtnName="Add Customer"

@@ -8,6 +8,12 @@
 .tableContainer{
     margin-left: 4rem;
 }
+.searchbarstyle{
+    border: 2px solid black;
+}
+.searchbarstyle input{
+    border: 2px solid black;
+}
 /* header start */
 .headercontainer{
     background-color: white;
