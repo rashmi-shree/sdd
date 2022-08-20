@@ -194,6 +194,13 @@ const AddCustomerPage = ({
     }
     // console.log(customertable.filter(user=>
     //   user.customer_name.toLowerCase().includes("r") ));
+    useEffect(()=>{
+      let a = customertable.map((d=>{
+        return d.phone_number_alter_one
+      }))
+      console.log(a);
+      console.log(typeof(a));
+    },[customertable])
   //   const handleKeypress = (e) => {
   //     //it triggers by pressing the enter key
   //   if (e.key === 'Enter') {
@@ -274,9 +281,9 @@ const AddCustomerPage = ({
                             customertable && customertable.length
                                 ? customertable.filter((user=>
                                   user.customer_name.toLowerCase().includes(query) || 
-                                  user.phone_number.toString().includes(query) ||
-                                  user.phone_number_alter_one.includes(query) ||
-                                  user.phone_number_alter_two.toString().includes(query)
+                                  user.phone_number.toString().includes(query)
+                                  // user.phone_number_alter_one.includes(query) ||
+                                  // user.phone_number_alter_two.toString().includes(query)
                                   )).map((data, i) => (
                                     <tr key={i}>
                                         <td>{data.customer_reference_no}</td>
