@@ -222,6 +222,7 @@ const AddCustomersForm = ({
                                             defaultValue={currentCustomerReferenceNo}
                                             type="text"
                                             readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -240,6 +241,7 @@ const AddCustomersForm = ({
                                                     ? data.booked_date = data.booked_date
                                                     : data.booked_date = data.booked_date
                                             }
+                                            disable="yes"
                                         />
                                     </div>
                                 </label>
@@ -258,6 +260,24 @@ const AddCustomersForm = ({
                                                     ? data.requested_delivery_date = data.requested_delivery_date
                                                     : data.requested_delivery_date = data.requested_delivery_date
                                             }
+                                            disable="yes"
+                                        />
+                                    </div>
+                                </label>
+                            </div>
+                            <div className="nameandinputcontainer">
+                                <label className="formdatalabelstyle">
+                                    <div className="formnamestyle">
+                                        Customer Name:
+                                    </div>
+                                    <div className="formdatainputstyle">
+                                        <input
+                                            defaultValue={data.customer_name}
+                                            name="customer_name"
+                                            type="text"
+                                            onChange={(event) => changeevent(event, data.delivery_id)}
+                                            disabled
+                                            readOnly
                                         />
                                     </div>
                                 </label>
@@ -273,6 +293,8 @@ const AddCustomersForm = ({
                                             name="customer_address"
                                             type="text"
                                             onChange={(event) => changeevent(event, data.delivery_id)}
+                                            disabled
+                                            readOnly
                                         />
                                     </div>
                                 </label>
@@ -287,6 +309,7 @@ const AddCustomersForm = ({
                                             defaultValue={data.state}
                                             type="text"
                                             readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -302,6 +325,8 @@ const AddCustomersForm = ({
                                             name="phone_number"
                                             defaultValue={data.phone_number}
                                             onWheel={(e) => e.target.blur()}
+                                            disabled
+                                            readOnly
                                         />
                                     </div>
                                 </label>
@@ -316,6 +341,8 @@ const AddCustomersForm = ({
                                             type="number"
                                             defaultValue={data.product_hsn_code}
                                             onWheel={(e) => e.target.blur()}
+                                            readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -330,6 +357,7 @@ const AddCustomersForm = ({
                                             type="text"
                                             defaultValue={data.product}
                                             readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -345,6 +373,7 @@ const AddCustomersForm = ({
                                             name="quantity"
                                             defaultValue={data.quantity}
                                             readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -359,6 +388,7 @@ const AddCustomersForm = ({
                                             type="text"
                                             defaultValue={data.rate}
                                             readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -373,6 +403,7 @@ const AddCustomersForm = ({
                                             type="text"
                                             defaultValue={data.discount}
                                             readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -403,6 +434,7 @@ const AddCustomersForm = ({
                                             type="text"
                                             defaultValue={data.cgst}
                                             readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -417,6 +449,7 @@ const AddCustomersForm = ({
                                             type="text"
                                             defaultValue={data.sgst}
                                             readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -431,6 +464,7 @@ const AddCustomersForm = ({
                                             type="text"
                                             defaultValue={data.igst}
                                             readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -445,6 +479,7 @@ const AddCustomersForm = ({
                                             type="text"
                                             defaultValue={data.rate}
                                             readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -459,6 +494,7 @@ const AddCustomersForm = ({
                                             type="text"
                                             defaultValue={data.final_amount}
                                             readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -473,6 +509,7 @@ const AddCustomersForm = ({
                                             type="number"
                                             defaultValue={data.balance_amount}
                                             readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -487,6 +524,7 @@ const AddCustomersForm = ({
                                             type="text"
                                             defaultValue={data.payment_status}
                                             readOnly
+                                            disabled
                                         />
                                     </div> 
                                 </label>
