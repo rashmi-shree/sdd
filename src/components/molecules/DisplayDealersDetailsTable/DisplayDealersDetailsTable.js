@@ -18,6 +18,7 @@ const DisplayDealersDetailsTable = ({
     const [changedmodalview, setChangedmodalview] = useState('');
     const [modalview, setmodalview] = useState();
     const [open, setOpen] = useState(false);
+    const [query, setQuery] = useState('');
     const openevent = (e) => {
         setOpen(e)
     }
@@ -98,13 +99,20 @@ const DisplayDealersDetailsTable = ({
                 displayDealersDetailsData={displayDealersDetailsData}
                 rowdata={rowdata}
             />
-            <CustomizedSearchBar
+            <div className="searchbarstyle">
+              <input
+                type="text"
+                placeholder="Proprietor Name or Phone Number"
+                onChange={(e)=>setQuery(e.target.value)}
+              />
+            </div>
+            {/* <CustomizedSearchBar
                 labelname="proprietor name /proprietor phone number"
                 Btnname="search"
                 onHandleChangeEvent={searchHandle}
                 goEventClicked={searchclicked}
                 onKeyPress={handleKeypress}
-            />
+            /> */}
             <div className="adddealersbtnstyle">
                 <CustomizedBtn
                     BtnName="Add Dealers"
@@ -130,7 +138,10 @@ const DisplayDealersDetailsTable = ({
                     <tbody>
                         {
                             dealersdetailsdata && dealersdetailsdata.length
-                                ? dealersdetailsdata.map((data, i) => (
+                                ? dealersdetailsdata.filter((user=>
+                                    user.proprietor_name.toLowerCase().includes(query) || 
+                                    user.proprietor_phone_number.toString().includes(query)
+                                    )).map((data, i) => (
                                     <tr key={i}>
                                         <td>{data.gstin_number}</td>
                                         <td>{data.enterprise_name}</td>

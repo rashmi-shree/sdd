@@ -18,6 +18,7 @@ const DisplayDeliveryReportsTable = ({
     const [rowdata, setrowdata] = useState({});
     const [modalview, setmodalview] = useState();
     const [open, setOpen] = useState(false);
+    const [query, setQuery] = useState('');
     const openevent = (e) =>{
       setOpen(e)
     }
@@ -144,13 +145,20 @@ const DisplayDeliveryReportsTable = ({
                 displayDeliveryReportsData={displayDeliveryReportsData}
                 rowdata={rowdata}
             />
-            <CustomizedSearchBar
+            <div className="searchbarstyle">
+              <input
+                type="text"
+                placeholder="Phone Number / Customer Name"
+                onChange={(e)=>setQuery(e.target.value)}
+              />
+            </div>
+            {/* <CustomizedSearchBar
                 labelname="customer :- phone number / name"
                 Btnname="search"
                 onHandleChangeEvent={searchHandle}
                 goEventClicked={searchclicked}
                 onKeyPress={handleKeypress}
-            />
+            /> */}
             <div>
                 {
                     tabledata && tabledata.length ?
@@ -192,7 +200,12 @@ const DisplayDeliveryReportsTable = ({
                     <tbody>
                         {
                             tabledata && tabledata.length 
-                            ? tabledata.map((data, i) => (
+                            ? tabledata.filter((user=>
+                                user.customer_name.toLowerCase().includes(query) || 
+                                user.phone_number.toString().includes(query) ||
+                                user.phone_number_alter_one.toString().includes(query) ||
+                                user.phone_number_alter_two.toString().includes(query)
+                                )).map((data, i) => (
                                 <tr key={i}>
                                     <td>{data.customer_reference_no}</td>
                                     <td>{data.product_sl_no}</td>

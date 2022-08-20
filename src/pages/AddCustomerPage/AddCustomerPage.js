@@ -274,7 +274,9 @@ const AddCustomerPage = ({
                             customertable && customertable.length
                                 ? customertable.filter((user=>
                                   user.customer_name.toLowerCase().includes(query) || 
-                                  user.phone_number.toString().includes(query)
+                                  user.phone_number.toString().includes(query) ||
+                                  user.phone_number_alter_one.toString().includes(query) ||
+                                  user.phone_number_alter_two.toString().includes(query)
                                   )).map((data, i) => (
                                     <tr key={i}>
                                         <td>{data.customer_reference_no}</td>

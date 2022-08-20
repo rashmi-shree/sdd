@@ -17,6 +17,7 @@ const CustomerInvoice = ({
     const [currentinvoiceno, setcurrentinvoiceno] = useState();
     const [currentCustomerReferenceNoCustomerInvoice, setcurrentCustomerReferenceNoCustomerInvoice] = useState();
     const [modalview, setModalview] = useState('');
+    const [query, setQuery] = useState('');
     const [open, setOpen] = useState(false);
     const openevent = (e) =>{
       setOpen(e)
@@ -94,13 +95,20 @@ const CustomerInvoice = ({
     }, [searchData])
     return (
         <div className="generateinvoicecontainer">
-            <CustomizedSearchBar
+            <div className="searchbarstyle">
+              <input
+                type="text"
+                placeholder="Phone Number / Customer Name"
+                onChange={(e)=>setQuery(e.target.value)}
+              />
+            </div>
+            {/* <CustomizedSearchBar
                 onHandleChangeEvent={onHandleChangeEvent}
                 goEventClicked={goEventClicked}
                 onKeyPress={handleKeypress}
                 labelname="phone number/ customer name"
                 Btnname="search"
-            />
+            /> */}
             <OpenModal
                 api={api}
                 modalview={modalview}
@@ -135,7 +143,12 @@ const CustomerInvoice = ({
                         {
                             customertable && customertable.length 
                             ? 
-                            customertable.map((data, i) => (
+                            customertable.filter((user=>
+                                user.customer_name.toLowerCase().includes(query) || 
+                                user.phone_number.toString().includes(query) ||
+                                user.phone_number_alter_one.toString().includes(query) ||
+                                user.phone_number_alter_two.toString().includes(query)
+                                )).map((data, i) => (
                                 data.from_dealer == 1 
                                 ? <></>
                                 :  <tr key={i}>

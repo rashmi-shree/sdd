@@ -14,6 +14,7 @@ const DealersInvoice = ({
     const [invoiceFormData, setInvoiceFormData] = useState([]);
     const [modalview, setModalview] = useState('');
     const [open, setOpen] = useState(false);
+    const [query, setQuery] = useState('');
     const openevent = (e) =>{
       setOpen(e)
     }
@@ -98,13 +99,20 @@ const DealersInvoice = ({
                 invoiceFormData={invoiceFormData} 
                 deliveryinvoices={deliveryinvoices}
             />
-            <CustomizedSearchBar 
+            <div className="searchbarstyle">
+                <input
+                type="text"
+                placeholder="Phone Number / Customer Name"
+                onChange={(e)=>setQuery(e.target.value)}
+                />
+            </div>
+            {/* <CustomizedSearchBar 
                 onHandleChangeEvent={onHandleChangeEvent}
                 goEventClicked={goEventClicked}
                 onKeyPress={handleKeypress}
                 labelname="phone number/ name" 
                 Btnname="Search"
-            />
+            /> */}
             <div>
             <DealersInvoicesListForm 
                 api={api}
@@ -130,7 +138,10 @@ const DealersInvoice = ({
                     <tbody>
                     {
                         dealersDetails && dealersDetails.length 
-                        ? dealersDetails.map((data, i)=>(
+                        ? dealersDetails.filter((user=>
+                            user.proprietor_name.toLowerCase().includes(query) ||
+                            user.proprietor_phone_number.toString().includes(query)
+                            )).map((data, i)=>(
                             <tr key={i}>
                                 <td>{data.gstin_number}</td>
                                 <td>{data.enterprise_name}</td>

@@ -19,6 +19,7 @@ const DisplayProductDetailsTable = ({
     const [changedmodalview, setChangedmodalview] = useState('');
     const [modalview, setmodalview] = useState();
     const [open, setOpen] = useState(false);
+    const [query, setQuery] = useState('');
     const openevent = (e) => {
         setOpen(e)
     }
@@ -123,6 +124,13 @@ const DisplayProductDetailsTable = ({
                 displayProductDetailsData={displayProductDetailsData}
                 rowdata={rowdata}
             />
+            <div className="searchbarstyle">
+              <input
+                type="text"
+                placeholder="Product Name/Product HSN"
+                onChange={(e)=>setQuery(e.target.value)}
+              />
+            </div>
             <CustomizedSearchBar
                 labelname="product name / product hsn"
                 Btnname="search"
@@ -159,7 +167,10 @@ const DisplayProductDetailsTable = ({
                         <tbody>
                             {
                                 productsdetailsdata && productsdetailsdata.length
-                                    ? productsdetailsdata.map((data) => (
+                                    ? productsdetailsdata.filter((user=>
+                                        user.product_name.toLowerCase().includes(query) || 
+                                        user.product_hsn_code.toString().includes(query)
+                                        )).map((data) => (
                                         <tr>
                                             <td>{data.product_hsn_code}</td>
                                             <td>{data.product_name}</td>
