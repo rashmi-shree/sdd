@@ -51,8 +51,9 @@ const CustomerInvoiceForm = ({
             setfinalinvoicenumber("22-2023" + "/" + "000" + newmaximum);
         }
     }, [listofinvoices])
-    const submiteventclicked = (customer_reference_no) => {
+    const submiteventclicked = (customer_reference_no, invoiceFormData) => {
         console.log('rowdatadisplayed',rowdatadisplayed);
+        console.log('invoiceFormData',invoiceFormData);
         let date = new Date();
         var date1 = date.toISOString();
         var date2 = date1.split("-");
@@ -107,7 +108,7 @@ const CustomerInvoiceForm = ({
             })
 
         api.put('product/updateProductsDetailsProductData',{
-            params:rowdatadisplayed
+            params:invoiceFormData
         })
     }
     const changeevent = (event, index) => {
@@ -458,7 +459,7 @@ const CustomerInvoiceForm = ({
                                     <CustomizedBtn
                                         BtnName="submit"
                                         onClick={() => {
-                                            submiteventclicked(data.customer_reference_no)
+                                            submiteventclicked(data.customer_reference_no, invoiceFormData)
                                         }}
                                     />
                                 </div>
