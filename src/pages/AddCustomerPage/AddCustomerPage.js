@@ -19,6 +19,7 @@ const AddCustomerPage = ({
     const [searchData, setSearchData] = useState('');
     const [modalview, setModalview] = useState('');
     const [purchasemsg, setpurchasemsg] = useState();
+    const [query, setQuery] = useState('');
     const setpurchasemsgevent = (e) =>{
       setpurchasemsg(e)
     }
@@ -191,7 +192,6 @@ const AddCustomerPage = ({
     const onHandleChangeEvent = (event) => {
         setSearchData(event.target.value);
     }
-    const [query, setQuery] = useState('');
     // console.log(customertable.filter(user=>
     //   user.customer_name.toLowerCase().includes("r") ));
   //   const handleKeypress = (e) => {
@@ -212,11 +212,11 @@ const AddCustomerPage = ({
                 Manage Customer Data
             </div>
             <div className="searchbarstyle">
-            <input
-              type="text"
-              placeholder="Phone Number / Customer Name"
-              onChange={(e)=>setQuery(e.target.value)}
-            />
+              <input
+                type="text"
+                placeholder="Phone Number / Customer Name"
+                onChange={(e)=>setQuery(e.target.value)}
+              />
             </div>
             {/* <CustomizedSearchBar
                 onKeyPress={handleKeypress}

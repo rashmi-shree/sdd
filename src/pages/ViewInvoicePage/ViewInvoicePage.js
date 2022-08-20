@@ -17,6 +17,7 @@ const ViewInvoicePage = ({
     const [invoiceFormData, setInvoiceFormData] = useState([]);
     const [searchData, setSearchData] = useState('');
     const [modalview, setModalview] = useState('');
+    const [query, setQuery] = useState('');
     const [open, setOpen] = useState(false);
     const openevent = (e) =>{
       setOpen(e)
@@ -70,14 +71,21 @@ const ViewInvoicePage = ({
                 <div className="pageheading">
                     View Your Invoices
                 </div>
-                <CustomizedSearchBar
+                <div className="searchbarstyle">
+                <input
+                    type="text"
+                    placeholder="Phone Number / Customer Name"
+                    onChange={(e)=>setQuery(e.target.value)}
+                />
+                </div>
+                {/* <CustomizedSearchBar
                     onHandleChangeEvent={onHandleChangeEvent}
                     onKeyPress={handleKeypress}
                     type="search"
                     goEventClicked={goEventClicked}
                     labelname="phone number / Invoice Number"
                     Btnname="search"
-                />
+                /> */}
                 <div className="displayContainer">
                     <div className="backarrow">
                         <p
@@ -100,7 +108,10 @@ const ViewInvoicePage = ({
                                 </thead>
                                 <tbody>
                                     {
-                                        invoiceData.map((data, i) => (
+                                        invoiceData.filter((user=>
+                                            user.customer_name.toLowerCase().includes(query) ||
+                                            user.invoice_no.toString().includes(query)
+                                            )).map((data, i) => (
                                             <tr key={i}>
                                                 <td>
                                                     {
