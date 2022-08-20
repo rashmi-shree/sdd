@@ -269,7 +269,9 @@ const AddCustomerPage = ({
                     <tbody>
                         {
                             customertable && customertable.length
-                                ? customertable.map((data, i) => (
+                                ? customertable.filter((user=>
+                                  user.customer_name.toLowerCase().includes(query)
+                                  )).map((data, i) => (
                                     <tr key={i}>
                                         <td>{data.customer_reference_no}</td>
                                         <td>
