@@ -20,10 +20,10 @@
     border-bottom: 2px solid;
 }
 .searchbarstyle input:focus {
-    border: none;
+    outline: none;
   }
   .searchbarstyle input:active {
-    border: none;
+    outline: none;
   }
 /* header start */
 .headercontainer{
