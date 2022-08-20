@@ -107,6 +107,13 @@ const DisplayProductDetailsTable = ({
                 setProductsdetailsdata(res.data);
             })
     }
+    const handleKeypress = (e) => {
+        //it triggers by pressing the enter key
+      if (e.key === 'Enter') {
+        searchclicked();
+        e.preventDefault();
+      }
+    };
     return (
         <div>
             <OpenModal
@@ -121,6 +128,7 @@ const DisplayProductDetailsTable = ({
                 Btnname="search"
                 onHandleChangeEvent={searchHandle}
                 goEventClicked={searchclicked}
+                onKeyPress={handleKeypress}
             />
             <div className='adddealersbtnstyle'>
                 <CustomizedBtn

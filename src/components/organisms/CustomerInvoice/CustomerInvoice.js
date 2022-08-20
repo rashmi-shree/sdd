@@ -80,6 +80,13 @@ const CustomerInvoice = ({
             setCustomertable(res.data);
         })
     }
+    const handleKeypress = (e) => {
+        //it triggers by pressing the enter key
+      if (e.key === 'Enter') {
+        goEventClicked();
+        e.preventDefault();
+      }
+    };
     useEffect(() => {
         if (searchData === "") {
             displayBookedCustomeerDataEvent();
@@ -90,6 +97,7 @@ const CustomerInvoice = ({
             <CustomizedSearchBar
                 onHandleChangeEvent={onHandleChangeEvent}
                 goEventClicked={goEventClicked}
+                onKeyPress={handleKeypress}
                 labelname="phone number/ customer name"
                 Btnname="search"
             />

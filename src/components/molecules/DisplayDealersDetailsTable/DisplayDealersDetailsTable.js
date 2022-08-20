@@ -70,6 +70,13 @@ const DisplayDealersDetailsTable = ({
                 setDealersdetailsdata(res.data);
             })
     }
+    const handleKeypress = (e) => {
+        //it triggers by pressing the enter key
+      if (e.key === 'Enter') {
+        searchclicked();
+        e.preventDefault();
+      }
+    };
     const deleteevent = (id) => {
         api.delete(`http://3.84.110.201:3001/dealers/deletefromdealersdetailstable`,
             {
@@ -96,6 +103,7 @@ const DisplayDealersDetailsTable = ({
                 Btnname="search"
                 onHandleChangeEvent={searchHandle}
                 goEventClicked={searchclicked}
+                onKeyPress={handleKeypress}
             />
             <div className="adddealersbtnstyle">
                 <CustomizedBtn

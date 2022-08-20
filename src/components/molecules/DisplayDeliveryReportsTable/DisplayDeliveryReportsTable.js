@@ -119,6 +119,13 @@ const DisplayDeliveryReportsTable = ({
             setTableDataEvent(res.data);
         })
     }
+    const handleKeypress = (e) => {
+        //it triggers by pressing the enter key
+      if (e.key === 'Enter') {
+        searchclicked();
+        e.preventDefault();
+      }
+    };
     const rowdataevent = (e) => {
         setrowdata(e);
     }
@@ -142,6 +149,7 @@ const DisplayDeliveryReportsTable = ({
                 Btnname="search"
                 onHandleChangeEvent={searchHandle}
                 goEventClicked={searchclicked}
+                onKeyPress={handleKeypress}
             />
             <div>
                 {

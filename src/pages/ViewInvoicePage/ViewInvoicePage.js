@@ -36,6 +36,13 @@ const ViewInvoicePage = ({
             setInvoiceData(res.data);
         })
     }
+    const handleKeypress = (e) => {
+        //it triggers by pressing the enter key
+      if (e.key === 'Enter') {
+        goEventClicked();
+        e.preventDefault();
+      }
+    };
     const openinvoiceevent = (invoiceNo) => {
         api.post('/delivery/getDeliveryReportData', {
             params: {
@@ -65,6 +72,7 @@ const ViewInvoicePage = ({
                 </div>
                 <CustomizedSearchBar
                     onHandleChangeEvent={onHandleChangeEvent}
+                    onKeyPress={handleKeypress}
                     type="search"
                     goEventClicked={goEventClicked}
                     labelname="phone number / Invoice Number"

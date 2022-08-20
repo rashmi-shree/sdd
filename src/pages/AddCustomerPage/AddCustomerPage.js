@@ -210,8 +210,6 @@ const AddCustomerPage = ({
             </div>
             <CustomizedSearchBar
                 onKeyPress={handleKeypress}
-                // onKeyPress={e => e.key === 'Enter' && handleKeypress}
-                // onKeyPress={(e) => e.key === 'Enter' && goEventClicked()}
                 onHandleChangeEvent={onHandleChangeEvent}
                 goEventClicked={goEventClicked}
                 labelname="phone number/ customer name"

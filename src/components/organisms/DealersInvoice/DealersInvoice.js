@@ -65,6 +65,13 @@ const DealersInvoice = ({
             setdealersDetails(res.data);
         })
     }
+    const handleKeypress = (e) => {
+        //it triggers by pressing the enter key
+      if (e.key === 'Enter') {
+        goEventClicked();
+        e.preventDefault();
+      }
+    };
     const [dealersdata,setdealersdata] = useState();
     const dealersdataevent = (e) => {
         setdealersdata(e)
@@ -94,6 +101,7 @@ const DealersInvoice = ({
             <CustomizedSearchBar 
                 onHandleChangeEvent={onHandleChangeEvent}
                 goEventClicked={goEventClicked}
+                onKeyPress={handleKeypress}
                 labelname="phone number/ name" 
                 Btnname="Search"
             />
