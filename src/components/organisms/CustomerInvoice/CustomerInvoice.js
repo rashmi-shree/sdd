@@ -146,8 +146,8 @@ const CustomerInvoice = ({
                             customertable.filter((user=>
                                 user.customer_name.toLowerCase().includes(query) || 
                                 user.phone_number.toString().includes(query) ||
-                                user.phone_number_alter_one.toString().includes(query) ||
-                                user.phone_number_alter_two.toString().includes(query)
+                                user.phone_number_alter_one == query ||
+                                user.phone_number_alter_two == query
                                 )).map((data, i) => (
                                 data.from_dealer == 1 
                                 ? <></>

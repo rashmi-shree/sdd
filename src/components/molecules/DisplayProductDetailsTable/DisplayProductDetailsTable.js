@@ -131,13 +131,13 @@ const DisplayProductDetailsTable = ({
                 onChange={(e)=>setQuery(e.target.value)}
               />
             </div>
-            <CustomizedSearchBar
+            {/* <CustomizedSearchBar
                 labelname="product name / product hsn"
                 Btnname="search"
                 onHandleChangeEvent={searchHandle}
                 goEventClicked={searchclicked}
                 onKeyPress={handleKeypress}
-            />
+            /> */}
             <div className='adddealersbtnstyle'>
                 <CustomizedBtn
                     BtnName="Add Product"

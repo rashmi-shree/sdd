@@ -99,13 +99,6 @@ const DealersInvoice = ({
                 invoiceFormData={invoiceFormData} 
                 deliveryinvoices={deliveryinvoices}
             />
-            <div className="searchbarstyle">
-                <input
-                type="text"
-                placeholder="Phone Number / Customer Name"
-                onChange={(e)=>setQuery(e.target.value)}
-                />
-            </div>
             {/* <CustomizedSearchBar 
                 onHandleChangeEvent={onHandleChangeEvent}
                 goEventClicked={goEventClicked}
@@ -119,6 +112,13 @@ const DealersInvoice = ({
                 deliveryinvoices={deliveryinvoices}
                 fetchinvoicesfromdelivery={fetchinvoicesfromdelivery}
             />
+            </div>
+            <div className="searchbarstyle">
+                <input
+                type="text"
+                placeholder="Phone Number / Customer Name"
+                onChange={(e)=>setQuery(e.target.value)}
+                />
             </div>
             <div className='table-responsive'>
                 <table className="table table-striped table-bordered tablebackground">
