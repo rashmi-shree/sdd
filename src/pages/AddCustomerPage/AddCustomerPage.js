@@ -194,9 +194,8 @@ const AddCustomerPage = ({
     const handleKeypress = (e) => {
       //it triggers by pressing the enter key
     if (e.key === 'Enter') {
-      console.log("search clicked");
+      goEventClicked();
       e.preventDefault();
-      // goEventClicked();
     }
   };
     return (
