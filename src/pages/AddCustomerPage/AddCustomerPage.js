@@ -196,10 +196,9 @@ const AddCustomerPage = ({
     //   user.customer_name.toLowerCase().includes("r") ));
     useEffect(()=>{
       let a = customertable.map((d=>{
-        return d.phone_number_alter_one
+        console.log(d.phone_number_alter_one);
+        console.log(typeof(d.phone_number_alter_one));
       }))
-      console.log(a);
-      console.log(typeof(a));
     },[customertable])
   //   const handleKeypress = (e) => {
   //     //it triggers by pressing the enter key
