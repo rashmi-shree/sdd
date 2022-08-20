@@ -192,7 +192,8 @@ const AddCustomerPage = ({
         setSearchData(event.target.value);
     }
     const [query, setQuery] = useState('');
-    console.log(customertable.filter(user=>user.customer_name.toLowerCase().includes("p")));
+    console.log(customertable.filter(user=>
+      (user.customer_name.toLowerCase().includes("r")||user.phone_number().includes("3"))));
     const handleKeypress = (e) => {
       //it triggers by pressing the enter key
     if (e.key === 'Enter') {
