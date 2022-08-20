@@ -14,6 +14,7 @@ const CustomerInvoiceForm = ({
     const [finalinvoicenumber, setfinalinvoicenumber] = useState('');
     const [updaterowdata, setUpdaterowdata] = useState();
     const [rowdatadisplayed, setRowdatadisplayed] = useState();
+    const [rowdatadisplayedalter, setRowdatadisplayedalter] = useState();
     useEffect(() => {
         api.get('delivery/fetchinvoicesfromdeliverytable')
             .then((res) => {
@@ -54,6 +55,7 @@ const CustomerInvoiceForm = ({
     const submiteventclicked = (customer_reference_no, invoiceFormData) => {
         console.log('rowdatadisplayed',rowdatadisplayed);
         console.log('invoiceFormData',invoiceFormData);
+        console.log('rowdatadisplayedalter',rowdatadisplayedalter);
         let date = new Date();
         var date1 = date.toISOString();
         var date2 = date1.split("-");
@@ -112,6 +114,7 @@ const CustomerInvoiceForm = ({
         })
     }
     const changeevent = (event, index) => {
+        setRowdatadisplayedalter(rowdatadisplayed);
         let updateRowDataByIndex = [...rowdatadisplayed];
         rowdatadisplayed.find((item, i) => {
             if (item.delivery_id === index) {
