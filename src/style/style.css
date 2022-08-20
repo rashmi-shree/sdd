@@ -22,6 +22,9 @@
 .searchbarstyle input:focus {
     border: none;
   }
+  .searchbarstyle input:active {
+    border: none;
+  }
 /* header start */
 .headercontainer{
     background-color: white;
