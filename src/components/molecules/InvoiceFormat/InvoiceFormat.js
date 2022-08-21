@@ -28,6 +28,7 @@ const InvoiceFormat = ({
     }, [invoiceFormData])
     return (
         <div className="invoiceformatcontainer">
+            <p>Invoice</p>
             <div className="table-responsive" id="tableprint" >
                 {
                     constantinvoicedata
@@ -84,13 +85,13 @@ const InvoiceFormat = ({
                                     </tr>
                                     <tr>
                                         <td>Place of supply : </td>
-                                        <td colspan="11">{constantinvoicedata.state}</td>
+                                        <td colspan="11">{constantinvoicedata.place_of_supply}</td>
                                     </tr>
                                     <tr>
                                         <td>Contact NO :</td>
                                         <td colspan="2">{constantinvoicedata.phone_number} </td>
-                                        <td colspan="4">{constantinvoicedata.phone_number} </td>
-                                        <td colspan="4">{constantinvoicedata.phone_number} </td>
+                                        <td colspan="4">{constantinvoicedata.phone_number_alter_one} </td>
+                                        <td colspan="4">{constantinvoicedata.phone_number_alter_two} </td>
                                     </tr>
                                     <tr>
                                         <td>Sl</td>
