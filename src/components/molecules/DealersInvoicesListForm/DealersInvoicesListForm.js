@@ -135,7 +135,7 @@ const DealersInvoicesListForm = ({
                         <tr>
                             <th>Invoices List</th>
                             <th>Action</th>
-                            <th>Generate</th>
+                            {/* <th>Generate</th> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -179,7 +179,7 @@ const DealersInvoicesListForm = ({
                                                 </div>
                                         }
                                         </td>
-                                        <td>
+                                        {/* <td>
                                             <div className='btnstyle'>
                                                 <Button 
                                                     id="btn"
@@ -201,7 +201,7 @@ const DealersInvoicesListForm = ({
                                              verificationstatus={verificationstatus}
                                              fetchdealersdatatoverify={fetchdealersdatatoverify}
                                               />
-                                        </td>
+                                        </td> */}
                                     </tr>
                                 ))
                                 :
