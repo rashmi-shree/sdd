@@ -186,21 +186,21 @@ const CustomerInvoice = ({
                                         }}
                                     />
                                 </td>
-                                <td>
-                                {/* <div className='btnstyle'>
-                                <Button
-                                    // id="btn"
-                                    // type="button" 
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal"
-                                    onClick={()=>{
-                                        openinvoiceevent(data.customer_reference_no);
-                                    }}
-                                    // className="btnstyle"
-                                    >
-                                        Generate Invoice
-                                </Button>
-                                </div> */}
+                                {/* <td>
+                                 <div className='btnstyle'>
+                                    <Button
+                                        // id="btn"
+                                        // type="button" 
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal"
+                                        onClick={()=>{
+                                            openinvoiceevent(data.customer_reference_no);
+                                        }}
+                                        // className="btnstyle"
+                                        >
+                                            Generate Invoice
+                                    </Button>
+                                </div> 
                                 <FullScreenModal 
                                     api={api}
                                     modalview={modalview}
@@ -218,9 +218,9 @@ const CustomerInvoice = ({
                                             openevent(true);
                                         }}
                                     />
-                                 */}
+                                 
                                     
-                                </td>
+                                </td> */}
                                 </tr>
                               ))
                               : <tr>
