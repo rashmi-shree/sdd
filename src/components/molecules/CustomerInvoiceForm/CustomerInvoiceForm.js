@@ -146,6 +146,21 @@ const CustomerInvoiceForm = ({
                                 </div>
                                 <div className="formdatainputstyle">
                                     <input
+                                        defaultValue={data.customer_name}
+                                        type="text"
+                                        readOnly
+                                        disabled
+                                    />
+                                </div>
+                            </label>
+                        </div>
+                        <div className="nameandinputcontainer">
+                            <label className="formdatalabelstyle">
+                                <div className="formnamestyle">
+                                    Buyer Address:
+                                </div>
+                                <div className="formdatainputstyle">
+                                    <input
                                         defaultValue={data.customer_address}
                                         type="text"
                                         readOnly
