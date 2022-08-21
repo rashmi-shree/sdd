@@ -458,11 +458,11 @@ const CustomerInvoiceForm = ({
                         </div>
                         {
                             data.verification_status
-                                ? <p className="verificationstyle">Invoice Data Verification Completed!</p>
+                                ? <p className="verificationstyle">Purchase Completed!</p>
                                 :
                                 <div className="submitcontainee">
                                     <CustomizedBtn
-                                        BtnName="submit"
+                                        BtnName="Verify and Purchase"
                                         onClick={() => {
                                             submiteventclicked(data.customer_reference_no, invoiceFormData)
                                         }}

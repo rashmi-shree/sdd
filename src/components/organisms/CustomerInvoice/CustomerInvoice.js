@@ -187,7 +187,7 @@ const CustomerInvoice = ({
                                     />
                                 </td>
                                 <td>
-                                <div className='btnstyle'>
+                                {/* <div className='btnstyle'>
                                 <Button
                                     // id="btn"
                                     // type="button" 
@@ -200,7 +200,7 @@ const CustomerInvoice = ({
                                     >
                                         Generate Invoice
                                 </Button>
-                                </div>
+                                </div> */}
                                 <FullScreenModal 
                                     api={api}
                                     modalview={modalview}

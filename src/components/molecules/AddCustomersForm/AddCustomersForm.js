@@ -141,7 +141,7 @@ const AddCustomersForm = ({
                         })
                             .then((res) => {
                                 if (res) {
-                                    setpurchasemsgevent("Order Placed Successfully");
+                                    setpurchasemsgevent("Booking Successfully");
                                     // alert(res.msg);
                                     // const res = purchasesuccessmsg({});
                                     handleClose();
@@ -555,7 +555,7 @@ const AddCustomersForm = ({
                     ? <p className="verificationstyle">Booking completed!</p>
                     : <div className="submitcontainee">
                         <CustomizedBtn
-                            BtnName="submit"
+                            BtnName="Book"
                             onClick={submiteventclicked}
                         />
                     </div>

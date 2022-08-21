@@ -245,13 +245,13 @@ const AddCustomerPage = ({
                 />
                   <p className="backarrowcustomerpage" onClick={() => { navigate('/main') }}><ArrowBackIcon /></p>
             </div>
-            <div className='table-responsive tableContainer'>
-              <p>
+            <p>
                   {purchasemsg
                       ? <p>{purchasemsg}</p>
                       : <></>
                   }
               </p>
+            <div className='table-responsive tableContainer'>
                 <table className="table table-striped table-bordered tablebackground">
                     <thead className="theadalter">
                         <tr>

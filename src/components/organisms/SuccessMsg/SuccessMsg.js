@@ -42,7 +42,7 @@ export const invoicedataverificationsuccessmsg = ({param}) => {
     return(
         {
             status:200,
-            msg:'Invoice Data Verification Successfully'
+            msg:'Verified and Purchased Successfully'
         }
     );
 }
