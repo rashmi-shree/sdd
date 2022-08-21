@@ -552,7 +552,7 @@ const AddCustomersForm = ({
             </div>
             {
                 finalpurchasestatus == 1
-                    ? <p className="verificationstyle">Purchase completed!</p>
+                    ? <p className="verificationstyle">Booking completed!</p>
                     : <div className="submitcontainee">
                         <CustomizedBtn
                             BtnName="submit"
