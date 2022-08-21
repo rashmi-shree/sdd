@@ -313,7 +313,7 @@ const AddCustomerPage = ({
                                         </td>
                                         <td>{data.final_status}</td>
                                         <td>
-                                          {data.final_status != "Follow Up In Progress"
+                                          {data.final_status == "Booked" || data.final_status == "Purchased"
                                           ? <CustomizedBtn 
                                           BtnName="View"
                                           onClick={()=>{
