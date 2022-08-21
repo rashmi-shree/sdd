@@ -53,9 +53,6 @@ const CustomerInvoiceForm = ({
         }
     }, [listofinvoices])
     const submiteventclicked = (customer_reference_no, invoiceFormData) => {
-        console.log('rowdatadisplayed',rowdatadisplayed);
-        console.log('invoiceFormData',invoiceFormData);
-        console.log('rowdatadisplayedalter',rowdatadisplayedalter);
         let date = new Date();
         var date1 = date.toISOString();
         var date2 = date1.split("-");
@@ -91,6 +88,11 @@ const CustomerInvoiceForm = ({
         else if (size === 1) {
             finalInvoiceNo = s1 + "000" + random;
         }
+        api.put('customer/updatefinalstatuscustomertablepurchased',{
+            params:{
+                customer_reference_no: customer_reference_no
+            }
+        })
         api.put('delivery/updateDeliveryDataafterverify', {
             params: {
                 invoice_no: finalInvoiceNo,
