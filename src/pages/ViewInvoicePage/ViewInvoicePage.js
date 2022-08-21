@@ -109,6 +109,9 @@ const ViewInvoicePage = ({
                                         <th>Invoice date</th>
                                         <th>Invoice no</th>
                                         <th>Customer name</th>
+                                        <th>Phone Number</th>
+                                        <th>Phone Number Alter One</th>
+                                        <th>Phone Number Alter Two</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -128,6 +131,9 @@ const ViewInvoicePage = ({
                                                 </td>
                                                 <td>{data.invoice_no}</td>
                                                 <td>{data.customer_name}</td>
+                                                <td>{data.phone_number}</td>
+                                                <td>{data.phone_number_alter_one}</td>
+                                                <td>{data.phone_number_alter_two}</td>
                                                 <td>
                                                 <div className='btnstyle'>
                                                     <Button 
