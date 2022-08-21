@@ -136,7 +136,7 @@ const CustomerInvoice = ({
                             <th>Follow Up Call </th>
                             <th>Final Status</th>
                             <th>Action</th>
-                            <th>Generate</th>
+                            {/* <th>Generate</th> */}
                         </tr>
                     </thead>
                     <tbody>

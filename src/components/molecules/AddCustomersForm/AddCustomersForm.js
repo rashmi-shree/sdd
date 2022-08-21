@@ -88,14 +88,14 @@ const AddCustomersForm = ({
             .then((res) => {
                 displaycustomerfollowupevent();
             })
-        api.put('/delivery/updatepurchasestatusofdeliverytable', {
-            params: {
-                customer_reference_no: currentCustomerReferenceNo
-            }
-        })
-            .then((res) => {
-                displaycustomerfollowupevent();
-            })
+        // api.put('/delivery/updatepurchasestatusofdeliverytable', {
+        //     params: {
+        //         customer_reference_no: currentCustomerReferenceNo
+        //     }
+        // })
+        //     .then((res) => {
+        //         displaycustomerfollowupevent();
+        //     })
         api.put('/delivery/updateDeliveryData', {
             params: {
                 rowdatadisplayed: rowdatadisplayed
@@ -552,7 +552,7 @@ const AddCustomersForm = ({
             </div>
             {
                 finalpurchasestatus == 1
-                    ? <p className="verificationstyle">Booking completed!</p>
+                    ? <p className="verificationstyle">Purchase completed!</p>
                     : <div className="submitcontainee">
                         <CustomizedBtn
                             BtnName="Book"

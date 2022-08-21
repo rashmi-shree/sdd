@@ -88,6 +88,11 @@ const CustomerInvoiceForm = ({
         else if (size === 1) {
             finalInvoiceNo = s1 + "000" + random;
         }
+        api.put('/delivery/updatepurchasestatusofdeliverytable', {
+            params: {
+                customer_reference_no: customer_reference_no
+            }
+        })
         api.put('customer/updatefinalstatuscustomertablepurchased',{
             params:{
                 customer_reference_no: customer_reference_no
