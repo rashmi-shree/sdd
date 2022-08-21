@@ -16,6 +16,7 @@ const AddCustomerPage = ({
     const [currentCustomerReferenceNo, setCurrentCustomerReferenceNo] = useState('');
     const [rowdataonbooking, setrowdataonbooking] = useState();
     const [purchasestatus, setpurchasestatus] = useState();
+    const [bookingstatus, setbookingstatus] = useState();
     const [searchData, setSearchData] = useState('');
     const [modalview, setModalview] = useState('');
     const [purchasemsg, setpurchasemsg] = useState();
@@ -31,6 +32,16 @@ const AddCustomerPage = ({
       })
       .then((res) => {
         setpurchasestatus(res.data);
+      })
+    }
+    const fetchbookingstatusevent = (e) => {
+      api.post('/delivery/getbookingstatus', {
+        params: {
+          e
+        }
+      })
+      .then((res) => {
+        setbookingstatus(res.data);
       })
     }
     const currentCustomerRefNo = (e) => {
@@ -240,6 +251,7 @@ const AddCustomerPage = ({
                     open={open}
                     openevent={openevent}
                     purchasestatus={purchasestatus}
+                    bookingstatus={bookingstatus}
                     currentCustomerReferenceNo={currentCustomerReferenceNo}
                     setpurchasemsgevent={setpurchasemsgevent}
                 />
@@ -320,6 +332,7 @@ const AddCustomerPage = ({
                                             setModalview("customerdetailsform");
                                             currentCustomerRefNo(data.customer_reference_no);
                                             fetchpurchasestatusevent(data.customer_reference_no);
+                                            fetchbookingstatusevent(data.customer_reference_no);
                                             openevent(true);
                                           }}
                                           />

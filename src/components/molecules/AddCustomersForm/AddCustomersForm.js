@@ -12,6 +12,7 @@ const AddCustomersForm = ({
     handleClose,
     displaycustomerfollowupevent,
     purchasestatus,
+    bookingstatus,
     api,
     setpurchasemsgevent
 }) => {
@@ -20,6 +21,7 @@ const AddCustomersForm = ({
     const [bookeddate, setbookeddate] = useState('');
     const [productdata, setproductdata] = useState({});
     const [finalpurchasestatus, setfinalpurchasestatus] = useState();
+    const [finalbookingstatus, setfinalbookingstatus] = useState();
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
@@ -29,6 +31,11 @@ const AddCustomersForm = ({
             setfinalpurchasestatus(purchasestatus[0].purchase_status);
         }
     }, [purchasestatus])
+    useEffect(() => {
+        if (bookingstatus) {
+            setfinalbookingstatus(bookingstatus[0].booking_status);
+        }
+    }, [bookingstatus])
     const selectevent = (event, index) => {
         let updateRowDataByIndex = [...rowdatadisplayed];
         rowdatadisplayed.find((item, i) => {
@@ -88,14 +95,14 @@ const AddCustomersForm = ({
             .then((res) => {
                 displaycustomerfollowupevent();
             })
-        // api.put('/delivery/updatepurchasestatusofdeliverytable', {
-        //     params: {
-        //         customer_reference_no: currentCustomerReferenceNo
-        //     }
-        // })
-        //     .then((res) => {
-        //         displaycustomerfollowupevent();
-        //     })
+        api.put('/delivery/updatebookingstatusofdeliverytable', {
+            params: {
+                customer_reference_no: currentCustomerReferenceNo
+            }
+        })
+            .then((res) => {
+                displaycustomerfollowupevent();
+            })
         api.put('/delivery/updateDeliveryData', {
             params: {
                 rowdatadisplayed: rowdatadisplayed
@@ -553,6 +560,8 @@ const AddCustomersForm = ({
             {
                 finalpurchasestatus == 1
                     ? <p className="verificationstyle">Purchase completed!</p>
+                    : finalbookingstatus == 1 
+                    ? <p className="verificationstyle">Booking completed!</p>
                     : <div className="submitcontainee">
                         <CustomizedBtn
                             BtnName="Book"

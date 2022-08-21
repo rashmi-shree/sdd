@@ -53,6 +53,7 @@ const OpenModal = ({
   verificationstatus,
   currentInvoiceno,
   purchasestatus,
+  bookingstatus,
   open,
   openevent,
   currentCustomerReferenceNoCustomerInvoice,
@@ -112,6 +113,7 @@ const OpenModal = ({
                 setpurchasemsgevent={setpurchasemsgevent}
                 api={api}
                 purchasestatus={purchasestatus}
+                bookingstatus={bookingstatus}
                 handleClose={handleClose}
                 displayCustomerFollowUpData={displayCustomerFollowUpData}
                 currentCustomerReferenceNo={currentCustomerReferenceNo}
