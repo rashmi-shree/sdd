@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomizedSearchBar from '../../components/atoms/CustomizedSearchBar/CustomizedSearchBar';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import OpenModal from '../../components/molecules/OpenModal/OpenModal';
@@ -26,24 +26,30 @@ const ViewInvoicePage = ({
     const onHandleChangeEvent = (event) => {
         setSearchData(event.target.value);
     }
-    const goEventClicked = () => {
-        api.post('/delivery/getInvoices', {
-            params: {
-                searchData
-            }
-        }
-        )
+    useEffect(()=>{
+        api.get('/delivery/getInvoices')
         .then((res) => {
             setInvoiceData(res.data);
         })
-    }
-    const handleKeypress = (e) => {
-        //it triggers by pressing the enter key
-      if (e.key === 'Enter') {
-        goEventClicked();
-        e.preventDefault();
-      }
-    };
+    },[])
+    // const goEventClicked = () => {
+    //     api.post('/delivery/getInvoices', {
+    //         params: {
+    //             searchData
+    //         }
+    //     }
+    //     )
+    //     .then((res) => {
+    //         setInvoiceData(res.data);
+    //     })
+    // }
+    // const handleKeypress = (e) => {
+    //     //it triggers by pressing the enter key
+    //   if (e.key === 'Enter') {
+    //     goEventClicked();
+    //     e.preventDefault();
+    //   }
+    // };
     const openinvoiceevent = (invoiceNo) => {
         api.post('/delivery/getDeliveryReportData', {
             params: {
