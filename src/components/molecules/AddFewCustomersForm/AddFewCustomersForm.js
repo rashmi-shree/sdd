@@ -106,9 +106,9 @@ const AddFewCustomersForm = ({
       })
       .then((res) => {
         console.log("res", res);
-        // if(res.error){
-        //   alert(res);
-        // }
+        if(res.error){
+          alert(res.error);
+        }
       })
     api.post('delivery/addDeliveryData', {
       params: {
@@ -125,11 +125,16 @@ const AddFewCustomersForm = ({
       }
     })
       .then((res) => {
+        console.log("res", res);
         if (res) {
-          console.log("res", res);
-        //   const res = customeraddedsuccessmsg({})
-        //   alert(res.msg);
-        //   handleClose();
+          if(res.error){
+            alert(res.error);
+          }else {
+            const res = customeraddedsuccessmsg({})
+            alert(res.msg);
+            handleClose();
+          }
+          
         }
       })
       // api.put('product/updateProductsDetailsProductData',{
