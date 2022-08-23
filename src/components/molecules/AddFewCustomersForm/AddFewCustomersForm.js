@@ -104,11 +104,11 @@ const AddFewCustomersForm = ({
           finalStatus: 'Follow up in progress'
         }
       })
-      // .then((res) => {
-      //   if(res){
-      //     alert(res);
-      //   }
-      // })
+      .then((res) => {
+        if(res.error){
+          alert(res);
+        }
+      })
     api.post('delivery/addDeliveryData', {
       params: {
         customerReferenceNo: finalCustomerRefNo,

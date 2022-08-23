@@ -514,7 +514,7 @@ const DealersDetailsForm = ({
       </div>
       {
         finalverificationstatus == 1
-          ? <p className="verificationstyle">verification completed!</p>
+          ? <p className="verificationstyle">Verification and Purchase completed!</p>
           : <div className="submitcontainee">
             <CustomizedBtn
               BtnName="submit"
