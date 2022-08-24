@@ -104,6 +104,7 @@ const AddFewCustomersForm = ({
     console.log("customerdata",customerdata.customerName, typeof(customerdata.customerName));
     if(!customerdata.customerName){
       customerNameError = "please enter customer name";
+      console.log("customerdata",customerdata);
     }
     if (customerNameError){
       setcustomerdata({["customerNameError"]:customerNameError});
