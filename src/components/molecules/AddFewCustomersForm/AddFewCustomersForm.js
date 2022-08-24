@@ -102,7 +102,7 @@ const AddFewCustomersForm = ({
     let phonenoError = "";
     console.log("customerdata",customerdata);
     console.log("customerdata",customerdata.customerName, typeof(customerdata.customerName));
-    if(!customerdata.customerName){
+    if(!customerdata.customer_name){
       console.log("going inside");
       setcustomerdata({ ...customerdata, [customerNameError]: "please enter customer name" })
       console.log("customerdata",customerdata);
