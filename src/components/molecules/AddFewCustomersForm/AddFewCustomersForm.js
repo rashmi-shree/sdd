@@ -100,10 +100,7 @@ const AddFewCustomersForm = ({
     let stateNameError = "";
     let productError = "";
     let phonenoError = "";
-    console.log("customerdata",customerdata.customerName);
-    customerdata.map((data)=>(
-      console.log("hii", data.customerName)
-    ))
+    console.log("customerdata",customerdata);
     if(customerdata.customerName.length == 0){
       customerNameError = "please enter customer name";
     }
