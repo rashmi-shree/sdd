@@ -30,6 +30,7 @@ const AddFewCustomersForm = ({
       customer_name: ""
     }
   );
+  const [cne, setcne] = useState();
   const [errors, seterrors] = useState({
     customerNameError:""
   })
@@ -97,19 +98,23 @@ const AddFewCustomersForm = ({
     console.log("customerdata",customerdata.customer_name, typeof(customerdata.customer_name));
     if(customerdata.customer_name == ""){
       console.log("going inside");
+      setcne("please enter customer name");
       seterrors({...errors, ["customerNameError"]:"please enter customer name"})
+      return false;
       // setcustomerdata({ ...customerdata, [customerNameError]: "please enter customer name" })
       // console.log("customerdata",customerdata);
     }else{
       console.log("customerdata",customerdata);
     }
     console.log("errors", errors);
+    return true;
   }
   const submiteventclicked = () => {
     const isvalid = validate();
     if(isvalid){
       console.log(customerdata.customerNameError);
       console.log(customerdata);
+      console.log(cne);
     }
     // api.post('/customer/addCustomerFollowUpData',
     //   {
