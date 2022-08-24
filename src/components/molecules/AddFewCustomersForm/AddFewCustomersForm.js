@@ -111,7 +111,7 @@ const AddFewCustomersForm = ({
   }
   const submiteventclicked = () => {
     const isvalid = validate();
-    if(isvalid){
+    if(!isvalid){
       console.log(customerdata.customerNameError);
       console.log(customerdata);
       console.log(cne);
