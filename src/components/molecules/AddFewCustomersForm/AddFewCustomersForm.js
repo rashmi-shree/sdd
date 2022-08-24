@@ -103,9 +103,11 @@ const AddFewCustomersForm = ({
     console.log("customerdata",customerdata);
     console.log("customerdata",customerdata.customerName, typeof(customerdata.customerName));
     if(!customerdata.customerName){
-      setcustomerdata({ ...customerdata, "customerNameError": "please enter customer name" })
+      console.log("going inside");
+      setcustomerdata({ ...customerdata, [customerNameError]: "please enter customer name" })
       console.log("customerdata",customerdata);
     }
+    console.log("customerdata",customerdata);
   }
   const submiteventclicked = () => {
     const isvalid = validate();
