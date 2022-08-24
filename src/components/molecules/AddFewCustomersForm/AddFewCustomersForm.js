@@ -95,12 +95,13 @@ const AddFewCustomersForm = ({
   const validate = () => {
     console.log("customerdata",customerdata);
     console.log("customerdata",customerdata.customer_name, typeof(customerdata.customer_name));
-    // if(!customerdata.customerName){
-    //   console.log("going inside");
-    //   setcustomerdata({ ...customerdata, [customerNameError]: "please enter customer name" })
-    //   console.log("customerdata",customerdata);
-    // }
-    // console.log("customerdata",customerdata);
+    if(customerdata.customer_name == ""){
+      console.log("going inside");
+      // setcustomerdata({ ...customerdata, [customerNameError]: "please enter customer name" })
+      // console.log("customerdata",customerdata);
+    }else{
+      console.log("customerdata",customerdata);
+    }
   }
   const submiteventclicked = () => {
     const isvalid = validate();
