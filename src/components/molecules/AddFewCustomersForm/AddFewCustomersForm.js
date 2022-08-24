@@ -15,9 +15,13 @@ const AddFewCustomersForm = ({
       customerReferenceNo: "",
       enquiryDate: "",
       customerName: "",
+      customerNameError:"",
       customerAddress: "",
+      customerAddressError:"",
       statename: { value: 29, label: 'Karnataka' },
+      stateNameError:"",
       phoneno: "",
+      phonenoError:"",
       phonenoalterone: "",
       phonenoaltertwo: "",
       finalStatus: "",
@@ -26,6 +30,7 @@ const AddFewCustomersForm = ({
       phone_number_alter_two: "",
       product_hsn_code: "",
       product: "",
+      productError:"",
       quantity: "",
       customer_name: ""
     }
@@ -89,6 +94,22 @@ const AddFewCustomersForm = ({
         setstatecode(res.data);
       })
   }, [customerdata])
+  const validate = () => {
+    let customerNameError = "";
+    let customerAddressError = "";
+    let stateNameError = "";
+    let productError = "";
+    let phonenoError = "";
+
+    if(!customerdata.customerName){
+      customerNameError = "please enter customer name";
+    }
+    if (customerNameError){
+      setcustomerdata({[customerNameError]:customerNameError});
+      return false;
+    }
+    return true;
+  }
   const submiteventclicked = () => {
     api.post('/customer/addCustomerFollowUpData',
       {
@@ -104,12 +125,12 @@ const AddFewCustomersForm = ({
           finalStatus: 'Follow up in progress'
         }
       })
-      .then((res) => {
-        console.log("res", res);
-        if(res.error){
-          alert(res.error);
-        }
-      })
+      // .then((res) => {
+      //   console.log("res", res);
+      //   if(res.error){
+      //     alert(res.error);
+      //   }
+      // })
     api.post('delivery/addDeliveryData', {
       params: {
         customerReferenceNo: finalCustomerRefNo,
@@ -125,21 +146,12 @@ const AddFewCustomersForm = ({
       }
     })
       .then((res) => {
-        console.log("res", res);
-        if (res) {
-          if(res.error){
-            alert(res.error);
-          }else {
-            const res = customeraddedsuccessmsg({})
-            alert(res.msg);
-            handleClose();
-          }
-          
+        if(res){
+          const res = customeraddedsuccessmsg({})
+          alert(res.msg);
+          handleClose();
         }
       })
-      // api.put('product/updateProductsDetailsProductData',{
-      //   params:products
-      // })
   }
   const selectevent = (e) => {
     setProductname(e.target.outerText);
@@ -240,6 +252,7 @@ const AddFewCustomersForm = ({
                 type="text"
                 onChange={changeevent}
               />
+              <p>{customerdata.customerNameError}</p>
             </div>
           </label>
         </div>
