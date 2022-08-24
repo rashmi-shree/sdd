@@ -98,8 +98,9 @@ const AddFewCustomersForm = ({
     console.log("customerdata",customerdata.customer_name, typeof(customerdata.customer_name));
     if(customerdata.customer_name == ""){
       console.log("going inside");
-      setcne("please enter customer name");
-      seterrors({...errors, ["customerNameError"]:"please enter customer name"})
+      // setcne("please enter customer name");
+      seterrors({...errors, ["customerNameError"]:"please enter customer name"});
+      console.log("errors", errors);
       return false;
       // setcustomerdata({ ...customerdata, [customerNameError]: "please enter customer name" })
       // console.log("customerdata",customerdata);
