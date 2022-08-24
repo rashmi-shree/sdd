@@ -100,16 +100,15 @@ const AddFewCustomersForm = ({
       console.log("going inside");
       // setcne("please enter customer name");
       seterrors({...errors, ["customerNameError"]:"please enter customer name"});
-      console.log("errors", errors);
       return false;
       // setcustomerdata({ ...customerdata, [customerNameError]: "please enter customer name" })
       // console.log("customerdata",customerdata);
     }else{
       console.log("customerdata",customerdata);
     }
-    console.log("errors", errors);
     return true;
   }
+  console.log("erors", errors);
   const submiteventclicked = () => {
     const isvalid = validate();
     if(!isvalid){
