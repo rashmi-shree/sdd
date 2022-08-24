@@ -15,13 +15,9 @@ const AddFewCustomersForm = ({
       customerReferenceNo: "",
       enquiryDate: "",
       customerName: "",
-      customerNameError:"",
       customerAddress: "",
-      customerAddressError:"",
       statename: { value: 29, label: 'Karnataka' },
-      stateNameError:"",
       phoneno: "",
-      phonenoError:"",
       phonenoalterone: "",
       phonenoaltertwo: "",
       finalStatus: "",
@@ -30,11 +26,13 @@ const AddFewCustomersForm = ({
       phone_number_alter_two: "",
       product_hsn_code: "",
       product: "",
-      productError:"",
       quantity: "",
       customer_name: ""
     }
   );
+  const [errors, seterrors] = useState({
+    customerNameError:""
+  })
   const [comboboxdata, setComboboxdata] = useState([]);
   const [productname, setProductname] = useState("");
   const [producthsn, setProducthsn] = useState();
@@ -95,19 +93,14 @@ const AddFewCustomersForm = ({
       })
   }, [customerdata])
   const validate = () => {
-    let customerNameError = "";
-    let customerAddressError = "";
-    let stateNameError = "";
-    let productError = "";
-    let phonenoError = "";
     console.log("customerdata",customerdata);
-    console.log("customerdata",customerdata.customerName, typeof(customerdata.customerName));
-    if(!customerdata.customer_name){
-      console.log("going inside");
-      setcustomerdata({ ...customerdata, [customerNameError]: "please enter customer name" })
-      console.log("customerdata",customerdata);
-    }
-    console.log("customerdata",customerdata);
+    console.log("customerdata",customerdata.customer_name, typeof(customerdata.customer_name));
+    // if(!customerdata.customerName){
+    //   console.log("going inside");
+    //   setcustomerdata({ ...customerdata, [customerNameError]: "please enter customer name" })
+    //   console.log("customerdata",customerdata);
+    // }
+    // console.log("customerdata",customerdata);
   }
   const submiteventclicked = () => {
     const isvalid = validate();
