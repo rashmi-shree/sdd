@@ -111,6 +111,11 @@ const AddFewCustomersForm = ({
     return true;
   }
   const submiteventclicked = () => {
+    const isvalid = validate();
+    if(isvalid){
+      console.log(customerdata.customerNameError);
+      console.log(customerdata);
+    }
     api.post('/customer/addCustomerFollowUpData',
       {
         params: {
