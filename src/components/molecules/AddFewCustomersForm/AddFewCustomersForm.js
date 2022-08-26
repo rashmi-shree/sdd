@@ -113,7 +113,7 @@ const AddFewCustomersForm = ({
     if (!customerdata.phone_number){
       phoneError = "please enter primary ph no";
     }
-    if (!products){
+    if (products.length == 0){
       productError = "please choose atleast one product";
     }
     if(nameError || addressError || phoneError || productError ){
