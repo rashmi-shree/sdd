@@ -67,27 +67,28 @@ const DealersInvoiceForm = ({
     let vnError = "";
     let posError = "";
 console.log("dealersdata",dealersdata);
-    // if (!dealersdata.customer_name){
-    //   nameError = "Please Enter Customer Name";
-    // }
-    // if (!dealersdata.customer_address){
-    //   addressError = "Please Enter Customer Address";
-    // }
-    // if (!dealersdata.phone_number){
-    //   phoneError = "Please Enter Primary Phone Number";
-    // }
+console.log("changeddata",changeddata);
     if (products.length == 0){
       productError = "Please Choose Atleast One Product";
     }
-    // if(productError || pnError || vnError || posError ){
-    //   seterrors({...errors, ["customerNameError"]:nameError, 
-    //   ["customerAddressError"]:addressError, 
-    //   ["phoneNumberError"]:phoneError,
-    //   ["enquiredProductError"]:productError
-    // });
-    //   return false;
-    // }
-    // return true;
+    if (!changeddata.po_number){
+      pnError = "Please Po Number";
+    }
+    if (!changeddata.vehicle_number){
+      vnError = "Please Enter Vehicle Number";
+    }
+    if (!changeddata.place_of_supply){
+      posError = "Please Enter Place Of Supply";
+    }
+    if(productError || pnError || vnError || posError ){
+      seterrors({...errors, ["enquiredProductError"]:productError, 
+      ["poNumberError"]:pnError, 
+      ["vehicleNumberError"]:vnError,
+      ["placeOfSupplyError"]:posError
+    });
+      return false;
+    }
+    return true;
   }
   const submiteventclicked = () => {
     const isvalid = validate();
@@ -141,6 +142,11 @@ console.log("dealersdata",dealersdata);
         api.put('product/updateProductsDetailsProductData',{
           params:products
         })
+        seterrors({...errors, ["enquiredProductError"]:"", 
+      ["poNumberError"]:"",
+      ["vehicleNumberError"]:"",
+      ["placeOfSupplyError"]:""
+    });
       }
   }
   const incrementclicked = (data) => {
