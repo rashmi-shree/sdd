@@ -102,7 +102,7 @@ const AddFewCustomersForm = ({
       seterrors({...errors, ["customerNameError"]:"please enter customer name", 
       ["customerAddressError"]:"please enter customer address", 
       ["phoneNumberError"]:"please enter primary ph no",
-      ["enquiredProductError"]:"please choose atlease one product"
+      ["enquiredProductError"]:"please choose atleast one product"
     });
       return false;
     }
@@ -111,6 +111,11 @@ const AddFewCustomersForm = ({
   const submiteventclicked = () => {
     const isvalid = validate();
     if(isvalid){
+      seterrors({...errors, ["customerNameError"]:"", 
+      ["customerAddressError"]:"", 
+      ["phoneNumberError"]:"",
+      ["enquiredProductError"]:""
+    });
     api.post('/customer/addCustomerFollowUpData',
       {
         params: {
