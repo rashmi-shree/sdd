@@ -251,7 +251,7 @@ const AddFewCustomersForm = ({
                 type="text"
                 onChange={changeevent}
               />
-              <p>{customerdata.customerNameError}</p>
+              <p>{errors.customerNameError}</p>
             </div>
           </label>
         </div>
