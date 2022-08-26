@@ -73,17 +73,17 @@ console.log("products",products, products.productname, products.productname.leng
     if (products.productname.length == 0){
       productError = "Please Choose Atleast One Product";
     }
-    // if(changeddata){
-    //   if (!changeddata.po_number){
-    //     pnError = "Please Po Number";
-    //   }
-    //   if (!changeddata.vehicle_number){
-    //     vnError = "Please Enter Vehicle Number";
-    //   }
-    //   if (!changeddata.place_of_supply){
-    //     posError = "Please Enter Place Of Supply";
-    //   }
-    // }
+    if(changeddata){
+      if (!changeddata.po_number){
+        pnError = "Please Po Number";
+      }
+      // if (!changeddata.vehicle_number){
+      //   vnError = "Please Enter Vehicle Number";
+      // }
+      // if (!changeddata.place_of_supply){
+      //   posError = "Please Enter Place Of Supply";
+      // }
+    }
    
     if(productError || pnError || vnError || posError ){
       seterrors({...errors, ["enquiredProductError"]:productError, 
