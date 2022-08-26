@@ -64,7 +64,7 @@ const CustomerInvoiceForm = ({
         let vnerror = "";
     console.log("inside validate function");
         if (rowdatadisplayed){
-            console.log("inside invoiceformdata");
+            console.log("inside invoiceformdata", rowdatadisplayed);
             rowdatadisplayed.map((data)=>{
                 console.log("data", data);
                 if(!data.place_of_supply){
