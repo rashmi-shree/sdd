@@ -63,9 +63,9 @@ const CustomerInvoiceForm = ({
         let pnerror = "";
         let vnerror = "";
     console.log("inside validate function");
-        if (invoiceFormData){
+        if (rowdatadisplayed){
             console.log("inside invoiceformdata");
-            invoiceFormData.map((data)=>{
+            rowdatadisplayed.map((data)=>{
                 console.log("data", data);
                 if(!data.place_of_supply){
                     poserror = "Please enter Place Of Supply";
