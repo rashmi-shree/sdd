@@ -272,7 +272,7 @@ const AddFewCustomersForm = ({
                 type="text"
                 onChange={changeevent}
               />
-              <p>{errors.customerNameError}</p>
+              <p className="errormsgstyle">{errors.customerNameError}</p>
             </div>
           </label>
         </div>
@@ -287,7 +287,7 @@ const AddFewCustomersForm = ({
                 type="text"
                 onChange={changeevent}
               />
-              <p>{errors.customerAddressError}</p>
+              <p className="errormsgstyle">{errors.customerAddressError}</p>
             </div>
           </label>
         </div>
@@ -318,7 +318,7 @@ const AddFewCustomersForm = ({
                 onChange={changeevent}
                 onWheel={(e) => e.target.blur()}
               />
-              <p>{errors.phoneNumberError}</p>
+              <p className="errormsgstyle">{errors.phoneNumberError}</p>
             </div>
           </label>
         </div>
@@ -362,7 +362,7 @@ const AddFewCustomersForm = ({
                 comboboxdata={comboboxdata}
                 selectedproducts={selectedproducts}
               />
-              <p>{errors.enquiredProductError}</p>
+              <p className="errormsgstyle">{errors.enquiredProductError}</p>
             </div>
           </label>
         </div>

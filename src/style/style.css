@@ -711,6 +711,11 @@ height: 100px;
     font-weight: bolder;
     font-size: 1rem;
 }
+.errormsgstyle{
+    color: red;
+    font-size: 0.7rem;
+    margin-top: 0.3rem;
+}
 @media screen and (max-width: 420px) {
     .backarrowcustomerpage{
         margin-left: 26rem;
