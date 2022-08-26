@@ -87,7 +87,8 @@ const CustomerInvoiceForm = ({
         }
         return true;
       }
-    const submiteventclicked = (customer_reference_no, invoiceFormData) => {
+    const submiteventclicked = (customer_reference_no, delivery_id) => {
+        console.log("id", delivery_id);
         const isvalid = validate();
         console.log("isvalid",isvalid);
         if(isvalid){
@@ -531,7 +532,7 @@ const CustomerInvoiceForm = ({
                                     <CustomizedBtn
                                         BtnName="Verify and Purchase"
                                         onClick={() => {
-                                            submiteventclicked(data.customer_reference_no, invoiceFormData)
+                                            submiteventclicked(data.customer_reference_no, data.delivery_id)
                                         }}
                                     />
                                 </div>
