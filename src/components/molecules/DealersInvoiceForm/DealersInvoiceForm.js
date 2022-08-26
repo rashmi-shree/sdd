@@ -70,9 +70,9 @@ console.log("dealersdata",dealersdata);
 console.log("changeddata",changeddata);
 console.log("products",products);
 
-    // if (products.length == 0){
-    //   productError = "Please Choose Atleast One Product";
-    // }
+    if (!products.productname){
+      productError = "Please Choose Atleast One Product";
+    }
     // if(changeddata){
     //   if (!changeddata.po_number){
     //     pnError = "Please Po Number";
