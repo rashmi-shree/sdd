@@ -113,13 +113,14 @@ const AddFewCustomersForm = ({
     if (!customerdata.phone_number){
       phoneError = "please enter primary ph no";
     }
-    if (!customerdata.product){
+    if (!products){
       productError = "please choose atleast one product";
     }
-    if(nameError || addressError || phoneError ){
+    if(nameError || addressError || phoneError || productError ){
       seterrors({...errors, ["customerNameError"]:nameError, 
       ["customerAddressError"]:addressError, 
-      ["phoneNumberError"]:phoneError
+      ["phoneNumberError"]:phoneError,
+      ["enquiredProductError"]:productError
     });
       return false;
     }
