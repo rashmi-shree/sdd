@@ -101,11 +101,7 @@ const AddFewCustomersForm = ({
     let phoneError = "";
     let productError = "";
 
-
-    console.log("hiiii",customerdata.customer_name, customerdata.customer_address,
-    customerdata.phone_number , customerdata.product);
-
-    if (customerdata.customer_name == ""){
+    if (!customerdata.customer_name){
       nameError = "please enter customer name";
     }
     if (customerdata.customer_address == ""){
@@ -118,7 +114,6 @@ const AddFewCustomersForm = ({
       productError = "please choose atleast one product";
     }
     if(nameError || addressError || phoneError || productError){
-      console.log("going inside");
       seterrors({...errors, ["customerNameError"]:nameError, 
       ["customerAddressError"]:addressError, 
       ["phoneNumberError"]:phoneError,
