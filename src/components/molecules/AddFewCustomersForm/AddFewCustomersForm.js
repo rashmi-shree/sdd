@@ -96,15 +96,33 @@ const AddFewCustomersForm = ({
       })
   }, [customerdata])
   const validate = () => {
+    let nameError = "";
+    let addressError = "";
+    let phoneError = "";
+    let productError = "";
+
+
     console.log("hiiii",customerdata.customer_name, customerdata.customer_address,
     customerdata.phone_number , customerdata.product);
-    if(customerdata.customer_name == "" || customerdata.customer_address == ""
-     || customerdata.phone_number == "" || customerdata.product == ""){
+
+    if (customerdata.customer_name == ""){
+      nameError = "please enter customer name";
+    }
+    if (customerdata.customer_address == ""){
+      addressError = "please enter customer address";
+    }
+    if (customerdata.phone_number == ""){
+      phoneError = "please enter primary ph no";
+    }
+    if (customerdata.product == ""){
+      productError = "please choose atleast one product";
+    }
+    if(nameError || addressError || phoneError || productError){
       console.log("going inside");
-      seterrors({...errors, ["customerNameError"]:"please enter customer name", 
-      ["customerAddressError"]:"please enter customer address", 
-      ["phoneNumberError"]:"please enter primary ph no",
-      ["enquiredProductError"]:"please choose atleast one product"
+      seterrors({...errors, ["customerNameError"]:nameError, 
+      ["customerAddressError"]:addressError, 
+      ["phoneNumberError"]:phoneError,
+      ["enquiredProductError"]:productError
     });
       return false;
     }
