@@ -113,11 +113,10 @@ const AddFewCustomersForm = ({
     if (!customerdata.product){
       productError = "please choose atleast one product";
     }
-    if(nameError || addressError || phoneError || productError){
+    if(nameError || addressError || phoneError ){
       seterrors({...errors, ["customerNameError"]:nameError, 
       ["customerAddressError"]:addressError, 
-      ["phoneNumberError"]:phoneError,
-      ["enquiredProductError"]:productError
+      ["phoneNumberError"]:phoneError
     });
       return false;
     }
