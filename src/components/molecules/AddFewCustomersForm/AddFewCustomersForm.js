@@ -110,7 +110,7 @@ const AddFewCustomersForm = ({
   }
   const submiteventclicked = () => {
     const isvalid = validate();
-    if(!isvalid){
+    if(isvalid){
     api.post('/customer/addCustomerFollowUpData',
       {
         params: {
