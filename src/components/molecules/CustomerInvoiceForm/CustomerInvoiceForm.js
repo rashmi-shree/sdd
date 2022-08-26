@@ -15,6 +15,11 @@ const CustomerInvoiceForm = ({
     const [updaterowdata, setUpdaterowdata] = useState();
     const [rowdatadisplayed, setRowdatadisplayed] = useState();
     const [rowdatadisplayedalter, setRowdatadisplayedalter] = useState();
+    const [errors, seterrors] = useState({
+        placeofsupplyerror:"",
+        ponumbererror:"",
+        vehiclenoerror:""
+      })
     useEffect(() => {
         api.get('delivery/fetchinvoicesfromdeliverytable')
             .then((res) => {
@@ -51,74 +56,105 @@ const CustomerInvoiceForm = ({
         else if (newmaximum.toString().length === 1) {
             setfinalinvoicenumber("22-2023" + "/" + "000" + newmaximum);
         }
-    }, [listofinvoices])
-    const submiteventclicked = (customer_reference_no, invoiceFormData) => {
-        let date = new Date();
-        var date1 = date.toISOString();
-        var date2 = date1.split("-");
-        var month = Number(date2[1]);
-        var year = Number(date2[0]);
-        var yearstring = "";
-        if(month >= 4 && month <= 12){
-            var y1 = year;
-            var y2 =year+1; 
-            yearstring = y1+"-"+y2;
-        }
-        if(month>=1 && month <= 3){
-            var y1 = year;
-            var y2 = year-1;
-            yearstring = y2+"-"+y1;
-        }
-        let finalInvoiceNo = '';
-        let s1 = "In"+yearstring+"/";
-        let min = 0;
-        let max = 1000;
-        let random = Math.floor(Math.random() * (max - min + 1)) + min;
-        let notostring = random.toString();
-        let size = notostring.length;
-        if (size === 4) {
-            finalInvoiceNo = s1 + random;
-        }
-        else if (size === 3) {
-            finalInvoiceNo = s1 + "0" + random;
-        }
-        else if (size === 2) {
-            finalInvoiceNo = s1 + "00" + random;
-        }
-        else if (size === 1) {
-            finalInvoiceNo = s1 + "000" + random;
-        }
-        api.put('/delivery/updatepurchasestatusofdeliverytable', {
-            params: {
-                customer_reference_no: customer_reference_no
-            }
-        })
-        api.put('customer/updatefinalstatuscustomertablepurchased',{
-            params:{
-                customer_reference_no: customer_reference_no
-            }
-        })
-        api.put('delivery/updateDeliveryDataafterverify', {
-            params: {
-                invoice_no: finalInvoiceNo,
-                customer_reference_no: customer_reference_no,
-                po_number: rowdatadisplayed[0].po_number,
-                vehicle_no: rowdatadisplayed[0].vehicle_number,
-                pan_number: rowdatadisplayed[0].pan_number,
-                place_of_supply: rowdatadisplayed[0].place_of_supply
-            }
-        })
-            .then((res) => {
-                if (res) {
-                    const res = invoicedataverificationsuccessmsg({});
-                    alert(res.msg);
-                    handleClose();
+    }, [listofinvoices]);
+
+    const validate = () => {
+        let poserror = "";
+        let pnerror = "";
+        let vnerror = "";
+    
+        if (invoiceFormData){
+            invoiceFormData.map((data)=>{
+                if(!data.place_of_supply){
+                    poserror = "Please enter Place Of Supply";
+                }
+                if(!data.po_number){
+                    pnerror = "Please Enter PO Number";
+                }
+                if(!data.vehicle_number){
+                    vnerror = "Please Enter Vehicle Number";
                 }
             })
+        }
+        if(poserror || pnerror || vnerror ){
+          seterrors({...errors, ["placeofsupplyerror"]:poserror, 
+          ["ponumbererror"]:pnerror, 
+          ["vehiclenoerror"]:vnerror
+        });
+          return false;
+        }
+        return true;
+      }
+    const submiteventclicked = (customer_reference_no, invoiceFormData) => {
+        const isvalid = validate();
+        if(isvalid){
+            let date = new Date();
+            var date1 = date.toISOString();
+            var date2 = date1.split("-");
+            var month = Number(date2[1]);
+            var year = Number(date2[0]);
+            var yearstring = "";
+            if(month >= 4 && month <= 12){
+                var y1 = year;
+                var y2 =year+1; 
+                yearstring = y1+"-"+y2;
+            }
+            if(month>=1 && month <= 3){
+                var y1 = year;
+                var y2 = year-1;
+                yearstring = y2+"-"+y1;
+            }
+            let finalInvoiceNo = '';
+            let s1 = "In"+yearstring+"/";
+            let min = 0;
+            let max = 1000;
+            let random = Math.floor(Math.random() * (max - min + 1)) + min;
+            let notostring = random.toString();
+            let size = notostring.length;
+            if (size === 4) {
+                finalInvoiceNo = s1 + random;
+            }
+            else if (size === 3) {
+                finalInvoiceNo = s1 + "0" + random;
+            }
+            else if (size === 2) {
+                finalInvoiceNo = s1 + "00" + random;
+            }
+            else if (size === 1) {
+                finalInvoiceNo = s1 + "000" + random;
+            }
+            api.put('/delivery/updatepurchasestatusofdeliverytable', {
+                params: {
+                    customer_reference_no: customer_reference_no
+                }
+            })
+            api.put('customer/updatefinalstatuscustomertablepurchased',{
+                params:{
+                    customer_reference_no: customer_reference_no
+                }
+            })
+            api.put('delivery/updateDeliveryDataafterverify', {
+                params: {
+                    invoice_no: finalInvoiceNo,
+                    customer_reference_no: customer_reference_no,
+                    po_number: rowdatadisplayed[0].po_number,
+                    vehicle_no: rowdatadisplayed[0].vehicle_number,
+                    pan_number: rowdatadisplayed[0].pan_number,
+                    place_of_supply: rowdatadisplayed[0].place_of_supply
+                }
+            })
+                .then((res) => {
+                    if (res) {
+                        const res = invoicedataverificationsuccessmsg({});
+                        alert(res.msg);
+                        handleClose();
+                    }
+                })
 
-        api.put('product/updateProductsDetailsProductDataDecrement',{
-            rowdatadisplayed
-        })
+            api.put('product/updateProductsDetailsProductDataDecrement',{
+                rowdatadisplayed
+            })
+        }
     }
     const changeevent = (event, index) => {
         setRowdatadisplayedalter(rowdatadisplayed);
@@ -197,6 +233,7 @@ const CustomerInvoiceForm = ({
                                         index={i}
                                         name="place_of_supply"
                                     />
+                                    <p className="errormsgstyle">{errors.placeofsupplyerror}</p>
                                 </div>
                             </label>
                         </div>
@@ -248,6 +285,7 @@ const CustomerInvoiceForm = ({
                                         type="text"
                                         name="po_number"
                                     />
+                                    <p className="errormsgstyle">{errors.ponumbererror}</p>
                                 </div>
                             </label>
                         </div>
@@ -264,6 +302,7 @@ const CustomerInvoiceForm = ({
                                         type="text"
                                         name="vehicle_number"
                                     />
+                                    <p className="errormsgstyle">{errors.vehiclenoerror}</p>
                                 </div>
                             </label>
                         </div>

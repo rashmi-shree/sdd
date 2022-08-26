@@ -96,9 +96,6 @@ const AddFewCustomersForm = ({
       })
   }, [customerdata])
   const validate = () => {
-    console.log("customerdata",customerdata);
-    console.log("products",products, products.length);
-    console.log("customerdata.product",customerdata.product);
     let nameError = "";
     let addressError = "";
     let phoneError = "";
@@ -128,9 +125,7 @@ const AddFewCustomersForm = ({
   }
   const submiteventclicked = () => {
     const isvalid = validate();
-    console.log("isvalid", isvalid);
     if(isvalid){
-      console.log("errors", errors);
         api.post('/customer/addCustomerFollowUpData',
       {
         params: {
