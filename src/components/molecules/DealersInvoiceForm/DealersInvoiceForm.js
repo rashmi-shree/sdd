@@ -73,10 +73,11 @@ console.log("products",products, products.productname, products.productname.leng
     if (products.productname.length == 0){
       productError = "Please Choose Atleast One Product";
     }
-    if(changeddata){
-      if (!changeddata.po_number){
-        pnError = "Please Po Number";
-      }
+    if(!changeddata){
+      pnError = "Please Po Number";
+      // if (!changeddata.po_number){
+      //   pnError = "Please Po Number";
+      // }
       // if (!changeddata.vehicle_number){
       //   vnError = "Please Enter Vehicle Number";
       // }
