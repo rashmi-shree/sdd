@@ -32,7 +32,10 @@ const AddFewCustomersForm = ({
   );
   const [cne, setcne] = useState();
   const [errors, seterrors] = useState({
-    customerNameError:""
+    customerNameError:"",
+    customerAddressError:"",
+    phoneNumberError:"",
+    enquiredProductError:""
   })
   const [comboboxdata, setComboboxdata] = useState([]);
   const [productname, setProductname] = useState("");
@@ -96,10 +99,15 @@ const AddFewCustomersForm = ({
   const validate = () => {
     console.log("customerdata",customerdata);
     console.log("customerdata",customerdata.customer_name, typeof(customerdata.customer_name));
-    if(customerdata.customer_name == ""){
+    if(customerdata.customer_name == "" || customerdata.customer_address == ""
+     || customerdata.phone_number == "" || customerdata.product == ""){
       console.log("going inside");
       // setcne("please enter customer name");
-      seterrors({...errors, ["customerNameError"]:"please enter customer name"});
+      seterrors({...errors, ["customerNameError"]:"please enter customer name", 
+      ["customerAddressError"]:"please enter customer address", 
+      ["phoneNumberError"]:"please enter primary ph no",
+      ["enquiredProductError"]:"please choose atlease one product"
+    });
       return false;
       // setcustomerdata({ ...customerdata, [customerNameError]: "please enter customer name" })
       // console.log("customerdata",customerdata);
@@ -266,13 +274,15 @@ const AddFewCustomersForm = ({
                 type="text"
                 onChange={changeevent}
               />
+              <p>{errors.customerAddressError}</p>
             </div>
           </label>
         </div>
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-            <sup className="asteriskstyle">*</sup>State:
+            {/* <sup className="asteriskstyle">*</sup> */}
+            State:
             </div>
             <div className="formdatainputstyle">
               <CustomizedComboboxForState
@@ -295,6 +305,7 @@ const AddFewCustomersForm = ({
                 onChange={changeevent}
                 onWheel={(e) => e.target.blur()}
               />
+              <p>{errors.phoneNumberError}</p>
             </div>
           </label>
         </div>
@@ -338,6 +349,7 @@ const AddFewCustomersForm = ({
                 comboboxdata={comboboxdata}
                 selectedproducts={selectedproducts}
               />
+              <p>{errors.enquiredProductError}</p>
             </div>
           </label>
         </div>
