@@ -96,6 +96,8 @@ const AddFewCustomersForm = ({
       })
   }, [customerdata])
   const validate = () => {
+    console.log("hiiii",customerdata.customer_name, customerdata.customer_address,
+    customerdata.phone_number , customerdata.product);
     if(customerdata.customer_name == "" || customerdata.customer_address == ""
      || customerdata.phone_number == "" || customerdata.product == ""){
       console.log("going inside");
