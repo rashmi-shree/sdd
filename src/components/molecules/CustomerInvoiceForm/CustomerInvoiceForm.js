@@ -67,9 +67,10 @@ const CustomerInvoiceForm = ({
             console.log("inside invoiceformdata", rowdatadisplayed);
             rowdatadisplayed.find((item, i) => {
                 if (item.delivery_id === index) {
-                    rowdatadisplayed.map((data)=>{
-                        console.log("fuck u", data[i].place_of_supply);
-                    })
+                    console.log("fucku",rowdatadisplayed[0]);
+                    // rowdatadisplayed.map((data)=>{
+                    //     console.log("fuck u", data[i].place_of_supply);
+                    // })
                 }
             })
             // rowdatadisplayed.map((data)=>{
