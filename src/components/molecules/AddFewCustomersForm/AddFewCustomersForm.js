@@ -104,13 +104,13 @@ const AddFewCustomersForm = ({
     if (!customerdata.customer_name){
       nameError = "please enter customer name";
     }
-    if (customerdata.customer_address == ""){
+    if (!customerdata.customer_address){
       addressError = "please enter customer address";
     }
-    if (customerdata.phone_number == ""){
+    if (!customerdata.phone_number){
       phoneError = "please enter primary ph no";
     }
-    if (customerdata.product == ""){
+    if (!customerdata.product){
       productError = "please choose atleast one product";
     }
     if(nameError || addressError || phoneError || productError){
