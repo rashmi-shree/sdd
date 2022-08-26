@@ -85,15 +85,15 @@ console.log("products",products, products.productname, products.productname.leng
     //   }
     // }
    
-    // if(productError || pnError || vnError || posError ){
-    //   seterrors({...errors, ["enquiredProductError"]:productError, 
-    //   ["poNumberError"]:pnError, 
-    //   ["vehicleNumberError"]:vnError,
-    //   ["placeOfSupplyError"]:posError
-    // });
-    //   return false;
-    // }
-    // return true;
+    if(productError || pnError || vnError || posError ){
+      seterrors({...errors, ["enquiredProductError"]:productError, 
+      ["poNumberError"]:pnError, 
+      ["vehicleNumberError"]:vnError,
+      ["placeOfSupplyError"]:posError
+    });
+      return false;
+    }
+    return true;
   }
   const submiteventclicked = () => {
     const isvalid = validate();
