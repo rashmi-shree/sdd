@@ -89,6 +89,7 @@ const CustomerInvoiceForm = ({
       }
     const submiteventclicked = (customer_reference_no, invoiceFormData) => {
         const isvalid = validate();
+        console.log("isvalid",isvalid);
         if(isvalid){
             let date = new Date();
             var date1 = date.toISOString();
