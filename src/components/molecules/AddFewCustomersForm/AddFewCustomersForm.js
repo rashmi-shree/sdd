@@ -102,16 +102,16 @@ const AddFewCustomersForm = ({
     let productError = "";
 
     if (!customerdata.customer_name){
-      nameError = "please enter customer name";
+      nameError = "Please Enter Customer Name";
     }
     if (!customerdata.customer_address){
-      addressError = "please enter customer address";
+      addressError = "Please Enter Customer Address";
     }
     if (!customerdata.phone_number){
-      phoneError = "please enter primary ph no";
+      phoneError = "Please Enter Primary Phone Number";
     }
     if (products.length == 0){
-      productError = "please choose atleast one product";
+      productError = "Please Choose Atleast One Product";
     }
     if(nameError || addressError || phoneError || productError ){
       seterrors({...errors, ["customerNameError"]:nameError, 

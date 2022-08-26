@@ -154,6 +154,11 @@ const CustomerInvoiceForm = ({
             api.put('product/updateProductsDetailsProductDataDecrement',{
                 rowdatadisplayed
             })
+
+            seterrors({...errors, ["placeofsupplyerror"]:"", 
+            ["ponumbererror"]:"", 
+            ["vehiclenoerror"]:""
+            });
         }
     }
     const changeevent = (event, index) => {
