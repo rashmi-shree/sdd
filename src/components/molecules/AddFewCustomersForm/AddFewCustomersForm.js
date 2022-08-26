@@ -30,7 +30,6 @@ const AddFewCustomersForm = ({
       customer_name: ""
     }
   );
-  const [cne, setcne] = useState();
   const [errors, seterrors] = useState({
     customerNameError:"",
     customerAddressError:"",
@@ -97,68 +96,57 @@ const AddFewCustomersForm = ({
       })
   }, [customerdata])
   const validate = () => {
-    console.log("customerdata",customerdata);
-    console.log("customerdata",customerdata.customer_name, typeof(customerdata.customer_name));
     if(customerdata.customer_name == "" || customerdata.customer_address == ""
      || customerdata.phone_number == "" || customerdata.product == ""){
       console.log("going inside");
-      // setcne("please enter customer name");
       seterrors({...errors, ["customerNameError"]:"please enter customer name", 
       ["customerAddressError"]:"please enter customer address", 
       ["phoneNumberError"]:"please enter primary ph no",
       ["enquiredProductError"]:"please choose atlease one product"
     });
       return false;
-      // setcustomerdata({ ...customerdata, [customerNameError]: "please enter customer name" })
-      // console.log("customerdata",customerdata);
-    }else{
-      console.log("customerdata",customerdata);
     }
     return true;
   }
-  console.log("erors", errors);
   const submiteventclicked = () => {
     const isvalid = validate();
     if(!isvalid){
-      console.log(customerdata.customerNameError);
-      console.log(customerdata);
-      console.log(cne);
+    api.post('/customer/addCustomerFollowUpData',
+      {
+        params: {
+          customerReferenceNo: finalCustomerRefNo,
+          enquiryDate: finalcurrentdate,
+          customerName: customerdata.customer_name,
+          customerAddress: customerdata.customer_address,
+          statename: customerdata.statename,
+          phoneno: customerdata.phone_number,
+          phonenoalterone: customerdata.phone_number_alter_one,
+          phonenoaltertwo: customerdata.phone_number_alter_two,
+          finalStatus: 'Follow up in progress'
+        }
+      })
+    api.post('delivery/addDeliveryData', {
+      params: {
+        customerReferenceNo: finalCustomerRefNo,
+        customerAddress: customerdata.customer_address,
+        statename: customerdata.statename,
+        phone_number: customerdata.phone_number,
+        phone_number_alter_one: customerdata.phone_number_alter_one,
+        phone_number_alter_two: customerdata.phone_number_alter_two,
+        product_hsn_code: producthsncodeonly,
+        product: productnameonly,
+        quantity: productquantityonly,
+        customer_name: customerdata.customer_name
+      }
+    })
+      .then((res) => {
+        if(res){
+          const res = customeraddedsuccessmsg({})
+          alert(res.msg);
+          handleClose();
+        }
+      })
     }
-    // api.post('/customer/addCustomerFollowUpData',
-    //   {
-    //     params: {
-    //       customerReferenceNo: finalCustomerRefNo,
-    //       enquiryDate: finalcurrentdate,
-    //       customerName: customerdata.customer_name,
-    //       customerAddress: customerdata.customer_address,
-    //       statename: customerdata.statename,
-    //       phoneno: customerdata.phone_number,
-    //       phonenoalterone: customerdata.phone_number_alter_one,
-    //       phonenoaltertwo: customerdata.phone_number_alter_two,
-    //       finalStatus: 'Follow up in progress'
-    //     }
-    //   })
-    // api.post('delivery/addDeliveryData', {
-    //   params: {
-    //     customerReferenceNo: finalCustomerRefNo,
-    //     customerAddress: customerdata.customer_address,
-    //     statename: customerdata.statename,
-    //     phone_number: customerdata.phone_number,
-    //     phone_number_alter_one: customerdata.phone_number_alter_one,
-    //     phone_number_alter_two: customerdata.phone_number_alter_two,
-    //     product_hsn_code: producthsncodeonly,
-    //     product: productnameonly,
-    //     quantity: productquantityonly,
-    //     customer_name: customerdata.customer_name
-    //   }
-    // })
-    //   .then((res) => {
-    //     if(res){
-    //       const res = customeraddedsuccessmsg({})
-    //       alert(res.msg);
-    //       handleClose();
-    //     }
-    //   })
   }
   const selectevent = (e) => {
     setProductname(e.target.outerText);
