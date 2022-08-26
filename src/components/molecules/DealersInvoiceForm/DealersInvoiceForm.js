@@ -68,7 +68,7 @@ const DealersInvoiceForm = ({
     let posError = "";
 console.log("dealersdata",dealersdata);
 console.log("changeddata",changeddata);
-// console.log("products",products, products.productname, products.productname.length);
+console.log("products",products, products.productname, products.length);
 
     if (products.productname.length == 0){
       productError = "Please Choose Atleast One Product";
