@@ -97,7 +97,7 @@ const AddFewCustomersForm = ({
   }, [customerdata])
   const validate = () => {
     console.log("customerdata",customerdata);
-    console.log("products",products);
+    console.log("products",products, products.length);
     console.log("customerdata.product",customerdata.product);
     let nameError = "";
     let addressError = "";
