@@ -67,24 +67,18 @@ const CustomerInvoiceForm = ({
             console.log("inside invoiceformdata", rowdatadisplayed);
             rowdatadisplayed.find((item, i) => {
                 if (item.delivery_id === index) {
-                    console.log("fucku",rowdatadisplayed[0]);
-                    // rowdatadisplayed.map((data)=>{
-                    //     console.log("fuck u", data[i].place_of_supply);
-                    // })
+                    console.log("a",rowdatadisplayed[i]);
+                    if(!rowdatadisplayed[i].place_of_supply){
+                        poserror = "Please enter Place Of Supply";
+                    }
+                    if(!rowdatadisplayed[i].po_number){
+                        pnerror = "Please Enter PO Number";
+                    }
+                    if(!rowdatadisplayed[i].vehicle_number){
+                        vnerror = "Please Enter Vehicle Number";
+                    }
                 }
             })
-            // rowdatadisplayed.map((data)=>{
-            //     console.log("data", data);
-            //     if(!data.place_of_supply){
-            //         poserror = "Please enter Place Of Supply";
-            //     }
-            //     if(!data.po_number){
-            //         pnerror = "Please Enter PO Number";
-            //     }
-            //     if(!data.vehicle_number){
-            //         vnerror = "Please Enter Vehicle Number";
-            //     }
-            // })
         }
         if(poserror || pnerror || vnerror ){
           seterrors({...errors, ["placeofsupplyerror"]:poserror, 
