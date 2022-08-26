@@ -58,25 +58,32 @@ const CustomerInvoiceForm = ({
         }
     }, [listofinvoices]);
 
-    const validate = () => {
+    const validate = (index) => {
         let poserror = "";
         let pnerror = "";
         let vnerror = "";
     console.log("inside validate function");
         if (rowdatadisplayed){
             console.log("inside invoiceformdata", rowdatadisplayed);
-            rowdatadisplayed.map((data)=>{
-                console.log("data", data);
-                if(!data.place_of_supply){
-                    poserror = "Please enter Place Of Supply";
-                }
-                if(!data.po_number){
-                    pnerror = "Please Enter PO Number";
-                }
-                if(!data.vehicle_number){
-                    vnerror = "Please Enter Vehicle Number";
+            rowdatadisplayed.find((item, i) => {
+                if (item.delivery_id === index) {
+                    rowdatadisplayed.map((data)=>{
+                        console.log("fuck u", data[i].place_of_supply);
+                    })
                 }
             })
+            // rowdatadisplayed.map((data)=>{
+            //     console.log("data", data);
+            //     if(!data.place_of_supply){
+            //         poserror = "Please enter Place Of Supply";
+            //     }
+            //     if(!data.po_number){
+            //         pnerror = "Please Enter PO Number";
+            //     }
+            //     if(!data.vehicle_number){
+            //         vnerror = "Please Enter Vehicle Number";
+            //     }
+            // })
         }
         if(poserror || pnerror || vnerror ){
           seterrors({...errors, ["placeofsupplyerror"]:poserror, 
@@ -89,7 +96,7 @@ const CustomerInvoiceForm = ({
       }
     const submiteventclicked = (customer_reference_no, delivery_id) => {
         console.log("id", delivery_id);
-        const isvalid = validate();
+        const isvalid = validate(delivery_id);
         console.log("isvalid",isvalid);
         if(isvalid){
             let date = new Date();
