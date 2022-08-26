@@ -79,10 +79,10 @@ console.log("products",products, products.productname, products.productname.leng
       //   pnError = "Please Po Number";
       // }
       // if (!changeddata.vehicle_number){
-      //   vnError = "Please Enter Vehicle Number";
+        vnError = "Please Enter Vehicle Number";
       // }
       // if (!changeddata.place_of_supply){
-      //   posError = "Please Enter Place Of Supply";
+        posError = "Please Enter Place Of Supply";
       // }
     }
    
