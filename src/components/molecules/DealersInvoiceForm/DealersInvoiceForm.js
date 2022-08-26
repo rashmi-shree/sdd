@@ -68,18 +68,23 @@ const DealersInvoiceForm = ({
     let posError = "";
 console.log("dealersdata",dealersdata);
 console.log("changeddata",changeddata);
+console.log("products",products);
+
     if (products.length == 0){
       productError = "Please Choose Atleast One Product";
     }
-    if (!changeddata.po_number){
-      pnError = "Please Po Number";
+    if(changeddata){
+      if (!changeddata.po_number){
+        pnError = "Please Po Number";
+      }
+      if (!changeddata.vehicle_number){
+        vnError = "Please Enter Vehicle Number";
+      }
+      if (!changeddata.place_of_supply){
+        posError = "Please Enter Place Of Supply";
+      }
     }
-    if (!changeddata.vehicle_number){
-      vnError = "Please Enter Vehicle Number";
-    }
-    if (!changeddata.place_of_supply){
-      posError = "Please Enter Place Of Supply";
-    }
+   
     if(productError || pnError || vnError || posError ){
       seterrors({...errors, ["enquiredProductError"]:productError, 
       ["poNumberError"]:pnError, 
