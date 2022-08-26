@@ -70,7 +70,7 @@ console.log("dealersdata",dealersdata);
 console.log("changeddata",changeddata);
 console.log("products",products, products.productname, products.length);
 
-    if (products.length == 0){
+    if (products.length == ""){
       productError = "Please Choose Atleast One Product";
     }
     if(!changeddata){
