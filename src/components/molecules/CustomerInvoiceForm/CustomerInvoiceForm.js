@@ -62,12 +62,9 @@ const CustomerInvoiceForm = ({
         let poserror = "";
         let pnerror = "";
         let vnerror = "";
-    console.log("inside validate function");
         if (rowdatadisplayed){
-            console.log("inside invoiceformdata", rowdatadisplayed);
             rowdatadisplayed.find((item, i) => {
                 if (item.delivery_id === index) {
-                    console.log("a",rowdatadisplayed[i]);
                     if(!rowdatadisplayed[i].place_of_supply){
                         poserror = "Please enter Place Of Supply";
                     }
@@ -90,9 +87,7 @@ const CustomerInvoiceForm = ({
         return true;
       }
     const submiteventclicked = (customer_reference_no, delivery_id) => {
-        console.log("id", delivery_id);
         const isvalid = validate(delivery_id);
-        console.log("isvalid",isvalid);
         if(isvalid){
             let date = new Date();
             var date1 = date.toISOString();

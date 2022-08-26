@@ -26,6 +26,12 @@ const DealersInvoiceForm = ({
     let random = Math.floor(Math.random() * (max - min + 1)) + min;
     finalCustomerRefNo = s1 + random;
   }
+  const [errors, seterrors] = useState({
+    enquiredProductError:"",
+    poNumberError:"",
+    vehicleNumberError:"",
+    placeOfSupplyError:"",
+  })
   generateCustomerReferenceNo();
   let finalInvoiceNo = '';
   const generateInvoiceNo = () => {
@@ -55,56 +61,87 @@ const DealersInvoiceForm = ({
         setstate(res.data);
       })
   }, [])
+  const validate = () => {
+    let productError = "";
+    let pnError = "";
+    let vnError = "";
+    let posError = "";
+console.log("dealersdata",dealersdata);
+    // if (!dealersdata.customer_name){
+    //   nameError = "Please Enter Customer Name";
+    // }
+    // if (!dealersdata.customer_address){
+    //   addressError = "Please Enter Customer Address";
+    // }
+    // if (!dealersdata.phone_number){
+    //   phoneError = "Please Enter Primary Phone Number";
+    // }
+    if (products.length == 0){
+      productError = "Please Choose Atleast One Product";
+    }
+    // if(productError || pnError || vnError || posError ){
+    //   seterrors({...errors, ["customerNameError"]:nameError, 
+    //   ["customerAddressError"]:addressError, 
+    //   ["phoneNumberError"]:phoneError,
+    //   ["enquiredProductError"]:productError
+    // });
+    //   return false;
+    // }
+    // return true;
+  }
   const submiteventclicked = () => {
-    api.post('product/fetchallproductdetails', {
-      params: {
-        productsdata: products
-      }
-    })
-      .then((res) => {
-        var data = res.data;
-        let prod = products.map((d) => {
-          let temp = data.find(a => a.product_name == d.productname)
-          return { ...d, ...temp }
-        })
-        let selectedstatecode = "";
-        state.map((d) => {
-          if (d.statename === selectedstate) {
-            selectedstatecode = d.statecode;
-          }
-        })
-        api.post('customer/insertdealerscustomertable', {
-          params: {
-            customer_reference_no: finalCustomerRefNo,
-            dealersdata: dealersdata,
-            state: selectedstate,
-            changed_data: changeddata
-          }
-        })
-          .then((res) => {
+    const isvalid = validate();
+    if(isvalid){
+      api.post('product/fetchallproductdetails', {
+        params: {
+          productsdata: products
+        }
+      })
+        .then((res) => {
+          var data = res.data;
+          let prod = products.map((d) => {
+            let temp = data.find(a => a.product_name == d.productname)
+            return { ...d, ...temp }
           })
-        api.post('dealers/insertdealersdataintodeliverytable', {
-          params: {
-            customer_reference_no: finalCustomerRefNo,
-            invoice_no: finalInvoiceNo,
-            dealersdata: dealersdata,
-            productsdata: prod,
-            state: selectedstate,
-            state_code: selectedstatecode,
-            changed_data: changeddata
-          }
-        })
-          .then((res) => {
-            if (res) {
-              const res = generateinvoicesuccessmsg({})
-              alert(res.msg);
-              handleClose();
+          let selectedstatecode = "";
+          state.map((d) => {
+            if (d.statename === selectedstate) {
+              selectedstatecode = d.statecode;
             }
           })
-      })
-      api.put('product/updateProductsDetailsProductData',{
-        params:products
-      })
+          api.post('customer/insertdealerscustomertable', {
+            params: {
+              customer_reference_no: finalCustomerRefNo,
+              dealersdata: dealersdata,
+              state: selectedstate,
+              changed_data: changeddata
+            }
+          })
+            .then((res) => {
+            })
+          api.post('dealers/insertdealersdataintodeliverytable', {
+            params: {
+              customer_reference_no: finalCustomerRefNo,
+              invoice_no: finalInvoiceNo,
+              dealersdata: dealersdata,
+              productsdata: prod,
+              state: selectedstate,
+              state_code: selectedstatecode,
+              changed_data: changeddata
+            }
+          })
+            .then((res) => {
+              if (res) {
+                const res = generateinvoicesuccessmsg({})
+                alert(res.msg);
+                handleClose();
+              }
+            })
+        })
+        api.put('product/updateProductsDetailsProductData',{
+          params:products
+        })
+      }
   }
   const incrementclicked = (data) => {
     let selectedproductdetails = products.map((product) => {
@@ -218,6 +255,7 @@ const DealersInvoiceForm = ({
                 comboboxdata={comboboxdata}
                 selectedproducts={selectedproducts}
               />
+              <p className="errormsgstyle">{errors.enquiredProductError}</p>
             </div>
           </label>
         </div>
@@ -250,6 +288,7 @@ const DealersInvoiceForm = ({
                 type="text"
                 onChange={changeevent}
               />
+              <p className="errormsgstyle">{errors.poNumberError}</p>
             </div>
           </label>
         </div>
@@ -264,6 +303,7 @@ const DealersInvoiceForm = ({
                 type="text"
                 onChange={changeevent}
               />
+              <p className="errormsgstyle">{errors.vehicleNumberError}</p>
             </div>
           </label>
         </div>
@@ -278,13 +318,15 @@ const DealersInvoiceForm = ({
                 type="text"
                 onChange={changeevent}
               />
+              <p className="errormsgstyle">{errors.placeOfSupplyError}</p>
             </div>
           </label>
         </div>
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-            <sup className="asteriskstyle">*</sup>State:
+            {/* <sup className="asteriskstyle">*</sup> */}
+            State:
             </div>
             <div className="formdatainputstyle">
               <CustomizedComboboxForState
