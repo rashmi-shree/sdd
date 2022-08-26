@@ -110,7 +110,8 @@ const AddFewCustomersForm = ({
     }
     return true;
   }
-  const submiteventclicked = () => {
+  const submiteventclicked = (e) => {
+    e.preventDefault();
     const isvalid = validate();
     console.log("isvalid", isvalid);
     if(isvalid){
