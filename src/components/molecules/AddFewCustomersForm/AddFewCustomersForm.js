@@ -127,46 +127,46 @@ const AddFewCustomersForm = ({
     console.log("isvalid", isvalid);
     if(isvalid){
       console.log("errors", errors);
+        api.post('/customer/addCustomerFollowUpData',
+      {
+        params: {
+          customerReferenceNo: finalCustomerRefNo,
+          enquiryDate: finalcurrentdate,
+          customerName: customerdata.customer_name,
+          customerAddress: customerdata.customer_address,
+          statename: customerdata.statename,
+          phoneno: customerdata.phone_number,
+          phonenoalterone: customerdata.phone_number_alter_one,
+          phonenoaltertwo: customerdata.phone_number_alter_two,
+          finalStatus: 'Follow up in progress'
+        }
+      })
+    api.post('delivery/addDeliveryData', {
+      params: {
+        customerReferenceNo: finalCustomerRefNo,
+        customerAddress: customerdata.customer_address,
+        statename: customerdata.statename,
+        phone_number: customerdata.phone_number,
+        phone_number_alter_one: customerdata.phone_number_alter_one,
+        phone_number_alter_two: customerdata.phone_number_alter_two,
+        product_hsn_code: producthsncodeonly,
+        product: productnameonly,
+        quantity: productquantityonly,
+        customer_name: customerdata.customer_name
+      }
+    })
+      .then((res) => {
+        if(res){
+          const res = customeraddedsuccessmsg({})
+          alert(res.msg);
+          handleClose();
+        }
+      })
       seterrors({...errors, ["customerNameError"]:"", 
       ["customerAddressError"]:"", 
-      ["phoneNumberError"]:"",
-      ["enquiredProductError"]:""
+      ["phoneNumberError"]:""
     });
-    // api.post('/customer/addCustomerFollowUpData',
-    //   {
-    //     params: {
-    //       customerReferenceNo: finalCustomerRefNo,
-    //       enquiryDate: finalcurrentdate,
-    //       customerName: customerdata.customer_name,
-    //       customerAddress: customerdata.customer_address,
-    //       statename: customerdata.statename,
-    //       phoneno: customerdata.phone_number,
-    //       phonenoalterone: customerdata.phone_number_alter_one,
-    //       phonenoaltertwo: customerdata.phone_number_alter_two,
-    //       finalStatus: 'Follow up in progress'
-    //     }
-    //   })
-    // api.post('delivery/addDeliveryData', {
-    //   params: {
-    //     customerReferenceNo: finalCustomerRefNo,
-    //     customerAddress: customerdata.customer_address,
-    //     statename: customerdata.statename,
-    //     phone_number: customerdata.phone_number,
-    //     phone_number_alter_one: customerdata.phone_number_alter_one,
-    //     phone_number_alter_two: customerdata.phone_number_alter_two,
-    //     product_hsn_code: producthsncodeonly,
-    //     product: productnameonly,
-    //     quantity: productquantityonly,
-    //     customer_name: customerdata.customer_name
-    //   }
-    // })
-    //   .then((res) => {
-    //     if(res){
-    //       const res = customeraddedsuccessmsg({})
-    //       alert(res.msg);
-    //       handleClose();
-    //     }
-    //   })
+   
     }
   }
   const selectevent = (e) => {
