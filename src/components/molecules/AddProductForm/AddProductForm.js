@@ -28,22 +28,12 @@ const AddProductForm = ({ handleClose }) => {
   currentDate();
   const validate = () => {
     let ce = "";
-    console.log("customerdata",customerdata);
     if (!customerdata || !customerdata.product_name || !customerdata.product_hsn_code ||
       !customerdata.product_description || !customerdata.unit_of_measure || !customerdata.rate_per_unit ||
       !customerdata.gst_rate || !customerdata.product_status || !customerdata.product_status ||
       !customerdata.stock || !customerdata.discount 
       ){
       ce = "please enter all important fields";
-      // productNameError = "Please Enter Product Name";
-      // productHsnCodeError = "Please Enter Product Hsn Code";
-      // productDescriptionError = "Please Enter Product Description";
-      // unitOfMeasureError = "Please Enter unit ";
-      // ratePerUnitError = "Please Enter Product Name";
-      // gstRateError = "Please Enter Product Name";
-      // productStatusError = "Please Enter Product Name";
-      // stockError = "Please Enter Product Name";
-      // discountError = "Please Enter Product Name";
     }
     if(ce){
       seterrors({...errors, ["commonError"]:ce});

@@ -9,6 +9,9 @@ import '../../../style/style.css';
 const AddDealersForm = ({ handleClose }) => {
   const [customerdata, setcustomerdata] = useState();
   const [gststatus, setgststatus] = useState(['Active', 'In Active']);
+  const [errors, seterrors] = useState({
+    commonError:"please enter all important fields"
+  })
   let finalCustomerRefNo = '';
   const generateCustomerReferenceNo = () => {
     let s1 = "CUST2022";
@@ -25,19 +28,38 @@ const AddDealersForm = ({ handleClose }) => {
     finalcurrentdate = moment(date).format('YYYY-MM-DD');
   }
   currentDate();
+  const validate = () => {
+    let ce = "";
+    if (!customerdata || !customerdata.enterprise_address || !customerdata.enterprise_name ||
+      !customerdata.gstin_number || !customerdata.gstin_status || !customerdata.proprietor_name ||
+      !customerdata.proprietor_phone_number ){
+      ce = "please enter all important fields";
+    }
+    if(ce){
+      seterrors({...errors, ["commonError"]:ce});
+      return false;
+    }
+    return true;
+  }
   const submiteventclicked = () => {
-    axios.post(`http://3.84.110.201:3001/dealers/addDealersData`,{
-      params:{
-        data: customerdata
-      }
-    })
-    .then((res)=>{
-      if(res){
-        const res = addedsuccessmsg({})
-        alert(res.msg);
-        handleClose();
-      }
-    })
+    const isvalid = validate();
+    if(isvalid){
+      axios.post(`http://3.84.110.201:3001/dealers/addDealersData`,{
+        params:{
+          data: customerdata
+        }
+      })
+      .then((res)=>{
+        if(res){
+          const res = addedsuccessmsg({})
+          alert(res.msg);
+          handleClose();
+        }
+      })
+    }
+    else{
+      alert(errors.commonError );
+    }
   }
   const changeevent = (event) => {
     setcustomerdata({ ...customerdata, [event.target.name]: event.target.value })
@@ -54,7 +76,7 @@ const AddDealersForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              GSTIN Number:
+            <sup className="asteriskstyle">*</sup>GSTIN Number:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -68,7 +90,7 @@ const AddDealersForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Enterprise name:
+            <sup className="asteriskstyle">*</sup>Enterprise name:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -82,7 +104,7 @@ const AddDealersForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Enterprise address:
+            <sup className="asteriskstyle">*</sup>Enterprise address:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -96,7 +118,7 @@ const AddDealersForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Proprietor address:
+            <sup className="asteriskstyle">*</sup>Proprietor address:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -110,7 +132,7 @@ const AddDealersForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Proprietor phone number:
+            <sup className="asteriskstyle">*</sup>Proprietor phone number:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -125,7 +147,7 @@ const AddDealersForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              gst status:
+            <sup className="asteriskstyle">*</sup>gst status:
             </div>
             <div className="formdatainputstyle">
               <CustomizedComboboxAll 
