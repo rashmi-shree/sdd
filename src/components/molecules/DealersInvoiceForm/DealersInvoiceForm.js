@@ -75,7 +75,8 @@ console.log("products",products, products.productname, products.length);
     // if (products.productname.length == 0 ){
     //   productError = "Please Choose Atleast One Product";
     // }
-    if(!changeddata 
+    if(!changeddata || !changeddata.po_number ||
+      !changeddata.vehicle_number || !changeddata.place_of_supply
       // || products.productname.length == 0
       ){
       ce = "Please Enter all Important Fields";
