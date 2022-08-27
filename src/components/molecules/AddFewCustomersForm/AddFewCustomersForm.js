@@ -102,7 +102,7 @@ const AddFewCustomersForm = ({
     let phoneError = "";
     let productError = "";
     let ce = "";
-if (!customerdata.customer_name || !customerdata.customer_address 
+if (!customerdata || !customerdata.customer_name || !customerdata.customer_address 
    ||!customerdata.phone_number ||  products.length == 0){
     ce = "Please Enter all Important Fields";
    }
