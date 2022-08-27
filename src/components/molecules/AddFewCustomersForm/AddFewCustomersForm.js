@@ -4,6 +4,7 @@ import moment from 'moment';
 import { customeraddedsuccessmsg } from '../../organisms/SuccessMsg/SuccessMsg';
 import CustomizedComboboxForState from '../../atoms/CustomizedCombobox/CustomizedComboboxForState';
 import CustomizedComboboxMultipleSelect from '../../atoms/CustomizedComboboxMultipleSelect/CustomizedComboboxMultipleSelect';
+import CustomizedComboboxForOwner from "../../atoms/CustomizedCombobox/CustomizedCombobboxForOwner";
 import '../../../style/style.css';
 
 const AddFewCustomersForm = ({
@@ -41,6 +42,11 @@ const AddFewCustomersForm = ({
   const [productname, setProductname] = useState("");
   const [producthsn, setProducthsn] = useState();
   const [state, setstate] = useState([]);
+  const [owner, setowner] = useState([
+    {"ownerid":1,
+    "ownername":"SDD ENTERPRISES"},
+    {"ownerid":2,
+    "ownername":"SRI PARAMANANDA ENTERPRISES"}]);
   const [products, setproducts] = useState([]);
   const [statecode, setstatecode] = useState("");
   const [producthsncodeonly, setproducthsncodeonly] = useState();
@@ -265,6 +271,20 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
         Add New Customer
       </div>
       <form className="formcontainer">
+        <div className="nameandinputcontainer">
+          <label className="formdatalabelstyle">
+            <div className="formnamestyle">
+            <sup className="asteriskstyle">*</sup>Select Owner:
+            </div>
+            <div className="formdatainputstyle">
+              <CustomizedComboboxForOwner
+                comboboxdata={owner}
+                // type="state"
+                // selectevent={selecteventforstate}
+              />
+            </div>
+          </label>
+        </div>
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
