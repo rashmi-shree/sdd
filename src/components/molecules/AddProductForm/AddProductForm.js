@@ -9,16 +9,7 @@ const AddProductForm = ({ handleClose }) => {
   const [customerdata, setcustomerdata] = useState();
   const [productstatus, setproductstatus] = useState(['Available', 'Not Available']);
   const [errors, seterrors] = useState({
-    productNameError:"",
-    productHsnCodeError:"",
-    productDescriptionError:"",
-    unitOfMeasureError:"",
-    ratePerUnitError:"",
-    gstRateError:"",
-    productStatusError:"",
-    stockError:"",
-    discountError:"",
-    commonError:""
+    commonError:"please enter all important fields"
   })
   let finalCustomerRefNo = '';
   const generateCustomerReferenceNo = () => {
@@ -36,15 +27,6 @@ const AddProductForm = ({ handleClose }) => {
   }
   currentDate();
   const validate = () => {
-    let productNameError= "";
-    let productHsnCodeError="";
-    let productDescriptionError="";
-    let unitOfMeasureError="";
-    let ratePerUnitError="";
-    let gstRateError="";
-    let productStatusError="";
-    let stockError="";
-    let discountError="";
     let ce = "";
     console.log("customerdata",customerdata);
     if (!customerdata || !customerdata.product_name || !customerdata.product_hsn_code ||
@@ -86,7 +68,7 @@ const AddProductForm = ({ handleClose }) => {
         })
     }
     else {
-      alert(errors.commonError);
+      alert(errors.commonError );
     }
   }
   const changeevent = (event) => {
