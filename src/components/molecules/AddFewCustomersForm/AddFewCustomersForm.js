@@ -31,7 +31,7 @@ const AddFewCustomersForm = ({
     }
   );
   const [errors, seterrors] = useState({
-    commoneError:"Please Enter all Important Fields",
+    commonError:"Please Enter all Important Fields",
     // customerNameError:"",
     // customerAddressError:"",
     // phoneNumberError:"",
@@ -130,6 +130,7 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
   }
   const submiteventclicked = () => {
     const isvalid = validate();
+    console.log("isvalid",isvalid);
     if(isvalid){
         api.post('/customer/addCustomerFollowUpData',
       {
