@@ -29,7 +29,7 @@ const AddFewCustomersForm = ({
       product: "",
       quantity: "",
       customer_name: "",
-      owner_company:""
+      owner_company:"SRI PARAMANANDA ENTERPRISES"
     }
   );
   const [errors, seterrors] = useState({
