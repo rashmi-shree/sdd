@@ -8,6 +8,17 @@ import '../../../style/style.css';
 const AddProductForm = ({ handleClose }) => {
   const [customerdata, setcustomerdata] = useState();
   const [productstatus, setproductstatus] = useState(['Available', 'Not Available']);
+  const [errors, seterrors] = useState({
+    productNameError:"",
+    productHsnCodeError:"",
+    productDescriptionError:"",
+    unitOfMeasureError:"",
+    ratePerUnitError:"",
+    gstRateError:"",
+    productStatusError:"",
+    stockError:"",
+    discountError:""
+  })
   let finalCustomerRefNo = '';
   const generateCustomerReferenceNo = () => {
     let s1 = "CUST2022";
@@ -23,19 +34,55 @@ const AddProductForm = ({ handleClose }) => {
     finalcurrentdate = moment(date).format('YYYY-MM-DD');
   }
   currentDate();
+  const validate = () => {
+    let productNameError= "";
+    let productHsnCodeError="";
+    let productDescriptionError="";
+    let unitOfMeasureError="";
+    let ratePerUnitError="";
+    let gstRateError="";
+    let productStatusError="";
+    let stockError="";
+    let discountError="";
+    console.log("customerdata",customerdata);
+    // if (!customerdata.customer_name){
+    //   nameError = "Please Enter Customer Name";
+    // }
+    // if (!customerdata.customer_address){
+    //   addressError = "Please Enter Customer Address";
+    // }
+    // if (!customerdata.phone_number){
+    //   phoneError = "Please Enter Primary Phone Number";
+    // }
+    // if (products.length == 0){
+    //   productError = "Please Choose Atleast One Product";
+    // }
+    // if(nameError || addressError || phoneError || productError ){
+    //   seterrors({...errors, ["customerNameError"]:nameError, 
+    //   ["customerAddressError"]:addressError, 
+    //   ["phoneNumberError"]:phoneError,
+    //   ["enquiredProductError"]:productError
+    // });
+    //   return false;
+    // }
+    // return true;
+  }
   const submiteventclicked = () => {
-    axios.post('http://3.84.110.201:3001/product/addProductData', {
-      params: {
-        data: customerdata
-      }
-    })
-      .then((res) => {
-        if (res) {
-          const res = addedsuccessmsg({})
-          alert(res.msg);
-          handleClose();
+    const isvalid = validate();
+    if(isvalid){
+      axios.post('http://3.84.110.201:3001/product/addProductData', {
+        params: {
+          data: customerdata
         }
       })
+        .then((res) => {
+          if (res) {
+            const res = addedsuccessmsg({})
+            alert(res.msg);
+            handleClose();
+          }
+        })
+    }
   }
   const changeevent = (event) => {
     setcustomerdata({ ...customerdata, [event.target.name]: event.target.value })
@@ -52,7 +99,7 @@ const AddProductForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Product Name:
+            <sup className="asteriskstyle">*</sup>Product Name:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -66,7 +113,7 @@ const AddProductForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Product hsn code:
+            <sup className="asteriskstyle">*</sup>Product hsn code:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -80,7 +127,7 @@ const AddProductForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Product description:
+            <sup className="asteriskstyle">*</sup>Product description:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -94,7 +141,7 @@ const AddProductForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Unit of measure:
+            <sup className="asteriskstyle">*</sup>Unit of measure:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -108,7 +155,7 @@ const AddProductForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              rate per unit:
+            <sup className="asteriskstyle">*</sup>rate per unit:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -122,7 +169,7 @@ const AddProductForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              gst rate:
+            <sup className="asteriskstyle">*</sup>gst rate:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -136,7 +183,7 @@ const AddProductForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              Product status:
+            <sup className="asteriskstyle">*</sup>Product status:
             </div>
             <div className="formdatainputstyle">
               <CustomizedComboboxAll 
@@ -149,7 +196,7 @@ const AddProductForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              stock:
+            <sup className="asteriskstyle">*</sup>stock:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -163,7 +210,7 @@ const AddProductForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-              discount:
+            <sup className="asteriskstyle">*</sup>discount:
             </div>
             <div className="formdatainputstyle">
               <input
