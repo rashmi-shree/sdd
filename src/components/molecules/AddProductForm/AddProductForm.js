@@ -17,7 +17,8 @@ const AddProductForm = ({ handleClose }) => {
     gstRateError:"",
     productStatusError:"",
     stockError:"",
-    discountError:""
+    discountError:"",
+    commonError:""
   })
   let finalCustomerRefNo = '';
   const generateCustomerReferenceNo = () => {
@@ -44,28 +45,25 @@ const AddProductForm = ({ handleClose }) => {
     let productStatusError="";
     let stockError="";
     let discountError="";
+    let ce = "";
     console.log("customerdata",customerdata);
-    // if (!customerdata.customer_name){
-    //   nameError = "Please Enter Customer Name";
-    // }
-    // if (!customerdata.customer_address){
-    //   addressError = "Please Enter Customer Address";
-    // }
-    // if (!customerdata.phone_number){
-    //   phoneError = "Please Enter Primary Phone Number";
-    // }
-    // if (products.length == 0){
-    //   productError = "Please Choose Atleast One Product";
-    // }
-    // if(nameError || addressError || phoneError || productError ){
-    //   seterrors({...errors, ["customerNameError"]:nameError, 
-    //   ["customerAddressError"]:addressError, 
-    //   ["phoneNumberError"]:phoneError,
-    //   ["enquiredProductError"]:productError
-    // });
-    //   return false;
-    // }
-    // return true;
+    if (!customerdata.customer_name){
+      ce = "please enter all important fields";
+      // productNameError = "Please Enter Product Name";
+      // productHsnCodeError = "Please Enter Product Hsn Code";
+      // productDescriptionError = "Please Enter Product Description";
+      // unitOfMeasureError = "Please Enter unit ";
+      // ratePerUnitError = "Please Enter Product Name";
+      // gstRateError = "Please Enter Product Name";
+      // productStatusError = "Please Enter Product Name";
+      // stockError = "Please Enter Product Name";
+      // discountError = "Please Enter Product Name";
+    }
+    if(ce){
+      seterrors({...errors, ["commonError"]:ce});
+      return false;
+    }
+    return true;
   }
   const submiteventclicked = () => {
     const isvalid = validate();
@@ -82,6 +80,9 @@ const AddProductForm = ({ handleClose }) => {
             handleClose();
           }
         })
+    }
+    else {
+      alert(errors.ce);
     }
   }
   const changeevent = (event) => {
