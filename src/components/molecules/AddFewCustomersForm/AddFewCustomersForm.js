@@ -31,11 +31,11 @@ const AddFewCustomersForm = ({
     }
   );
   const [errors, seterrors] = useState({
-    commoneError:"",
-    customerNameError:"",
-    customerAddressError:"",
-    phoneNumberError:"",
-    enquiredProductError:""
+    commoneError:"Please Enter all Important Fields",
+    // customerNameError:"",
+    // customerAddressError:"",
+    // phoneNumberError:"",
+    // enquiredProductError:""
   })
   const [comboboxdata, setComboboxdata] = useState([]);
   const [productname, setProductname] = useState("");
@@ -106,18 +106,18 @@ if (!customerdata.customer_name || !customerdata.customer_address
    ||!customerdata.phone_number ||  products.length == 0){
     ce = "Please Enter all Important Fields";
    }
-    if (!customerdata.customer_name){
-      nameError = "Please Enter Customer Name";
-    }
-    if (!customerdata.customer_address){
-      addressError = "Please Enter Customer Address";
-    }
-    if (!customerdata.phone_number){
-      phoneError = "Please Enter Primary Phone Number";
-    }
-    if (products.length == 0){
-      productError = "Please Choose Atleast One Product";
-    }
+    // if (!customerdata.customer_name){
+    //   nameError = "Please Enter Customer Name";
+    // }
+    // if (!customerdata.customer_address){
+    //   addressError = "Please Enter Customer Address";
+    // }
+    // if (!customerdata.phone_number){
+    //   phoneError = "Please Enter Primary Phone Number";
+    // }
+    // if (products.length == 0){
+    //   productError = "Please Choose Atleast One Product";
+    // }
     if( ce
       // nameError || addressError || phoneError || productError 
       ){
@@ -165,10 +165,10 @@ if (!customerdata.customer_name || !customerdata.customer_address
           handleClose();
         }
       })
-      seterrors({...errors, ["customerNameError"]:"", 
-      ["customerAddressError"]:"", 
-      ["phoneNumberError"]:""
-    });
+    //   seterrors({...errors, ["customerNameError"]:"", 
+    //   ["customerAddressError"]:"", 
+    //   ["phoneNumberError"]:""
+    // });
    
     }
     else {
