@@ -195,7 +195,12 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
   const selecteventforowner = (e) => {
     console.log("e", e);
     setselectedowner(e.label)
-    setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": e })
+    if (e.label == "SDD ENTERPRISES"){
+      setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Tamil Nadu', value: 33 }})
+    }
+    else if (e.label == "SRI PARAMANANDA ENTERPRISES"){
+      setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Karnataka', value: 29}})
+    }
   }
 
   const selectedproducts = (e) => {
