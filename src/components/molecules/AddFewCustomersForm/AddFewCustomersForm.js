@@ -31,6 +31,7 @@ const AddFewCustomersForm = ({
     }
   );
   const [errors, seterrors] = useState({
+    commoneError:"",
     customerNameError:"",
     customerAddressError:"",
     phoneNumberError:"",
@@ -100,7 +101,11 @@ const AddFewCustomersForm = ({
     let addressError = "";
     let phoneError = "";
     let productError = "";
-
+    let ce = "";
+if (!customerdata.customer_name || !customerdata.customer_address 
+   ||!customerdata.phone_number ||  products.length == 0){
+    ce = "Please Enter all Important Fields";
+   }
     if (!customerdata.customer_name){
       nameError = "Please Enter Customer Name";
     }
@@ -113,11 +118,10 @@ const AddFewCustomersForm = ({
     if (products.length == 0){
       productError = "Please Choose Atleast One Product";
     }
-    if(nameError || addressError || phoneError || productError ){
-      seterrors({...errors, ["customerNameError"]:nameError, 
-      ["customerAddressError"]:addressError, 
-      ["phoneNumberError"]:phoneError,
-      ["enquiredProductError"]:productError
+    if( ce
+      // nameError || addressError || phoneError || productError 
+      ){
+      seterrors({...errors, ["commoneError"]:ce
     });
       return false;
     }
@@ -166,6 +170,9 @@ const AddFewCustomersForm = ({
       ["phoneNumberError"]:""
     });
    
+    }
+    else {
+      alert(errors.commonError );
     }
   }
   const selectevent = (e) => {
