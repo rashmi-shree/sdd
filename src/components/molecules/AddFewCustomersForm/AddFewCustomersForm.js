@@ -195,7 +195,7 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
   const selecteventforowner = (e) => {
     console.log("e", e);
     setselectedowner(e.label)
-    setcustomerdata({ ...customerdata, "owner_company": e.label })
+    setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": e })
   }
 
   const selectedproducts = (e) => {
