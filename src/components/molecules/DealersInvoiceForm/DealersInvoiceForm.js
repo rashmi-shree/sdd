@@ -75,7 +75,9 @@ console.log("products",products, products.productname, products.length);
     // if (products.productname.length == 0 ){
     //   productError = "Please Choose Atleast One Product";
     // }
-    if(!changeddata || products.productname.length == 0){
+    if(!changeddata 
+      // || products.productname.length == 0
+      ){
       ce = "Please Enter all Important Fields";
       // pnError = "Please Po Number";
       // if (!changeddata.po_number){
