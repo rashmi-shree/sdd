@@ -47,6 +47,7 @@ const AddFewCustomersForm = ({
     "ownername":"SDD ENTERPRISES"},
     {"ownerid":2,
     "ownername":"SRI PARAMANANDA ENTERPRISES"}]);
+    const [selectedowner, setselectedowner] = useState("SRI PARAMANANDA ENTERPRISES")
   const [products, setproducts] = useState([]);
   const [statecode, setstatecode] = useState("");
   const [producthsncodeonly, setproducthsncodeonly] = useState();
@@ -191,6 +192,7 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
   }
   const selecteventforowner = (e) => {
     console.log("e", e);
+    setselectedowner(e.label)
     // setcustomerdata({ ...customerdata, "statename": e })
   }
 
@@ -328,6 +330,7 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
             </div>
             <div className="formdatainputstyle">
               <CustomizedComboboxForState
+                selectedowner={selectedowner}
                 comboboxdata={state}
                 // type="state"
                 selectevent={selecteventforstate}

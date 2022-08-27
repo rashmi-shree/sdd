@@ -7,7 +7,8 @@ import Select from 'react-select';
 
 const CustomizedCombobox = ({
   comboboxdata,
-  selectevent
+  selectevent,
+  selectedowner
 }) => {
   const [statedata, setstatedata] = useState();
   const [defaultvalue, setdefaultvalue] = useState();
@@ -18,8 +19,13 @@ const CustomizedCombobox = ({
     setstatedata(temp);
   },[comboboxdata])
   useEffect(()=>{
-    setdefaultvalue({label: 'Karnataka', value: 29})
-  },[comboboxdata])
+    if(selectedowner == "SRI PARAMANANDA ENTERPRISES"){
+      setdefaultvalue({label: 'Karnataka', value: 29})
+    }
+    else if(selectedowner == "SDD ENTERPRISES"){
+      setdefaultvalue({label: 'Tamil Nadu', value: 33})
+    }
+  },[comboboxdata,selectedowner])
   const handleChange = e => {
     setdefaultvalue(e);
     selectevent(e);
