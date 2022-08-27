@@ -27,6 +27,7 @@ const CustomizedCombobox = ({
     }
   },[comboboxdata,selectedowner])
   const handleChange = e => {
+    console.log("inside combo state onchange", e);
     setdefaultvalue(e);
     selectevent(e);
   }
