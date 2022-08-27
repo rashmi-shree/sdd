@@ -27,10 +27,11 @@ const DealersInvoiceForm = ({
     finalCustomerRefNo = s1 + random;
   }
   const [errors, seterrors] = useState({
-    enquiredProductError:"",
-    poNumberError:"",
-    vehicleNumberError:"",
-    placeOfSupplyError:"",
+    commonError:"Please Enter all Important Fields"
+    // enquiredProductError:"",
+    // poNumberError:"",
+    // vehicleNumberError:"",
+    // placeOfSupplyError:"",
   })
   generateCustomerReferenceNo();
   let finalInvoiceNo = '';
@@ -66,6 +67,7 @@ const DealersInvoiceForm = ({
     let pnError = "";
     let vnError = "";
     let posError = "";
+    let ce = "";
 console.log("dealersdata",dealersdata);
 console.log("changeddata",changeddata);
 console.log("products",products, products.productname, products.length);
@@ -73,24 +75,27 @@ console.log("products",products, products.productname, products.length);
     // if (products.productname.length == 0 ){
     //   productError = "Please Choose Atleast One Product";
     // }
-    if(!changeddata){
-      pnError = "Please Po Number";
+    if(!changeddata || products.productname.length == 0){
+      ce = "Please Enter all Important Fields";
+      // pnError = "Please Po Number";
       // if (!changeddata.po_number){
       //   pnError = "Please Po Number";
       // }
       // if (!changeddata.vehicle_number){
-        vnError = "Please Enter Vehicle Number";
+        // vnError = "Please Enter Vehicle Number";
       // }
       // if (!changeddata.place_of_supply){
-        posError = "Please Enter Place Of Supply";
+        // posError = "Please Enter Place Of Supply";
       // }
     }
    
-    if(productError || pnError || vnError || posError ){
-      seterrors({...errors, ["enquiredProductError"]:productError, 
-      ["poNumberError"]:pnError, 
-      ["vehicleNumberError"]:vnError,
-      ["placeOfSupplyError"]:posError
+    if( ce 
+      // productError || pnError || vnError || posError 
+      ){
+      seterrors({...errors, ["commonError"]:ce
+      // ["poNumberError"]:pnError, 
+      // ["vehicleNumberError"]:vnError,
+      // ["placeOfSupplyError"]:posError
     });
       return false;
     }
@@ -145,11 +150,14 @@ console.log("products",products, products.productname, products.length);
               }
             })
         })
-        seterrors({...errors, ["enquiredProductError"]:"", 
-      ["poNumberError"]:"",
-      ["vehicleNumberError"]:"",
-      ["placeOfSupplyError"]:""
-    });
+    //     seterrors({...errors, ["enquiredProductError"]:"", 
+    //   ["poNumberError"]:"",
+    //   ["vehicleNumberError"]:"",
+    //   ["placeOfSupplyError"]:""
+    // });
+      }
+      else {
+        alert(errors.commonError);
       }
   }
   const incrementclicked = (data) => {
