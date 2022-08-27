@@ -17,20 +17,20 @@ const CustomizedComboboxForOwner = ({
     })
     setstatedata(temp);
   },[comboboxdata])
-//   useEffect(()=>{
-//     setdefaultvalue({label: 'Karnataka', value: 29})
-//   },[comboboxdata])
-//   const handleChange = e => {
-//     setdefaultvalue(e);
-//     selectevent(e);
-//   }
+  useEffect(()=>{
+    setdefaultvalue({label: 'SRI PARAMANANDA ENTERPRISES', value: 2})
+  },[comboboxdata])
+  const handleChange = e => {
+    setdefaultvalue(e);
+    selectevent(e);
+  }
   return (
     <div className='comboboxselectstyle'>
       <Select
         placeholder="Select Option"
-        // value={defaultvalue}
+        value={defaultvalue}
         options={statedata} // set list of the data
-        // onChange={handleChange} // assign onChange function
+        onChange={handleChange} // assign onChange function
     />
   </div>
   );

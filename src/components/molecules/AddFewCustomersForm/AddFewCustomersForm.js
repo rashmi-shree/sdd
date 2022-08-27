@@ -189,6 +189,11 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
   const selecteventforstate = (e) => {
     setcustomerdata({ ...customerdata, "statename": e })
   }
+  const selecteventforowner = (e) => {
+    console.log("e", e);
+    // setcustomerdata({ ...customerdata, "statename": e })
+  }
+
   const selectedproducts = (e) => {
     let selectedproducts = e.map((data) => {
       return { productname: data, quantity: 1 }
@@ -280,7 +285,7 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
               <CustomizedComboboxForOwner
                 comboboxdata={owner}
                 // type="state"
-                // selectevent={selecteventforstate}
+                selectevent={selecteventforowner}
               />
             </div>
           </label>
