@@ -126,9 +126,6 @@ console.log("products",products, products.productname, products.length);
           })
             .then((res) => {
             })
-            api.put('product/updateProductsDetailsProductData',{
-              params:products
-            })
           api.post('dealers/insertdealersdataintodeliverytable', {
             params: {
               customer_reference_no: finalCustomerRefNo,

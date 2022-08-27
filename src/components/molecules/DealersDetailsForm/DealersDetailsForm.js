@@ -87,6 +87,9 @@ const DealersDetailsForm = ({
         rowdatadisplayed: Rowdatadisplayed
       }
     })
+    axios.put('product/updateProductsDetailsProductDataDecrement',{
+      Rowdatadisplayed
+  })
     if (statecode == 29) {
       axios.put('http://3.84.110.201:3001/jointables/updatekarnatakagstratesfromdealers', {
         params: {
