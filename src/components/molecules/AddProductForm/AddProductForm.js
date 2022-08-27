@@ -47,7 +47,7 @@ const AddProductForm = ({ handleClose }) => {
     let discountError="";
     let ce = "";
     console.log("customerdata",customerdata);
-    if (!customerdata.customer_name){
+    if (!customerdata){
       ce = "please enter all important fields";
       // productNameError = "Please Enter Product Name";
       // productHsnCodeError = "Please Enter Product Hsn Code";
