@@ -10,7 +10,7 @@ const AddDealersForm = ({ handleClose }) => {
   const [customerdata, setcustomerdata] = useState();
   const [gststatus, setgststatus] = useState(['Active', 'In Active']);
   const [errors, seterrors] = useState({
-    commonError:"please enter all important fields"
+    commonError:"Please Enter All Important Fields"
   })
   let finalCustomerRefNo = '';
   const generateCustomerReferenceNo = () => {

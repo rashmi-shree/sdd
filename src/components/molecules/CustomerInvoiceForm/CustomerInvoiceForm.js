@@ -18,7 +18,8 @@ const CustomerInvoiceForm = ({
     const [errors, seterrors] = useState({
         placeofsupplyerror:"",
         ponumbererror:"",
-        vehiclenoerror:""
+        vehiclenoerror:"",
+        commonError:"Please Enter All Important Fields"
       })
     useEffect(() => {
         api.get('delivery/fetchinvoicesfromdeliverytable')
@@ -62,25 +63,32 @@ const CustomerInvoiceForm = ({
         let poserror = "";
         let pnerror = "";
         let vnerror = "";
+        let ce = "";
+
         if (rowdatadisplayed){
             rowdatadisplayed.find((item, i) => {
                 if (item.delivery_id === index) {
-                    if(!rowdatadisplayed[i].place_of_supply){
-                        poserror = "Please enter Place Of Supply";
+                    if(!rowdatadisplayed[i].place_of_supply || !rowdatadisplayed[i].po_number ||
+                        !rowdatadisplayed[i].vehicle_number
+                        ){
+                            ce = "Please Enter All Important Fields";
                     }
-                    if(!rowdatadisplayed[i].po_number){
-                        pnerror = "Please Enter PO Number";
-                    }
-                    if(!rowdatadisplayed[i].vehicle_number){
-                        vnerror = "Please Enter Vehicle Number";
-                    }
+                    // if(!rowdatadisplayed[i].place_of_supply){
+                    //     poserror = "Please enter Place Of Supply";
+                    // }
+                    // if(!rowdatadisplayed[i].po_number){
+                    //     pnerror = "Please Enter PO Number";
+                    // }
+                    // if(!rowdatadisplayed[i].vehicle_number){
+                    //     vnerror = "Please Enter Vehicle Number";
+                    // }
                 }
             })
         }
-        if(poserror || pnerror || vnerror ){
-          seterrors({...errors, ["placeofsupplyerror"]:poserror, 
-          ["ponumbererror"]:pnerror, 
-          ["vehiclenoerror"]:vnerror
+        if( ce
+            // poserror || pnerror || vnerror 
+            ){
+          seterrors({...errors, ["commonError"]:ce
         });
           return false;
         }
@@ -156,11 +164,14 @@ const CustomerInvoiceForm = ({
                 rowdatadisplayed
             })
 
-            seterrors({...errors, ["placeofsupplyerror"]:"", 
-            ["ponumbererror"]:"", 
-            ["vehiclenoerror"]:""
-            });
+            // seterrors({...errors, ["placeofsupplyerror"]:"", 
+            // ["ponumbererror"]:"", 
+            // ["vehiclenoerror"]:""
+            // });
         }
+        else{
+            alert(errors.commonError );
+          }
     }
     const changeevent = (event, index) => {
         setRowdatadisplayedalter(rowdatadisplayed);
