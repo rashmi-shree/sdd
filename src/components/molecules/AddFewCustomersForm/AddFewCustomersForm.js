@@ -121,7 +121,7 @@ if (!customerdata.customer_name || !customerdata.customer_address
     if( ce
       // nameError || addressError || phoneError || productError 
       ){
-      seterrors({...errors, ["commoneError"]:ce
+      seterrors({...errors, ["commonError"]:ce
     });
       return false;
     }
@@ -172,7 +172,7 @@ if (!customerdata.customer_name || !customerdata.customer_address
    
     }
     else {
-      alert(errors.commonError );
+      alert(errors.commonError);
     }
   }
   const selectevent = (e) => {
