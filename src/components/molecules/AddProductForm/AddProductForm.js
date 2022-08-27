@@ -47,10 +47,10 @@ const AddProductForm = ({ handleClose }) => {
     let discountError="";
     let ce = "";
     console.log("customerdata",customerdata);
-    if (!customerdata || customerdata.product_name || customerdata.product_hsn_code ||
-      customerdata.product_description || customerdata.unit_of_measure || customerdata.rate_per_unit ||
-      customerdata.gst_rate || customerdata.product_status || customerdata.product_status ||
-      customerdata.stock || customerdata.discount 
+    if (!customerdata || !customerdata.product_name || !customerdata.product_hsn_code ||
+      !customerdata.product_description || !customerdata.unit_of_measure || !customerdata.rate_per_unit ||
+      !customerdata.gst_rate || !customerdata.product_status || !customerdata.product_status ||
+      !customerdata.stock || !customerdata.discount 
       ){
       ce = "please enter all important fields";
       // productNameError = "Please Enter Product Name";
@@ -86,7 +86,7 @@ const AddProductForm = ({ handleClose }) => {
         })
     }
     else {
-      alert(errors.ce);
+      alert(errors.commonError);
     }
   }
   const changeevent = (event) => {
