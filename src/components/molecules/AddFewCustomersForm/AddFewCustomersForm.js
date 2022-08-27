@@ -28,7 +28,8 @@ const AddFewCustomersForm = ({
       product_hsn_code: "",
       product: "",
       quantity: "",
-      customer_name: ""
+      customer_name: "",
+      owner_company:""
     }
   );
   const [errors, seterrors] = useState({
@@ -164,7 +165,8 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
         product_hsn_code: producthsncodeonly,
         product: productnameonly,
         quantity: productquantityonly,
-        customer_name: customerdata.customer_name
+        customer_name: customerdata.customer_name,
+        owner_company: customerdata.owner_company
       }
     })
       .then((res) => {
@@ -193,7 +195,7 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
   const selecteventforowner = (e) => {
     console.log("e", e);
     setselectedowner(e.label)
-    // setcustomerdata({ ...customerdata, "statename": e })
+    setcustomerdata({ ...customerdata, "owner_company": e.label })
   }
 
   const selectedproducts = (e) => {
