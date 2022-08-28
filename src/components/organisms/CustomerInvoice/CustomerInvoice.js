@@ -117,6 +117,7 @@ const CustomerInvoice = ({
                 invoiceFormData={invoiceFormData}
                 openinvoiceevent={openinvoiceevent}
                 currentCustomerReferenceNoCustomerInvoice={currentCustomerReferenceNoCustomerInvoice}
+                displayBookedCustomeerDataEvent={displayBookedCustomeerDataEvent}
             />
             <div className='table-responsive'>
                 <table className="table table-striped table-bordered tablebackground">

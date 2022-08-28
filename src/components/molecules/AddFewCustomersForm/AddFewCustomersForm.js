@@ -114,7 +114,6 @@ const AddFewCustomersForm = ({
     let phoneError = "";
     let productError = "";
     let ce = "";
-    console.log("customerdata",customerdata);
 if (!customerdata || !customerdata.customer_name || !customerdata.customer_address 
    ||!customerdata.phone_number ||  products.length == 0){
     ce = "Please Enter all Important Fields";
@@ -142,7 +141,6 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
   }
   const submiteventclicked = () => {
     const isvalid = validate();
-    console.log("isvalid",isvalid);
     if(isvalid){
         api.post('/customer/addCustomerFollowUpData',
       {
@@ -197,7 +195,6 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
     setcustomerdata({ ...customerdata, "statename": e })
   }
   const recalldisplayProductDetailsDataforcomboboxevent = (selectedowner) => {
-    console.log("selectedowner",selectedowner);
     api.post('product/displayProductDetailsDataforcombobox', {
       params:{
         selectedowner
@@ -208,7 +205,6 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
       })
   }
   const selecteventforowner = (e) => {
-    console.log("e", e);
     setselectedowner(e.label);
     recalldisplayProductDetailsDataforcomboboxevent(e.label);
     if (e.label == "SDD ENTERPRISES"){

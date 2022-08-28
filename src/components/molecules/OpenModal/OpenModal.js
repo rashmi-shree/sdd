@@ -58,10 +58,12 @@ const OpenModal = ({
   openevent,
   currentCustomerReferenceNoCustomerInvoice,
   setpurchasemsgevent,
-  fetchinvoicesfromdelivery
+  fetchinvoicesfromdelivery,
+  displayBookedCustomeerDataEvent
 }) => {
   const handleClose = () => {
     openevent(false);
+    displayBookedCustomeerDataEvent();
     if (modalview === 'productdetailsform') {
       displayProductDetailsData();
     }
