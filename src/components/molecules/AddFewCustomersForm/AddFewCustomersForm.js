@@ -84,7 +84,11 @@ const AddFewCustomersForm = ({
     finalcurrentdate = moment(date).format('YYYY-MM-DD');
   }
   useEffect(() => {
-    api.get('product/displayProductDetailsDataforcombobox', {})
+    api.post('product/displayProductDetailsDataforcombobox', {
+      params:{
+        selectedowner
+      }
+    })
       .then((res) => {
         setComboboxdata(res.data);
       })
