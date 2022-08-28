@@ -220,11 +220,11 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
 
   const selectedproducts = (e) => {
     console.log("hiiii", e);
+    recalldisplayProductDetailsDataforcomboboxevent(e.label);
     let selectedproducts = e.map((data) => {
       return { productname: data, quantity: 1 }
     })
     setproducts(selectedproducts);
-    recalldisplayProductDetailsDataforcomboboxevent(e.label);
   }
   useEffect(() => {
     if (products != null) {
