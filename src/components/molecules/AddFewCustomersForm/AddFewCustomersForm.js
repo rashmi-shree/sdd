@@ -94,6 +94,7 @@ const AddFewCustomersForm = ({
       })
   }, [])
   const recalldisplayProductDetailsDataforcomboboxevent = (selectedowner) => {
+    console.log("selectedowner",selectedowner);
     api.post('product/displayProductDetailsDataforcombobox', {
       params:{
         selectedowner
