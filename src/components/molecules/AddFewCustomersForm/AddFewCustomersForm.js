@@ -93,17 +93,6 @@ const AddFewCustomersForm = ({
         setComboboxdata(res.data);
       })
   }, [])
-  const recalldisplayProductDetailsDataforcomboboxevent = (selectedowner) => {
-    console.log("selectedowner",selectedowner);
-    api.post('product/displayProductDetailsDataforcombobox', {
-      params:{
-        selectedowner
-      }
-    })
-      .then((res) => {
-        setComboboxdata(res.data);
-      })
-  }
   currentDate();
   useEffect(() => {
     api.post('stateandstatecodes/fetchstatecode', {
@@ -225,6 +214,17 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
       return { productname: data, quantity: 1 }
     })
     setproducts(selectedproducts);
+  }
+  const recalldisplayProductDetailsDataforcomboboxevent = (selectedowner) => {
+    console.log("selectedowner",selectedowner);
+    api.post('product/displayProductDetailsDataforcombobox', {
+      params:{
+        selectedowner
+      }
+    })
+      .then((res) => {
+        setComboboxdata(res.data);
+      })
   }
   useEffect(() => {
     if (products != null) {
