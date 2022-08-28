@@ -218,6 +218,7 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
   }
 
   const selectedproducts = (e) => {
+    console.log("hiiii", e);
     let selectedproducts = e.map((data) => {
       return { productname: data, quantity: 1 }
     })
