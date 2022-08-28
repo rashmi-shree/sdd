@@ -154,6 +154,7 @@ const DisplayProductDetailsTable = ({
                             <tr>
                                 <th>Product HSN code</th>
                                 <th>Product Name</th>
+                                <th>Owner Company</th>
                                 <th>Product Description</th>
                                 <th>Unit of Measure</th>
                                 <th>Rate per unit (₹)</th>
@@ -174,6 +175,7 @@ const DisplayProductDetailsTable = ({
                                         <tr>
                                             <td>{data.product_hsn_code}</td>
                                             <td>{data.product_name}</td>
+                                            <td>{data.owner_company}</td>
                                             <td>{data.product_description}</td>
                                             <td>{data.unit_of_measure}</td>
                                             <td>{data.rate_per_unit}</td>
