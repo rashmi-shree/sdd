@@ -93,7 +93,7 @@ const AddFewCustomersForm = ({
         setComboboxdata(res.data);
       })
   }, [])
-  const recalldisplayProductDetailsDataforcomboboxevent = () => {
+  const recalldisplayProductDetailsDataforcomboboxevent = (selectedowner) => {
     api.post('product/displayProductDetailsDataforcombobox', {
       params:{
         selectedowner
@@ -223,7 +223,7 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
       return { productname: data, quantity: 1 }
     })
     setproducts(selectedproducts);
-    recalldisplayProductDetailsDataforcomboboxevent();
+    recalldisplayProductDetailsDataforcomboboxevent(e.label);
   }
   useEffect(() => {
     if (products != null) {
