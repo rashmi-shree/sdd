@@ -205,18 +205,16 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
     else if (e.label == "SRI PARAMANANDA ENTERPRISES"){
       setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Karnataka', value: 29}})
     }
+    recalldisplayProductDetailsDataforcomboboxevent();
   }
 
   const selectedproducts = (e) => {
-    console.log("hiiii", e);
-    recalldisplayProductDetailsDataforcomboboxevent(e.label);
     let selectedproducts = e.map((data) => {
       return { productname: data, quantity: 1 }
     })
     setproducts(selectedproducts);
   }
-  const recalldisplayProductDetailsDataforcomboboxevent = (selectedowner) => {
-    console.log("selectedowner",selectedowner);
+  const recalldisplayProductDetailsDataforcomboboxevent = () => {
     api.post('product/displayProductDetailsDataforcombobox', {
       params:{
         selectedowner
