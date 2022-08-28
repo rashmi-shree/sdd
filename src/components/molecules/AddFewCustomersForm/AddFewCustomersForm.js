@@ -196,25 +196,8 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
   const selecteventforstate = (e) => {
     setcustomerdata({ ...customerdata, "statename": e })
   }
-  const selecteventforowner = (e) => {
-    console.log("e", e);
-    setselectedowner(e.label)
-    if (e.label == "SDD ENTERPRISES"){
-      setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Tamil Nadu', value: 33 }})
-    }
-    else if (e.label == "SRI PARAMANANDA ENTERPRISES"){
-      setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Karnataka', value: 29}})
-    }
-    recalldisplayProductDetailsDataforcomboboxevent();
-  }
-
-  const selectedproducts = (e) => {
-    let selectedproducts = e.map((data) => {
-      return { productname: data, quantity: 1 }
-    })
-    setproducts(selectedproducts);
-  }
-  const recalldisplayProductDetailsDataforcomboboxevent = () => {
+  const recalldisplayProductDetailsDataforcomboboxevent = (selectedowner) => {
+    console.log("selectedowner",selectedowner);
     api.post('product/displayProductDetailsDataforcombobox', {
       params:{
         selectedowner
@@ -224,6 +207,25 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
         setComboboxdata(res.data);
       })
   }
+  const selecteventforowner = (e) => {
+    console.log("e", e);
+    setselectedowner(e.label);
+    recalldisplayProductDetailsDataforcomboboxevent(e.label);
+    if (e.label == "SDD ENTERPRISES"){
+      setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Tamil Nadu', value: 33 }})
+    }
+    else if (e.label == "SRI PARAMANANDA ENTERPRISES"){
+      setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Karnataka', value: 29}})
+    }
+  }
+
+  const selectedproducts = (e) => {
+    let selectedproducts = e.map((data) => {
+      return { productname: data, quantity: 1 }
+    })
+    setproducts(selectedproducts);
+  }
+ 
   useEffect(() => {
     if (products != null) {
       let s = "";
