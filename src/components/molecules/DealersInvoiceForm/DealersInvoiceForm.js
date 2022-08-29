@@ -164,7 +164,7 @@ const DealersInvoiceForm = ({
             params: {
               customer_reference_no: finalCustomerRefNo,
               dealersdata: dealersdata,
-              state: selectedstate,
+              state: customerdata.statename,
               changed_data: changeddata
             }
           })
@@ -176,9 +176,10 @@ const DealersInvoiceForm = ({
               invoice_no: finalInvoiceNo,
               dealersdata: dealersdata,
               productsdata: prod,
-              state: selectedstate,
+              state: customerdata.statename,
               state_code: selectedstatecode,
-              changed_data: changeddata
+              changed_data: changeddata,
+              owner_company: customerdata.owner_company
             }
           })
             .then((res) => {
@@ -244,7 +245,8 @@ const DealersInvoiceForm = ({
       })
   }
   const selecteventforstate = (e) => {
-    setselectedstate(e.label);
+    // setselectedstate(e.label);
+    setcustomerdata({ ...customerdata, "statename": e })
   }
   const changeevent = (e) => {
     setchangeddata({ ...changeddata, [e.target.name]: e.target.value });
@@ -414,6 +416,7 @@ const DealersInvoiceForm = ({
             </div>
             <div className="formdatainputstyle">
               <CustomizedComboboxForState
+                selectedowner={selectedowner}
                 className="select"
                 comboboxdata={state}
                 type="state"
