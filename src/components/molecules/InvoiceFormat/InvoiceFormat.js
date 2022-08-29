@@ -36,10 +36,11 @@ const InvoiceFormat = ({
                         <div>
                             <div className="invoicecontainer">
                                 <div>
-                                    <p> <span className="lightstyle">Address:</span> Shop #05,Medhini Arcade, <br></br>
+                                    {/* <p> <span className="lightstyle">Address:</span> Shop #05,Medhini Arcade, <br></br>
                                         Kithaganahalli Gate, <br></br>Opp Anna Building,
                                         Hosur Main Road<br></br> Bangalore-560099,
-                                        <br></br></p>
+                                        <br></br></p> */}
+                                    <p> <span className="lightstyle">Address:</span>{constantinvoicedata.owner_address}</p>
                                     <p> <span className="lightstyle">GSTIN/UIN:</span>29AYSPB6397D1ZX <br></br>
                                        <span className="lightstyle">State: </span> {constantinvoicedata.state} <br></br>
                                        <span className="lightstyle">State Code: </span> {constantinvoicedata.state_code}</p>
