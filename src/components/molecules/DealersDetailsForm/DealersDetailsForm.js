@@ -187,6 +187,21 @@ const DealersDetailsForm = ({
                   <div className="nameandinputcontainer">
                     <label className="formdatalabelstyle">
                       <div className="formnamestyle">
+                        owner company:
+                      </div>
+                      <div className="formdatainputstyle">
+                        <input
+                          defaultValue={data.owner_company}
+                          type="text"
+                          readOnly
+                          disabled
+                        />
+                      </div>
+                    </label>
+                  </div>
+                  <div className="nameandinputcontainer">
+                    <label className="formdatalabelstyle">
+                      <div className="formnamestyle">
                         customer name:
                       </div>
                       <div className="formdatainputstyle">
