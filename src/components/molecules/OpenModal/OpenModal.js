@@ -63,7 +63,7 @@ const OpenModal = ({
 }) => {
   const handleClose = () => {
     openevent(false);
-    displayBookedCustomeerDataEvent();
+ 
     if (modalview === 'productdetailsform') {
       displayProductDetailsData();
     }
@@ -87,6 +87,9 @@ const OpenModal = ({
     }
     else if (modalview === 'addcustomerform') {
       displaycustomerfollowupevent();
+    }
+    else {
+      displayBookedCustomeerDataEvent();
     }
   };
   return (
