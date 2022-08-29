@@ -47,7 +47,7 @@ const InvoiceFormat = ({
                                 </div>
                                 <div>
                                     <span className="invoicenamestyle">{constantinvoicedata.owner_company}</span>
-                                    <p><span className="lightstyle">Contact Us:</span> {constantinvoicedata.owner_contact_one}/{constantinvoicedata.owner_contact_two}</p>
+                                    <p><span className="lightstyle">Contact Us:</span>{constantinvoicedata.owner_contact_one/constantinvoicedata.owner_contact_two}</p>
                                 </div>
                             </div>
                             <table className="tbl">
