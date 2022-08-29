@@ -3,6 +3,7 @@ import CustomizedBtn from "../../atoms/CustomizedBtn/CustomizedBtn";
 import CustomizedComboboxMultipleSelect from '../../atoms/CustomizedComboboxMultipleSelect/CustomizedComboboxMultipleSelect';
 import CustomizedComboboxForState from '../../atoms/CustomizedCombobox/CustomizedComboboxForState';
 import { generateinvoicesuccessmsg } from '../../organisms/SuccessMsg/SuccessMsg';
+import CustomizedComboboxForOwner from "../../atoms/CustomizedCombobox/CustomizedCombobboxForOwner";
 import '../../../style/style.css';
 const DealersInvoiceForm = ({
   dealersdata,
@@ -10,6 +11,11 @@ const DealersInvoiceForm = ({
   api
 }) => {
   const [comboboxdata, setComboboxdata] = useState([]);
+  const [owner, setowner] = useState([
+    {"ownerid":1,
+    "ownername":"SDD ENTERPRISES"},
+    {"ownerid":2,
+    "ownername":"SRI PARAMANANDA ENTERPRISES"}]);
   const [products, setproducts] = useState({
     productname: '',
     quantity: "",
@@ -205,6 +211,20 @@ console.log("products",products, products.productname, products.length);
         Generate Invoice
       </div>
       <form className="formcontainer">
+        <div className="nameandinputcontainer">
+          <label className="formdatalabelstyle">
+            <div className="formnamestyle">
+            <sup className="asteriskstyle">*</sup>Select Owner:
+            </div>
+            <div className="formdatainputstyle">
+              <CustomizedComboboxForOwner
+                comboboxdata={owner}
+                // type="state"
+                // selectevent={selecteventforowner}
+              />
+            </div>
+          </label>
+        </div>
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
