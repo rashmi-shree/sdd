@@ -717,7 +717,7 @@ height: 100px;
     margin-top: 0.3rem;
 }
 .addressstyle{
-    border: 2px solid black;
+    margin-right: -10rem;
 }
 @media screen and (max-width: 420px) {
     .backarrowcustomerpage{
