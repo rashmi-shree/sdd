@@ -88,6 +88,9 @@ const OpenModal = ({
     else if (modalview === 'addcustomerform') {
       displaycustomerfollowupevent();
     }
+    else if (modalview === 'dealersdetailsform') {
+      fetchinvoicesfromdelivery();
+    }
     else {
       displayBookedCustomeerDataEvent();
     }
