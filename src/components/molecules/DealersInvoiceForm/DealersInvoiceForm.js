@@ -170,25 +170,25 @@ const DealersInvoiceForm = ({
           })
             .then((res) => {
             })
-          // api.post('dealers/insertdealersdataintodeliverytable', {
-          //   params: {
-          //     customer_reference_no: finalCustomerRefNo,
-          //     invoice_no: finalInvoiceNo,
-          //     dealersdata: dealersdata,
-          //     productsdata: prod,
-          //     state: customerdata.statename,
-          //     state_code: selectedstatecode,
-          //     changed_data: changeddata,
-          //     owner_company: customerdata.owner_company
-          //   }
-          // })
-          //   .then((res) => {
-          //     if (res) {
-          //       const res = generateinvoicesuccessmsg({})
-          //       alert(res.msg);
-          //       handleClose();
-          //     }
-          //   })
+          api.post('dealers/insertdealersdataintodeliverytable', {
+            params: {
+              customer_reference_no: finalCustomerRefNo,
+              invoice_no: finalInvoiceNo,
+              dealersdata: dealersdata,
+              productsdata: prod,
+              state: customerdata.statename,
+              state_code: selectedstatecode,
+              changed_data: changeddata,
+              owner_company: customerdata.owner_company
+            }
+          })
+            .then((res) => {
+              if (res) {
+                const res = generateinvoicesuccessmsg({})
+                alert(res.msg);
+                handleClose();
+              }
+            })
         })
     //     seterrors({...errors, ["enquiredProductError"]:"", 
     //   ["poNumberError"]:"",
