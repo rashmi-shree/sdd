@@ -88,15 +88,15 @@ const DealersDetailsForm = ({
         rowdatadisplayed: Rowdatadisplayed
       }
     })
-    axios.put('product/updateProductsDetailsProductDataDecrement',{
-      Rowdatadisplayed
-  })
     if (statecode == 29) {
       axios.put('http://3.84.110.201:3001/jointables/updatekarnatakagstratesfromdealers', {
         params: {
           rowdatadisplayed: Rowdatadisplayed
         }
       })
+      axios.put('product/updateProductsDetailsProductDataDecrement',{
+        Rowdatadisplayed
+    })
         axios.put('http://3.84.110.201:3001/jointables/updatefinalamountdeliveryfromdealers', {
         params: {
           customer_reference_no: custrefno
@@ -124,6 +124,9 @@ const DealersDetailsForm = ({
       })
         .then((res) => {
         })
+        axios.put('product/updateProductsDetailsProductDataDecrement',{
+          Rowdatadisplayed
+      })
         axios.put('http://3.84.110.201:3001/jointables/updatefinalamountdeliveryfromdealers', {
         params: {
           customer_reference_no: custrefno
