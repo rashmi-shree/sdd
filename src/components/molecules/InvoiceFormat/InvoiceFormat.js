@@ -46,8 +46,8 @@ const InvoiceFormat = ({
                                        <span className="lightstyle">State Code: </span> {constantinvoicedata.state_code}</p>
                                 </div>
                                 <div>
-                                    <span className="invoicenamestyle">SHREE PARAMANANDA ENTERPRISES</span>
-                                    <p><span className="lightstyle">Contact Us:</span> 9035757145/9141070705</p>
+                                    <span className="invoicenamestyle">{constantinvoicedata.owner_company}</span>
+                                    <p><span className="lightstyle">Contact Us:</span> {constantinvoicedata.owner_contact_one}/{constantinvoicedata.owner_contact_two}</p>
                                 </div>
                             </div>
                             <table className="tbl">
