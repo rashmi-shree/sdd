@@ -222,6 +222,21 @@ const AddCustomersForm = ({
                             <div className="nameandinputcontainer">
                                 <label className="formdatalabelstyle">
                                     <div className="formnamestyle">
+                                        Owner Company:
+                                    </div>
+                                    <div className="formdatainputstyle">
+                                        <input
+                                            defaultValue={data.owner_company}
+                                            type="text"
+                                            readOnly
+                                            disabled
+                                        />
+                                    </div>
+                                </label>
+                            </div>
+                            <div className="nameandinputcontainer">
+                                <label className="formdatalabelstyle">
+                                    <div className="formnamestyle">
                                         Customer Reference Number:
                                     </div>
                                     <div className="formdatainputstyle">
