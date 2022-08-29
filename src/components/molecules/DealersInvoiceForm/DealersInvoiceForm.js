@@ -11,11 +11,34 @@ const DealersInvoiceForm = ({
   api
 }) => {
   const [comboboxdata, setComboboxdata] = useState([]);
+  const [customerdata, setcustomerdata] = useState(
+    {
+      customerReferenceNo: "",
+      enquiryDate: "",
+      customerName: "",
+      customerAddress: "",
+      statename: { value: 29, label: 'Karnataka' },
+      phoneno: "",
+      phonenoalterone: "",
+      phonenoaltertwo: "",
+      finalStatus: "",
+      phone_number: "",
+      phone_number_alter_one: "",
+      phone_number_alter_two: "",
+      product_hsn_code: "",
+      product: "",
+      quantity: "",
+      customer_name: "",
+      owner_company:"SRI PARAMANANDA ENTERPRISES"
+    }
+  );
   const [owner, setowner] = useState([
     {"ownerid":1,
     "ownername":"SDD ENTERPRISES"},
     {"ownerid":2,
     "ownername":"SRI PARAMANANDA ENTERPRISES"}]);
+    const [selectedowner, setselectedowner] = useState("SRI PARAMANANDA ENTERPRISES")
+    console.log("selectedowner",selectedowner);
   const [products, setproducts] = useState({
     productname: '',
     quantity: "",
@@ -68,15 +91,22 @@ const DealersInvoiceForm = ({
         setstate(res.data);
       })
   }, [])
+  const selecteventforowner = (e) => {
+    setselectedowner(e.label);
+    recalldisplayProductDetailsDataforcomboboxevent(e.label);
+    if (e.label == "SDD ENTERPRISES"){
+      setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Tamil Nadu', value: 33 }})
+    }
+    else if (e.label == "SRI PARAMANANDA ENTERPRISES"){
+      setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Karnataka', value: 29}})
+    }
+  }
   const validate = () => {
     let productError = "";
     let pnError = "";
     let vnError = "";
     let posError = "";
     let ce = "";
-console.log("dealersdata",dealersdata);
-console.log("changeddata",changeddata);
-console.log("products",products, products.productname, products.length);
 
     // if (products.productname.length == 0 ){
     //   productError = "Please Choose Atleast One Product";
@@ -194,11 +224,25 @@ console.log("products",products, products.productname, products.length);
     setproducts(selectedproducts);
   }
   useEffect(() => {
-    api.get('product/displayProductDetailsDataforcombobox')
+    api.post('product/displayProductDetailsDataforcombobox',{
+      params:{
+        selectedowner
+      }
+    })
       .then((res) => {
         setComboboxdata(res.data);
       })
   }, [])
+  const recalldisplayProductDetailsDataforcomboboxevent = (selectedowner) => {
+    api.post('product/displayProductDetailsDataforcombobox', {
+      params:{
+        selectedowner
+      }
+    })
+      .then((res) => {
+        setComboboxdata(res.data);
+      })
+  }
   const selecteventforstate = (e) => {
     setselectedstate(e.label);
   }
@@ -220,7 +264,7 @@ console.log("products",products, products.productname, products.length);
               <CustomizedComboboxForOwner
                 comboboxdata={owner}
                 // type="state"
-                // selectevent={selecteventforowner}
+                selectevent={selecteventforowner}
               />
             </div>
           </label>
