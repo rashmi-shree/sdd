@@ -71,6 +71,21 @@ const ProductsDetailsForm = ({ rowdata, handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
+              Owner Company:
+            </div>
+            <div className="formdatainputstyle">
+              <input
+                name="owner_company"
+                onChange={changeevent}
+                defaultValue={rowdata.owner_company}
+                type="text"
+              />
+            </div>
+          </label>
+        </div>
+        <div className="nameandinputcontainer">
+          <label className="formdatalabelstyle">
+            <div className="formnamestyle">
               Product Description:
             </div>
             <div className="formdatainputstyle">
