@@ -95,7 +95,8 @@ const AddProductForm = ({ handleClose }) => {
             <div className="formdatainputstyle">
               <input
                 name="product_hsn_code"
-                type="text"
+                type="number"
+                required={require}
                 onChange={changeevent}
               />
             </div>
