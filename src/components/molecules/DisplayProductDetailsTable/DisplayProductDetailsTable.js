@@ -84,6 +84,7 @@ const DisplayProductDetailsTable = ({
         setEditFormData(formValues);
     }
     const deleteevent = (id) => {
+        console.log("hiiii id", id );
         axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`,
             {
                 data: {
@@ -194,8 +195,8 @@ const DisplayProductDetailsTable = ({
                                                     />
                                                     <div
                                                         className="deleteiconcontainer"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                    ><DeleteIcon id="deleteicon" />
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                        <DeleteIcon id="deleteicon" />
                                                     </div>
                                                     <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
