@@ -105,7 +105,7 @@ const DisplayDealersDetailsTable = ({
             <div className="searchbarstyle">
               <input
                 type="text"
-                placeholder="Proprietor Name or Phone Number"
+                placeholder="Enterprise Name or Phone Number"
                 onChange={(e)=>setQuery(e.target.value)}
               />
             </div>
@@ -142,7 +142,7 @@ const DisplayDealersDetailsTable = ({
                         {
                             dealersdetailsdata && dealersdetailsdata.length
                                 ? dealersdetailsdata.filter((user=>
-                                    user.proprietor_name.toLowerCase().includes(query) || 
+                                    user.enterprise_name.toLowerCase().includes(query) || 
                                     user.proprietor_phone_number.toString().includes(query)
                                     )).map((data, i) => (
                                     <tr key={i}>

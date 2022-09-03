@@ -106,9 +106,9 @@ const EditDealersReportForm = ({ rowdata, handleClose }) => {
                             <input
                                 defaultValue={rowdata.gstin_number}
                                 type="text"
-                                onChange={changeevent}
-                                name="gstin_number"
-                                // readOnly
+                                // onChange={changeevent}
+                                // name="gstin_number"
+                                readOnly
                             />
                         </div>
                     </label>
