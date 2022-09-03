@@ -97,6 +97,20 @@ const AddProductForm = ({ handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
+            <sup className="asteriskstyle">*</sup>Owner Company:
+            </div>
+            <div className="formdatainputstyle">
+              <input
+                name="owner_company"
+                type="text"
+                onChange={changeevent}
+              />
+            </div>
+          </label>
+        </div>
+        <div className="nameandinputcontainer">
+          <label className="formdatalabelstyle">
+            <div className="formnamestyle">
             <sup className="asteriskstyle">*</sup>Product hsn code:
             </div>
             <div className="formdatainputstyle">
