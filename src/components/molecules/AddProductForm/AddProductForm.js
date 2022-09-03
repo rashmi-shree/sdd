@@ -96,7 +96,7 @@ const AddProductForm = ({ handleClose }) => {
               <input
                 name="product_hsn_code"
                 type="number"
-                required={require}
+                onWheel={(e) => e.target.blur()}
                 onChange={changeevent}
               />
             </div>
@@ -124,7 +124,8 @@ const AddProductForm = ({ handleClose }) => {
             <div className="formdatainputstyle">
               <input
                 name="unit_of_measure"
-                type="text"
+                type="number"
+                onWheel={(e) => e.target.blur()}
                 onChange={changeevent}
               />
             </div>
@@ -138,7 +139,8 @@ const AddProductForm = ({ handleClose }) => {
             <div className="formdatainputstyle">
               <input
                 name="rate_per_unit"
-                type="text"
+                type="number"
+                onWheel={(e) => e.target.blur()}
                 onChange={changeevent}
               />
             </div>
@@ -152,7 +154,8 @@ const AddProductForm = ({ handleClose }) => {
             <div className="formdatainputstyle">
               <input
                 name="gst_rate"
-                type="text"
+                type="number"
+                onWheel={(e) => e.target.blur()}
                 onChange={changeevent}
               />
             </div>
@@ -179,7 +182,8 @@ const AddProductForm = ({ handleClose }) => {
             <div className="formdatainputstyle">
               <input
                 name="stock"
-                type="text"
+                type="number"
+                onWheel={(e) => e.target.blur()}
                 onChange={changeevent}
               />
             </div>
@@ -193,7 +197,8 @@ const AddProductForm = ({ handleClose }) => {
             <div className="formdatainputstyle">
               <input
                 name="discount"
-                type="text"
+                type="number"
+                onWheel={(e) => e.target.blur()}
                 onChange={changeevent}
               />
             </div>
