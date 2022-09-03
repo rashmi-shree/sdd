@@ -35,7 +35,7 @@ const AddProductForm = ({ handleClose }) => {
   currentDate();
   const validate = () => {
     let ce = "";
-    if (!customerdata || !customerdata.product_name || !customerdata.owner_company || !customerdata.product_hsn_code ||
+    if (!customerdata || !customerdata.product_name || !selectedowner || !customerdata.product_hsn_code ||
       !customerdata.product_description || !customerdata.unit_of_measure || !customerdata.rate_per_unit ||
       !customerdata.gst_rate || !customerdata.product_status || !customerdata.product_status ||
       !customerdata.stock || !customerdata.discount 
