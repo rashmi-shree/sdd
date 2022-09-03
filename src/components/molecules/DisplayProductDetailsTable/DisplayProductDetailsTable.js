@@ -83,6 +83,9 @@ const DisplayProductDetailsTable = ({
         }
         setEditFormData(formValues);
     }
+    const  deletesuperevent = (id) => {
+        deleteevent(id)
+    }
     const deleteevent = (id) => {
         console.log("hiiii id", id );
         axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`,
@@ -198,7 +201,7 @@ const DisplayProductDetailsTable = ({
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                         <DeleteIcon 
                                                             id="deleteicon"
-                                                            onClick={()=>(console.log('onClick'))}
+                                                            onClick={()=>(deletesuperevent(data.product_hsn_code))}
                                                         />
                                                     </div>
                                                     <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -213,7 +216,8 @@ const DisplayProductDetailsTable = ({
                                                                             type="button"
                                                                             className="btn btn-primary"
                                                                             data-bs-dismiss="modal"
-                                                                            onClick={() => (deleteevent(data.product_hsn_code))}  >
+                                                                            // onClick={() => (deleteevent(data.product_hsn_code))}  
+                                                                            >
                                                                             Confirm
                                                                         </Button>
                                                                     </div>
