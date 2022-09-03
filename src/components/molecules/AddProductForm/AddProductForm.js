@@ -67,6 +67,13 @@ const AddProductForm = ({ handleClose }) => {
   const selectevent = (event) => {
     setcustomerdata({ ...customerdata, "product_status": event.value })
   }
+  const handleKeypress = (e) => {
+        //it triggers by pressing the enter key
+      if (e.key === 'Enter') {
+        submiteventclicked();
+        e.preventDefault();
+      }
+    };
   return (
     <div>
       <div className="pageheading">
@@ -208,6 +215,7 @@ const AddProductForm = ({ handleClose }) => {
           <CustomizedBtn
             BtnName="submit"
             onClick={submiteventclicked}
+            onKeyPress={handleKeypress}
           />
         </div>
       </form>
