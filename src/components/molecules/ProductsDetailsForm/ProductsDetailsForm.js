@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CustomizedBtn from "../../atoms/CustomizedBtn/CustomizedBtn";
 import { editedsuccessmsg } from '../../organisms/SuccessMsg/SuccessMsg';
 import CustomizedComboboxAll from "../../atoms/CustomizedCombobox/CustomizedComboboxAll";
+import CustomizedComboboxForOwner from "../../atoms/CustomizedCombobox/CustomizedCombobboxForOwner";
 import axios from 'axios';
 import '../../../style/style.css';
 
@@ -11,6 +12,15 @@ const ProductsDetailsForm = ({ rowdata, handleClose }) => {
   useEffect(() => {
     setUpdaterowdata(rowdata);
   }, [])
+  const [owner, setowner] = useState([
+    {"ownerid":1,
+    "ownername":"SDD ENTERPRISES"},
+    {"ownerid":2,
+    "ownername":"SRI PARAMANANDA ENTERPRISES"}]);
+    const [selectedowner, setselectedowner] = useState()
+    const selecteventforowner = (e) => {
+      setselectedowner(e.label);
+    }
   const submiteventclicked = () => {
     axios.put('http://3.84.110.201:3001/product/updateProductsDetails', {
       params: {
@@ -74,12 +84,17 @@ const ProductsDetailsForm = ({ rowdata, handleClose }) => {
               Owner Company:
             </div>
             <div className="formdatainputstyle">
-              <input
+            <CustomizedComboboxForOwner
+                comboboxdata={owner}
+                // type="state"
+                selectevent={selecteventforowner}
+              />
+              {/* <input
                 name="owner_company"
                 onChange={changeevent}
                 defaultValue={rowdata.owner_company}
                 type="text"
-              />
+              /> */}
             </div>
           </label>
         </div>

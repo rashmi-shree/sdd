@@ -3,6 +3,7 @@ import CustomizedBtn from "../../atoms/CustomizedBtn/CustomizedBtn";
 import moment from 'moment';
 import { addedsuccessmsg } from '../../organisms/SuccessMsg/SuccessMsg';
 import axios from 'axios';
+import CustomizedComboboxForOwner from "../../atoms/CustomizedCombobox/CustomizedCombobboxForOwner";
 import CustomizedComboboxAll from "../../atoms/CustomizedCombobox/CustomizedComboboxAll";
 import '../../../style/style.css';
 const AddProductForm = ({ handleClose }) => {
@@ -11,6 +12,12 @@ const AddProductForm = ({ handleClose }) => {
   const [errors, seterrors] = useState({
     commonError:"please enter all important fields"
   })
+  const [owner, setowner] = useState([
+    {"ownerid":1,
+    "ownername":"SDD ENTERPRISES"},
+    {"ownerid":2,
+    "ownername":"SRI PARAMANANDA ENTERPRISES"}]);
+    const [selectedowner, setselectedowner] = useState()
   let finalCustomerRefNo = '';
   const generateCustomerReferenceNo = () => {
     let s1 = "CUST2022";
@@ -46,7 +53,8 @@ const AddProductForm = ({ handleClose }) => {
     if(isvalid){
       axios.post('http://3.84.110.201:3001/product/addProductData', {
         params: {
-          data: customerdata
+          data: customerdata,
+          selectedowner:selectedowner
         }
       })
         .then((res) => {
@@ -60,6 +68,9 @@ const AddProductForm = ({ handleClose }) => {
     else {
       alert(errors.commonError );
     }
+  }
+  const selecteventforowner = (e) => {
+    setselectedowner(e.label);
   }
   const changeevent = (event) => {
     setcustomerdata({ ...customerdata, [event.target.name]: event.target.value })
@@ -100,11 +111,16 @@ const AddProductForm = ({ handleClose }) => {
             <sup className="asteriskstyle">*</sup>Owner Company:
             </div>
             <div className="formdatainputstyle">
-              <input
+            <CustomizedComboboxForOwner
+                comboboxdata={owner}
+                // type="state"
+                selectevent={selecteventforowner}
+              />
+              {/* <input
                 name="owner_company"
                 type="text"
                 onChange={changeevent}
-              />
+              /> */}
             </div>
           </label>
         </div>
