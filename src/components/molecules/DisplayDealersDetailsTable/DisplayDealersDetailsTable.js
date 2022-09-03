@@ -78,6 +78,9 @@ const DisplayDealersDetailsTable = ({
         e.preventDefault();
       }
     };
+    const  deletesuperevent = (id) => {
+        deleteevent(id)
+    }
     const deleteevent = (id) => {
         api.delete(`http://3.84.110.201:3001/dealers/deletefromdealersdetailstable`,
             {
@@ -161,7 +164,11 @@ const DisplayDealersDetailsTable = ({
                                                 <div
                                                     className="deleteiconcontainer"
                                                     data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                ><DeleteIcon id="deleteicon" />
+                                                >
+                                                    <DeleteIcon 
+                                                        id="deleteicon" 
+                                                        onClick={()=>(deletesuperevent(data.gstin_number))}
+                                                    />
                                                 </div>
                                                 <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -175,7 +182,8 @@ const DisplayDealersDetailsTable = ({
                                                                         type="button"
                                                                         className="btn btn-primary"
                                                                         data-bs-dismiss="modal"
-                                                                        onClick={() => (deleteevent(data.gstin_number))}  >
+                                                                        // onClick={() => (deleteevent(data.gstin_number))}  
+                                                                        >
                                                                         Confirm
                                                                     </Button>
                                                                 </div>
