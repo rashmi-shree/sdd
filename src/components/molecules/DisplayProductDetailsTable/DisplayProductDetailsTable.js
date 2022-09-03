@@ -196,7 +196,10 @@ const DisplayProductDetailsTable = ({
                                                     <div
                                                         className="deleteiconcontainer"
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        <DeleteIcon id="deleteicon" />
+                                                        <DeleteIcon 
+                                                            id="deleteicon"
+                                                            onClick={()=>(console.log('onClick'))}
+                                                        />
                                                     </div>
                                                     <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
