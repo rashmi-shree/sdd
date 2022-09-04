@@ -20,6 +20,7 @@ const DisplayProductDetailsTable = ({
     const [modalview, setmodalview] = useState();
     const [open, setOpen] = useState(false);
     const [query, setQuery] = useState('');
+    const [productdeletehsncode, setproductdeletehsncode] = useState();
     const openevent = (e) => {
         setOpen(e)
     }
@@ -85,21 +86,21 @@ const DisplayProductDetailsTable = ({
     }
     const  deletesuperevent = (id) => {
         console.log("id", id);
+        setproductdeletehsncode(id);
         // deleteevent();
     }
-    const deleteevent = (a, b) => {
-        console.log("a, b", a, b);
-        // if(e == "yes"){
-        //     axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`,
-        //     {
-        //         data: {
-        //             id: id
-        //         }
-        //     })
-        //     .then((res) => {
-        //         displayProductDetailsData();
-        //     })
-        // }
+    const deleteevent = (e) => {
+        if(e == "yes"){
+            axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`,
+            {
+                data: {
+                    id: productdeletehsncode
+                }
+            })
+            .then((res) => {
+                displayProductDetailsData();
+            })
+        }
     }
     const searchHandle = (e) => {
         setSearchvalue(e.target.value);
