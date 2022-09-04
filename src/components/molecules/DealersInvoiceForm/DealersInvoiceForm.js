@@ -111,8 +111,7 @@ const DealersInvoiceForm = ({
     // if (products.productname.length == 0 ){
     //   productError = "Please Choose Atleast One Product";
     // }
-    if(!changeddata || !changeddata.po_number ||
-      !changeddata.vehicle_number || !changeddata.place_of_supply
+    if(!changeddata 
       // || products.productname.length == 0
       ){
       ce = "Please Enter all Important Fields";
@@ -366,7 +365,7 @@ const DealersInvoiceForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-            <sup className="asteriskstyle">*</sup>PO Number:
+            PO Number:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -381,7 +380,7 @@ const DealersInvoiceForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-            <sup className="asteriskstyle">*</sup>Vehicle Number:
+            Vehicle Number:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -396,7 +395,7 @@ const DealersInvoiceForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-            <sup className="asteriskstyle">*</sup>Place of Supply:
+            Place of Supply:
             </div>
             <div className="formdatainputstyle">
               <input
