@@ -21,6 +21,7 @@ const AddCustomerPage = ({
     const [modalview, setModalview] = useState('');
     const [purchasemsg, setpurchasemsg] = useState();
     const [query, setQuery] = useState('');
+    console.log("customertable",customertable);
     const setpurchasemsgevent = (e) =>{
       setpurchasemsg(e)
     }
