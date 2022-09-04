@@ -101,7 +101,7 @@ const DealersInvoiceForm = ({
       setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Karnataka', value: 29}})
     }
   }
-  console.log("products",products);
+  console.log("products",products, products.length);
   const validate = () => {
     let ce = "";
 
