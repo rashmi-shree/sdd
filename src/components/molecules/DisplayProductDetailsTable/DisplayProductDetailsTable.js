@@ -84,7 +84,7 @@ const DisplayProductDetailsTable = ({
         setEditFormData(formValues);
     }
     const  deletesuperevent = (id) => {
-        deleteevent(id)
+        console.log("id", id);
     }
     const deleteevent = (id) => {
         console.log("hiiii id", id );
@@ -216,7 +216,7 @@ const DisplayProductDetailsTable = ({
                                                                             type="button"
                                                                             className="btn btn-primary"
                                                                             data-bs-dismiss="modal"
-                                                                            // onClick={() => (deleteevent(data.product_hsn_code))}  
+                                                                            onClick={() => (deleteevent("yes"))}  
                                                                             >
                                                                             Confirm
                                                                         </Button>
@@ -225,7 +225,9 @@ const DisplayProductDetailsTable = ({
                                                                         <Button
                                                                             type="button"
                                                                             className="btn btn-secondary"
-                                                                            data-bs-dismiss="modal">
+                                                                            data-bs-dismiss="modal"
+                                                                            onClick={() => (deleteevent("no"))}  
+                                                                            >
                                                                             Cancel
                                                                         </Button>
                                                                     </div>
