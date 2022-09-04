@@ -19,6 +19,7 @@ const DisplayDealersDetailsTable = ({
     const [modalview, setmodalview] = useState();
     const [open, setOpen] = useState(false);
     const [query, setQuery] = useState('');
+    const [deletedealersgst, setdeletedealersgst] = useState();
     const openevent = (e) => {
         setOpen(e)
     }
@@ -79,18 +80,21 @@ const DisplayDealersDetailsTable = ({
       }
     };
     const  deletesuperevent = (id) => {
-        deleteevent(id)
+        setdeletedealersgst(id);
     }
-    const deleteevent = (id) => {
-        api.delete(`http://3.84.110.201:3001/dealers/deletefromdealersdetailstable`,
+    const deleteevent = (e) => {
+        if(e == "yes"){
+            api.delete(`http://3.84.110.201:3001/dealers/deletefromdealersdetailstable`,
             {
                 data: {
-                    id: id
+                    id: deletedealersgst
                 }
             })
             .then((res) => {
                 displayDealersDetailsData();
             })
+        }
+        
     }
     return (
         <div>
@@ -182,7 +186,7 @@ const DisplayDealersDetailsTable = ({
                                                                         type="button"
                                                                         className="btn btn-primary"
                                                                         data-bs-dismiss="modal"
-                                                                        // onClick={() => (deleteevent(data.gstin_number))}  
+                                                                        onClick={() => (deleteevent("yes"))}  
                                                                         >
                                                                         Confirm
                                                                     </Button>
@@ -191,7 +195,9 @@ const DisplayDealersDetailsTable = ({
                                                                     <Button
                                                                         type="button"
                                                                         className="btn btn-secondary"
-                                                                        data-bs-dismiss="modal">
+                                                                        data-bs-dismiss="modal"
+                                                                        onClick={() => (deleteevent("no"))}
+                                                                        >
                                                                         Cancel
                                                                     </Button>
                                                                 </div>
