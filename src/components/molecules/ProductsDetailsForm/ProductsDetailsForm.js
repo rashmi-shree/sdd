@@ -24,7 +24,8 @@ const ProductsDetailsForm = ({ rowdata, handleClose }) => {
   const submiteventclicked = () => {
     axios.put('http://3.84.110.201:3001/product/updateProductsDetails', {
       params: {
-        updaterowdata
+        data:updaterowdata,
+        selectedowner:selectedowner
       }
     })
       .then((res) => {
