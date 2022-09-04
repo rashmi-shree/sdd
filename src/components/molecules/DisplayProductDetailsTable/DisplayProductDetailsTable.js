@@ -85,18 +85,21 @@ const DisplayProductDetailsTable = ({
     }
     const  deletesuperevent = (id) => {
         console.log("id", id);
+        // deleteevent();
     }
-    const deleteevent = (id) => {
-        console.log("hiiii id", id );
-        axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`,
-            {
-                data: {
-                    id: id
-                }
-            })
-            .then((res) => {
-                displayProductDetailsData();
-            })
+    const deleteevent = (a, b) => {
+        console.log("a, b", a, b);
+        // if(e == "yes"){
+        //     axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`,
+        //     {
+        //         data: {
+        //             id: id
+        //         }
+        //     })
+        //     .then((res) => {
+        //         displayProductDetailsData();
+        //     })
+        // }
     }
     const searchHandle = (e) => {
         setSearchvalue(e.target.value);
