@@ -17,7 +17,7 @@ const AddProductForm = ({ handleClose }) => {
     "ownername":"SDD ENTERPRISES"},
     {"ownerid":2,
     "ownername":"SRI PARAMANANDA ENTERPRISES"}]);
-    const [selectedowner, setselectedowner] = useState()
+    const [selectedowner, setselectedowner] = useState("SRI PARAMANANDA ENTERPRISES");
   let finalCustomerRefNo = '';
   const generateCustomerReferenceNo = () => {
     let s1 = "CUST2022";

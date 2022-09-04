@@ -17,7 +17,7 @@ const ProductsDetailsForm = ({ rowdata, handleClose }) => {
     "ownername":"SDD ENTERPRISES"},
     {"ownerid":2,
     "ownername":"SRI PARAMANANDA ENTERPRISES"}]);
-    const [selectedowner, setselectedowner] = useState()
+    const [selectedowner, setselectedowner] = useState("SRI PARAMANANDA ENTERPRISES");
     const selecteventforowner = (e) => {
       setselectedowner(e.label);
     }
