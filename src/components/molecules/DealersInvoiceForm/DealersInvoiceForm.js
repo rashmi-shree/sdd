@@ -108,7 +108,8 @@ const DealersInvoiceForm = ({
     // if (products.productname.length == 0 ){
     //   productError = "Please Choose Atleast One Product";
     // }
-    if(!changeddata 
+    if( products.length == undefined
+      // !changeddata 
       // || products.productname.length == 0
       ){
       ce = "Please Enter all Important Fields";
