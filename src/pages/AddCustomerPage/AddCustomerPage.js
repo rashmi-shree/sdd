@@ -295,9 +295,9 @@ const AddCustomerPage = ({
                                         <td>{data.customer_reference_no}</td>
                                         <td>
                                             {
-                                                data.booked_date != null ?
-                                                moment(data.booked_date).format('YYYY-MM-DD'):
-                                                data.booked_date
+                                                data.enquiry_date != null ?
+                                                moment(data.enquiry_date).format('YYYY-MM-DD'):
+                                                data.enquiry_date
                                             }
                                         </td>
                                         <td>{data.customer_name}</td>
