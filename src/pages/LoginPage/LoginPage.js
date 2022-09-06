@@ -26,6 +26,10 @@ const LoginPage = ({
           logoutbuttonevent(true);
           navigate('/main');
         }
+        else{
+          console.log("login res", res.data);
+
+        }
       })
   }
   return (
