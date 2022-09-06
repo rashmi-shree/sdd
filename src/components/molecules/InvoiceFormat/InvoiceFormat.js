@@ -28,7 +28,7 @@ const InvoiceFormat = ({
     }, [invoiceFormData])
     return (
         <div className="invoiceformatcontainer">
-            <p>Invoice</p>
+            <p className="invoiceheading">Invoice</p>
             <div className="table-responsive" id="tableprint" >
                 {
                     constantinvoicedata

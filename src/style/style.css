@@ -719,6 +719,14 @@ height: 100px;
 .addressstyle{
     margin-right: -10rem;
 }
+.invoiceheading{
+    display: flex;
+    margin-top: 3rem;
+    margin-bottom: -5rem;
+    font-size: 19px;
+    justify-content: center;
+    font-weight: bold;
+}
 @media screen and (max-width: 420px) {
     .backarrowcustomerpage{
         margin-left: 26rem;

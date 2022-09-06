@@ -114,7 +114,7 @@ const CustomerInvoiceForm = ({
                 yearstring = y2+"-"+y1;
             }
             let finalInvoiceNo = '';
-            let s1 = "In"+yearstring+"/";
+            let s1 = "IN"+yearstring+"/";
             let min = 0;
             let max = 1000;
             let random = Math.floor(Math.random() * (max - min + 1)) + min;
