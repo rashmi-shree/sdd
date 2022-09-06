@@ -27,7 +27,7 @@ const LoginPage = ({
           navigate('/main');
         }
         else{
-          console.log("login res", res.data);
+          alert("Incorrect Credentials");
 
         }
       })
