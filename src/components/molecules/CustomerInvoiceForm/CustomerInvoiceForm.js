@@ -59,44 +59,44 @@ const CustomerInvoiceForm = ({
         }
     }, [listofinvoices]);
 
-    const validate = (index) => {
-        let poserror = "";
-        let pnerror = "";
-        let vnerror = "";
-        let ce = "";
+    // const validate = (index) => {
+    //     let poserror = "";
+    //     let pnerror = "";
+    //     let vnerror = "";
+    //     let ce = "";
 
-        if (rowdatadisplayed){
-            rowdatadisplayed.find((item, i) => {
-                if (item.delivery_id === index) {
-                    if(!rowdatadisplayed[i].place_of_supply || !rowdatadisplayed[i].po_number ||
-                        !rowdatadisplayed[i].vehicle_number
-                        ){
-                            ce = "Please Enter All Important Fields";
-                    }
-                    // if(!rowdatadisplayed[i].place_of_supply){
-                    //     poserror = "Please enter Place Of Supply";
-                    // }
-                    // if(!rowdatadisplayed[i].po_number){
-                    //     pnerror = "Please Enter PO Number";
-                    // }
-                    // if(!rowdatadisplayed[i].vehicle_number){
-                    //     vnerror = "Please Enter Vehicle Number";
-                    // }
-                }
-            })
-        }
-        if( ce
-            // poserror || pnerror || vnerror 
-            ){
-          seterrors({...errors, ["commonError"]:ce
-        });
-          return false;
-        }
-        return true;
-      }
+    //     if (rowdatadisplayed){
+    //         rowdatadisplayed.find((item, i) => {
+    //             if (item.delivery_id === index) {
+    //                 if(!rowdatadisplayed[i].place_of_supply || !rowdatadisplayed[i].po_number ||
+    //                     !rowdatadisplayed[i].vehicle_number
+    //                     ){
+    //                         ce = "Please Enter All Important Fields";
+    //                 }
+    //                 // if(!rowdatadisplayed[i].place_of_supply){
+    //                 //     poserror = "Please enter Place Of Supply";
+    //                 // }
+    //                 // if(!rowdatadisplayed[i].po_number){
+    //                 //     pnerror = "Please Enter PO Number";
+    //                 // }
+    //                 // if(!rowdatadisplayed[i].vehicle_number){
+    //                 //     vnerror = "Please Enter Vehicle Number";
+    //                 // }
+    //             }
+    //         })
+    //     }
+    //     if( ce
+    //         // poserror || pnerror || vnerror 
+    //         ){
+    //       seterrors({...errors, ["commonError"]:ce
+    //     });
+    //       return false;
+    //     }
+    //     return true;
+    //   }
     const submiteventclicked = (customer_reference_no, delivery_id) => {
-        const isvalid = validate(delivery_id);
-        if(isvalid){
+        // const isvalid = validate(delivery_id);
+        // if(isvalid){
             let date = new Date();
             var date1 = date.toISOString();
             var date2 = date1.split("-");
@@ -168,10 +168,10 @@ const CustomerInvoiceForm = ({
             // ["ponumbererror"]:"", 
             // ["vehiclenoerror"]:""
             // });
-        }
-        else{
-            alert(errors.commonError );
-          }
+        // }
+        // else{
+        //     alert(errors.commonError );
+        //   }
     }
     const changeevent = (event, index) => {
         setRowdatadisplayedalter(rowdatadisplayed);
@@ -240,7 +240,8 @@ const CustomerInvoiceForm = ({
                         <div className="nameandinputcontainer">
                             <label className="formdatalabelstyle">
                                 <div className="formnamestyle">
-                                <sup className="asteriskstyle">*</sup>Place of supply:
+                                {/* <sup className="asteriskstyle">*</sup> */}
+                                Place of supply:
                                 </div>
                                 <div className="formdatainputstyle">
                                     <input
@@ -292,7 +293,8 @@ const CustomerInvoiceForm = ({
                         <div className="nameandinputcontainer">
                             <label className="formdatalabelstyle">
                                 <div className="formnamestyle">
-                                <sup className="asteriskstyle">*</sup>PO no:
+                                {/* <sup className="asteriskstyle">*</sup> */}
+                                PO no:
                                 </div>
                                 <div className="formdatainputstyle">
                                     <input
@@ -309,7 +311,8 @@ const CustomerInvoiceForm = ({
                         <div className="nameandinputcontainer">
                             <label className="formdatalabelstyle">
                                 <div className="formnamestyle">
-                                <sup className="asteriskstyle">*</sup>Vehicle No:
+                                {/* <sup className="asteriskstyle">*</sup> */}
+                                Vehicle No:
                                 </div>
                                 <div className="formdatainputstyle">
                                     <input
