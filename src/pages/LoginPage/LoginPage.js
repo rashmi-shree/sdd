@@ -26,8 +26,8 @@ const LoginPage = ({
           navigate('/main');
         }
         else{
-          alert("Incorrect Credentials");
-
+          console.log("res.data",res.data);
+          // alert("Incorrect Credentials");
         }
       })
   }
