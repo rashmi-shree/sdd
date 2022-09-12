@@ -59,7 +59,7 @@ const GenerateReport = ({
     color: 'black'
   }
 
-  const [statusselect, setstatusselect] = React.useState(['Booked', 'Cancelled', 'Follow Up In Progress']);
+  const [statusselect, setstatusselect] = React.useState(['Booked', 'Cancelled', 'Follow Up In Progress','Purchased']);
   const [deliverystatus, setDeliverystatus] = React.useState(['Delivered', 'Not Delivered', 'Cancelled']);
   const [paymentstatus, setpaymentstatus] = React.useState(['Paid', 'Pending']);
   const [productstatus, setProductstatus] = React.useState(['Available', 'Not Available'])
