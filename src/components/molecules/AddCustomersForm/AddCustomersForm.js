@@ -325,8 +325,6 @@ const AddCustomersForm = ({
                                             name="customer_name"
                                             type="text"
                                             onChange={(event) => changeevent(event, data.delivery_id)}
-                                            disabled
-                                            readOnly
                                         />
                                     </div>
                                 </label>
@@ -342,8 +340,6 @@ const AddCustomersForm = ({
                                             name="customer_address"
                                             type="text"
                                             onChange={(event) => changeevent(event, data.delivery_id)}
-                                            disabled
-                                            readOnly
                                         />
                                     </div>
                                 </label>
@@ -380,8 +376,6 @@ const AddCustomersForm = ({
                                             name="phone_number"
                                             defaultValue={data.phone_number}
                                             onWheel={(e) => e.target.blur()}
-                                            disabled
-                                            readOnly
                                         />
                                     </div>
                                 </label>
@@ -411,8 +405,6 @@ const AddCustomersForm = ({
                                         <input
                                             type="text"
                                             defaultValue={data.product}
-                                            readOnly
-                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -427,8 +419,7 @@ const AddCustomersForm = ({
                                             type="number"
                                             name="quantity"
                                             defaultValue={data.quantity}
-                                            readOnly
-                                            disabled
+                                            onWheel={(e) => e.target.blur()}
                                         />
                                     </div>
                                 </label>
