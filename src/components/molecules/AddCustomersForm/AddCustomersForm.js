@@ -5,7 +5,7 @@ import SelectDate from "../../atoms/CustomizedDatepicker/SelectDate";
 import { useReactToPrint } from "react-to-print";
 import CustomizedPrint from "../../atoms/CustomizedPrint/CustomizedPrint";
 import CustomizedComboboxForOwner from "../../atoms/CustomizedCombobox/CustomizedCombobboxForOwner";
-import CustomizedComboboxAll from "../../atoms/CustomizedCombobox/CustomizedComboboxAll";
+import CustomizedComboboxForState from "../../atoms/CustomizedCombobox/CustomizedComboboxForState";
 import '../../../style/style.css';
 
 const AddCustomersForm = ({
@@ -40,6 +40,16 @@ const AddCustomersForm = ({
             //   setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Karnataka', value: 29}})
             // }
           }
+          const selecteventforstate = (e) => {
+            // setcustomerdata({ ...customerdata, "statename": e })
+          }
+          const [state, setstate] = useState([]);
+          useEffect(() => {
+            api.get('/stateandstatecodes/getstateandstatecodes', {})
+              .then((res) => {
+                setstate(res.data);
+              })
+          }, [])
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
@@ -248,12 +258,6 @@ const AddCustomersForm = ({
                                         // type="state"
                                         selectevent={selecteventforowner}
                                     />
-                                        {/* <input
-                                            defaultValue={data.owner_company}
-                                            type="text"
-                                            readOnly
-                                            disabled
-                                        /> */}
                                     </div>
                                 </label>
                             </div>
@@ -350,12 +354,18 @@ const AddCustomersForm = ({
                                         State:
                                     </div>
                                     <div className="formdatainputstyle">
-                                        <input
+                                    <CustomizedComboboxForState
+                                        selectedowner={selectedowner}
+                                        comboboxdata={state}
+                                        // type="state"
+                                        selectevent={selecteventforstate}
+                                    />
+                                        {/* <input
                                             defaultValue={data.state}
                                             type="text"
                                             readOnly
                                             disabled
-                                        />
+                                        /> */}
                                     </div>
                                 </label>
                             </div>
