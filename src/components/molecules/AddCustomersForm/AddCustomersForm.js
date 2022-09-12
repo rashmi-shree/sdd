@@ -4,6 +4,7 @@ import { purchasesuccessmsg } from '../../organisms/SuccessMsg/SuccessMsg';
 import SelectDate from "../../atoms/CustomizedDatepicker/SelectDate";
 import { useReactToPrint } from "react-to-print";
 import CustomizedPrint from "../../atoms/CustomizedPrint/CustomizedPrint";
+import CustomizedComboboxForOwner from "../../atoms/CustomizedCombobox/CustomizedCombobboxForOwner";
 import CustomizedComboboxAll from "../../atoms/CustomizedCombobox/CustomizedComboboxAll";
 import '../../../style/style.css';
 
@@ -22,6 +23,23 @@ const AddCustomersForm = ({
     const [productdata, setproductdata] = useState({});
     const [finalpurchasestatus, setfinalpurchasestatus] = useState();
     const [finalbookingstatus, setfinalbookingstatus] = useState();
+    const [selectedowner, setselectedowner] = useState()
+    const [owner, setowner] = useState([
+        {"ownerid":1,
+        "ownername":"SDD ENTERPRISES"},
+        {"ownerid":2,
+        "ownername":"SRI PARAMANANDA ENTERPRISES"}]);
+        
+        const selecteventforowner = (e) => {
+            setselectedowner(e.label);
+            // recalldisplayProductDetailsDataforcomboboxevent(e.label);
+            // if (e.label == "SDD ENTERPRISES"){
+            //   setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Tamil Nadu', value: 33 }})
+            // }
+            // else if (e.label == "SRI PARAMANANDA ENTERPRISES"){
+            //   setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Karnataka', value: 29}})
+            // }
+          }
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
@@ -225,12 +243,17 @@ const AddCustomersForm = ({
                                         Owner Company:
                                     </div>
                                     <div className="formdatainputstyle">
-                                        <input
+                                    <CustomizedComboboxForOwner
+                                        comboboxdata={owner}
+                                        // type="state"
+                                        selectevent={selecteventforowner}
+                                    />
+                                        {/* <input
                                             defaultValue={data.owner_company}
                                             type="text"
                                             readOnly
                                             disabled
-                                        />
+                                        /> */}
                                     </div>
                                 </label>
                             </div>
