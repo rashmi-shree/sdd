@@ -23,33 +23,69 @@ const AddCustomersForm = ({
     const [productdata, setproductdata] = useState({});
     const [finalpurchasestatus, setfinalpurchasestatus] = useState();
     const [finalbookingstatus, setfinalbookingstatus] = useState();
-    const [selectedowner, setselectedowner] = useState()
+    const [selectedowner, setselectedowner] = useState();
+    const [customerdata, setcustomerdata] = useState(
+        {
+            customerReferenceNo: "",
+            enquiryDate: "",
+            customerName: "",
+            customerAddress: "",
+            statename: { value: 29, label: 'Karnataka' },
+            phoneno: "",
+            phonenoalterone: "",
+            phonenoaltertwo: "",
+            finalStatus: "",
+            phone_number: "",
+            phone_number_alter_one: "",
+            phone_number_alter_two: "",
+            product_hsn_code: "",
+            product: "",
+            quantity: "",
+            customer_name: "",
+            owner_company: "SRI PARAMANANDA ENTERPRISES"
+        }
+    );
+    const [comboboxdata, setComboboxdata] = useState([]);
     const [owner, setowner] = useState([
-        {"ownerid":1,
-        "ownername":"SDD ENTERPRISES"},
-        {"ownerid":2,
-        "ownername":"SRI PARAMANANDA ENTERPRISES"}]);
-        
-        const selecteventforowner = (e) => {
-            setselectedowner(e.label);
-            // recalldisplayProductDetailsDataforcomboboxevent(e.label);
-            // if (e.label == "SDD ENTERPRISES"){
-            //   setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Tamil Nadu', value: 33 }})
-            // }
-            // else if (e.label == "SRI PARAMANANDA ENTERPRISES"){
-            //   setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Karnataka', value: 29}})
-            // }
-          }
-          const selecteventforstate = (e) => {
-            // setcustomerdata({ ...customerdata, "statename": e })
-          }
-          const [state, setstate] = useState([]);
-          useEffect(() => {
-            api.get('/stateandstatecodes/getstateandstatecodes', {})
-              .then((res) => {
+        {
+            "ownerid": 1,
+            "ownername": "SDD ENTERPRISES"
+        },
+        {
+            "ownerid": 2,
+            "ownername": "SRI PARAMANANDA ENTERPRISES"
+        }]);
+
+    const selecteventforowner = (e) => {
+        setselectedowner(e.label);
+        recalldisplayProductDetailsDataforcomboboxevent(e.label);
+        if (e.label == "SDD ENTERPRISES") {
+            setcustomerdata({ ...customerdata, "owner_company": e.label, "statename": { label: 'Tamil Nadu', value: 33 } })
+        }
+        else if (e.label == "SRI PARAMANANDA ENTERPRISES") {
+            setcustomerdata({ ...customerdata, "owner_company": e.label, "statename": { label: 'Karnataka', value: 29 } })
+        }
+    }
+    const selecteventforstate = (e) => {
+        setcustomerdata({ ...customerdata, "statename": e })
+    }
+    const [state, setstate] = useState([]);
+    useEffect(() => {
+        api.get('/stateandstatecodes/getstateandstatecodes', {})
+            .then((res) => {
                 setstate(res.data);
-              })
-          }, [])
+            })
+    }, [])
+    const recalldisplayProductDetailsDataforcomboboxevent = (selectedowner) => {
+        api.post('product/displayProductDetailsDataforcombobox', {
+            params: {
+                selectedowner
+            }
+        })
+            .then((res) => {
+                setComboboxdata(res.data);
+            })
+    }
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
@@ -253,11 +289,11 @@ const AddCustomersForm = ({
                                         Owner Company:
                                     </div>
                                     <div className="formdatainputstyle">
-                                    <CustomizedComboboxForOwner
-                                        comboboxdata={owner}
-                                        // type="state"
-                                        selectevent={selecteventforowner}
-                                    />
+                                        <CustomizedComboboxForOwner
+                                            comboboxdata={owner}
+                                            // type="state"
+                                            selectevent={selecteventforowner}
+                                        />
                                     </div>
                                 </label>
                             </div>
@@ -350,12 +386,12 @@ const AddCustomersForm = ({
                                         State:
                                     </div>
                                     <div className="formdatainputstyle">
-                                    <CustomizedComboboxForState
-                                        selectedowner={selectedowner}
-                                        comboboxdata={state}
-                                        // type="state"
-                                        selectevent={selecteventforstate}
-                                    />
+                                        <CustomizedComboboxForState
+                                            selectedowner={selectedowner}
+                                            comboboxdata={state}
+                                            // type="state"
+                                            selectevent={selecteventforstate}
+                                        />
                                         {/* <input
                                             defaultValue={data.state}
                                             type="text"
@@ -405,6 +441,8 @@ const AddCustomersForm = ({
                                         <input
                                             type="text"
                                             defaultValue={data.product}
+                                            readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -457,7 +495,7 @@ const AddCustomersForm = ({
                             <div className="nameandinputcontainer">
                                 <label className="formdatalabelstyle">
                                     <div className="formnamestyle">
-                                      Rate After Extended Discount:
+                                        Rate After Extended Discount:
                                     </div>
                                     <div className="formdatainputstyle">
                                         <input
@@ -572,7 +610,7 @@ const AddCustomersForm = ({
                                             readOnly
                                             disabled
                                         />
-                                    </div> 
+                                    </div>
                                 </label>
                             </div>
                             <div className="nameandinputcontainer">
@@ -599,14 +637,14 @@ const AddCustomersForm = ({
             {
                 finalpurchasestatus == 1
                     ? <p className="verificationstyle">Purchase completed!</p>
-                    : finalbookingstatus == 1 
-                    ? <p className="verificationstyle">Booking completed!</p>
-                    : <div className="submitcontainee">
-                        <CustomizedBtn
-                            BtnName="Book"
-                            onClick={submiteventclicked}
-                        />
-                    </div>
+                    : finalbookingstatus == 1
+                        ? <p className="verificationstyle">Booking completed!</p>
+                        : <div className="submitcontainee">
+                            <CustomizedBtn
+                                BtnName="Book"
+                                onClick={submiteventclicked}
+                            />
+                        </div>
             }
         </div>
     )
