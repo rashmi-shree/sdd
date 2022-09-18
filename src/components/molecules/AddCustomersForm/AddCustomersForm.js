@@ -293,6 +293,7 @@ const AddCustomersForm = ({
                                     <div className="formdatainputstyle">
                                         <CustomizedComboboxForOwner
                                             comboboxdata={owner}
+                                            dvalue={data.owner_company}
                                             // type="state"
                                             selectevent={selecteventforowner}
                                         />
