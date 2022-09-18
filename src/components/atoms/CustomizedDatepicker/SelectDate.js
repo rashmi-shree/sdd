@@ -16,7 +16,7 @@ const SelectDate = ({
       },[incomingdate]);
     const handleChange = (e) =>{
         setdefaultvalue(e.target.value);
-        selectevent(e.target.value);
+        // selectevent(e.target.value);
     }
     return(
         <div>
@@ -31,7 +31,8 @@ const SelectDate = ({
                     <input 
                         value={defaultvalue}
                         type="date"
-                        onChange={(e)=>{handleChange(e)}}
+                        name={typeOne}
+                        onChange={(e)=>{handleChange(e); onHandleChangeEvent(e)}}
                     />
             }
             
