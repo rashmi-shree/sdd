@@ -355,7 +355,6 @@ const AddCustomersForm = ({
                                                     ? data.requested_delivery_date = data.requested_delivery_date
                                                     : data.requested_delivery_date = data.requested_delivery_date
                                             }
-                                            disable="yes"
                                         />
                                     </div>
                                 </label>
