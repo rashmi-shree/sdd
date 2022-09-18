@@ -150,107 +150,108 @@ const AddCustomersForm = ({
         }
     }, [updaterowdata]);
     const submiteventclicked = () => {
-        api.put('/customer/updatefinalstatuscustomertable', {
-            params: {
-                final_status: "Booked",
-                customer_reference_no: currentCustomerReferenceNo
-            }
-        })
-            .then((res) => {
-                displaycustomerfollowupevent();
-            })
-        api.put('/delivery/updatebookingstatusofdeliverytable', {
-            params: {
-                customer_reference_no: currentCustomerReferenceNo
-            }
-        })
-            .then((res) => {
-                displaycustomerfollowupevent();
-            })
-        api.put('/delivery/updateDeliveryData', {
-            params: {
-                rowdatadisplayed: rowdatadisplayed
-            }
-        })
-            .then((res) => {
-            })
-        api.put('/delivery/updaterateofdelivery', {
-            params: {
-                rowdatadisplayed: rowdatadisplayed
-            }
-        })
-            .then((res) => {
-            })
-        api.post('/delivery/getstatecodefromdelivery', {
-            params: {
-                rowdatadisplayed: rowdatadisplayed
-            }
-        })
-            .then((res) => {
-                const data = res.data;
-                for (var i = 0; i < data.length; i++) {
-                    if (data[i].state_code === 29) {
-                        api.put('/jointables/updatekarnatakagstrates', {
-                            params: {
-                                customer_reference_no: data[i].customer_reference_no,
-                                product_hsn_code: data[i].product_hsn_code
-                            }
-                        })
-                            .then((res) => {
-                            })
-                        api.put('/jointables/updatefinalamountdelivery', {
-                            params: {
-                                rowdatadisplayed: rowdatadisplayed
-                            }
-                        })
-                            .then((res) => {
-                            })
-                        api.put('/delivery/updatebalanceamountdelivery', {
-                            params: {
-                                rowdatadisplayed: rowdatadisplayed
-                            }
-                        })
-                            .then((res) => {
-                                if (res) {
-                                    setpurchasemsgevent("Booking Successfully");
-                                    // alert(res.msg);
-                                    // const res = purchasesuccessmsg({});
-                                    handleClose();
-                                }
-                            })
-                    }
-                    else {
-                        api.put('/delivery/updateotherstatesgstrates', {
-                            params: {
-                                customer_reference_no: data[i].customer_reference_no,
-                                product_hsn_code: data[i].product_hsn_code
-                            }
-                        })
-                            .then((res) => {
-                            })
-                        api.put('/jointables/updatefinalamountdelivery', {
-                            params: {
-                                rowdatadisplayed: rowdatadisplayed
-                            }
-                        })
-                            .then((res) => {
-                            })
-                        api.put('/delivery/updatebalanceamountdelivery', {
-                            params: {
-                                rowdatadisplayed: rowdatadisplayed
-                            }
-                        })
-                            .then((res) => {
-                                if (res) {
-                                    setpurchasemsgevent("Order Placed Successfully");
-                                    // const res = purchasesuccessmsg({});
-                                    // alert(res.msg);
-                                    handleClose();
-                                }
-                            })
-                    }
-                }
-            })
+        console.log("customerdata",customerdata);
+        // api.put('/customer/updatefinalstatuscustomertable', {
+        //     params: {
+        //         final_status: "Booked",
+        //         customer_reference_no: currentCustomerReferenceNo
+        //     }
+        // })
+        //     .then((res) => {
+        //         displaycustomerfollowupevent();
+        //     })
+        // api.put('/delivery/updatebookingstatusofdeliverytable', {
+        //     params: {
+        //         customer_reference_no: currentCustomerReferenceNo
+        //     }
+        // })
+        //     .then((res) => {
+        //         displaycustomerfollowupevent();
+        //     })
+        // api.put('/delivery/updateDeliveryData', {
+        //     params: {
+        //         rowdatadisplayed: rowdatadisplayed
+        //     }
+        // })
+        //     .then((res) => {
+        //     })
+        // api.put('/delivery/updaterateofdelivery', {
+        //     params: {
+        //         rowdatadisplayed: rowdatadisplayed
+        //     }
+        // })
+        //     .then((res) => {
+        //     })
+        // api.post('/delivery/getstatecodefromdelivery', {
+        //     params: {
+        //         rowdatadisplayed: rowdatadisplayed
+        //     }
+        // })
+        //     .then((res) => {
+        //         const data = res.data;
+        //         for (var i = 0; i < data.length; i++) {
+        //             if (data[i].state_code === 29) {
+        //                 api.put('/jointables/updatekarnatakagstrates', {
+        //                     params: {
+        //                         customer_reference_no: data[i].customer_reference_no,
+        //                         product_hsn_code: data[i].product_hsn_code
+        //                     }
+        //                 })
+        //                     .then((res) => {
+        //                     })
+        //                 api.put('/jointables/updatefinalamountdelivery', {
+        //                     params: {
+        //                         rowdatadisplayed: rowdatadisplayed
+        //                     }
+        //                 })
+        //                     .then((res) => {
+        //                     })
+        //                 api.put('/delivery/updatebalanceamountdelivery', {
+        //                     params: {
+        //                         rowdatadisplayed: rowdatadisplayed
+        //                     }
+        //                 })
+        //                     .then((res) => {
+        //                         if (res) {
+        //                             setpurchasemsgevent("Booking Successfully");
+        //                             // alert(res.msg);
+        //                             // const res = purchasesuccessmsg({});
+        //                             handleClose();
+        //                         }
+        //                     })
+        //             }
+        //             else {
+        //                 api.put('/delivery/updateotherstatesgstrates', {
+        //                     params: {
+        //                         customer_reference_no: data[i].customer_reference_no,
+        //                         product_hsn_code: data[i].product_hsn_code
+        //                     }
+        //                 })
+        //                     .then((res) => {
+        //                     })
+        //                 api.put('/jointables/updatefinalamountdelivery', {
+        //                     params: {
+        //                         rowdatadisplayed: rowdatadisplayed
+        //                     }
+        //                 })
+        //                     .then((res) => {
+        //                     })
+        //                 api.put('/delivery/updatebalanceamountdelivery', {
+        //                     params: {
+        //                         rowdatadisplayed: rowdatadisplayed
+        //                     }
+        //                 })
+        //                     .then((res) => {
+        //                         if (res) {
+        //                             setpurchasemsgevent("Order Placed Successfully");
+        //                             // const res = purchasesuccessmsg({});
+        //                             // alert(res.msg);
+        //                             handleClose();
+        //                         }
+        //                     })
+        //             }
+        //         }
+        //     })
     }
     const changeevent = (event, index) => {
         let updateRowDataByIndex = [...rowdatadisplayed];
