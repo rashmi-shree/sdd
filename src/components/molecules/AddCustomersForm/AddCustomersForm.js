@@ -62,17 +62,6 @@ const AddCustomersForm = ({
             "ownerid": 2,
             "ownername": "SRI PARAMANANDA ENTERPRISES"
         }]);
-
-    const selecteventforowner = (e) => {
-        setselectedowner(e.label);
-        recalldisplayProductDetailsDataforcomboboxevent(e.label);
-        if (e.label == "SDD ENTERPRISES") {
-            setcustomerdata({ ...customerdata, "owner_company": e.label, "statename": { label: 'Tamil Nadu', value: 33 } })
-        }
-        else if (e.label == "SRI PARAMANANDA ENTERPRISES") {
-            setcustomerdata({ ...customerdata, "owner_company": e.label, "statename": { label: 'Karnataka', value: 29 } })
-        }
-    }
     const selecteventforstate = (e) => {
         setcustomerdata({ ...customerdata, "statename": e })
     }
@@ -159,107 +148,108 @@ const AddCustomersForm = ({
     const submiteventclicked = () => {
         console.log("customerdata",customerdata);
         console.log("rowdatadisplayed",rowdatadisplayed);
-        // api.put('/customer/updatefinalstatuscustomertable', {
-        //     params: {
-        //         final_status: "Booked",
-        //         customer_reference_no: currentCustomerReferenceNo
-        //     }
-        // })
-        //     .then((res) => {
-        //         displaycustomerfollowupevent();
-        //     })
-        // api.put('/delivery/updatebookingstatusofdeliverytable', {
-        //     params: {
-        //         customer_reference_no: currentCustomerReferenceNo
-        //     }
-        // })
-        //     .then((res) => {
-        //         displaycustomerfollowupevent();
-        //     })
-        // api.put('/delivery/updateDeliveryData', {
-        //     params: {
-        //         rowdatadisplayed: rowdatadisplayed
-        //     }
-        // })
-        //     .then((res) => {
-        //     })
-        // api.put('/delivery/updaterateofdelivery', {
-        //     params: {
-        //         rowdatadisplayed: rowdatadisplayed
-        //     }
-        // })
-        //     .then((res) => {
-        //     })
-        // api.post('/delivery/getstatecodefromdelivery', {
-        //     params: {
-        //         rowdatadisplayed: rowdatadisplayed
-        //     }
-        // })
-        //     .then((res) => {
-        //         const data = res.data;
-        //         for (var i = 0; i < data.length; i++) {
-        //             if (data[i].state_code === 29) {
-        //                 api.put('/jointables/updatekarnatakagstrates', {
-        //                     params: {
-        //                         customer_reference_no: data[i].customer_reference_no,
-        //                         product_hsn_code: data[i].product_hsn_code
-        //                     }
-        //                 })
-        //                     .then((res) => {
-        //                     })
-        //                 api.put('/jointables/updatefinalamountdelivery', {
-        //                     params: {
-        //                         rowdatadisplayed: rowdatadisplayed
-        //                     }
-        //                 })
-        //                     .then((res) => {
-        //                     })
-        //                 api.put('/delivery/updatebalanceamountdelivery', {
-        //                     params: {
-        //                         rowdatadisplayed: rowdatadisplayed
-        //                     }
-        //                 })
-        //                     .then((res) => {
-        //                         if (res) {
-        //                             setpurchasemsgevent("Booking Successfully");
-        //                             // alert(res.msg);
-        //                             // const res = purchasesuccessmsg({});
-        //                             handleClose();
-        //                         }
-        //                     })
-        //             }
-        //             else {
-        //                 api.put('/delivery/updateotherstatesgstrates', {
-        //                     params: {
-        //                         customer_reference_no: data[i].customer_reference_no,
-        //                         product_hsn_code: data[i].product_hsn_code
-        //                     }
-        //                 })
-        //                     .then((res) => {
-        //                     })
-        //                 api.put('/jointables/updatefinalamountdelivery', {
-        //                     params: {
-        //                         rowdatadisplayed: rowdatadisplayed
-        //                     }
-        //                 })
-        //                     .then((res) => {
-        //                     })
-        //                 api.put('/delivery/updatebalanceamountdelivery', {
-        //                     params: {
-        //                         rowdatadisplayed: rowdatadisplayed
-        //                     }
-        //                 })
-        //                     .then((res) => {
-        //                         if (res) {
-        //                             setpurchasemsgevent("Order Placed Successfully");
-        //                             // const res = purchasesuccessmsg({});
-        //                             // alert(res.msg);
-        //                             handleClose();
-        //                         }
-        //                     })
-        //             }
-        //         }
-        //     })
+        api.put('/customer/updatefinalstatuscustomertable', {
+            params: {
+                final_status: "Booked",
+                customer_reference_no: currentCustomerReferenceNo
+            }
+        })
+            .then((res) => {
+                displaycustomerfollowupevent();
+            })
+        api.put('/delivery/updatebookingstatusofdeliverytable', {
+            params: {
+                customer_reference_no: currentCustomerReferenceNo
+            }
+        })
+            .then((res) => {
+                displaycustomerfollowupevent();
+            })
+        api.put('/delivery/updateDeliveryData', {
+            params: {
+                rowdatadisplayed: rowdatadisplayed,
+                customerdata:customerdata
+            }
+        })
+            .then((res) => {
+            })
+        api.put('/delivery/updaterateofdelivery', {
+            params: {
+                rowdatadisplayed: rowdatadisplayed
+            }
+        })
+            .then((res) => {
+            })
+        api.post('/delivery/getstatecodefromdelivery', {
+            params: {
+                rowdatadisplayed: rowdatadisplayed
+            }
+        })
+            .then((res) => {
+                const data = res.data;
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].state_code === 29) {
+                        api.put('/jointables/updatekarnatakagstrates', {
+                            params: {
+                                customer_reference_no: data[i].customer_reference_no,
+                                product_hsn_code: data[i].product_hsn_code
+                            }
+                        })
+                            .then((res) => {
+                            })
+                        api.put('/jointables/updatefinalamountdelivery', {
+                            params: {
+                                rowdatadisplayed: rowdatadisplayed
+                            }
+                        })
+                            .then((res) => {
+                            })
+                        api.put('/delivery/updatebalanceamountdelivery', {
+                            params: {
+                                rowdatadisplayed: rowdatadisplayed
+                            }
+                        })
+                            .then((res) => {
+                                if (res) {
+                                    setpurchasemsgevent("Booking Successfully");
+                                    // alert(res.msg);
+                                    // const res = purchasesuccessmsg({});
+                                    handleClose();
+                                }
+                            })
+                    }
+                    else {
+                        api.put('/delivery/updateotherstatesgstrates', {
+                            params: {
+                                customer_reference_no: data[i].customer_reference_no,
+                                product_hsn_code: data[i].product_hsn_code
+                            }
+                        })
+                            .then((res) => {
+                            })
+                        api.put('/jointables/updatefinalamountdelivery', {
+                            params: {
+                                rowdatadisplayed: rowdatadisplayed
+                            }
+                        })
+                            .then((res) => {
+                            })
+                        api.put('/delivery/updatebalanceamountdelivery', {
+                            params: {
+                                rowdatadisplayed: rowdatadisplayed
+                            }
+                        })
+                            .then((res) => {
+                                if (res) {
+                                    setpurchasemsgevent("Order Placed Successfully");
+                                    // const res = purchasesuccessmsg({});
+                                    // alert(res.msg);
+                                    handleClose();
+                                }
+                            })
+                    }
+                }
+            })
     }
     const changeevent = (event, index) => {
         let updateRowDataByIndex = [...rowdatadisplayed];
@@ -269,13 +259,16 @@ const AddCustomersForm = ({
                 setRowdatadisplayed(() => [...updateRowDataByIndex]);
             }
         })
-        // let updateRowDataByIndex = [...rowdatadisplayed];
-        // rowdatadisplayed.find((item, i) => {
-        //     if (item.delivery_id === index) {
-        //         updateRowDataByIndex[i][event.target.name] = event.target.value;
-        //         setRowdatadisplayed(() => [...updateRowDataByIndex]);
-        //     }
-        // })
+    }
+    const selecteventforowner = (e) => {
+        setselectedowner(e.label);
+        recalldisplayProductDetailsDataforcomboboxevent(e.label);
+        if (e.label == "SDD ENTERPRISES") {
+            setcustomerdata({ ...customerdata, "owner_company": e.label, "statename": { label: 'Tamil Nadu', value: 33 } })
+        }
+        else if (e.label == "SRI PARAMANANDA ENTERPRISES") {
+            setcustomerdata({ ...customerdata, "owner_company": e.label, "statename": { label: 'Karnataka', value: 29 } })
+        }
     }
     return (
         <div>
