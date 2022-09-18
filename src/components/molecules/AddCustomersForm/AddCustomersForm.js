@@ -458,6 +458,7 @@ const AddCustomersForm = ({
                                             name="quantity"
                                             defaultValue={data.quantity}
                                             onWheel={(e) => e.target.blur()}
+                                            onChange={(event) => changeevent(event, data.delivery_id)}
                                         />
                                     </div>
                                 </label>
