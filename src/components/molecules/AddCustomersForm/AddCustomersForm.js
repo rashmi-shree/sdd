@@ -25,13 +25,6 @@ const AddCustomersForm = ({
     const [finalpurchasestatus, setfinalpurchasestatus] = useState();
     const [finalbookingstatus, setfinalbookingstatus] = useState();
     const [selectedowner, setselectedowner] = useState();
-    useEffect(()=>{
-        if(rowdatadisplayed){
-            rowdatadisplayed.map((data)=>{
-                setselectedowner(data.owner_company)
-            }) 
-        }
-    },[rowdatadisplayed])
     const [customerdata, setcustomerdata] = useState(
         {
             customerReferenceNo: "",
@@ -267,8 +260,16 @@ const AddCustomersForm = ({
             if (item.delivery_id === index) {
                 updateRowDataByIndex[i][event.target.name] = event.target.value;
                 setRowdatadisplayed(() => [...updateRowDataByIndex]);
+                setcustomerdata(()=>[...updateRowDataByIndex]);
             }
         })
+        // let updateRowDataByIndex = [...rowdatadisplayed];
+        // rowdatadisplayed.find((item, i) => {
+        //     if (item.delivery_id === index) {
+        //         updateRowDataByIndex[i][event.target.name] = event.target.value;
+        //         setRowdatadisplayed(() => [...updateRowDataByIndex]);
+        //     }
+        // })
     }
     return (
         <div>
