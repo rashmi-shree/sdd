@@ -18,7 +18,6 @@ const AddCustomersForm = ({
     setpurchasemsgevent
 }) => {
     const [rowdatadisplayed, setRowdatadisplayed] = useState();
-    console.log("rowdatadisplayed",rowdatadisplayed);
     const [paymentstatus, setpaymentstatus] = useState(["paid", "pending"]);
     const [bookeddate, setbookeddate] = useState('');
     const [productdata, setproductdata] = useState({});
@@ -159,6 +158,7 @@ const AddCustomersForm = ({
     }, [updaterowdata]);
     const submiteventclicked = () => {
         console.log("customerdata",customerdata);
+        console.log("rowdatadisplayed",rowdatadisplayed);
         // api.put('/customer/updatefinalstatuscustomertable', {
         //     params: {
         //         final_status: "Booked",
@@ -267,7 +267,6 @@ const AddCustomersForm = ({
             if (item.delivery_id === index) {
                 updateRowDataByIndex[i][event.target.name] = event.target.value;
                 setRowdatadisplayed(() => [...updateRowDataByIndex]);
-                setcustomerdata(()=>[...updateRowDataByIndex]);
             }
         })
         // let updateRowDataByIndex = [...rowdatadisplayed];
