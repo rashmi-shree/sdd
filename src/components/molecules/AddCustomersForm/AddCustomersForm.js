@@ -24,7 +24,14 @@ const AddCustomersForm = ({
     const [productdata, setproductdata] = useState({});
     const [finalpurchasestatus, setfinalpurchasestatus] = useState();
     const [finalbookingstatus, setfinalbookingstatus] = useState();
-    const [selectedowner, setselectedowner] = useState("SRI PARAMANANDA ENTERPRISES");
+    const [selectedowner, setselectedowner] = useState();
+    useEffect(()=>{
+        if(rowdatadisplayed){
+            rowdatadisplayed.map((data)=>{
+                setselectedowner(data.owner_company)
+            }) 
+        }
+    },[rowdatadisplayed])
     const [customerdata, setcustomerdata] = useState(
         {
             customerReferenceNo: "",
@@ -293,7 +300,6 @@ const AddCustomersForm = ({
                                     <div className="formdatainputstyle">
                                         <CustomizedComboboxForOwner
                                             comboboxdata={owner}
-                                            dvalue={data.owner_company}
                                             // type="state"
                                             selectevent={selecteventforowner}
                                         />
@@ -390,7 +396,7 @@ const AddCustomersForm = ({
                                     </div>
                                     <div className="formdatainputstyle">
                                         <CustomizedComboboxForState
-                                            selectedowner={data.owner_company}
+                                            selectedowner={selectedowner}
                                             comboboxdata={state}
                                             // type="state"
                                             selectevent={selecteventforstate}
