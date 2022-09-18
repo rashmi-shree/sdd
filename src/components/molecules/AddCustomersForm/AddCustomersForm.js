@@ -25,6 +25,13 @@ const AddCustomersForm = ({
     const [finalpurchasestatus, setfinalpurchasestatus] = useState();
     const [finalbookingstatus, setfinalbookingstatus] = useState();
     const [selectedowner, setselectedowner] = useState();
+    useEffect(()=>{
+        if(rowdatadisplayed){
+            rowdatadisplayed.map((data)=>{
+                setselectedowner(data.owner_company)
+            })
+        }
+    },[rowdatadisplayed])
     const [customerdata, setcustomerdata] = useState(
         {
             customerReferenceNo: "",
