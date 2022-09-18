@@ -23,7 +23,7 @@ const AddCustomersForm = ({
     const [productdata, setproductdata] = useState({});
     const [finalpurchasestatus, setfinalpurchasestatus] = useState();
     const [finalbookingstatus, setfinalbookingstatus] = useState();
-    const [selectedowner, setselectedowner] = useState();
+    const [selectedowner, setselectedowner] = useState("SRI PARAMANANDA ENTERPRISES");
     const [customerdata, setcustomerdata] = useState(
         {
             customerReferenceNo: "",
