@@ -366,14 +366,25 @@ const AddCustomerPage = ({
                                                         // type="button" 
                                                         data-bs-toggle="modal"
                                                         data-bs-target="#exampleModal"
-                                                        // onClick={()=>{
-                                                        //     openinvoiceevent(data.invoice_no);
-                                                        // }}
+                                                        onClick={()=>{
+                                                          currentCustomerRefNo(data.customer_reference_no);
+                                                          fetchupdateddatafromcust(data.customer_reference_no);
+                                                        }}
                                                         // className="btnstyle"
                                                         >
                                                             Check
                                                     </Button>
-                                                    <FullScreenModalOne />
+                                                    <FullScreenModalOne
+                                                      api={api}
+                                                      modalview={modalview}
+                                                      displaycustomerfollowupevent={displaycustomerfollowupevent}
+                                                      open={open}
+                                                      openevent={openevent}
+                                                      purchasestatus={purchasestatus}
+                                                      bookingstatus={bookingstatus}
+                                                      currentCustomerReferenceNo={currentCustomerReferenceNo}
+                                                      setpurchasemsgevent={setpurchasemsgevent}
+                                                    />
                                               </span>
                                           </div>
                                           }
