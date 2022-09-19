@@ -1,7 +1,7 @@
 import React from "react";
 import AddCustomersForm from "../AddCustomersForm/AddCustomersForm";
 
-const FullScreenModalOne = () => {
+const FullScreenModalOne = ({api}) => {
     return(
         <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-fullscreen modal-dialog-scrollable">
@@ -13,6 +13,7 @@ const FullScreenModalOne = () => {
                     <div className="modal-body">
                         <h1>body</h1>
                         <AddCustomersForm
+                        api={api}
                         />
                     </div>
                     <div className="modal-footer">
