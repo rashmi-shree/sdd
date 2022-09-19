@@ -1,7 +1,11 @@
 import React from "react";
 import AddCustomersForm from "../AddCustomersForm/AddCustomersForm";
+import AddCustomersFormNew from "../AddCustomersForm/AddCustomersFormNew";
 
-const FullScreenModalOne = ({api}) => {
+const FullScreenModalOne = ({
+    api,
+    currentCustomerReferenceNo
+}) => {
     return(
         <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-fullscreen modal-dialog-scrollable">
@@ -12,8 +16,9 @@ const FullScreenModalOne = ({api}) => {
                     </div>
                     <div className="modal-body">
                         <h1>body</h1>
-                        <AddCustomersForm
+                        <AddCustomersFormNew
                         api={api}
+                        currentCustomerReferenceNo={currentCustomerReferenceNo}
                         />
                     </div>
                     <div className="modal-footer">
