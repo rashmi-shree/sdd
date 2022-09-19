@@ -6,7 +6,10 @@ import OpenModal from "../../components/molecules/OpenModal/OpenModal";
 import '../../style/style.css';
 import HeaderWithLogout from '../../pages/Header/HeaderWithLogout';
 import CustomizedBtn from "../../components/atoms/CustomizedBtn/CustomizedBtn";
+import FullScreenModalOne from "../../components/molecules/FullScreenModalOne/FullScreenModalOne";
 import {useNavigate} from 'react-router-dom';
+import Button from '@mui/material/Button';
+
 const AddCustomerPage = ({
     api
 }) => {
@@ -356,6 +359,21 @@ const AddCustomerPage = ({
                                                 openevent(true);
                                               }}
                                               />
+                                              </span>
+                                              <span>
+                                              <Button 
+                                                        id="btn"
+                                                        // type="button" 
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal"
+                                                        // onClick={()=>{
+                                                        //     openinvoiceevent(data.invoice_no);
+                                                        // }}
+                                                        // className="btnstyle"
+                                                        >
+                                                            Check
+                                                    </Button>
+                                                    <FullScreenModalOne />
                                               </span>
                                           </div>
                                           }
