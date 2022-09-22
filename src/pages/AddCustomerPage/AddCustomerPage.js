@@ -25,6 +25,11 @@ const AddCustomerPage = ({
     const [purchasemsg, setpurchasemsg] = useState();
     const [query, setQuery] = useState('');
     console.log("customertable",customertable);
+    const [check, setcheck] = useState();
+    useEffect(() => {
+      setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
+    }, []);
+    console.log("check",check);
     const setpurchasemsgevent = (e) =>{
       setpurchasemsg(e)
     }
