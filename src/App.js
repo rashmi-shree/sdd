@@ -5,21 +5,26 @@ import AddCustomerPage from './pages/AddCustomerPage/AddCustomerPage';
 import GenerateInvoice from './pages/GenerateInvoice/GenerateInvoice';
 import GenerateReport from './pages/GenerateReport/GenerateReport';
 import Footer from './pages/Footer/Footer';
+import { useNavigate } from 'react-router-dom';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from 'react-router-dom';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 const api = axios.create({
   baseURL: `http://3.84.110.201:3001/`
 })
 function App() {
+  let navigate = useNavigate();
   const [logoutbtn, setlogoutbtn] = useState(false);
   const logoutbuttonevent = (e) => {
     setlogoutbtn(e);
   }
+  useEffect(()=>{
+    navigate("/");
+  },[])
   return (
     <Router>
         <Routes>
