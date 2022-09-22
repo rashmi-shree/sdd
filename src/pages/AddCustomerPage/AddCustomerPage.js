@@ -32,9 +32,9 @@ const AddCustomerPage = ({
     console.log("check",check);
     useEffect(()=>{
       console.log("inside", check);
-      // if(check != true){
-      //   navigate('/');
-      // }
+      if(check == null){
+        navigate('/');
+      }
     },[check])
     const setpurchasemsgevent = (e) =>{
       setpurchasemsg(e)
