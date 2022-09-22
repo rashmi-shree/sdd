@@ -16,9 +16,14 @@ const api = axios.create({
   baseURL: `http://3.84.110.201:3001/`
 })
 function App() {
+  const [loggedin, setloggedin] = useState("no");
   const [logoutbtn, setlogoutbtn] = useState(false);
+  console.log("logoutbtn",logoutbtn);
   const logoutbuttonevent = (e) => {
     setlogoutbtn(e);
+  }
+  const loggedinevent = (e) => {
+    setloggedin(e)
   }
   return (
     <Router>
@@ -26,6 +31,7 @@ function App() {
           <Route path="/" element={<LoginPage 
                                       api={api} 
                                       logoutbuttonevent={logoutbuttonevent}
+                                      loggedinevent={loggedinevent}
                                     />
                                   }
           />

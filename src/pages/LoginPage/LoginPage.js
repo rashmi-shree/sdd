@@ -6,7 +6,8 @@ import '../../style/style.css';
 
 const LoginPage = ({ 
   api,
-  logoutbuttonevent
+  logoutbuttonevent,
+  loggedinevent
  }) => {
   let navigate = useNavigate();
   const [logindata, setlogindata] = useState();
@@ -22,6 +23,7 @@ const LoginPage = ({
     )
       .then((res) => {
         if (res.data.length > 0) {
+          loggedinevent("yes");
           logoutbuttonevent(true);
           navigate('/main');
         }

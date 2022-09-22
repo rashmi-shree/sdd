@@ -38,6 +38,9 @@ const AddCustomerPage = ({
         setpurchasestatus(res.data);
       })
     }
+    useEffect(()=>{
+      console.log("hi");
+    })
     const fetchbookingstatusevent = (e) => {
       api.post('/delivery/getbookingstatus', {
         params: {
