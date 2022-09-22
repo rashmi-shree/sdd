@@ -18,7 +18,7 @@ const api = axios.create({
 function App() {
   const [loggedin, setloggedin] = useState("no");
   const [logoutbtn, setlogoutbtn] = useState(false);
-  console.log("logoutbtn",logoutbtn);
+  console.log("loggedin",loggedin);
   const logoutbuttonevent = (e) => {
     setlogoutbtn(e);
   }
@@ -27,12 +27,12 @@ function App() {
   }
 
   useEffect(() => {
-    setlogoutbtn(JSON.parse(window.localStorage.getItem('logoutbtn')));
+    setloggedin(JSON.parse(window.localStorage.getItem('loggedin')));
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem('logoutbtn', logoutbtn);
-  }, [logoutbtn]);
+    window.localStorage.setItem('loggedin', loggedin);
+  }, [loggedin]);
   return (
     <Router>
         <Routes>
