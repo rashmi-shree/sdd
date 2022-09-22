@@ -360,7 +360,7 @@ const AddCustomerPage = ({
                                               }}
                                               />
                                               </span>
-                                              <span>
+                                              {/* <span>
                                               <Button 
                                                         id="btn"
                                                         // type="button" 
@@ -385,7 +385,7 @@ const AddCustomerPage = ({
                                                       currentCustomerReferenceNo={currentCustomerReferenceNo}
                                                       setpurchasemsgevent={setpurchasemsgevent}
                                                     />
-                                              </span>
+                                              </span> */}
                                           </div>
                                           }
                                         </td>
