@@ -11,7 +11,7 @@ import {
   Route
 } from 'react-router-dom';
 import axios from 'axios';
-import {useState } from 'react';
+import {useState, useEffect } from 'react';
 const api = axios.create({
   baseURL: `http://3.84.110.201:3001/`
 })
@@ -25,6 +25,14 @@ function App() {
   const loggedinevent = (e) => {
     setloggedin(e)
   }
+
+  useEffect(() => {
+    setlogoutbtn(JSON.parse(window.localStorage.getItem('logoutbtn')));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('logoutbtn', logoutbtn);
+  }, [logoutbtn]);
   return (
     <Router>
         <Routes>
