@@ -30,6 +30,11 @@ const AddCustomerPage = ({
       setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
     }, []);
     console.log("check",check);
+    useEffect(()=>{
+      if(check != true){
+        navigate('/');
+      }
+    },[check])
     const setpurchasemsgevent = (e) =>{
       setpurchasemsg(e)
     }
