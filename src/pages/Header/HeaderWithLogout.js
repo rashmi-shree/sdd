@@ -6,9 +6,6 @@ import '../../style/style.css';
 
 const Header = () => {
     let navigate = useNavigate();
-    useEffect(() => {
-        window.localStorage.setItem('logoutbtn', null);
-      }, []);
     return (
         <div className="headercontainer">
             <div className="containeritems" >
@@ -20,6 +17,7 @@ const Header = () => {
                 <div className="companyname">SHREE PARAMANANDA ENTERPRISES</div>
                 <CustomizedLogOutIcon onClick={()=>{
                         navigate('/');
+                        window.localStorage.setItem('logoutbtn', null);
                     }} />
             </div>
         </div>
