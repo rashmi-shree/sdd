@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React,{useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -57,6 +57,15 @@ const GenerateInvoice = ({
     setSearchData(event.target.value);
   }
   let navigate = useNavigate();
+  const [check, setcheck] = useState(false);
+    useEffect(() => {
+      setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
+    }, []);
+    useEffect(()=>{
+      if(check == null){
+        navigate('/');
+      }
+    },[check])
   return (
     <div>
       <div>

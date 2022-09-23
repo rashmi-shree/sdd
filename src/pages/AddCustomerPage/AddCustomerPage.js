@@ -24,14 +24,11 @@ const AddCustomerPage = ({
     const [modalview, setModalview] = useState('');
     const [purchasemsg, setpurchasemsg] = useState();
     const [query, setQuery] = useState('');
-    console.log("customertable",customertable);
     const [check, setcheck] = useState(false);
     useEffect(() => {
       setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
     }, []);
-    console.log("check",check);
     useEffect(()=>{
-      console.log("inside", check);
       if(check == null){
         navigate('/');
       }

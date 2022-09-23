@@ -26,6 +26,15 @@ const ViewInvoicePage = ({
     const onHandleChangeEvent = (event) => {
         setSearchData(event.target.value);
     }
+    const [check, setcheck] = useState(false);
+    useEffect(() => {
+      setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
+    }, []);
+    useEffect(()=>{
+      if(check == null){
+        navigate('/');
+      }
+    },[check])
     useEffect(()=>{
         api.get('/delivery/getInvoices')
         .then((res) => {
