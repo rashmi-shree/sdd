@@ -8,6 +8,13 @@ import {useNavigate} from 'react-router-dom';
 const EmployeeManagementPage = ({api}) => {
     let navigate = useNavigate();
     const [employees, setemployees] = useState({});
+    useEffect(()=>{
+        api.get('/employees/getusers')
+        .then((res) => {
+            console.log("hi", res);
+            setemployees(res.data);
+        })
+    },[])
     const [check, setcheck] = useState(false);
     const [Id, setId] = useState(null);
     console.log("employees",employees);
@@ -19,12 +26,6 @@ const EmployeeManagementPage = ({api}) => {
         navigate('/');
       }
     },[check])
-    useEffect(()=>{
-        api.get('/employees/getusers')
-        .then((res) => {
-            setemployees(res.data);
-        })
-    },[])
     const [EditId,setEditId] = useState(null);
     const [editFormData, setEditFormData] = useState({
         username: "",
