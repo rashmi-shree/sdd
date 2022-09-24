@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import HeaderWithLogout from '../../pages/Header/HeaderWithLogout';
 import {useNavigate} from 'react-router-dom';
 
 const EmployeeManagementPage = () => {
@@ -13,7 +14,16 @@ const EmployeeManagementPage = () => {
       }
     },[check])
     return(
-        <div>employee management</div>
+        <div>
+        <div>
+          <HeaderWithLogout />
+        </div>
+        <div className="reportcontainer">
+          <div className="pageheading">
+            Employee Management
+          </div>
+        </div>
+      </div>
     );
 }
 export default EmployeeManagementPage;
