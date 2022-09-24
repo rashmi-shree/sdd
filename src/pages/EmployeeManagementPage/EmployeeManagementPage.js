@@ -5,6 +5,7 @@ import EmployeesEditableRow from "../../components/EmployeesEditableRow/Employee
 import EmployeesReadOnlyRow from "../../components/molecules/EmployeesReadOnlyRow/EmployeesReadOnlyRow";
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import CustomizedSaveIcon from "../../components/atoms/CustomizedSaveIcon/CustomizedSaveIcon";
 
 const EmployeeManagementPage = ({api}) => {
     let navigate = useNavigate();
@@ -32,6 +33,10 @@ const EmployeeManagementPage = ({api}) => {
     },[check])
     const [EditId,setEditId] = useState(null);
     const [editFormData, setEditFormData] = useState({
+        username: "",
+        password: ""
+      });
+    const [addFormData, setAddFormData] = useState({
         username: "",
         password: ""
       });
@@ -67,6 +72,22 @@ const EmployeeManagementPage = ({api}) => {
         event.preventDefault();
         setEditFormData({ ...editFormData, [event.target.name]: event.target.value })
       };
+      const handleAddFormChange = (event) => {
+        event.preventDefault();
+        setAddFormData({ ...addFormData, [event.target.name]: event.target.value })
+      }
+      const handleAddFormSubmit = () => {
+        api.post('/employees/insertuserdata', {
+            params: {
+                addFormData
+            }
+          })
+          .then((res) => {
+            if(res){
+                getusers();
+            }
+          })
+      }
       const handleCancelClick = () => {
         setEditId(null);
       };
@@ -107,6 +128,31 @@ const EmployeeManagementPage = ({api}) => {
                             }}
                         ><ArrowBackIcon /></p>
                     </div>
+
+                    <h2>Add an employee</h2>
+                    <div>
+                        <input
+                        type="text"
+                        name="username"
+                        required="required"
+                        placeholder="Enter a username..."
+                        onChange={handleAddFormChange}
+                        />
+                        <input
+                        type="text"
+                        name="password"
+                        required="required"
+                        placeholder="Enter an password..."
+                        onChange={handleAddFormChange}
+                        />
+                        <CustomizedSaveIcon 
+                            type="submit"
+                            onClick={handleAddFormSubmit}
+                        />
+                        <button type="submit">Add</button>
+                    </div>
+
+
                     {/* <form onSubmit={handleEditFormSubmit}> */}
                     <div className="table-responsive">
                         {
