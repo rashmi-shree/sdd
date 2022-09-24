@@ -122,8 +122,6 @@ const DownloadCustomer = ({setTableDataEvent}) => {
     lastday = lastday.split(" "); 
     var fromdate = lastday[3]+"-"+"01"+"-"+'01';
     var todate = lastday[3]+"-"+months[lastday[1]]+"-"+lastday[2];
-    console.log("fromdate",fromdate);
-    console.log("todate",todate);
     axios.post('http://3.84.110.201:3001/customer/customizeddatefetchcustomerdata',{
       params:{
         fromdate:fromdate,
@@ -153,7 +151,14 @@ const DownloadCustomer = ({setTableDataEvent}) => {
     curr = curr.toString();
     curr = curr.split(" "); 
     curr = curr[3]+"-"+months[curr[1]]+"-"+curr[2];
-    console.log("current", curr);
+    axios.post('http://3.84.110.201:3001/customer/customizeddatefetchcustomerdata',{
+      params:{
+        currentdate:curr
+      }
+    })
+    .then((res)=>{
+      setTableDataEvent(res.data);
+    })
   }
     return(
         <div className='fromtodownloadlinkcontainer'>
