@@ -32,19 +32,19 @@ const EmployeeManagementPage = ({api}) => {
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
     
-        const edited = {
-          id: EditId,
-          username: editFormData.username,
-          password: editFormData.password
-        };
+        // const edited = {
+        //   id: EditId,
+        //   username: editFormData.username,
+        //   password: editFormData.password
+        // };
     
-        const newData = [...employees];
+        // const newData = [...employees];
     
-        const index = employees.findIndex((data) => data.id === EditId);
+        // const index = employees.findIndex((data) => data.id === EditId);
     
-        newData[index] = edited;
-        console.log("on submit", newData);
-        setemployees(newData);
+        // newData[index] = edited;
+        console.log("on submitted", editFormData);
+        // setemployees(newData);
         setEditId(null);
       };
       const handleEditClick = (event, data) => {
@@ -61,7 +61,6 @@ const EmployeeManagementPage = ({api}) => {
       };
       const handleEditFormChange = (event) => {
         event.preventDefault();
-    console.log("hi edit", event.target.name, event.target.value);
         // const fieldName = event.target.getAttribute("name");
         // const fieldValue = event.target.value;
     
