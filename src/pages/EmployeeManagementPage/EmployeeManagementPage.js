@@ -15,7 +15,6 @@ const EmployeeManagementPage = ({api}) => {
         })
     },[])
     const [check, setcheck] = useState(false);
-    const [Id, setId] = useState(null);
     useEffect(() => {
       setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
     }, []);
@@ -31,20 +30,7 @@ const EmployeeManagementPage = ({api}) => {
       });
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
-    
-        // const edited = {
-        //   id: EditId,
-        //   username: editFormData.username,
-        //   password: editFormData.password
-        // };
-    
-        // const newData = [...employees];
-    
-        // const index = employees.findIndex((data) => data.id === EditId);
-    
-        // newData[index] = edited;
         console.log("on submitted", editFormData);
-        // setemployees(newData);
         setEditId(null);
       };
       const handleEditClick = (event, data) => {
@@ -61,21 +47,32 @@ const EmployeeManagementPage = ({api}) => {
       };
       const handleEditFormChange = (event) => {
         event.preventDefault();
-        // const fieldName = event.target.getAttribute("name");
-        // const fieldValue = event.target.value;
-    
-        // const newFormData = { ...editFormData };
-        // newFormData[fieldName] = fieldValue;
-    
-        // setEditFormData(newFormData);
         setEditFormData({ ...editFormData, [event.target.name]: event.target.value })
       };
       const handleCancelClick = () => {
         setEditId(null);
       };
-      const handleDeleteClick = (Id) => {
-       console.log("to be deleted", Id);
-      };
+      const [useriddelete, setuseriddelete] = useState();
+      const  deletesuperevent = (id) => {
+        setuseriddelete(id);
+    }
+    const handleDeleteClick = (e) => {
+        if(e == "yes"){
+               console.log("to be deleted", useriddelete);
+            // axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`,
+            // {
+            //     data: {
+            //         id: productdeletehsncode
+            //     }
+            // })
+            // .then((res) => {
+            //     displayProductDetailsData();
+            // })
+        }
+    }
+    //   const handleDeleteClick = (Id) => {
+    //    console.log("to be deleted", Id);
+    //   };
     return(
         <div>
         <div>
@@ -118,6 +115,7 @@ const EmployeeManagementPage = ({api}) => {
                                                 />
                                                 ) : (
                                                 <EmployeesReadOnlyRow
+                                                deletesuperevent={deletesuperevent}
                                                     handleEditClick={handleEditClick}
                                                     rowdata={data}
                                                     handleDeleteClick={handleDeleteClick}
