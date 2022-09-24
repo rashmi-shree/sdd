@@ -154,16 +154,16 @@ const DealersInvoiceForm = ({
               selectedstatecode = d.statecode;
             }
           })
-          api.post('customer/insertdealerscustomertable', {
-            params: {
-              customer_reference_no: finalCustomerRefNo,
-              dealersdata: dealersdata,
-              state: customerdata.statename,
-              changed_data: changeddata
-            }
-          })
-            .then((res) => {
-            })
+          // api.post('customer/insertdealerscustomertable', {
+          //   params: {
+          //     customer_reference_no: finalCustomerRefNo,
+          //     dealersdata: dealersdata,
+          //     state: customerdata.statename,
+          //     changed_data: changeddata
+          //   }
+          // })
+          //   .then((res) => {
+          //   })
           api.post('dealers/insertdealersdataintodeliverytable', {
             params: {
               customer_reference_no: finalCustomerRefNo,

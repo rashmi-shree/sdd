@@ -63,11 +63,11 @@ const DealersDetailsForm = ({
       custrefno = data.customer_reference_no;
       statecode = data.state_code;
     })
-    axios.put('http://3.84.110.201:3001/customer/updatefinalstatuscustomertablepurchased',{
-      params:{
-          customer_reference_no: custrefno
-      }
-  })
+  //   axios.put('http://3.84.110.201:3001/customer/updatefinalstatuscustomertablepurchased',{
+  //     params:{
+  //         customer_reference_no: custrefno
+  //     }
+  // })
     axios.post('http://3.84.110.201:3001/delivery/setverificationstatus', {
       params: {
         customer_reference_no: custrefno
