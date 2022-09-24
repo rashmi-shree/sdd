@@ -32,7 +32,6 @@ const EmployeeManagementPage = ({api}) => {
     },[check])
     const [EditId,setEditId] = useState(null);
     const [editFormData, setEditFormData] = useState({
-        id:"",
         username: "",
         password: ""
       });
@@ -41,7 +40,8 @@ const EmployeeManagementPage = ({api}) => {
         console.log("on submitted", editFormData);
         api.put('/employees/edituserdata', {
             params: {
-                editFormData
+                id:EditId,
+                data:editFormData
             }
           })
           .then((res) => {
