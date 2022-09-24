@@ -20,7 +20,6 @@ function App() {
   const [logoutbtn, setlogoutbtn] = useState(false);
   const [adminloggedin, setadminloggedin] = useState();
   const adminloggedinevent = (e) => {
-    console.log("hello", e[0].username);
     setadminloggedin(e[0].username)
   }
   console.log("logoutbtn",logoutbtn);
@@ -44,7 +43,10 @@ function App() {
                                     />
                                   }
           />
-          <Route path="/main" element={<NavigationTiles/>}/>
+          <Route path="/main" element={<NavigationTiles
+                                        adminloggedin={adminloggedin}            
+                                      />}
+          />
           <Route path="/viewinvoice" element={<ViewInvoicePage
                                         api={api}
                                       />}

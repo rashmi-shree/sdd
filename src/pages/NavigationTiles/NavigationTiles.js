@@ -7,7 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import HeaderWithLogout from '../../pages/Header/HeaderWithLogout';
 import '../../style/style.css';
 
-const NavigationTiles = () => {
+const NavigationTiles = ({
+  adminloggedin
+}) => {
   let navigate = useNavigate();
   return (
     <nav>
@@ -52,15 +54,21 @@ const NavigationTiles = () => {
               cardname={<SummarizeIcon className="navigationicon" />}
             />
           </div>
-          <div className="col-md-6 col-sm-6">
-            <CustomizedCard
-              onClick={() => {
-                navigate('/employeemanagement')
-              }}
-              cardlabel="Employee Management"
-              cardname={<SummarizeIcon className="navigationicon" />}
-            />
-          </div>
+          {
+            adminloggedin == "Admin"
+            ? 
+              <div className="col-md-6 col-sm-6">
+              <CustomizedCard
+                onClick={() => {
+                  navigate('/employeemanagement')
+                }}
+                cardlabel="Employee Management"
+                cardname={<SummarizeIcon className="navigationicon" />}
+              />
+            </div>
+
+          : null
+          }
         </div>
       </div>
     </nav>
