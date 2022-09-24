@@ -7,7 +7,8 @@ const CustomizedSaveIcon = ({onClick, type}) => {
         <SaveIcon 
         type={type}
         className="custediticon"
-            onClick={()=>{onClick()}} />
+            // onClick={()=>{onClick()}} 
+            />
     );
 }
 export default CustomizedSaveIcon;
