@@ -11,15 +11,15 @@ const NavigationTiles = ({
   adminloggedin
 }) => {
   let navigate = useNavigate();
-  const [check, setcheck] = useState(false);
-    useEffect(() => {
-      setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
-    }, []);
-    useEffect(()=>{
-      if(check == null){
-        navigate('/');
-      }
-    },[check])
+  // const [check, setcheck] = useState(false);
+  //   useEffect(() => {
+  //     setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
+  //   }, []);
+  //   useEffect(()=>{
+  //     if(check == null){
+  //       navigate('/');
+  //     }
+  //   },[check])
   return (
     <nav>
       <div>
