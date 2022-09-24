@@ -46,7 +46,7 @@ const EmployeeManagementPage = ({api}) => {
           })
           .then((res) => {
             if(res){
-                alert("edited");
+                alert("Employee Data Edited Successfully");
                 getusers();
             }
           })
@@ -79,12 +79,14 @@ const EmployeeManagementPage = ({api}) => {
                console.log("to be deleted", useriddelete);
             axios.delete(`http://3.84.110.201:3001/employees/deleteuserdata`,
             {
-                data: {
+                params: {
                     id: useriddelete
                 }
             })
             .then((res) => {
-                getusers();
+                if(res){
+                    getusers();
+                }
             })
         }
     }
