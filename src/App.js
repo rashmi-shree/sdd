@@ -33,9 +33,7 @@ function App() {
   useEffect(() => {
     window.localStorage.setItem('logoutbtn', logoutbtn);
   }, [logoutbtn]);
-  useEffect(() => {
-    window.localStorage.setItem('adminloggedin', adminloggedin);
-  }, [adminloggedin]);
+  
   return (
     <Router>
       <Routes>

@@ -14,6 +14,9 @@ const LoginPage = ({
   const onChangeEvent = (event) => {
     setlogindata({ ...logindata, [event.target.name]: event.target.value });
   }
+  // useEffect(() => {
+  //   window.localStorage.setItem('adminloggedin', adminloggedin);
+  // }, [adminloggedin]);
   const onSubmitLogin = () => {
     api.post('/users/login', {
       params: {
@@ -25,6 +28,7 @@ const LoginPage = ({
         if (res.data.length > 0) {
           logoutbuttonevent(true);
           adminloggedinevent(res.data[0].username);
+          window.localStorage.setItem('adminloggedin', res.data[0].username);
           navigate('/main');
         }
         else{
