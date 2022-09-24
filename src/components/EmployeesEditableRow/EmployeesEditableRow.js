@@ -1,6 +1,7 @@
 import React from "react";
 import CustomizedSaveIcon from "../atoms/CustomizedSaveIcon/CustomizedSaveIcon";
 import CustomizedCancelIcon from "../atoms/CustomizedCancelIcon/CustomizedCancelIcon";
+import '../../style/style.css';
 
 const EmployeesEditableRow = ({
     rowdata,
@@ -32,14 +33,18 @@ const EmployeesEditableRow = ({
             </td>
             <td>
                 <div className='editdeletecontainer'>
+                    <span className="saveiconstyle">
                     <CustomizedSaveIcon
                         type="submit"
                         onClick={handleEditFormSubmit}
                     />
+                    </span>
+                    <span>
                     <CustomizedCancelIcon
                         type="button"
                         onClick={handleCancelClick}
                     />
+                    </span>
                 </div>
             </td>
         </tr>
