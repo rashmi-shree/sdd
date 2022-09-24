@@ -61,14 +61,15 @@ const EmployeeManagementPage = ({api}) => {
       };
       const handleEditFormChange = (event) => {
         event.preventDefault();
+    console.log("hi edit", event.target.name, event.target.value);
+        // const fieldName = event.target.getAttribute("name");
+        // const fieldValue = event.target.value;
     
-        const fieldName = event.target.getAttribute("name");
-        const fieldValue = event.target.value;
+        // const newFormData = { ...editFormData };
+        // newFormData[fieldName] = fieldValue;
     
-        const newFormData = { ...editFormData };
-        newFormData[fieldName] = fieldValue;
-    
-        setEditFormData(newFormData);
+        // setEditFormData(newFormData);
+        setEditFormData({ ...editFormData, [event.target.name]: event.target.value })
       };
       const handleCancelClick = () => {
         setEditId(null);
