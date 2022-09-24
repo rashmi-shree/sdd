@@ -151,7 +151,7 @@ const DownloadCustomer = ({setTableDataEvent}) => {
     curr = curr.toString();
     curr = curr.split(" "); 
     curr = curr[3]+"-"+months[curr[1]]+"-"+curr[2];
-    axios.post('http://3.84.110.201:3001/customer/customizeddatefetchcustomerdata',{
+    axios.post('http://3.84.110.201:3001/customer/todaydatefetchcustomerdata',{
       params:{
         currentdate:curr
       }
