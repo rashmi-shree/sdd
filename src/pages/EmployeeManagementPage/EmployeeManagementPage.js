@@ -11,7 +11,6 @@ const EmployeeManagementPage = ({api}) => {
     useEffect(()=>{
         api.get('/employees/getusers')
         .then((res) => {
-            console.log("hi", res);
             setemployees(res.data);
         })
     },[])
@@ -88,7 +87,7 @@ const EmployeeManagementPage = ({api}) => {
                             }}
                         ><ArrowBackIcon /></p>
                     </div>
-                    {/* <form onSubmit={handleEditFormSubmit}>
+                    <form onSubmit={handleEditFormSubmit}>
                     <div className="table-responsive">
                         {
                             employees.length != 0 &&
@@ -126,7 +125,7 @@ const EmployeeManagementPage = ({api}) => {
                     {
                         employees.length === 0 &&
                         <p> no data found! </p>
-                    } */}
+                    }
                 </div>
         </div>
       </div>
