@@ -47,6 +47,7 @@ const EmployeeManagementPage = ({api}) => {
           .then((res) => {
             if(res){
                 alert("edited");
+                getusers();
             }
           })
         setEditId(null);
