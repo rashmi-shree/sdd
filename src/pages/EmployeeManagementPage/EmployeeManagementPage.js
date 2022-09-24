@@ -79,7 +79,7 @@ const EmployeeManagementPage = ({api}) => {
                console.log("to be deleted", useriddelete);
             axios.delete(`http://3.84.110.201:3001/employees/deleteuserdata`,
             {
-                params: {
+                data: {
                     id: useriddelete
                 }
             })
