@@ -101,6 +101,7 @@ const EmployeeManagementPage = ({api}) => {
                                     </thead>
                                     <tbody>
                                         {
+                                            employees && employees.length &&
                                             employees.map((data)=>(
                                                 <Fragment>
                                                 {Id === data.id ? (
