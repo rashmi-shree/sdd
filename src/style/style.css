@@ -216,7 +216,9 @@ table .theadalter{
   .atagthird{
     padding-left: 1rem;
   }
-
+  .atagfourth{
+    border: 2px solid black;
+  }
   .paymentdeliveryfiltercontainer{
       display: flex;
       flex-direction: row;
