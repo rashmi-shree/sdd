@@ -132,6 +132,10 @@ const DownloadCustomer = ({setTableDataEvent}) => {
       setTableDataEvent(res.data);
     })
   }
+  const todaysearchclicked = () => {
+    var curr = new Date; 
+    console.log("current", curr);
+  }
     return(
         <div className='fromtodownloadlinkcontainer'>
         <div className='fromtodownloadcontainer'>
@@ -147,13 +151,16 @@ const DownloadCustomer = ({setTableDataEvent}) => {
         </div>
         <div>
           <span className='atagfirst'>
-            <a href='#' onClick={weeklysearchclicked} >weekly</a> 
+            <a href='#' onClick={weeklysearchclicked} >Weekly</a> 
           </span>
           <span className='atagsecond'>
-            <a href='#' onClick={monthlysearchclicked} >monthly</a>
+            <a href='#' onClick={monthlysearchclicked} >Monthly</a>
           </span>
           <span className='atagthird'>
-            <a href='#' onClick={yearlysearchclicked} >yearly</a>
+            <a href='#' onClick={yearlysearchclicked} >Yearly</a>
+          </span>
+          <span className='atagfourth'>
+            <a href='#' onClick={todaysearchclicked} >Today's Follow Up Call</a>
           </span>
         </div>
         </div>

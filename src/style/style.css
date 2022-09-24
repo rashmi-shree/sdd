@@ -205,7 +205,7 @@ table .theadalter{
       border-right: 2px solid black;
       padding-right: 1rem;
   }
-  .atagfirst a , .atagsecond a, .atagthird a{
+  .atagfirst a , .atagsecond a, .atagthird a, .atagfourth a{
       color:black;
   }
   .atagsecond{
@@ -214,6 +214,9 @@ table .theadalter{
     padding-left: 1rem;
   }
   .atagthird{
+    padding-left: 1rem;
+  }
+  .atagfourth {
     padding-left: 1rem;
   }
   .paymentdeliveryfiltercontainer{
