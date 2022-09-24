@@ -87,10 +87,10 @@ const EmployeeManagementPage = ({api}) => {
                             }}
                         ><ArrowBackIcon /></p>
                     </div>
+                    <form onSubmit={handleEditFormSubmit}>
                     <div className="table-responsive">
                         {
                             employees.length != 0 &&
-                            <form onSubmit={handleEditFormSubmit}>
                                 <table className="table table-striped table-bordered">
                                     <thead className="theadalter">
                                         <tr>
@@ -119,9 +119,9 @@ const EmployeeManagementPage = ({api}) => {
                                         }
                                     </tbody>
                                 </table>
-                            </form>
                         }
                     </div>
+                    </form>
                     {
                         employees.length === 0 &&
                         <p> no data found! </p>
