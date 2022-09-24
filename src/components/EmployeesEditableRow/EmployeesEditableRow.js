@@ -13,7 +13,7 @@ const EmployeesEditableRow = ({
               required="required"
               placeholder="Enter a name..."
               name="username"
-              value={rowdata.username}
+              defaultValue={rowdata.username}
               onChange={handleEditFormChange}
             ></input>
           </td>
@@ -23,7 +23,7 @@ const EmployeesEditableRow = ({
               required="required"
               placeholder="Enter a password..."
               name="password"
-              value={rowdata.password}
+              defaultValue={rowdata.password}
               onChange={handleEditFormChange}
             ></input>
           </td>
