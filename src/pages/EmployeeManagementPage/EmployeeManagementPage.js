@@ -84,6 +84,7 @@ const EmployeeManagementPage = ({api}) => {
           })
           .then((res) => {
             if(res){
+                alert("Employee Data Added Successfully");
                 getusers();
             }
           })
@@ -149,7 +150,6 @@ const EmployeeManagementPage = ({api}) => {
                             type="submit"
                             onClick={handleAddFormSubmit}
                         />
-                        <button type="submit">Add</button>
                     </div>
 
 
