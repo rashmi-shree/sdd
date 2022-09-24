@@ -6,7 +6,7 @@ const CustomizedSaveIcon = ({onClick, type}) => {
     return(
         <SaveIcon 
         type={type}
-        className="custediticon"
+        className="custsaveicon"
             onClick={()=>{onClick()}} 
             />
     );

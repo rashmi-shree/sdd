@@ -33,7 +33,7 @@ const EmployeesEditableRow = ({
             </td>
             <td>
                 <div className='editdeletecontainer'>
-                    <span className="saveiconstyle">
+                    <span>
                     <CustomizedSaveIcon
                         type="submit"
                         onClick={handleEditFormSubmit}

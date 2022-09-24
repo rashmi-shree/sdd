@@ -47,6 +47,9 @@ input::-webkit-outer-spin-button,
     padding-left: 2rem;
     padding-right: 2rem;
 }
+.custsaveicon{
+    border: 2px solid black;
+}
 .containeritems{
     border-bottom: 1px solid #bdbbbb;
     display: flex;
