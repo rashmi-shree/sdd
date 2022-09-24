@@ -24,7 +24,7 @@ const LoginPage = ({
       .then((res) => {
         if (res.data.length > 0) {
           logoutbuttonevent(true);
-          adminloggedinevent(res.data);
+          adminloggedinevent(res.data[0].username);
           navigate('/main');
         }
         else{

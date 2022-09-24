@@ -19,8 +19,9 @@ const api = axios.create({
 function App() {
   const [logoutbtn, setlogoutbtn] = useState(false);
   const [adminloggedin, setadminloggedin] = useState();
+  console.log("adminloggedin",adminloggedin);
   const adminloggedinevent = (e) => {
-    setadminloggedin(e[0].username)
+    setadminloggedin(e)
   }
   console.log("logoutbtn", logoutbtn);
   const logoutbuttonevent = (e) => {
