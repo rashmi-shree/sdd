@@ -104,7 +104,7 @@ const EmployeeManagementPage = ({api}) => {
                                             employees && employees.length &&
                                             employees.map((data)=>(
                                                 <Fragment>
-                                                {Id === data.id ? (
+                                                {EditId === data.id ? (
                                                 <EmployeesEditableRow
                                                     rowdata={data}
                                                     handleEditFormChange={handleEditFormChange}
