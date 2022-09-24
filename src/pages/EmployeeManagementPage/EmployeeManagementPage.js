@@ -6,6 +6,7 @@ import EmployeesReadOnlyRow from "../../components/molecules/EmployeesReadOnlyRo
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import CustomizedSaveIcon from "../../components/atoms/CustomizedSaveIcon/CustomizedSaveIcon";
+import '../../style/style.css';
 
 const EmployeeManagementPage = ({api}) => {
     let navigate = useNavigate();
@@ -131,7 +132,7 @@ const EmployeeManagementPage = ({api}) => {
                     </div>
 
                     <h2>Add an employee</h2>
-                    <div>
+                    <div className="addemployeestyle">
                         <input
                         type="text"
                         name="username"

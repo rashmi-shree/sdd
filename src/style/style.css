@@ -17,6 +17,9 @@ input::-webkit-outer-spin-button,
 .tableContainer{
     margin-left: 4rem;
 }
+.addemployeestyle{
+    border: 2px solid black;
+}
 .searchbarstyle{
     margin-left: 4rem;
     display: flex;
@@ -48,7 +51,11 @@ input::-webkit-outer-spin-button,
     padding-right: 2rem;
 }
 .custsaveicon{
-    border: 2px solid black;
+    font-size: 2rem!important;
+    margin-right: 1rem;
+}
+.custcancelicon{
+    font-size: 2rem!important;
 }
 .containeritems{
     border-bottom: 1px solid #bdbbbb;

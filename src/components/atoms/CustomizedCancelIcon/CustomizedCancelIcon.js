@@ -6,7 +6,7 @@ const CustomizedCancelIcon = ({onClick, type}) => {
     return(
         <CancelIcon 
         type={type}
-        className="custediticon"
+        className="custcancelicon"
             onClick={()=>{onClick()}} />
     );
 }
