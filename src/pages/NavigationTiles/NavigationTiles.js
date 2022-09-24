@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import CustomizedCard from '../../components/atoms/CustomizedCard/CustomizedCard';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import AddReactionIcon from '@mui/icons-material/AddReaction';
@@ -11,6 +11,15 @@ const NavigationTiles = ({
   adminloggedin
 }) => {
   let navigate = useNavigate();
+  const [check, setcheck] = useState(false);
+    useEffect(() => {
+      setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
+    }, []);
+    useEffect(()=>{
+      if(check == null){
+        navigate('/');
+      }
+    },[check])
   return (
     <nav>
       <div>
