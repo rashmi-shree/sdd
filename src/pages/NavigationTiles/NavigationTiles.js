@@ -11,7 +11,7 @@ const NavigationTiles = () => {
   let navigate = useNavigate();
   const [adminloggedin, setadminloggedin] = useState();
     useEffect(() => {
-      setadminloggedin(JSON.parse(window.localStorage.getItem('adminloggedin')));
+      setadminloggedin(window.localStorage.getItem('adminloggedin'));
     }, []);
   return (
     <nav>
