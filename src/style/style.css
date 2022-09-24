@@ -18,8 +18,10 @@ input::-webkit-outer-spin-button,
     margin-left: 4rem;
 }
 .addemployeestyle{
-    border: 2px solid black;
     display: flex;
+    justify-content: space-evenly;
+    margin-top: 6rem;
+    margin-bottom: -4rem;
 }
 .searchbarstyle{
     margin-left: 4rem;

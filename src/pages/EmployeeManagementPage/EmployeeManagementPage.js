@@ -131,8 +131,8 @@ const EmployeeManagementPage = ({api}) => {
                         ><ArrowBackIcon /></p>
                     </div>
 
-                    <h2>Add an employee</h2>
                     <div className="addemployeestyle">
+                        <div><h4>Add an employee</h4></div>
                         <div>
                             <input
                         type="text"
