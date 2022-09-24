@@ -189,7 +189,7 @@ const AddCustomersForm = ({
             .then((res) => {
                 const data = res.data;
                 for (var i = 0; i < data.length; i++) {
-                    if (data[i].state_code === 29) {
+                    if (data[i].state_code === 29 && (rowdatadisplayed[0].owner_company == "SRI PARAMANANDA ENTERPRISES" || rowdatadisplayed[0].owner_company == "SDD ENTERPRISES")) {
                         api.put('/jointables/updatekarnatakagstrates', {
                             params: {
                                 customer_reference_no: data[i].customer_reference_no,
