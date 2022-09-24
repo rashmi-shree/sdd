@@ -122,6 +122,8 @@ const DownloadCustomer = ({setTableDataEvent}) => {
     lastday = lastday.split(" "); 
     var fromdate = lastday[3]+"-"+"01"+"-"+'01';
     var todate = lastday[3]+"-"+months[lastday[1]]+"-"+lastday[2];
+    console.log("fromdate",fromdate);
+    console.log("todate",todate);
     axios.post('http://3.84.110.201:3001/customer/customizeddatefetchcustomerdata',{
       params:{
         fromdate:fromdate,
