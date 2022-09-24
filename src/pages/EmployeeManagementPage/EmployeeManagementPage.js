@@ -9,6 +9,15 @@ import CustomizedSaveIcon from "../../components/atoms/CustomizedSaveIcon/Custom
 import '../../style/style.css';
 
 const EmployeeManagementPage = ({api}) => {
+    const [check, setcheck] = useState(false);
+    useEffect(() => {
+      setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
+    }, []);
+    useEffect(()=>{
+      if(check == null){
+        navigate('/');
+      }
+    },[check])
     let navigate = useNavigate();
     const [employees, setemployees] = useState({});
     useEffect(()=>{
@@ -23,15 +32,6 @@ const EmployeeManagementPage = ({api}) => {
             setemployees(res.data);
         })
     }
-    const [check, setcheck] = useState(false);
-    useEffect(() => {
-      setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
-    }, []);
-    useEffect(()=>{
-      if(check == null){
-        navigate('/');
-      }
-    },[check])
     const [EditId,setEditId] = useState(null);
     const [editFormData, setEditFormData] = useState({
         username: "",
