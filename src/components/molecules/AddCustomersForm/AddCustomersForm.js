@@ -481,7 +481,7 @@ const AddCustomersForm = ({
                                     <div className="formdatainputstyle">
                                         <input
                                             type="text"
-                                            defaultValue={data.rate}
+                                            defaultValue={data.rate/data.quantity}
                                             readOnly
                                             disabled
                                         />
