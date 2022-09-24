@@ -15,7 +15,7 @@ const EmployeesReadOnlyRow = ({
             <td>{rowdata.username}</td>
             <td>{rowdata.password}</td>
             <td>
-                <button
+                {/* <button
                     type="button"
                     onClick={(event) => handleEditClick(event, rowdata)}
                 >
@@ -25,10 +25,11 @@ const EmployeesReadOnlyRow = ({
                     onClick={() => handleDeleteClick(rowdata.id)}
                 >
                     Delete
-                </button>
-            </td>
+                </button> */}
+            
             <div className='editdeletecontainer'>
                 <CustomizedEditIcon
+                    type="button"
                     onClick={(event) => handleEditClick(event, rowdata)}
                 />
                 <div
@@ -72,6 +73,7 @@ const EmployeesReadOnlyRow = ({
                     </div>
                 </div>
             </div>
+            </td>
         </tr>
     );
 }
