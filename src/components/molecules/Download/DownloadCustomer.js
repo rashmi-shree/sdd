@@ -135,7 +135,9 @@ const DownloadCustomer = ({setTableDataEvent}) => {
     })
   }
   const todaysearchclicked = () => {
-    var curr = new Date; 
+    var curr = new Date;
+    curr = curr.toString();
+    curr = curr.split(" "); 
     console.log("current", curr);
   }
     return(

@@ -215,9 +215,11 @@ table .theadalter{
   }
   .atagthird{
     padding-left: 1rem;
+    padding-right: 1rem;
   }
   .atagfourth{
-    border: 2px solid black;
+    border-left: 2px solid #000;
+    padding-left: 1rem;
   }
   .paymentdeliveryfiltercontainer{
       display: flex;
