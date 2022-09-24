@@ -15,18 +15,6 @@ const EmployeesReadOnlyRow = ({
             <td>{rowdata.username}</td>
             <td>{rowdata.password}</td>
             <td>
-                {/* <button
-                    type="button"
-                    onClick={(event) => handleEditClick(event, rowdata)}
-                >
-                    Edit
-                </button>
-                <button type="button"
-                    onClick={() => handleDeleteClick(rowdata.id)}
-                >
-                    Delete
-                </button> */}
-            
             <div className='editdeletecontainer'>
                 <CustomizedEditIcon
                     type="button"

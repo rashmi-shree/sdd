@@ -4,6 +4,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import EmployeesEditableRow from "../../components/EmployeesEditableRow/EmployeesEditableRow";
 import EmployeesReadOnlyRow from "../../components/molecules/EmployeesReadOnlyRow/EmployeesReadOnlyRow";
 import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
 
 const EmployeeManagementPage = ({api}) => {
     let navigate = useNavigate();
@@ -13,7 +14,13 @@ const EmployeeManagementPage = ({api}) => {
         .then((res) => {
             setemployees(res.data);
         })
-    },[])
+    },[]);
+    const getusers = () => {
+        api.get('/employees/getusers')
+        .then((res) => {
+            setemployees(res.data);
+        })
+    }
     const [check, setcheck] = useState(false);
     useEffect(() => {
       setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
@@ -31,10 +38,19 @@ const EmployeeManagementPage = ({api}) => {
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
         console.log("on submitted", editFormData);
+        api.put('/employees/edituserdata', {
+            params: {
+                editFormData
+            }
+          })
+          .then((res) => {
+            if(res){
+                alert("edited");
+            }
+          })
         setEditId(null);
       };
       const handleEditClick = (event, data) => {
-        //   event.preventDefault();
           console.log("hi edit",data);
             setEditId(data.id);
     
@@ -59,15 +75,15 @@ const EmployeeManagementPage = ({api}) => {
     const handleDeleteClick = (e) => {
         if(e == "yes"){
                console.log("to be deleted", useriddelete);
-            // axios.delete(`http://3.84.110.201:3001/product/deletefromproductdetailstable`,
-            // {
-            //     data: {
-            //         id: productdeletehsncode
-            //     }
-            // })
-            // .then((res) => {
-            //     displayProductDetailsData();
-            // })
+            axios.delete(`http://3.84.110.201:3001/employees/deleteuserdata`,
+            {
+                data: {
+                    id: useriddelete
+                }
+            })
+            .then((res) => {
+                getusers();
+            })
         }
     }
     //   const handleDeleteClick = (Id) => {
