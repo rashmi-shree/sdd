@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom';
 
 const EmployeeManagementPage = ({api}) => {
     let navigate = useNavigate();
-    const [employees, setemployees] = useState();
+    const [employees, setemployees] = useState({});
     const [check, setcheck] = useState(false);
     console.log("employees",employees);
     useEffect(() => {
@@ -20,6 +20,7 @@ const EmployeeManagementPage = ({api}) => {
     useEffect(()=>{
         api.get('/employees/getusers')
         .then((res) => {
+            console.log("hi", res);
             setemployees(res.data);
         })
     },[])
@@ -52,7 +53,7 @@ const EmployeeManagementPage = ({api}) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {
+                                    {/* {
                                         employees.map((data, i) => (
                                             <tr key={i}>
                                                 <td>{data.username}</td>
@@ -71,7 +72,7 @@ const EmployeeManagementPage = ({api}) => {
                                                 </td>
                                             </tr>
                                         ))
-                                    }
+                                    } */}
                                 </tbody>
                             </table>
                         }
