@@ -34,7 +34,7 @@ const EmployeeManagementPage = ({api}) => {
         setEditId(null);
       };
       const handleEditClick = (event, data) => {
-          event.preventDefault();
+        //   event.preventDefault();
           console.log("hi edit",data);
             setEditId(data.id);
     
