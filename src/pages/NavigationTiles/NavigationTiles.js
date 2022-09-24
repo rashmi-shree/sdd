@@ -52,6 +52,15 @@ const NavigationTiles = () => {
               cardname={<SummarizeIcon className="navigationicon" />}
             />
           </div>
+          <div className="col-md-6 col-sm-6">
+            <CustomizedCard
+              onClick={() => {
+                navigate('/generatereport')
+              }}
+              cardlabel="Employee Management"
+              cardname={<SummarizeIcon className="navigationicon" />}
+            />
+          </div>
         </div>
       </div>
     </nav>

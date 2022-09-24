@@ -4,6 +4,7 @@ import ViewInvoicePage from './pages/ViewInvoicePage/ViewInvoicePage';
 import AddCustomerPage from './pages/AddCustomerPage/AddCustomerPage';
 import GenerateInvoice from './pages/GenerateInvoice/GenerateInvoice';
 import GenerateReport from './pages/GenerateReport/GenerateReport';
+import EmployeeManagementPage from './pages/EmployeeManagementPage/EmployeeManagementPage';
 import Footer from './pages/Footer/Footer';
 import {
   BrowserRouter as Router,
@@ -50,6 +51,9 @@ function App() {
                                           api={api}
                                         />}/>
           <Route path="/generatereport" element={<GenerateReport
+                                          api={api}
+                                        />}/>
+          <Route path="/employeemanagement" element={<EmployeeManagementPage
                                           api={api}
                                         />}/>
         </Routes>

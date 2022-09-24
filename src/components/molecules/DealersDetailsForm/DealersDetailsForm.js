@@ -3,6 +3,7 @@ import CustomizedBtn from "../../atoms/CustomizedBtn/CustomizedBtn";
 import { purchasesuccessmsg } from '../../organisms/SuccessMsg/SuccessMsg';
 import { useReactToPrint } from "react-to-print";
 import CustomizedPrint from '../../atoms/CustomizedPrint/CustomizedPrint';
+// import CustomizedComboboxForOwner from "../../atoms/CustomizedCombobox/CustomizedCombobboxForOwner";
 import axios from 'axios';
 import '../../../style/style.css';
 const DealersDetailsForm = ({
@@ -14,6 +15,7 @@ const DealersDetailsForm = ({
   fetchinvoicesfromdelivery
 }) => {
   const [updaterowdata, setUpdaterowdata] = useState();
+  // const [selectedowner, setselectedowner] = useState()
   const [Rowdatadisplayed, setRowdatadisplayed] = useState();
   const [gstno, setgstno] = useState();
   const componentRef = useRef();
@@ -166,6 +168,16 @@ const DealersDetailsForm = ({
       }
     })
   }
+  // const selecteventforowner = (e) => {
+  //   setselectedowner(e.label);
+  //   recalldisplayProductDetailsDataforcomboboxevent(e.label);
+  //   if (e.label == "SDD ENTERPRISES"){
+  //     setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Tamil Nadu', value: 33 }})
+  //   }
+  //   else if (e.label == "SRI PARAMANANDA ENTERPRISES"){
+  //     setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Karnataka', value: 29}})
+  //   }
+  // }
   return (
     <div>
       <div><CustomizedPrint
@@ -194,6 +206,11 @@ const DealersDetailsForm = ({
                         owner company:
                       </div>
                       <div className="formdatainputstyle">
+                        {/* <CustomizedComboboxForOwner
+                          comboboxdata={owner}
+                          dvalue = {data.owner_company}
+                          selectevent={selecteventforowner}
+                        /> */}
                         <input
                           defaultValue={data.owner_company}
                           type="text"
