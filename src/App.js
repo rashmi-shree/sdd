@@ -20,8 +20,8 @@ function App() {
   const [logoutbtn, setlogoutbtn] = useState(false);
   const [adminloggedin, setadminloggedin] = useState();
   const adminloggedinevent = (e) => {
-    console.log("hello", e);
-    setadminloggedin(e)
+    console.log("hello", e[0].username);
+    setadminloggedin(e[0].username)
   }
   console.log("logoutbtn",logoutbtn);
   const logoutbuttonevent = (e) => {
