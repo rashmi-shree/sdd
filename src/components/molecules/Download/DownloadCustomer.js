@@ -157,6 +157,7 @@ const DownloadCustomer = ({setTableDataEvent}) => {
       }
     })
     .then((res)=>{
+      console.log("res", res.data);
       setTableDataEvent(res.data);
     })
   }
