@@ -19,6 +19,7 @@ input::-webkit-outer-spin-button,
 }
 .addemployeestyle{
     border: 2px solid black;
+    display: flex;
 }
 .searchbarstyle{
     margin-left: 4rem;

@@ -133,7 +133,7 @@ const EmployeeManagementPage = ({api}) => {
 
                     <h2>Add an employee</h2>
                     <div className="addemployeestyle">
-                        <span>
+                        <div>
                             <input
                         type="text"
                         name="username"
@@ -141,8 +141,8 @@ const EmployeeManagementPage = ({api}) => {
                         placeholder="Enter a username..."
                         onChange={handleAddFormChange}
                         />
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                         <input
                         type="text"
                         name="password"
@@ -150,13 +150,13 @@ const EmployeeManagementPage = ({api}) => {
                         placeholder="Enter an password..."
                         onChange={handleAddFormChange}
                         />
-                        </span>
-                        <span>
+                        </div>
+                        <div>
                         <CustomizedSaveIcon 
                             type="submit"
                             onClick={handleAddFormSubmit}
                         />
-                        </span>
+                        </div>
                     </div>
 
 
