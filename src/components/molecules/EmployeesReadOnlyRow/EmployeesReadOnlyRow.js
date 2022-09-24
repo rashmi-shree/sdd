@@ -2,7 +2,8 @@ import React from "react";
 
 const EmployeesReadOnlyRow = ({
     rowdata,
-    handleEditClick
+    handleEditClick,
+    handleDeleteClick
 }) => {
     return (
         <tr>
@@ -16,7 +17,7 @@ const EmployeesReadOnlyRow = ({
               Edit
             </button>
             <button type="button" 
-                // onClick={() => handleDeleteClick(contact.id)}
+                onClick={() => handleDeleteClick(rowdata.id)}
             >
               Delete
             </button>

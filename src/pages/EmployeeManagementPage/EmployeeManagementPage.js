@@ -43,7 +43,7 @@ const EmployeeManagementPage = ({api}) => {
         const index = employees.findIndex((data) => data.id === EditId);
     
         newData[index] = edited;
-    
+        console.log("on submit", newData);
         setemployees(newData);
         setEditId(null);
       };
@@ -69,6 +69,12 @@ const EmployeeManagementPage = ({api}) => {
         newFormData[fieldName] = fieldValue;
     
         setEditFormData(newFormData);
+      };
+      const handleCancelClick = () => {
+        setEditId(null);
+      };
+      const handleDeleteClick = (Id) => {
+       console.log("to be deleted", Id);
       };
     return(
         <div>
@@ -108,11 +114,13 @@ const EmployeeManagementPage = ({api}) => {
                                                 <EmployeesEditableRow
                                                     rowdata={data}
                                                     handleEditFormChange={handleEditFormChange}
+                                                    handleCancelClick={handleCancelClick}
                                                 />
                                                 ) : (
                                                 <EmployeesReadOnlyRow
                                                     handleEditClick={handleEditClick}
                                                     rowdata={data}
+                                                    handleDeleteClick={handleDeleteClick}
                                                 />
                                                 )}
                                             </Fragment>

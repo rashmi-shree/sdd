@@ -2,7 +2,8 @@ import React from "react";
 
 const EmployeesEditableRow = ({
     rowdata,
-    handleEditFormChange
+    handleEditFormChange,
+    handleCancelClick
 }) => {
     return(
         <tr>
@@ -29,7 +30,7 @@ const EmployeesEditableRow = ({
           <td>
             <button type="submit">Save</button>
             <button type="button" 
-                // onClick={handleCancelClick}
+                onClick={handleCancelClick}
                 >
               Cancel
             </button>
