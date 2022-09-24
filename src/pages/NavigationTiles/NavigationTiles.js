@@ -7,19 +7,12 @@ import { useNavigate } from 'react-router-dom';
 import HeaderWithLogout from '../../pages/Header/HeaderWithLogout';
 import '../../style/style.css';
 
-const NavigationTiles = ({
-  adminloggedin
-}) => {
+const NavigationTiles = () => {
   let navigate = useNavigate();
-  // const [check, setcheck] = useState(false);
-  //   useEffect(() => {
-  //     setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
-  //   }, []);
-  //   useEffect(()=>{
-  //     if(check == null){
-  //       navigate('/');
-  //     }
-  //   },[check])
+  const [adminloggedin, setadminloggedin] = useState();
+    useEffect(() => {
+      setadminloggedin(JSON.parse(window.localStorage.getItem('adminloggedin')));
+    }, []);
   return (
     <nav>
       <div>
