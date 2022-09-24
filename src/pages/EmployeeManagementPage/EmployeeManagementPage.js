@@ -16,7 +16,6 @@ const EmployeeManagementPage = ({api}) => {
     },[])
     const [check, setcheck] = useState(false);
     const [Id, setId] = useState(null);
-    console.log("employees",employees);
     useEffect(() => {
       setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
     }, []);
@@ -49,8 +48,9 @@ const EmployeeManagementPage = ({api}) => {
         setEditId(null);
       };
       const handleEditClick = (event, data) => {
-        event.preventDefault();
-        setEditId(data.id);
+          event.preventDefault();
+          console.log("hi edit",data);
+            setEditId(data.id);
     
         const formValues = {
           username: data.username,
