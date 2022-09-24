@@ -132,7 +132,7 @@ const EmployeeManagementPage = ({api}) => {
                     </div>
 
                     <div className="addemployeestyle">
-                        <div><h4>Add an employee</h4></div>
+                        <div><h5>Add an employee:-</h5></div>
                         <div>
                             <input
                         type="text"
