@@ -32,6 +32,7 @@ const EmployeeManagementPage = ({api}) => {
     },[check])
     const [EditId,setEditId] = useState(null);
     const [editFormData, setEditFormData] = useState({
+        id:"",
         username: "",
         password: ""
       });
