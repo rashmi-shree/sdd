@@ -107,7 +107,7 @@ const EmployeeManagementPage = ({api}) => {
                             }}
                         ><ArrowBackIcon /></p>
                     </div>
-                    <form onSubmit={handleEditFormSubmit}>
+                    {/* <form onSubmit={handleEditFormSubmit}> */}
                     <div className="table-responsive">
                         {
                             employees.length != 0 &&
@@ -129,6 +129,7 @@ const EmployeeManagementPage = ({api}) => {
                                                     rowdata={data}
                                                     handleEditFormChange={handleEditFormChange}
                                                     handleCancelClick={handleCancelClick}
+                                                    handleEditFormSubmit={handleEditFormSubmit}
                                                 />
                                                 ) : (
                                                 <EmployeesReadOnlyRow
@@ -145,7 +146,7 @@ const EmployeeManagementPage = ({api}) => {
                                 </table>
                         }
                     </div>
-                    </form>
+                    {/* </form> */}
                     {
                         employees.length === 0 &&
                         <p> no data found! </p>

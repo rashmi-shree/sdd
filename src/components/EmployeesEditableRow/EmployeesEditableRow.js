@@ -5,7 +5,8 @@ import CustomizedCancelIcon from "../atoms/CustomizedCancelIcon/CustomizedCancel
 const EmployeesEditableRow = ({
     rowdata,
     handleEditFormChange,
-    handleCancelClick
+    handleCancelClick,
+    handleEditFormSubmit
 }) => {
     return(
         <tr>
@@ -33,6 +34,7 @@ const EmployeesEditableRow = ({
             {/* <button type="submit">Save</button> */}
             <CustomizedSaveIcon 
                 type="submit"
+                onClick={handleEditFormSubmit}
             />
             <CustomizedCancelIcon 
                 type="button"
