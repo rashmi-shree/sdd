@@ -1,4 +1,6 @@
 import React from "react";
+import CustomizedSaveIcon from "../atoms/CustomizedSaveIcon/CustomizedSaveIcon";
+import CustomizedCancelIcon from "../atoms/CustomizedCancelIcon/CustomizedCancelIcon";
 
 const EmployeesEditableRow = ({
     rowdata,
@@ -28,12 +30,19 @@ const EmployeesEditableRow = ({
             ></input>
           </td>
           <td>
-            <button type="submit">Save</button>
-            <button type="button" 
+            {/* <button type="submit">Save</button> */}
+            <CustomizedSaveIcon 
+                type="submit"
+            />
+            <CustomizedCancelIcon 
+                type="button"
+                onClick={handleCancelClick}
+            />
+            {/* <button type="button" 
                 onClick={handleCancelClick}
                 >
               Cancel
-            </button>
+            </button> */}
           </td>
         </tr>
     );

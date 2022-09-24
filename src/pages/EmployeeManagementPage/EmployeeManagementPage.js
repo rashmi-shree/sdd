@@ -36,7 +36,7 @@ const EmployeeManagementPage = ({api}) => {
         password: ""
       });
     const handleEditFormSubmit = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         console.log("on submitted", editFormData);
         api.put('/employees/edituserdata', {
             params: {
@@ -90,9 +90,6 @@ const EmployeeManagementPage = ({api}) => {
             })
         }
     }
-    //   const handleDeleteClick = (Id) => {
-    //    console.log("to be deleted", Id);
-    //   };
     return(
         <div>
         <div>
