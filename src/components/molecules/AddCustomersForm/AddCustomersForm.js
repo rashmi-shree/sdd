@@ -129,6 +129,7 @@ const AddCustomersForm = ({
             }
         })
             .then((res) => {
+                console.log("result", res.data);
                 const data = res.data;
                 setRowdatadisplayed(data);
                 setUpdaterowdata(data[0]);
