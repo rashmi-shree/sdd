@@ -191,7 +191,10 @@ const AddCustomersForm = ({
                 console.log("hallelujah",res.data);
                 const data = res.data;
                 for (var i = 0; i < data.length; i++) {
-                    if (data[i].state_code === 29 && (rowdatadisplayed[0].state == "Karnataka" || rowdatadisplayed[0].owner_company == "Tamil Nadu")) {
+                    if (
+                        (data[i].owner_company == 'SRI PARAMANANDA ENTERPRISES' && data[i].state_code === 29) ||
+                        (data[i].owner_company == 'SDD ENTERPRISES' && data[i].state_code === 33)
+                    ) {
                         api.put('/jointables/updatekarnatakagstrates', {
                             params: {
                                 customer_reference_no: data[i].customer_reference_no,
