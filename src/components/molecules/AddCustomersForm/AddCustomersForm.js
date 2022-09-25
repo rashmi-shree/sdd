@@ -187,6 +187,7 @@ const AddCustomersForm = ({
             }
         })
             .then((res) => {
+                console.log("hallelujah",res.data);
                 const data = res.data;
                 for (var i = 0; i < data.length; i++) {
                     if (data[i].state_code === 29 && (rowdatadisplayed[0].state == "Karnataka" || rowdatadisplayed[0].owner_company == "Tamil Nadu")) {
