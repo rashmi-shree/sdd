@@ -17,7 +17,8 @@ const AddFewCustomersForm = ({
       enquiryDate: "",
       customerName: "",
       customerAddress: "",
-      statename: { value: 29, label: 'Karnataka' },
+      // statename: { value: 29, label: 'Karnataka' },
+      statename: "",
       phoneno: "",
       phonenoalterone: "",
       phonenoaltertwo: "",
@@ -192,6 +193,7 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
     setProductname(e.target.outerText);
   }
   const selecteventforstate = (e) => {
+    console.log("selected state", e);
     setcustomerdata({ ...customerdata, "statename": e })
   }
   const recalldisplayProductDetailsDataforcomboboxevent = (selectedowner) => {
@@ -205,6 +207,7 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
       })
   }
   const selecteventforowner = (e) => {
+    console.log("owner change", e);
     setselectedowner(e.label);
     recalldisplayProductDetailsDataforcomboboxevent(e.label);
     if (e.label == "SDD ENTERPRISES"){
