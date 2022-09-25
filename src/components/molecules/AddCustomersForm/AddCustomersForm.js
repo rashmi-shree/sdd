@@ -64,6 +64,7 @@ const AddCustomersForm = ({
             "ownername": "SRI PARAMANANDA ENTERPRISES"
         }]);
     const selecteventforstate = (e) => {
+        console.log("changed state", e);
         setcustomerdata({ ...customerdata, "statename": e })
     }
     const [state, setstate] = useState([]);
@@ -263,6 +264,7 @@ const AddCustomersForm = ({
         })
     }
     const selecteventforowner = (e) => {
+        console.log("selected owner", e);
         setselectedowner(e.label);
         recalldisplayProductDetailsDataforcomboboxevent(e.label);
         if (e.label == "SDD ENTERPRISES") {
