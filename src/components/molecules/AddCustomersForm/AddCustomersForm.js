@@ -400,6 +400,8 @@ const AddCustomersForm = ({
                                     </div>
                                     <div className="formdatainputstyle">
                                         <CustomizedComboboxForState
+                                            dvaluestate={data.state}
+                                            dvaluestate_code={data.state_code}
                                             selectedowner={selectedowner}
                                             comboboxdata={state}
                                             // type="state"
