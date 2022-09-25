@@ -141,6 +141,7 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
     return true;
   }
   const submiteventclicked = () => {
+    console.log("on submit", customerdata);
     const isvalid = validate();
     if(isvalid){
         api.post('/customer/addCustomerFollowUpData',
@@ -210,12 +211,13 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
     console.log("owner change", e);
     setselectedowner(e.label);
     recalldisplayProductDetailsDataforcomboboxevent(e.label);
-    if (e.label == "SDD ENTERPRISES"){
-      setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Tamil Nadu', value: 33 }})
-    }
-    else if (e.label == "SRI PARAMANANDA ENTERPRISES"){
-      setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Karnataka', value: 29}})
-    }
+    setcustomerdata({ ...customerdata, "owner_company": e.label})
+    // if (e.label == "SDD ENTERPRISES"){
+    //   setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Tamil Nadu', value: 33 }})
+    // }
+    // else if (e.label == "SRI PARAMANANDA ENTERPRISES"){
+    //   setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Karnataka', value: 29}})
+    // }
   }
 
   const selectedproducts = (e) => {
