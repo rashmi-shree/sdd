@@ -210,12 +210,13 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
   }
   const selecteventforowner = (e) => {
     console.log("owner change", e);
+    console.log("owner change selected", e.label);
     setselectedowner(e.label);
     if(e.label == "SRI PARAMANANDA ENTERPRISES"){
-      setcustomerdata({ "statename": {value: 29, label: 'Karnataka'}})
+      setcustomerdata({ ...customerdata , "statename": {value: 29, label: 'Karnataka'}})
     }
     else if(e.label == "SDD ENTERPRISES"){
-      setcustomerdata({ "statename": {value: 33, label: 'Tamil Nadu'}})
+      setcustomerdata({ ...customerdata , "statename": {value: 33, label: 'Tamil Nadu'}})
     }
     recalldisplayProductDetailsDataforcomboboxevent(e.label);
     setcustomerdata({ ...customerdata, "owner_company": e.label})
