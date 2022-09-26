@@ -35,10 +35,10 @@ const AddFewCustomersForm = ({
   );
   useEffect(()=>{
     if(selectedowner == "SRI PARAMANANDA ENTERPRISES"){
-      setcustomerdata({ ...customerdata, "statename": {value: 29, label: 'Karnataka'}})
+      setcustomerdata({ "statename": {value: 29, label: 'Karnataka'}})
     }
     else if(selectedowner == "SDD ENTERPRISES"){
-      setcustomerdata({ ...customerdata, "statename": {value: 33, label: 'Tamil Nadu'}})
+      setcustomerdata({ "statename": {value: 33, label: 'Tamil Nadu'}})
     }
   },[selectedowner])
   const [errors, seterrors] = useState({
