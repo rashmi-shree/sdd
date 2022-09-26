@@ -33,14 +33,7 @@ const AddFewCustomersForm = ({
       owner_company:"SRI PARAMANANDA ENTERPRISES"
     }
   );
-  useEffect(()=>{
-    if(selectedowner == "SRI PARAMANANDA ENTERPRISES"){
-      setcustomerdata({ "statename": {value: 29, label: 'Karnataka'}})
-    }
-    else if(selectedowner == "SDD ENTERPRISES"){
-      setcustomerdata({ "statename": {value: 33, label: 'Tamil Nadu'}})
-    }
-  },[selectedowner])
+
   const [errors, seterrors] = useState({
     commonError:"Please Enter all Important Fields",
     // customerNameError:"",
@@ -218,6 +211,12 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
   const selecteventforowner = (e) => {
     console.log("owner change", e);
     setselectedowner(e.label);
+    if(e.label == "SRI PARAMANANDA ENTERPRISES"){
+      setcustomerdata({ "statename": {value: 29, label: 'Karnataka'}})
+    }
+    else if(e.label == "SDD ENTERPRISES"){
+      setcustomerdata({ "statename": {value: 33, label: 'Tamil Nadu'}})
+    }
     recalldisplayProductDetailsDataforcomboboxevent(e.label);
     setcustomerdata({ ...customerdata, "owner_company": e.label})
     // if (e.label == "SDD ENTERPRISES"){
