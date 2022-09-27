@@ -209,8 +209,6 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
       })
   }
   useEffect(()=>{
-console.log("customerdata asdufhn asdounljfk", customerdata.owner_company);
-
   if(customerdata.owner_company == "SRI PARAMANANDA ENTERPRISES"){
         setcustomerdata({ ...customerdata , "statename": {value: 29, label: 'Karnataka'}})
       }
