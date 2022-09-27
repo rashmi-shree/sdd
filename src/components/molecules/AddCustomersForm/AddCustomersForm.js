@@ -183,80 +183,80 @@ const AddCustomersForm = ({
         })
             .then((res) => {
             })
-        // api.post('/delivery/getstatecodefromdelivery', {
-        //     params: {
-        //         rowdatadisplayed: rowdatadisplayed
-        //     }
-        // })
-        //     .then((res) => {
-        //         console.log("hallelujah",res.data);
-        //         const data = res.data;
-        //         for (var i = 0; i < data.length; i++) {
-        //             if (
-        //                 (data[i].owner_company == 'SRI PARAMANANDA ENTERPRISES' && data[i].state_code === 29) ||
-        //                 (data[i].owner_company == 'SDD ENTERPRISES' && data[i].state_code === 33)
-        //             ) {
-        //                 api.put('/jointables/updatekarnatakagstrates', {
-        //                     params: {
-        //                         customer_reference_no: data[i].customer_reference_no,
-        //                         product_hsn_code: data[i].product_hsn_code
-        //                     }
-        //                 })
-        //                     .then((res) => {
-        //                     })
-        //                 api.put('/jointables/updatefinalamountdelivery', {
-        //                     params: {
-        //                         rowdatadisplayed: rowdatadisplayed
-        //                     }
-        //                 })
-        //                     .then((res) => {
-        //                     })
-        //                 api.put('/delivery/updatebalanceamountdelivery', {
-        //                     params: {
-        //                         rowdatadisplayed: rowdatadisplayed
-        //                     }
-        //                 })
-        //                     .then((res) => {
-        //                         if (res) {
-        //                             setpurchasemsgevent("Booking Successfully");
-        //                             // alert(res.msg);
-        //                             // const res = purchasesuccessmsg({});
-        //                             handleClose();
-        //                         }
-        //                     })
-        //             }
-        //             else {
-        //                 api.put('/delivery/updateotherstatesgstrates', {
-        //                     params: {
-        //                         customer_reference_no: data[i].customer_reference_no,
-        //                         product_hsn_code: data[i].product_hsn_code
-        //                     }
-        //                 })
-        //                     .then((res) => {
-        //                     })
-        //                 api.put('/jointables/updatefinalamountdelivery', {
-        //                     params: {
-        //                         rowdatadisplayed: rowdatadisplayed
-        //                     }
-        //                 })
-        //                     .then((res) => {
-        //                     })
-        //                 api.put('/delivery/updatebalanceamountdelivery', {
-        //                     params: {
-        //                         rowdatadisplayed: rowdatadisplayed
-        //                     }
-        //                 })
-        //                     .then((res) => {
-        //                         if (res) {
-        //                             setpurchasemsgevent("Order Placed Successfully");
-        //                             // const res = purchasesuccessmsg({});
-        //                             // alert(res.msg);
-        //                             handleClose();
-        //                         }
-        //                     })
-        //             }
-        //         }
-        //     })
+        api.post('/delivery/getstatecodefromdelivery', {
+            params: {
+                rowdatadisplayed: rowdatadisplayed
+            }
+        })
+            .then((res) => {
+                console.log("hallelujah",res.data);
+                const data = res.data;
+                for (var i = 0; i < data.length; i++) {
+                    if (
+                        (data[i].owner_company == 'SRI PARAMANANDA ENTERPRISES' && data[i].state_code === 29) ||
+                        (data[i].owner_company == 'SDD ENTERPRISES' && data[i].state_code === 33)
+                    ) {
+                        api.put('/jointables/updatekarnatakagstrates', {
+                            params: {
+                                customer_reference_no: data[i].customer_reference_no,
+                                product_hsn_code: data[i].product_hsn_code
+                            }
+                        })
+                            .then((res) => {
+                            })
+                        api.put('/jointables/updatefinalamountdelivery', {
+                            params: {
+                                rowdatadisplayed: rowdatadisplayed
+                            }
+                        })
+                            .then((res) => {
+                            })
+                        // api.put('/delivery/updatebalanceamountdelivery', {
+                        //     params: {
+                        //         rowdatadisplayed: rowdatadisplayed
+                        //     }
+                        // })
+                        //     .then((res) => {
+                        //         if (res) {
+                        //             setpurchasemsgevent("Booking Successfully");
+                        //             // alert(res.msg);
+                        //             // const res = purchasesuccessmsg({});
+                        //             handleClose();
+                        //         }
+                        //     })
+                    }
+                    else {
+                        api.put('/delivery/updateotherstatesgstrates', {
+                            params: {
+                                customer_reference_no: data[i].customer_reference_no,
+                                product_hsn_code: data[i].product_hsn_code
+                            }
+                        })
+                            .then((res) => {
+                            })
+                        api.put('/jointables/updatefinalamountdelivery', {
+                            params: {
+                                rowdatadisplayed: rowdatadisplayed
+                            }
+                        })
+                            .then((res) => {
+                            })
+                        api.put('/delivery/updatebalanceamountdelivery', {
+                            params: {
+                                rowdatadisplayed: rowdatadisplayed
+                            }
+                        })
+                            .then((res) => {
+                                if (res) {
+                                    setpurchasemsgevent("Order Placed Successfully");
+                                    // const res = purchasesuccessmsg({});
+                                    // alert(res.msg);
+                                    handleClose();
+                                }
+                            })
+                    }
+                }
+            })
     }
     const changeevent = (event, index) => {
         let updateRowDataByIndex = [...rowdatadisplayed];
