@@ -18,20 +18,20 @@ const AddCustomersForm = ({
     setpurchasemsgevent
 }) => {
     const [rowdatadisplayed, setRowdatadisplayed] = useState();
-    console.log("rowdatadisplayed",rowdatadisplayed);
+    console.log("rowdatadisplayed", rowdatadisplayed);
     const [paymentstatus, setpaymentstatus] = useState(["paid", "pending"]);
     const [bookeddate, setbookeddate] = useState('');
     const [productdata, setproductdata] = useState({});
     const [finalpurchasestatus, setfinalpurchasestatus] = useState();
     const [finalbookingstatus, setfinalbookingstatus] = useState();
     const [selectedowner, setselectedowner] = useState();
-    useEffect(()=>{
-        if(rowdatadisplayed){
-            rowdatadisplayed.map((data)=>{
+    useEffect(() => {
+        if (rowdatadisplayed) {
+            rowdatadisplayed.map((data) => {
                 setselectedowner(data.owner_company)
             })
         }
-    },[rowdatadisplayed])
+    }, [rowdatadisplayed])
     const [customerdata, setcustomerdata] = useState(
         {
             customerReferenceNo: "",
@@ -149,8 +149,8 @@ const AddCustomersForm = ({
         }
     }, [updaterowdata]);
     const submiteventclicked = () => {
-        console.log("customerdata",customerdata);
-        console.log("rowdatadisplayed",rowdatadisplayed);
+        console.log("customerdata", customerdata);
+        console.log("rowdatadisplayed", rowdatadisplayed);
         api.put('/customer/updatefinalstatuscustomertable', {
             params: {
                 final_status: "Booked",
@@ -158,105 +158,107 @@ const AddCustomersForm = ({
             }
         })
             .then((res) => {
-                displaycustomerfollowupevent();
-            })
-        api.put('/delivery/updatebookingstatusofdeliverytable', {
-            params: {
-                customer_reference_no: currentCustomerReferenceNo
-            }
-        })
-            .then((res) => {
-                displaycustomerfollowupevent();
-            })
-        api.put('/delivery/updateDeliveryData', {
-            params: {
-                rowdatadisplayed: rowdatadisplayed,
-                customerdata:customerdata
-            }
-        })
-            .then((res) => {
-            })
-        api.put('/delivery/updaterateofdelivery', {
-            params: {
-                rowdatadisplayed: rowdatadisplayed
-            }
-        })
-            .then((res) => {
-            })
-        api.post('/delivery/getstatecodefromdelivery', {
-            params: {
-                rowdatadisplayed: rowdatadisplayed
-            }
-        })
-            .then((res) => {
-                console.log("hallelujah",res.data);
-                const data = res.data;
-                for (var i = 0; i < data.length; i++) {
-                    if (
-                        (data[i].owner_company == 'SRI PARAMANANDA ENTERPRISES' && data[i].state_code === 29) ||
-                        (data[i].owner_company == 'SDD ENTERPRISES' && data[i].state_code === 33)
-                    ) {
-                        api.put('/jointables/updatekarnatakagstrates', {
-                            params: {
-                                customer_reference_no: data[i].customer_reference_no,
-                                product_hsn_code: data[i].product_hsn_code
-                            }
-                        })
-                            .then((res) => {
-                            })
-                        api.put('/jointables/updatefinalamountdelivery', {
-                            params: {
-                                rowdatadisplayed: rowdatadisplayed
-                            }
-                        })
-                            .then((res) => {
-                            })
-                        api.put('/delivery/updatebalanceamountdelivery', {
-                            params: {
-                                rowdatadisplayed: rowdatadisplayed
-                            }
-                        })
-                            .then((res) => {
-                                if (res) {
-                                    setpurchasemsgevent("Booking Successfully");
-                                    // alert(res.msg);
-                                    // const res = purchasesuccessmsg({});
-                                    handleClose();
-                                }
-                            })
+                // displaycustomerfollowupevent();
+                api.put('/delivery/updatebookingstatusofdeliverytable', {
+                    params: {
+                        customer_reference_no: currentCustomerReferenceNo
                     }
-                    else {
-                        api.put('/delivery/updateotherstatesgstrates', {
+                })
+                    .then((res) => {
+                        // displaycustomerfollowupevent();
+                        api.put('/delivery/updateDeliveryData', {
                             params: {
-                                customer_reference_no: data[i].customer_reference_no,
-                                product_hsn_code: data[i].product_hsn_code
+                                rowdatadisplayed: rowdatadisplayed,
+                                customerdata: customerdata
                             }
                         })
                             .then((res) => {
+                                api.put('/delivery/updaterateofdelivery', {
+                                    params: {
+                                        rowdatadisplayed: rowdatadisplayed
+                                    }
+                                })
+                                    .then((res) => {
+                                        api.post('/delivery/getstatecodefromdelivery', {
+                                            params: {
+                                                rowdatadisplayed: rowdatadisplayed
+                                            }
+                                        })
+                                            .then((res) => {
+                                                console.log("hallelujah", res.data);
+                                                const data = res.data;
+                                                for (var i = 0; i < data.length; i++) {
+                                                    if (
+                                                        (data[i].owner_company == 'SRI PARAMANANDA ENTERPRISES' && data[i].state_code === 29) ||
+                                                        (data[i].owner_company == 'SDD ENTERPRISES' && data[i].state_code === 33)
+                                                    ) {
+                                                        api.put('/jointables/updatekarnatakagstrates', {
+                                                            params: {
+                                                                customer_reference_no: data[i].customer_reference_no,
+                                                                product_hsn_code: data[i].product_hsn_code
+                                                            }
+                                                        })
+                                                            .then((res) => {
+                                                            })
+                                                        api.put('/jointables/updatefinalamountdelivery', {
+                                                            params: {
+                                                                rowdatadisplayed: rowdatadisplayed
+                                                            }
+                                                        })
+                                                            .then((res) => {
+                                                            })
+                                                        api.put('/delivery/updatebalanceamountdelivery', {
+                                                            params: {
+                                                                rowdatadisplayed: rowdatadisplayed
+                                                            }
+                                                        })
+                                                            .then((res) => {
+                                                                if (res) {
+                                                                    setpurchasemsgevent("Booking Successfully");
+                                                                    // alert(res.msg);
+                                                                    // const res = purchasesuccessmsg({});
+                                                                    handleClose();
+                                                                }
+                                                            })
+                                                    }
+                                                    else {
+                                                        api.put('/delivery/updateotherstatesgstrates', {
+                                                            params: {
+                                                                customer_reference_no: data[i].customer_reference_no,
+                                                                product_hsn_code: data[i].product_hsn_code
+                                                            }
+                                                        })
+                                                            .then((res) => {
+                                                            })
+                                                        api.put('/jointables/updatefinalamountdelivery', {
+                                                            params: {
+                                                                rowdatadisplayed: rowdatadisplayed
+                                                            }
+                                                        })
+                                                            .then((res) => {
+                                                            })
+                                                        api.put('/delivery/updatebalanceamountdelivery', {
+                                                            params: {
+                                                                rowdatadisplayed: rowdatadisplayed
+                                                            }
+                                                        })
+                                                            .then((res) => {
+                                                                if (res) {
+                                                                    setpurchasemsgevent("Order Placed Successfully");
+                                                                    // const res = purchasesuccessmsg({});
+                                                                    // alert(res.msg);
+                                                                    handleClose();
+                                                                }
+                                                            })
+                                                    }
+                                                }
+                                            })
+                                    })
                             })
-                        api.put('/jointables/updatefinalamountdelivery', {
-                            params: {
-                                rowdatadisplayed: rowdatadisplayed
-                            }
-                        })
-                            .then((res) => {
-                            })
-                        api.put('/delivery/updatebalanceamountdelivery', {
-                            params: {
-                                rowdatadisplayed: rowdatadisplayed
-                            }
-                        })
-                            .then((res) => {
-                                if (res) {
-                                    setpurchasemsgevent("Order Placed Successfully");
-                                    // const res = purchasesuccessmsg({});
-                                    // alert(res.msg);
-                                    handleClose();
-                                }
-                            })
-                    }
-                }
+                    })
             })
+
+
     }
     const changeevent = (event, index) => {
         let updateRowDataByIndex = [...rowdatadisplayed];
@@ -308,7 +310,7 @@ const AddCustomersForm = ({
                                     <div className="formdatainputstyle">
                                         <CustomizedComboboxForOwner
                                             comboboxdata={owner}
-                                            dvalue = {data.owner_company}
+                                            dvalue={data.owner_company}
                                             // type="state"
                                             selectevent={selecteventforowner}
                                         />
@@ -490,7 +492,7 @@ const AddCustomersForm = ({
                                     <div className="formdatainputstyle">
                                         <input
                                             type="text"
-                                            defaultValue={data.rate/data.quantity}
+                                            defaultValue={data.rate / data.quantity}
                                             readOnly
                                             disabled
                                         />
