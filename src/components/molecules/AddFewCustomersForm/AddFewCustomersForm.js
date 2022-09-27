@@ -149,6 +149,7 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
       {
         params: {
           customerReferenceNo: finalCustomerRefNo,
+          owner_company:customerdata.owner_company,
           enquiryDate: finalcurrentdate,
           customerName: customerdata.customer_name,
           customerAddress: customerdata.customer_address,
