@@ -61,9 +61,11 @@ const DealersDetailsForm = ({
   const submiteventclicked = (gstno) => {
     let custrefno = "";
     let statecode;
+    let owner_company = "";
     Rowdatadisplayed.map((data) => {
       custrefno = data.customer_reference_no;
       statecode = data.state_code;
+      owner_company= data.owner_company
     })
   //   axios.put('http://3.84.110.201:3001/customer/updatefinalstatuscustomertablepurchased',{
   //     params:{
@@ -75,81 +77,103 @@ const DealersDetailsForm = ({
         customer_reference_no: custrefno
       }
     })
+    .then((res)=>{
       axios.put('http://3.84.110.201:3001/delivery/updatepurchasestatusofdeliverytable', {
-      params: {
-        customer_reference_no: custrefno
-      }
-    })
-      axios.put('http://3.84.110.201:3001/delivery/updateDeliveryDatafromdealersform', {
-      params: {
-        rowdatadisplayed: Rowdatadisplayed
-      }
-    })
-      axios.post('http://3.84.110.201:3001/jointables/calculaterateofdeliveryofdealers', {
-      params: {
-        rowdatadisplayed: Rowdatadisplayed
-      }
-    })
-    if (statecode == 29) {
-      axios.put('http://3.84.110.201:3001/jointables/updatekarnatakagstratesfromdealers', {
-        params: {
-          rowdatadisplayed: Rowdatadisplayed
-        }
-      })
-      axios.put('product/updateProductsDetailsProductDataDecrement',{
-        Rowdatadisplayed
-    })
-        axios.put('http://3.84.110.201:3001/jointables/updatefinalamountdeliveryfromdealers', {
         params: {
           customer_reference_no: custrefno
         }
       })
-        axios.put('http://3.84.110.201:3001/jointables/updatebalanceamountdeliveryfromdealers', {
-        params: {
-          rowdatadisplayed: Rowdatadisplayed
-        }
-      })
-        .then((res) => {
-          if (res) {
-            const res = purchasesuccessmsg({});
-            alert(res.msg);
-            handleClose();
+      .then((res)=>{
+        axios.put('http://3.84.110.201:3001/delivery/updateDeliveryDatafromdealersform', {
+          params: {
+            rowdatadisplayed: Rowdatadisplayed
           }
         })
-        fetchinvoicesfromdelivery(gstno);
-    }
-    else {
-      axios.put('http://3.84.110.201:3001/jointables/updateotherstatesgstratesfromdealers', {
-        params: {
-          rowdatadisplayed: Rowdatadisplayed
-        }
-      })
-        .then((res) => {
+        .then((res)=>{
+          axios.post('http://3.84.110.201:3001/jointables/calculaterateofdeliveryofdealers', {
+            params: {
+              rowdatadisplayed: Rowdatadisplayed
+            }
+          })
+          .then((res)=>{
+            if (
+              (owner_company == 'SRI PARAMANANDA ENTERPRISES' && statecode === 29) ||
+              (owner_company == 'SDD ENTERPRISES' && statecode === 33)
+              ) {
+              axios.put('http://3.84.110.201:3001/jointables/updatekarnatakagstratesfromdealers', {
+                params: {
+                  rowdatadisplayed: Rowdatadisplayed
+                }
+              })
+              .then((res)=>{
+                axios.put('product/updateProductsDetailsProductDataDecrement',{
+                  Rowdatadisplayed
+              })
+              .then((res)=>{
+                axios.put('http://3.84.110.201:3001/jointables/updatefinalamountdeliveryfromdealers', {
+                  params: {
+                    customer_reference_no: custrefno
+                  }
+                })
+                .then((res)=>{
+                  axios.put('http://3.84.110.201:3001/jointables/updatebalanceamountdeliveryfromdealers', {
+                    params: {
+                      rowdatadisplayed: Rowdatadisplayed
+                    }
+                  })
+                    .then((res) => {
+                      if (res) {
+                        const res = purchasesuccessmsg({});
+                        alert(res.msg);
+                        handleClose();
+                        fetchinvoicesfromdelivery(gstno);
+                      }
+                    })
+                })
+              })
+              })
+            }
+            else {
+              axios.put('http://3.84.110.201:3001/jointables/updateotherstatesgstratesfromdealers', {
+                params: {
+                  rowdatadisplayed: Rowdatadisplayed
+                }
+              })
+                .then((res) => {
+                  axios.put('product/updateProductsDetailsProductDataDecrement',{
+                    Rowdatadisplayed
+                })
+                .then((res)=>{
+                  axios.put('http://3.84.110.201:3001/jointables/updatefinalamountdeliveryfromdealers', {
+                    params: {
+                      customer_reference_no: custrefno
+                    }
+                  })
+                    .then((res) => {
+                      axios.put('http://3.84.110.201:3001/jointables/updatebalanceamountdeliveryfromdealers', {
+                        params: {
+                          rowdatadisplayed: Rowdatadisplayed
+                        }
+                      })
+                        .then((res) => {
+                          if (res) {
+                            const res = purchasesuccessmsg({});
+                            alert(res.msg);
+                            handleClose();
+                            fetchinvoicesfromdelivery(gstno);
+                          }
+                        })
+                    })
+                })
+                })
+            }
+          })
         })
-        axios.put('product/updateProductsDetailsProductDataDecrement',{
-          Rowdatadisplayed
       })
-        axios.put('http://3.84.110.201:3001/jointables/updatefinalamountdeliveryfromdealers', {
-        params: {
-          customer_reference_no: custrefno
-        }
-      })
-        .then((res) => {
-        })
-        axios.put('http://3.84.110.201:3001/jointables/updatebalanceamountdeliveryfromdealers', {
-        params: {
-          rowdatadisplayed: Rowdatadisplayed
-        }
-      })
-        .then((res) => {
-          if (res) {
-            const res = purchasesuccessmsg({});
-            alert(res.msg);
-            handleClose();
-            fetchinvoicesfromdelivery(gstno);
-          }
-        })
-    }
+    })
+      
+      
+   
   }
   
   useEffect(()=>{
