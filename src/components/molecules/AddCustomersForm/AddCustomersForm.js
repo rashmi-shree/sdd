@@ -204,13 +204,13 @@ const AddCustomersForm = ({
                         })
                             .then((res) => {
                             })
-                        // api.put('/jointables/updatefinalamountdelivery', {
-                        //     params: {
-                        //         rowdatadisplayed: rowdatadisplayed
-                        //     }
-                        // })
-                        //     .then((res) => {
-                        //     })
+                        api.put('/jointables/updatefinalamountdelivery', {
+                            params: {
+                                rowdatadisplayed: rowdatadisplayed
+                            }
+                        })
+                            .then((res) => {
+                            })
                         // api.put('/delivery/updatebalanceamountdelivery', {
                         //     params: {
                         //         rowdatadisplayed: rowdatadisplayed
