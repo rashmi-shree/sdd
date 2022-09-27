@@ -79,59 +79,73 @@ const AddCustomerPage = ({
               data:temprowdataonbooking
             }
           })
-          api.post('/delivery/getstatecodefromdeliverytableonbook', {
-            params: {
-              data:temprowdataonbooking
-            }
-          })
-          .then((res) => {
-            const data = res.data;
-            for (var i =0; i< data.length; i++){
-              if (data[i].state_code === 29){
-                api.put('/jointables/updatekarnatakagstratesdeliverytableonbook', {
+          .then((res)=>{
+            api.post('/delivery/getstatecodefromdeliverytableonbook', {
+              params: {
+                data:temprowdataonbooking
+              }
+            })
+            .then((res) => {
+              const data = res.data;
+              for (var i =0; i< data.length; i++){
+                if (data[i].state_code === 29){
+                  api.put('/jointables/updatekarnatakagstratesdeliverytableonbook', {
+                    params: {
+                      data:temprowdataonbooking
+                    }
+                  })
+                  .then((res)=>{
+                    api.put('/jointables/updatefinalamountdeliverytableonbook', {
+                      params: {
+                        data:temprowdataonbooking
+                      }
+                    })
+                    .then((res)=>{
+                      api.put('/jointables/updatebalanceamountdeliverytableonbook',{
+                        params:{
+                          data:temprowdataonbooking
+                        }
+                      })
+                      .then((res)=>{
+                        api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
+                          params:{
+                            data:temprowdataonbooking
+                          }
+                        })
+                      })
+                    })
+                  })
+              }
+              else {
+                api.put('/jointables/updateotherstatesgstratesdeliverytableonbook', {
                   params: {
                     data:temprowdataonbooking
                   }
                 })
-                api.put('/jointables/updatefinalamountdeliverytableonbook', {
-                  params: {
-                    data:temprowdataonbooking
-                  }
-                })
-                api.put('/jointables/updatebalanceamountdeliverytableonbook',{
-                  params:{
-                    data:temprowdataonbooking
-                  }
-                })
-                api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
-                  params:{
-                    data:temprowdataonbooking
-                  }
+                .then((res)=>{
+                  api.put('/jointables/updatefinalamountdeliverytableonbook', {
+                    params: {
+                      data:temprowdataonbooking
+                    }
+                  })
+                  .then((res)=>{
+                    api.put('/jointables/updatebalanceamountdeliverytableonbook',{
+                      params:{
+                        data:temprowdataonbooking
+                      }
+                    })
+                    .then((res)=>{
+                      api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
+                        params:{
+                          data:temprowdataonbooking
+                        }
+                      })
+                    })
+                  })
                 })
             }
-            else {
-              api.put('/jointables/updateotherstatesgstratesdeliverytableonbook', {
-                params: {
-                  data:temprowdataonbooking
-                }
-              })
-              api.put('/jointables/updatefinalamountdeliverytableonbook', {
-                params: {
-                  data:temprowdataonbooking
-                }
-              })
-              api.put('/jointables/updatebalanceamountdeliverytableonbook',{
-                params:{
-                  data:temprowdataonbooking
-                }
-              })
-              api.put('/jointables/updatepaymentstatusdeliverytableonbook',{
-                params:{
-                  data:temprowdataonbooking
-                }
-              })
-          }
-            }
+              }
+            })
           })
           alert("Updated successfully")
       })
