@@ -208,16 +208,7 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
         setComboboxdata(res.data);
       })
   }
-  useEffect(()=>{
-    if (customerdata.owner_company){
-  if(customerdata.owner_company == "SRI PARAMANANDA ENTERPRISES"){
-        setcustomerdata({ ...customerdata , "statename": {value: 29, label: 'Karnataka'}})
-      }
-      else if(customerdata.owner_company == "SDD ENTERPRISES"){
-        setcustomerdata({ ...customerdata , "statename": {value: 33, label: 'Tamil Nadu'}})
-      }
-    }
-  },[customerdata])
+
   const selecteventforowner = (e) => {
     console.log("owner change", e);
     console.log("owner change selected", e.label);
