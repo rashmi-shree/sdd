@@ -137,31 +137,34 @@ const CustomerInvoiceForm = ({
                     customer_reference_no: customer_reference_no
                 }
             })
-            api.put('customer/updatefinalstatuscustomertablepurchased',{
-                params:{
-                    customer_reference_no: customer_reference_no
-                }
-            })
-            api.put('delivery/updateDeliveryDataafterverify', {
-                params: {
-                    invoice_no: finalInvoiceNo,
-                    customer_reference_no: customer_reference_no,
-                    po_number: rowdatadisplayed[0].po_number,
-                    vehicle_no: rowdatadisplayed[0].vehicle_number,
-                    pan_number: rowdatadisplayed[0].pan_number,
-                    place_of_supply: rowdatadisplayed[0].place_of_supply
-                }
-            })
-                .then((res) => {
-                    if (res) {
-                        const res = invoicedataverificationsuccessmsg({});
-                        alert(res.msg);
-                        handleClose();
+            .then((res)=>{
+                api.put('customer/updatefinalstatuscustomertablepurchased',{
+                    params:{
+                        customer_reference_no: customer_reference_no
                     }
                 })
-
-            api.put('product/updateProductsDetailsProductDataDecrement',{
-                rowdatadisplayed
+                .then((res)=>{
+                    api.put('delivery/updateDeliveryDataafterverify', {
+                        params: {
+                            invoice_no: finalInvoiceNo,
+                            customer_reference_no: customer_reference_no,
+                            po_number: rowdatadisplayed[0].po_number,
+                            vehicle_no: rowdatadisplayed[0].vehicle_number,
+                            pan_number: rowdatadisplayed[0].pan_number,
+                            place_of_supply: rowdatadisplayed[0].place_of_supply
+                        }
+                    })
+                        .then((res) => {
+                            if (res) {
+                                const res = invoicedataverificationsuccessmsg({});
+                                alert(res.msg);
+                                handleClose();
+                            }
+                            api.put('product/updateProductsDetailsProductDataDecrement',{
+                                rowdatadisplayed
+                            })
+                        })
+                })
             })
 
             // seterrors({...errors, ["placeofsupplyerror"]:"", 
