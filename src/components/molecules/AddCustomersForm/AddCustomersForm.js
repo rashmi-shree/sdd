@@ -211,19 +211,19 @@ const AddCustomersForm = ({
                         })
                             .then((res) => {
                             })
-                        // api.put('/delivery/updatebalanceamountdelivery', {
-                        //     params: {
-                        //         rowdatadisplayed: rowdatadisplayed
-                        //     }
-                        // })
-                        //     .then((res) => {
-                        //         if (res) {
-                        //             setpurchasemsgevent("Booking Successfully");
-                        //             // alert(res.msg);
-                        //             // const res = purchasesuccessmsg({});
-                        //             handleClose();
-                        //         }
-                        //     })
+                        api.put('/delivery/updatebalanceamountdelivery', {
+                            params: {
+                                rowdatadisplayed: rowdatadisplayed
+                            }
+                        })
+                            .then((res) => {
+                                if (res) {
+                                    setpurchasemsgevent("Booking Successfully");
+                                    // alert(res.msg);
+                                    // const res = purchasesuccessmsg({});
+                                    handleClose();
+                                }
+                            })
                     }
                     else {
                         api.put('/delivery/updateotherstatesgstrates', {
