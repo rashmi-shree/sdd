@@ -54,22 +54,31 @@ const DealersInvoicesListForm = ({
                                             }
                                         })
                                             .then((res) => {
+                                                api.put('jointables/updatefinalamountdeliverytableonbook', {
+                                                    params: {
+                                                        data: fetchdealersdatatoverify
+                                                    }
+                                                })
+                                                .then((res)=>{
+                                                    api.put('/jointables/updatebalanceamountdeliverytableonbook', {
+                                                        params: {
+                                                            data: fetchdealersdatatoverify
+                                                        }
+                                                    })
+                                                    .then((res)=>{
+                                                        api.put('/jointables/updatepaymentstatusdeliverytableonbook', {
+                                                            params: {
+                                                                data: fetchdealersdatatoverify
+                                                            }
+                                                        })
+                                                        .then((res)=>{
+                                                            if(res){
+                                                                alert("Updated Successfully")
+                                                            }
+                                                        })
+                                                    })
+                                                })
                                             })
-                                        api.put('jointables/updatefinalamountdeliverytableonbook', {
-                                            params: {
-                                                data: fetchdealersdatatoverify
-                                            }
-                                        })
-                                        api.put('/jointables/updatebalanceamountdeliverytableonbook', {
-                                            params: {
-                                                data: fetchdealersdatatoverify
-                                            }
-                                        })
-                                        api.put('/jointables/updatepaymentstatusdeliverytableonbook', {
-                                            params: {
-                                                data: fetchdealersdatatoverify
-                                            }
-                                        })
                                     }
                                     else {
                                         api.put('jointables/updateotherstatesgstratesdeliverytableonbook', {
@@ -78,27 +87,35 @@ const DealersInvoicesListForm = ({
                                             }
                                         })
                                             .then((res) => {
+                                                api.put('jointables/updatefinalamountdeliverytableonbook', {
+                                                    params: {
+                                                        data: fetchdealersdatatoverify
+                                                    }
+                                                })
+                                                .then((res)=>{
+                                                    api.put('/jointables/updatebalanceamountdeliverytableonbook', {
+                                                        params: {
+                                                            data: fetchdealersdatatoverify
+                                                        }
+                                                    })
+                                                    .then((res)=>{
+                                                        api.put('/jointables/updatepaymentstatusdeliverytableonbook', {
+                                                            params: {
+                                                                data: fetchdealersdatatoverify
+                                                            }
+                                                        })
+                                                        .then((res)=>{
+                                                            if(res){
+                                                                alert("Updated Successfully")
+                                                            }
+                                                        })
+                                                    })
+                                                })
                                             })
-                                        api.put('jointables/updatefinalamountdeliverytableonbook', {
-                                            params: {
-                                                data: fetchdealersdatatoverify
-                                            }
-                                        })
-                                        api.put('/jointables/updatebalanceamountdeliverytableonbook', {
-                                            params: {
-                                                data: fetchdealersdatatoverify
-                                            }
-                                        })
-                                        api.put('/jointables/updatepaymentstatusdeliverytableonbook', {
-                                            params: {
-                                                data: fetchdealersdatatoverify
-                                            }
-                                        })
                                     }
                                 }
                             })
                     })
-                alert("Updated Successfully");
             })
     }
     const updatedownloadinvoiceevent = (e) =>{
