@@ -88,7 +88,10 @@ const AddCustomerPage = ({
             .then((res) => {
               const data = res.data;
               for (var i =0; i< data.length; i++){
-                if (data[i].state_code === 29){
+                if (
+                  (data[i].owner_company == 'SRI PARAMANANDA ENTERPRISES' && data[i].state_code === 29) ||
+                  (data[i].owner_company == 'SDD ENTERPRISES' && data[i].state_code === 33)
+                ){
                   api.put('/jointables/updatekarnatakagstratesdeliverytableonbook', {
                     params: {
                       data:temprowdataonbooking
