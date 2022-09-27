@@ -28,6 +28,7 @@ const DealersInvoicesListForm = ({
             }
         })
             .then((res) => {
+                console.log("helllalujah", res.data);
                 const fetchdealersdatatoverify = res.data;
                 api.put('jointables/updaterateofdeliverytableonbook', {
                     params: {
@@ -35,64 +36,64 @@ const DealersInvoicesListForm = ({
                     }
                 })
                     .then((res) => {
-                    })
-                api.post('delivery/getstatecodefromdeliverytableonbook', {
-                    params: {
-                        data: fetchdealersdatatoverify
-                    }
-                })
-                    .then((res) => {
-                        var data = res.data;
-                        for (var i = 0; i < data.length; i++) {
-                            if (data[i].state_code === 29) {
-                                api.put('jointables/updatekarnatakagstratesdeliverytableonbook', {
-                                    params: {
-                                        data: fetchdealersdatatoverify
-                                    }
-                                })
-                                    .then((res) => {
-                                    })
-                                api.put('jointables/updatefinalamountdeliverytableonbook', {
-                                    params: {
-                                        data: fetchdealersdatatoverify
-                                    }
-                                })
-                                api.put('/jointables/updatebalanceamountdeliverytableonbook', {
-                                    params: {
-                                        data: fetchdealersdatatoverify
-                                    }
-                                })
-                                api.put('/jointables/updatepaymentstatusdeliverytableonbook', {
-                                    params: {
-                                        data: fetchdealersdatatoverify
-                                    }
-                                })
+                        api.post('delivery/getstatecodefromdeliverytableonbook', {
+                            params: {
+                                data: fetchdealersdatatoverify
                             }
-                            else {
-                                api.put('jointables/updateotherstatesgstratesdeliverytableonbook', {
-                                    params: {
-                                        data: fetchdealersdatatoverify
+                        })
+                            .then((res) => {
+                                var data = res.data;
+                                for (var i = 0; i < data.length; i++) {
+                                    if (data[i].state_code === 29) {
+                                        api.put('jointables/updatekarnatakagstratesdeliverytableonbook', {
+                                            params: {
+                                                data: fetchdealersdatatoverify
+                                            }
+                                        })
+                                            .then((res) => {
+                                            })
+                                        api.put('jointables/updatefinalamountdeliverytableonbook', {
+                                            params: {
+                                                data: fetchdealersdatatoverify
+                                            }
+                                        })
+                                        api.put('/jointables/updatebalanceamountdeliverytableonbook', {
+                                            params: {
+                                                data: fetchdealersdatatoverify
+                                            }
+                                        })
+                                        api.put('/jointables/updatepaymentstatusdeliverytableonbook', {
+                                            params: {
+                                                data: fetchdealersdatatoverify
+                                            }
+                                        })
                                     }
-                                })
-                                    .then((res) => {
-                                    })
-                                api.put('jointables/updatefinalamountdeliverytableonbook', {
-                                    params: {
-                                        data: fetchdealersdatatoverify
+                                    else {
+                                        api.put('jointables/updateotherstatesgstratesdeliverytableonbook', {
+                                            params: {
+                                                data: fetchdealersdatatoverify
+                                            }
+                                        })
+                                            .then((res) => {
+                                            })
+                                        api.put('jointables/updatefinalamountdeliverytableonbook', {
+                                            params: {
+                                                data: fetchdealersdatatoverify
+                                            }
+                                        })
+                                        api.put('/jointables/updatebalanceamountdeliverytableonbook', {
+                                            params: {
+                                                data: fetchdealersdatatoverify
+                                            }
+                                        })
+                                        api.put('/jointables/updatepaymentstatusdeliverytableonbook', {
+                                            params: {
+                                                data: fetchdealersdatatoverify
+                                            }
+                                        })
                                     }
-                                })
-                                api.put('/jointables/updatebalanceamountdeliverytableonbook', {
-                                    params: {
-                                        data: fetchdealersdatatoverify
-                                    }
-                                })
-                                api.put('/jointables/updatepaymentstatusdeliverytableonbook', {
-                                    params: {
-                                        data: fetchdealersdatatoverify
-                                    }
-                                })
-                            }
-                        }
+                                }
+                            })
                     })
                 alert("Updated Successfully");
             })
