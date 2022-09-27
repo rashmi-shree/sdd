@@ -218,6 +218,7 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
     else if(e.label == "SDD ENTERPRISES"){
       setcustomerdata({ ...customerdata , "statename": {value: 33, label: 'Tamil Nadu'}})
     }
+    console.log("damn it", customerdata);
     recalldisplayProductDetailsDataforcomboboxevent(e.label);
     setcustomerdata({ ...customerdata, "owner_company": e.label})
     // if (e.label == "SDD ENTERPRISES"){
