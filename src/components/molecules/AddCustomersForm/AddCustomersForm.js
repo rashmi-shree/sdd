@@ -199,26 +199,26 @@ const AddCustomersForm = ({
                                                             }
                                                         })
                                                             .then((res) => {
-                                                            })
-                                                        api.put('/jointables/updatefinalamountdelivery', {
-                                                            params: {
-                                                                rowdatadisplayed: rowdatadisplayed
-                                                            }
-                                                        })
-                                                            .then((res) => {
-                                                            })
-                                                        api.put('/delivery/updatebalanceamountdelivery', {
-                                                            params: {
-                                                                rowdatadisplayed: rowdatadisplayed
-                                                            }
-                                                        })
-                                                            .then((res) => {
-                                                                if (res) {
-                                                                    setpurchasemsgevent("Booking Successfully");
-                                                                    // alert(res.msg);
-                                                                    // const res = purchasesuccessmsg({});
-                                                                    handleClose();
-                                                                }
+                                                                api.put('/jointables/updatefinalamountdelivery', {
+                                                                    params: {
+                                                                        rowdatadisplayed: rowdatadisplayed
+                                                                    }
+                                                                })
+                                                                    .then((res) => {
+                                                                        api.put('/delivery/updatebalanceamountdelivery', {
+                                                                            params: {
+                                                                                rowdatadisplayed: rowdatadisplayed
+                                                                            }
+                                                                        })
+                                                                            .then((res) => {
+                                                                                if (res) {
+                                                                                    setpurchasemsgevent("Booking Successfully");
+                                                                                    // alert(res.msg);
+                                                                                    // const res = purchasesuccessmsg({});
+                                                                                    handleClose();
+                                                                                }
+                                                                            })
+                                                                    })
                                                             })
                                                     }
                                                     else {
@@ -229,26 +229,26 @@ const AddCustomersForm = ({
                                                             }
                                                         })
                                                             .then((res) => {
-                                                            })
-                                                        api.put('/jointables/updatefinalamountdelivery', {
-                                                            params: {
-                                                                rowdatadisplayed: rowdatadisplayed
-                                                            }
-                                                        })
-                                                            .then((res) => {
-                                                            })
-                                                        api.put('/delivery/updatebalanceamountdelivery', {
-                                                            params: {
-                                                                rowdatadisplayed: rowdatadisplayed
-                                                            }
-                                                        })
-                                                            .then((res) => {
-                                                                if (res) {
-                                                                    setpurchasemsgevent("Order Placed Successfully");
-                                                                    // const res = purchasesuccessmsg({});
-                                                                    // alert(res.msg);
-                                                                    handleClose();
-                                                                }
+                                                                api.put('/jointables/updatefinalamountdelivery', {
+                                                                    params: {
+                                                                        rowdatadisplayed: rowdatadisplayed
+                                                                    }
+                                                                })
+                                                                    .then((res) => {
+                                                                        api.put('/delivery/updatebalanceamountdelivery', {
+                                                                            params: {
+                                                                                rowdatadisplayed: rowdatadisplayed
+                                                                            }
+                                                                        })
+                                                                            .then((res) => {
+                                                                                if (res) {
+                                                                                    setpurchasemsgevent("Order Placed Successfully");
+                                                                                    // const res = purchasesuccessmsg({});
+                                                                                    // alert(res.msg);
+                                                                                    handleClose();
+                                                                                }
+                                                                            })
+                                                                    })
                                                             })
                                                     }
                                                 }
