@@ -112,6 +112,11 @@ const AddCustomerPage = ({
                             data:temprowdataonbooking
                           }
                         })
+                        .then((res)=>{
+                          if(res){
+                            alert("Updated successfully")
+                          }
+                        })
                       })
                     })
                   })
@@ -140,6 +145,11 @@ const AddCustomerPage = ({
                           data:temprowdataonbooking
                         }
                       })
+                      .then((res)=>{
+                        if(res){
+                          alert("Updated successfully")
+                        }
+                      })
                     })
                   })
                 })
@@ -147,7 +157,6 @@ const AddCustomerPage = ({
               }
             })
           })
-          alert("Updated successfully")
       })
     }
     const fetchupdateddatafromcust = (currentCustomerReferenceNo) => {
