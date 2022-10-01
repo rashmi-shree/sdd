@@ -454,6 +454,7 @@ const AddCustomersForm = ({
                                             type="number"
                                             name="phone_number"
                                             defaultValue={data.phone_number}
+                                            onChange={(event) => changeevent(event, data.delivery_id)}
                                             onWheel={(e) => e.target.blur()}
                                         />
                                     </div>
