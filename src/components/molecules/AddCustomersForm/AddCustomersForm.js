@@ -67,11 +67,19 @@ const AddCustomersForm = ({
             "ownerid": 2,
             "ownername": "SRI PARAMANANDA ENTERPRISES"
         }]);
-    const selecteventforstate = (e) => {
-        console.log("changed state", e);
-        setcustomerdata({ ...customerdata, "statename": e })
-        // setRowdatadisplayed({...rowdatadisplayed, "state":e.label})
-        // setRowdatadisplayed({...rowdatadisplayed, "state_code":e.value})
+    const selecteventforstate = (e, index) => {
+        console.log("changed state", e, index);
+
+        let updateRowDataByIndex = [...rowdatadisplayed];
+        rowdatadisplayed.find((item, i) => {
+            if (item.delivery_id === index) {
+                updateRowDataByIndex[i]["state"] = e.label;
+                updateRowDataByIndex[i]["state_code"] = e.value;
+                setRowdatadisplayed(() => [...updateRowDataByIndex]);
+            }
+        })
+
+        // setcustomerdata({ ...customerdata, "statename": e })
     }
     const [state, setstate] = useState([]);
     useEffect(() => {
@@ -424,7 +432,8 @@ const AddCustomersForm = ({
                                             // selectedowner={selectedowner}
                                             comboboxdata={state}
                                             // type="state"
-                                            selectevent={selecteventforstate}
+                                            // selectevent={selecteventforstate}
+                                            selectevent={(event) => selecteventforstate(event, data.delivery_id)}
                                         />
                                         {/* <input
                                             defaultValue={data.state}
