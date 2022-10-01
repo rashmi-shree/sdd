@@ -130,6 +130,38 @@ const CustomerFollowUpForm = ({
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
+              Phone Number Alter One:
+            </div>
+            <div className="formdatainputstyle">
+              <input
+                name="phone_number_alter_one"
+                onChange={changeevent}
+                defaultValue={rowdata.phone_number_alter_one}
+                type="number"
+                onWheel={(e) => e.target.blur()}
+              />
+            </div>
+          </label>
+        </div>
+        <div className="nameandinputcontainer">
+          <label className="formdatalabelstyle">
+            <div className="formnamestyle">
+              Phone Number Alter Two:
+            </div>
+            <div className="formdatainputstyle">
+              <input
+                name="phone_number_alter_two"
+                onChange={changeevent}
+                defaultValue={rowdata.phone_number_alter_two}
+                type="number"
+                onWheel={(e) => e.target.blur()}
+              />
+            </div>
+          </label>
+        </div>
+        <div className="nameandinputcontainer">
+          <label className="formdatalabelstyle">
+            <div className="formnamestyle">
               Enquired product hsn code:
             </div>
             <div className="formdatainputstyle">
@@ -166,8 +198,7 @@ const CustomerFollowUpForm = ({
               <input
                 defaultValue={rowdata.quantity}
                 type="number"
-                readOnly
-                disabled
+                onChange={changeevent}
               />
             </div>
           </label>

@@ -165,8 +165,8 @@ const DisplayCustomerTable = ({
                                 <td>{data.customer_name}</td>
                                 <td>{data.customer_address} </td>
                                 <td>{data.phone_number} </td>
-                                <td>{data.phone_number} </td>
-                                <td>{data.phone_number} </td>
+                                <td>{data.phone_number_alter_one} </td>
+                                <td>{data.phone_number_alter_two} </td>
                                 <td>{data.product_hsn_code} </td>
                                 <td>{data.product} </td>
                                 <td>{data.quantity} </td>
