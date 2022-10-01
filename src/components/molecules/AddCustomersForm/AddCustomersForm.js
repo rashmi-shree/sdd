@@ -53,6 +53,7 @@ const AddCustomersForm = ({
             owner_company: "SRI PARAMANANDA ENTERPRISES"
         }
     );
+    console.log("customerdata",customerdata);
     const [comboboxdata, setComboboxdata] = useState([]);
     const [owner, setowner] = useState([
         {

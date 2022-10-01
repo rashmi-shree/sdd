@@ -21,9 +21,10 @@ const CustomizedComboboxForOwner = ({
   useEffect(()=>{
     if(dvalue){
       setdefaultvalue({label: dvalue, value: 2})
-    }else{
-      setdefaultvalue({label: 'SRI PARAMANANDA ENTERPRISES', value: 2})
     }
+    // else{
+    //   setdefaultvalue({label: 'SRI PARAMANANDA ENTERPRISES', value: 2})
+    // }
   },[comboboxdata, dvalue])
   const handleChange = e => {
     console.log("inside handle change of owner", e);
