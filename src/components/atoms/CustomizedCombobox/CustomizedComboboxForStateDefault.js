@@ -8,7 +8,7 @@ import Select from 'react-select';
 const CustomizedComboboxForStateDefault = ({
   comboboxdata,
   selectevent,
-  selectedowner,
+//   selectedowner,
   dvaluestate,
   dvaluestate_code
 }) => {
@@ -31,7 +31,7 @@ const CustomizedComboboxForStateDefault = ({
 //     else if(selectedowner == "SDD ENTERPRISES"){
 //       setdefaultvalue({label: 'Tamil Nadu', value: 33})
 //     }
-  },[comboboxdata,selectedowner, dvaluestate, dvaluestate_code])
+  },[comboboxdata, dvaluestate, dvaluestate_code])
   const handleChange = e => {
     console.log("inside combo state onchange", e);
     setdefaultvalue(e);

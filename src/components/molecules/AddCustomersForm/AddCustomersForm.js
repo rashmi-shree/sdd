@@ -421,7 +421,7 @@ const AddCustomersForm = ({
                                         <CustomizedComboboxForStateDefault
                                             dvaluestate={data.state}
                                             dvaluestate_code={data.state_code}
-                                            selectedowner={selectedowner}
+                                            // selectedowner={selectedowner}
                                             comboboxdata={state}
                                             // type="state"
                                             selectevent={selecteventforstate}
