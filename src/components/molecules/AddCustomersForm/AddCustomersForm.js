@@ -5,7 +5,9 @@ import SelectDate from "../../atoms/CustomizedDatepicker/SelectDate";
 import { useReactToPrint } from "react-to-print";
 import CustomizedPrint from "../../atoms/CustomizedPrint/CustomizedPrint";
 import CustomizedComboboxForOwner from "../../atoms/CustomizedCombobox/CustomizedCombobboxForOwner";
+import CustomizedComboboxForOwnerDefault from "../../atoms/CustomizedCombobox/CustomizedComboboxForOwnerDefault";
 import CustomizedComboboxForState from "../../atoms/CustomizedCombobox/CustomizedComboboxForState";
+import CustomizedComboboxForStateDefault from "../../atoms/CustomizedCombobox/CustomizedComboboxForStateDefault";
 import '../../../style/style.css';
 
 const AddCustomersForm = ({
@@ -311,7 +313,7 @@ const AddCustomersForm = ({
                                         Owner Company:
                                     </div>
                                     <div className="formdatainputstyle">
-                                        <CustomizedComboboxForOwner
+                                        <CustomizedComboboxForOwnerDefault
                                             comboboxdata={owner}
                                             dvalue={data.owner_company}
                                             // type="state"
@@ -408,7 +410,7 @@ const AddCustomersForm = ({
                                         State:
                                     </div>
                                     <div className="formdatainputstyle">
-                                        <CustomizedComboboxForState
+                                        <CustomizedComboboxForStateDefault
                                             dvaluestate={data.state}
                                             dvaluestate_code={data.state_code}
                                             selectedowner={selectedowner}
