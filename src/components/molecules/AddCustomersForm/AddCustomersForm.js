@@ -400,7 +400,8 @@ const AddCustomersForm = ({
                                             defaultValue={data.customer_name}
                                             name="customer_name"
                                             type="text"
-                                            onChange={(event) => changeevent(event, data.delivery_id)}
+                                            readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -415,7 +416,8 @@ const AddCustomersForm = ({
                                             defaultValue={data.customer_address}
                                             name="customer_address"
                                             type="text"
-                                            onChange={(event) => changeevent(event, data.delivery_id)}
+                                            readOnly
+                                            disabled
                                         />
                                     </div>
                                 </label>
@@ -426,7 +428,7 @@ const AddCustomersForm = ({
                                         State:
                                     </div>
                                     <div className="formdatainputstyle">
-                                        <CustomizedComboboxForStateDefault
+                                        {/* <CustomizedComboboxForStateDefault
                                             dvaluestate={data.state}
                                             dvaluestate_code={data.state_code}
                                             // selectedowner={selectedowner}
@@ -434,13 +436,13 @@ const AddCustomersForm = ({
                                             // type="state"
                                             // selectevent={selecteventforstate}
                                             selectevent={(event) => selecteventforstate(event, data.delivery_id)}
-                                        />
-                                        {/* <input
+                                        /> */}
+                                        <input
                                             defaultValue={data.state}
                                             type="text"
                                             readOnly
                                             disabled
-                                        /> */}
+                                        />
                                     </div>
                                 </label>
                             </div>
@@ -454,8 +456,10 @@ const AddCustomersForm = ({
                                             type="number"
                                             name="phone_number"
                                             defaultValue={data.phone_number}
-                                            onChange={(event) => changeevent(event, data.delivery_id)}
-                                            onWheel={(e) => e.target.blur()}
+                                            readOnly
+                                            disabled
+                                            // onChange={(event) => changeevent(event, data.delivery_id)}
+                                            // onWheel={(e) => e.target.blur()}
                                         />
                                     </div>
                                 </label>
