@@ -66,6 +66,8 @@ const AddCustomersForm = ({
     const selecteventforstate = (e) => {
         console.log("changed state", e);
         setcustomerdata({ ...customerdata, "statename": e })
+        setRowdatadisplayed({...rowdatadisplayed, "state":e.label})
+        setRowdatadisplayed({...rowdatadisplayed, "state_code":e.value})
     }
     const [state, setstate] = useState([]);
     useEffect(() => {
