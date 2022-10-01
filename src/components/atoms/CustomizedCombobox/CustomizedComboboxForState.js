@@ -24,26 +24,17 @@ const CustomizedCombobox = ({
     if (dvaluestate){
       setdefaultvalue({label: dvaluestate, value: dvaluestate_code})
     }
-  //  if(selectedowner == "SRI PARAMANANDA ENTERPRISES"){
-  //     setdefaultvalue({label: 'Karnataka', value: 29})
-  //   }
-  //   else if(selectedowner == "SDD ENTERPRISES"){
-  //     setdefaultvalue({label: 'Tamil Nadu', value: 33})
-  //   }
+else if(selectedowner == "SRI PARAMANANDA ENTERPRISES"){
+      setdefaultvalue({label: 'Karnataka', value: 29})
+    }
+    else if(selectedowner == "SDD ENTERPRISES"){
+      setdefaultvalue({label: 'Tamil Nadu', value: 33})
+    }
   },[comboboxdata,selectedowner, dvaluestate, dvaluestate_code])
   const handleChange = e => {
     console.log("inside combo state onchange", e);
     setdefaultvalue(e);
-    if(selectedowner == "SRI PARAMANANDA ENTERPRISES"){
-      selectevent({label: 'Karnataka', value: 29})
-    }
-    else if(selectedowner == "SDD ENTERPRISES"){
-      selectevent({label: 'Tamil Nadu', value: 33})
-    }
-    else{
-      selectevent(e);
-    }
-    // selectevent(e);
+    selectevent(e);
   }
   return (
     <div className='comboboxselectstyle'>
