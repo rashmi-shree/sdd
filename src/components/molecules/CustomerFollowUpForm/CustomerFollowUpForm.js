@@ -33,6 +33,7 @@ const CustomerFollowUpForm = ({
     })
   }
   const selectevent = (event) => {
+    console.log("follow up date selected", event);
     setUpdaterowdata({ ...updaterowdata, "follow_up_call": event })
   }
   const selectevent1 = (event) => {
@@ -199,6 +200,7 @@ const CustomerFollowUpForm = ({
                 defaultValue={rowdata.quantity}
                 type="number"
                 onChange={changeevent}
+                onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>
@@ -232,7 +234,7 @@ const CustomerFollowUpForm = ({
               Follow up call:
             </div>
             <SelectDate
-                selectevent={selectevent}
+                onHandleChangeEvent={selectevent}
                 typeOne="follow_up_call"
                 incomingdate={
                   rowdata.follow_up_call != null
