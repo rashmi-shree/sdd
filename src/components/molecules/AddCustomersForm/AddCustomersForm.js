@@ -278,12 +278,13 @@ const AddCustomersForm = ({
         console.log("selected owner", e);
         setselectedowner(e.label);
         recalldisplayProductDetailsDataforcomboboxevent(e.label);
-        if (e.label == "SDD ENTERPRISES") {
-            setcustomerdata({ ...customerdata, "owner_company": e.label, "statename": { label: 'Tamil Nadu', value: 33 } })
-        }
-        else if (e.label == "SRI PARAMANANDA ENTERPRISES") {
-            setcustomerdata({ ...customerdata, "owner_company": e.label, "statename": { label: 'Karnataka', value: 29 } })
-        }
+        setcustomerdata({ ...customerdata, "owner_company": e.label })
+        // if (e.label == "SDD ENTERPRISES") {
+        //     setcustomerdata({ ...customerdata, "owner_company": e.label, "statename": { label: 'Tamil Nadu', value: 33 } })
+        // }
+        // else if (e.label == "SRI PARAMANANDA ENTERPRISES") {
+        //     setcustomerdata({ ...customerdata, "owner_company": e.label, "statename": { label: 'Karnataka', value: 29 } })
+        // }
     }
     return (
         <div>
