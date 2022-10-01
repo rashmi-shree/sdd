@@ -315,12 +315,18 @@ const AddCustomersForm = ({
                                         Owner Company:
                                     </div>
                                     <div className="formdatainputstyle">
-                                        <CustomizedComboboxForOwnerDefault
+                                    <input
+                                            defaultValue={data.owner_company}
+                                            type="text"
+                                            readOnly
+                                            disabled
+                                        />
+                                        {/* <CustomizedComboboxForOwnerDefault
                                             comboboxdata={owner}
                                             dvalue={data.owner_company}
                                             // type="state"
                                             selectevent={selecteventforowner}
-                                        />
+                                        /> */}
                                     </div>
                                 </label>
                             </div>
