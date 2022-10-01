@@ -21,10 +21,10 @@ const CustomizedCombobox = ({
     setstatedata(temp);
   },[comboboxdata])
   useEffect(()=>{
-    if (dvaluestate){
-      setdefaultvalue({label: dvaluestate, value: dvaluestate_code})
-    }
-    else if(selectedowner == "SRI PARAMANANDA ENTERPRISES"){
+    // if (dvaluestate){
+    //   setdefaultvalue({label: dvaluestate, value: dvaluestate_code})
+    // }
+   if(selectedowner == "SRI PARAMANANDA ENTERPRISES"){
       setdefaultvalue({label: 'Karnataka', value: 29})
     }
     else if(selectedowner == "SDD ENTERPRISES"){
