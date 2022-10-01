@@ -234,7 +234,7 @@ const CustomerFollowUpForm = ({
               Follow up call:
             </div>
             <SelectDate
-                onHandleChangeEvent={selectevent}
+                onHandleChangeEvent={(event)=>selectevent(event)}
                 typeOne="follow_up_call"
                 incomingdate={
                   rowdata.follow_up_call != null
