@@ -17,7 +17,7 @@ const AddCustomersForm = ({
     api,
     setpurchasemsgevent
 }) => {
-    const [rowdatadisplayed, setRowdatadisplayed] = useState([]);
+    const [rowdatadisplayed, setRowdatadisplayed] = useState();
     console.log("rowdatadisplayed", rowdatadisplayed);
     const [paymentstatus, setpaymentstatus] = useState(["paid", "pending"]);
     const [bookeddate, setbookeddate] = useState('');
@@ -66,8 +66,8 @@ const AddCustomersForm = ({
     const selecteventforstate = (e) => {
         console.log("changed state", e);
         setcustomerdata({ ...customerdata, "statename": e })
-        setRowdatadisplayed({...rowdatadisplayed, "state":e.label})
-        setRowdatadisplayed({...rowdatadisplayed, "state_code":e.value})
+        // setRowdatadisplayed({...rowdatadisplayed, "state":e.label})
+        // setRowdatadisplayed({...rowdatadisplayed, "state_code":e.value})
     }
     const [state, setstate] = useState([]);
     useEffect(() => {
