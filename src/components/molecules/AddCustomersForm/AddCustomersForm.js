@@ -17,7 +17,7 @@ const AddCustomersForm = ({
     api,
     setpurchasemsgevent
 }) => {
-    const [rowdatadisplayed, setRowdatadisplayed] = useState();
+    const [rowdatadisplayed, setRowdatadisplayed] = useState([]);
     console.log("rowdatadisplayed", rowdatadisplayed);
     const [paymentstatus, setpaymentstatus] = useState(["paid", "pending"]);
     const [bookeddate, setbookeddate] = useState('');
