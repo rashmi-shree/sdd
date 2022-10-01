@@ -20,6 +20,7 @@ const DisplayCustomerTable = ({
     const [modalview, setmodalview] = useState();
     const [open, setOpen] = useState(false);
     const [query, setQuery] = useState('');
+    console.log("tabledata",tabledata);
     const openevent = (e) =>{
       setOpen(e)
     }
@@ -134,6 +135,8 @@ const DisplayCustomerTable = ({
                             <th>Customer Name</th>
                             <th>Customer Address</th>
                             <th>Phone Number</th>
+                            <th>Phone Number Alter One</th>
+                            <th>Phone Number Alter Two</th>
                             <th>Enquired Product Hsn Code</th>
                             <th>Enquired Product</th>
                             <th>Quantity</th>
@@ -161,6 +164,8 @@ const DisplayCustomerTable = ({
                                 </td>
                                 <td>{data.customer_name}</td>
                                 <td>{data.customer_address} </td>
+                                <td>{data.phone_number} </td>
+                                <td>{data.phone_number} </td>
                                 <td>{data.phone_number} </td>
                                 <td>{data.product_hsn_code} </td>
                                 <td>{data.product} </td>
