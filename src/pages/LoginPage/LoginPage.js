@@ -72,7 +72,7 @@ const LoginPage = ({
         </p>
         </div>
         <div className="btnstyle BtnContainerstyle">
-          <button type="submit">Submit</button>
+          <button type="submit" id="btn">Submit</button>
         </div>
       </form>
       </div>
