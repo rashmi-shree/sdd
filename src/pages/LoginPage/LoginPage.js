@@ -26,7 +26,7 @@ const LoginPage = ({
           logoutbuttonevent(true);
           console.log("res.data[0].username",res.data[0].username)
           console.log("res.data",res.data)
-          api.get(`/employees/profile/:${2}`, {})
+          api.get(`/employees/profile/:${res.data[0].id}`, {})
           .then((res) => {
               console.log("profile", res.data)
           })
