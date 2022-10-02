@@ -53,7 +53,7 @@ const LoginPage = ({
         <Header user={user} />
       </div>
       <div className="loginPageContainer">
-      <form onSubmit={onSubmitLogin}>
+      <form onSubmit={onSubmitLogin} className="inputandsubmitdesign">
       <div>USER NAME:- <input
           type="text"
           name="username"

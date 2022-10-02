@@ -17,6 +17,9 @@ input::-webkit-outer-spin-button,
 .tableContainer{
     margin-left: 4rem;
 }
+.inputandsubmitdesign{
+    border: 2px solid black;
+}
 .addemployeestyle{
     display: flex;
     justify-content: space-evenly;
