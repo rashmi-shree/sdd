@@ -28,6 +28,7 @@ const LoginPage = ({
           // setuserid(res.data[0].id);
           api.get(`/employees/profile/${res.data[0].id}`, {})
             .then((res) => {
+              console.log("user data", res.data);
               setuser(res.data);
               userevent(res.data);
             })
