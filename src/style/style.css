@@ -18,13 +18,15 @@ input::-webkit-outer-spin-button,
     margin-left: 4rem;
 }
 .inputandsubmitdesign div{
-    border: 2px solid black;
+    margin: 0.5rem;
 }
 .inputstyle p{
-    color: red;
+    font-size: 16px;
+    font-weight: 700;
 }
 .BtnContainerstyle{
-    border: 2px solid black;
+    display: flex;
+    justify-content: center;
 }
 .addemployeestyle{
     display: flex;
