@@ -52,7 +52,26 @@ const LoginPage = ({
         <Header user={user} />
       </div>
       <form onSubmit={onSubmitLogin}>
-      <div className="loginPageContainer">
+      USER NAME:- <input
+          type="text"
+          // id="first"
+          name="username"
+          // value={first}
+          onChangeEvent={onChangeEvent}
+          autoComplete="off"
+        />
+        PASSWORD:-<input
+          type="password"
+          // id="last"
+          name="password"
+          // value={last}
+          onChangeEvent={onChangeEvent}
+          autoComplete="off"
+        />
+
+        <button type="submit">Submit</button>
+      </form>
+      {/* <div className="loginPageContainer">
         <div className="loginPageContainerChild">
           <div className="usernameandpass">
             <TextAndTextInput
@@ -72,17 +91,16 @@ const LoginPage = ({
           </div>
           <div className="loginPageBtnContainer">
             <button type="submit">Submit</button>
-            {/* <a
+             <a
               onClick={() => {
                 onSubmitLogin();
               }}
             >
               Login
-            </a> */}
+            </a> 
           </div>
         </div>
-      </div>
-      </form>
+      </div> */}
     </div>
   );
 }
