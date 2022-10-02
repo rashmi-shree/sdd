@@ -234,6 +234,15 @@ const CustomerFollowUpForm = ({
               Follow up call:
             </div>
             <SelectDate
+                typeOne="follow_up_call"
+                onHandleChangeEvent={(event) => changeevent(event)}
+                incomingdate={
+                    rowdata.follow_up_call != null
+                        ? rowdata.follow_up_call = rowdata.follow_up_call
+                        : rowdata.follow_up_call = rowdata.follow_up_call
+                }
+            />
+            {/* <SelectDate
                 onHandleChangeEvent={(event)=>selectevent(event)}
                 typeOne="follow_up_call"
                 incomingdate={
@@ -241,7 +250,7 @@ const CustomerFollowUpForm = ({
                         ? moment(rowdata.follow_up_call).format('YYYY-MM-DD')
                         : rowdata.follow_up_call = rowdata.follow_up_call
                 }
-            />
+            /> */}
           </label>
         </div>
         <div className="nameandinputcontainer">
