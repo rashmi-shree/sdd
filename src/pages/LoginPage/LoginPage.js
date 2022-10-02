@@ -24,6 +24,8 @@ const LoginPage = ({
       .then((res) => {
         if (res.data.length > 0) {
           logoutbuttonevent(true);
+          console.log("res.data[0].username",res.data[0].username)
+          console.log("res.data",res.data)
           window.localStorage.setItem('adminloggedin', res.data[0].username);
           userevent(res.data[0].username);
           navigate('/main');
