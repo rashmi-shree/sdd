@@ -30,7 +30,6 @@ const RoutingPage = () => {
         baseURL: `http://3.84.110.201:3001/`
       })
       const [logoutbtn, setlogoutbtn] = useState(false);
-  console.log("logoutbtn", logoutbtn);
   const logoutbuttonevent = (e) => {
     setlogoutbtn(e);
   }

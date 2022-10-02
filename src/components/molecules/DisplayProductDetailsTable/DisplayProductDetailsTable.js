@@ -85,7 +85,6 @@ const DisplayProductDetailsTable = ({
         setEditFormData(formValues);
     }
     const  deletesuperevent = (id) => {
-        console.log("id", id);
         setproductdeletehsncode(id);
         // deleteevent();
     }

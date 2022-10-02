@@ -142,7 +142,6 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
     return true;
   }
   const submiteventclicked = () => {
-    console.log("on submit", customerdata);
     const isvalid = validate();
     if(isvalid){
         api.post('/customer/addCustomerFollowUpData',
@@ -196,7 +195,6 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
     setProductname(e.target.outerText);
   }
   const selecteventforstate = (e) => {
-    console.log("selected state", e);
     setcustomerdata({ ...customerdata, "statename": e })
   }
   const recalldisplayProductDetailsDataforcomboboxevent = (selectedowner) => {
@@ -211,8 +209,6 @@ if (!customerdata || !customerdata.customer_name || !customerdata.customer_addre
   }
 
   const selecteventforowner = (e) => {
-    console.log("owner change", e);
-    console.log("owner change selected", e.label);
     setselectedowner(e.label);
     // if(e.label == "SRI PARAMANANDA ENTERPRISES"){
     //   setcustomerdata({ ...customerdata , "statename": {value: 29, label: 'Karnataka'}})

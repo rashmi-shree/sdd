@@ -21,7 +21,6 @@ const CustomizedComboboxForStateDefault = ({
     setstatedata(temp);
   },[comboboxdata])
   useEffect(()=>{
-    console.log("dvaluestate ++++", dvaluestate);
     if (dvaluestate){
       setdefaultvalue({label: dvaluestate, value: dvaluestate_code})
     }
@@ -33,7 +32,6 @@ const CustomizedComboboxForStateDefault = ({
 //     }
   },[comboboxdata, dvaluestate, dvaluestate_code])
   const handleChange = e => {
-    console.log("inside combo state onchange", e);
     setdefaultvalue(e);
     selectevent(e);
   }

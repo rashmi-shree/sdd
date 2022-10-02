@@ -28,7 +28,6 @@ const DealersInvoicesListForm = ({
             }
         })
             .then((res) => {
-                console.log("helllalujah", res.data);
                 const fetchdealersdatatoverify = res.data;
                 api.put('jointables/updaterateofdeliverytableonbook', {
                     params: {

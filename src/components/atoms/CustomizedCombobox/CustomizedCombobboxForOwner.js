@@ -27,7 +27,6 @@ const CustomizedComboboxForOwner = ({
     }
   },[comboboxdata, dvalue])
   const handleChange = e => {
-    console.log("inside handle change of owner", e);
     setdefaultvalue(e);
     selectevent(e);
   }

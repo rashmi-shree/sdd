@@ -43,7 +43,6 @@ const EmployeeManagementPage = ({api}) => {
       });
     const handleEditFormSubmit = (event) => {
         // event.preventDefault();
-        console.log("on submitted", editFormData);
         api.put('/employees/edituserdata', {
             params: {
                 id:EditId,
@@ -59,7 +58,6 @@ const EmployeeManagementPage = ({api}) => {
         setEditId(null);
       };
       const handleEditClick = (event, data) => {
-          console.log("hi edit",data);
             setEditId(data.id);
     
         const formValues = {
@@ -99,7 +97,6 @@ const EmployeeManagementPage = ({api}) => {
     }
     const handleDeleteClick = (e) => {
         if(e == "yes"){
-               console.log("to be deleted", useriddelete);
             axios.delete(`http://3.84.110.201:3001/employees/deleteuserdata`,
             {
                 data: {

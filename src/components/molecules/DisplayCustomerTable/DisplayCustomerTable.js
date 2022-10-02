@@ -20,7 +20,6 @@ const DisplayCustomerTable = ({
     const [modalview, setmodalview] = useState();
     const [open, setOpen] = useState(false);
     const [query, setQuery] = useState('');
-    console.log("tabledata",tabledata);
     const openevent = (e) =>{
       setOpen(e)
     }

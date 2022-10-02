@@ -19,6 +19,7 @@ const CustomerFollowUpForm = ({
     setUpdaterowdata(rowdata);
   }, [])
   const submiteventclicked = () => {
+    console.log("updaterowdata",updaterowdata);
     axios.put('http://3.84.110.201:3001/customer/updateCustomerDetails',{
       params:{
         updaterowdata
@@ -33,7 +34,6 @@ const CustomerFollowUpForm = ({
     })
   }
   const selectevent = (event) => {
-    console.log("follow up date selected", event);
     setUpdaterowdata({ ...updaterowdata, "follow_up_call": event })
   }
   const selectevent1 = (event) => {

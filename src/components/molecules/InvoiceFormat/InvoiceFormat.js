@@ -7,7 +7,6 @@ const InvoiceFormat = ({
     invoiceFormData
 }) => {
     const [constantinvoicedata, setconstantinvoicedata] = useState();
-    console.log("constantinvoicedata",constantinvoicedata);
     const [totalamount, settotalamount] = useState();
     const [totalinwords, settotalinwords] = useState();
     const toWords = new ToWords();

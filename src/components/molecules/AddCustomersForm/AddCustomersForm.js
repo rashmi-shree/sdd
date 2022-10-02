@@ -20,7 +20,6 @@ const AddCustomersForm = ({
     setpurchasemsgevent
 }) => {
     const [rowdatadisplayed, setRowdatadisplayed] = useState();
-    console.log("rowdatadisplayed", rowdatadisplayed);
     const [paymentstatus, setpaymentstatus] = useState(["paid", "pending"]);
     const [bookeddate, setbookeddate] = useState('');
     const [productdata, setproductdata] = useState({});
@@ -56,7 +55,6 @@ const AddCustomersForm = ({
             owner_company: "SRI PARAMANANDA ENTERPRISES"
         }
     );
-    console.log("customerdata",customerdata);
     const [comboboxdata, setComboboxdata] = useState([]);
     const [owner, setowner] = useState([
         {
@@ -68,7 +66,6 @@ const AddCustomersForm = ({
             "ownername": "SRI PARAMANANDA ENTERPRISES"
         }]);
     const selecteventforstate = (e, index) => {
-        console.log("changed state", e, index);
 
         let updateRowDataByIndex = [...rowdatadisplayed];
         rowdatadisplayed.find((item, i) => {
@@ -143,7 +140,6 @@ const AddCustomersForm = ({
             }
         })
             .then((res) => {
-                console.log("result", res.data);
                 const data = res.data;
                 setRowdatadisplayed(data);
                 setUpdaterowdata(data[0]);
@@ -163,8 +159,6 @@ const AddCustomersForm = ({
         }
     }, [updaterowdata]);
     const submiteventclicked = () => {
-        console.log("customerdata", customerdata);
-        console.log("rowdatadisplayed", rowdatadisplayed);
         api.put('/customer/updatefinalstatuscustomertable', {
             params: {
                 final_status: "Booked",
@@ -199,7 +193,6 @@ const AddCustomersForm = ({
                                             }
                                         })
                                             .then((res) => {
-                                                console.log("hallelujah", res.data);
                                                 const data = res.data;
                                                 for (var i = 0; i < data.length; i++) {
                                                     if (
@@ -284,7 +277,6 @@ const AddCustomersForm = ({
         })
     }
     const selecteventforowner = (e) => {
-        console.log("selected owner", e);
         setselectedowner(e.label);
         recalldisplayProductDetailsDataforcomboboxevent(e.label);
         setcustomerdata({ ...customerdata, "owner_company": e.label })

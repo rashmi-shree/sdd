@@ -38,7 +38,6 @@ const DealersInvoiceForm = ({
     {"ownerid":2,
     "ownername":"SRI PARAMANANDA ENTERPRISES"}]);
     const [selectedowner, setselectedowner] = useState("SRI PARAMANANDA ENTERPRISES")
-    console.log("selectedowner",selectedowner);
   const [products, setproducts] = useState({
     productname: '',
     quantity: "",
@@ -101,7 +100,6 @@ const DealersInvoiceForm = ({
       setcustomerdata({ ...customerdata, "owner_company": e.label,  "statename": {label: 'Karnataka', value: 29}})
     }
   }
-  console.log("products",products, products.length);
   const validate = () => {
     let ce = "";
 

@@ -25,7 +25,6 @@ const DealersDetailsForm = ({
   useEffect(() => {
     fetchalldatafromcust();
   }, [])
-  console.log("Rowdatadisplayed",Rowdatadisplayed);
   const fetchalldatafromcust = () => {
     axios.post('http://3.84.110.201:3001/delivery/getalldataofcustomer', {
         params: {

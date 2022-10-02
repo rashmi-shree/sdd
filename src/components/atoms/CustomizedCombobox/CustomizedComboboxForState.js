@@ -21,7 +21,6 @@ const CustomizedCombobox = ({
     setstatedata(temp);
   },[comboboxdata])
   useEffect(()=>{
-    console.log("dvaluestate ++++", dvaluestate);
 //     if (dvaluestate){
 //       setdefaultvalue({label: dvaluestate, value: dvaluestate_code})
 //     }
