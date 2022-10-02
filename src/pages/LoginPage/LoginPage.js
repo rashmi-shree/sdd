@@ -42,6 +42,7 @@ const LoginPage = ({
       //it triggers by pressing the enter key
     if (e.key === 'Enter') {
       console.log("enter clicked");
+      onSubmitLogin();
     }
   };
   return (
@@ -69,7 +70,6 @@ const LoginPage = ({
           </div>
           <div className="loginPageBtnContainer">
             <a
-              onKeyPress={handleKeypress}
               onClick={() => {
                 onSubmitLogin();
               }}
