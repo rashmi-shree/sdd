@@ -54,24 +54,26 @@ const LoginPage = ({
       </div>
       <div className="loginPageContainer">
       <form onSubmit={onSubmitLogin} className="inputandsubmitdesign">
-      <span><p>USER NAME:-</p><input
+      <div>
+        <p>USER NAME:-<input
           type="text"
           name="username"
           onChange={onChangeEvent}
           autoComplete="off"
-        />
-        </span>
-        <span>
-        <p>PASSWORD:-</p><input
+        /></p>
+        </div>
+        <div>
+        <p>PASSWORD:-<input
           type="password"
           name="password"
           onChange={onChangeEvent}
           autoComplete="off"
         />
-        </span>
-        <span>
+        </p>
+        </div>
+        <div>
         <button type="submit">Submit</button>
-        </span>
+        </div>
       </form>
       </div>
       {/* <div className="loginPageContainer">

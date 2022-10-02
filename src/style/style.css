@@ -20,6 +20,9 @@ input::-webkit-outer-spin-button,
 .inputandsubmitdesign{
     border: 2px solid black;
 }
+.inputandsubmitdesign div{
+    border: 2px solid black;
+}
 .addemployeestyle{
     display: flex;
     justify-content: space-evenly;
