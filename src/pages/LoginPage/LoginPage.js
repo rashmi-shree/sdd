@@ -51,6 +51,7 @@ const LoginPage = ({
       <div>
         <Header user={user} />
       </div>
+      <div className="loginPageContainer">
       <form onSubmit={onSubmitLogin}>
       USER NAME:- <input
           type="text"
@@ -71,6 +72,7 @@ const LoginPage = ({
 
         <button type="submit">Submit</button>
       </form>
+      </div>
       {/* <div className="loginPageContainer">
         <div className="loginPageContainerChild">
           <div className="usernameandpass">
