@@ -13,6 +13,7 @@ const LoginPage = ({
   const [logindata, setlogindata] = useState();
   const [user, setuser] = useState({});
   const onChangeEvent = (event) => {
+    console.log("event", event.target.name, event.target.value)
     setlogindata({ ...logindata, [event.target.name]: event.target.value });
   }
   const onSubmitLogin = (event) => {
