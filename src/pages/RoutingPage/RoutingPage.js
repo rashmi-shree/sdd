@@ -18,14 +18,14 @@ import { useNavigate } from 'react-router-dom';
 
 const RoutingPage = () => {
     let navigate = useNavigate();
-    // const [user, setuser] = useState({});
-    // const userevent = (e) => {
-    //     setuser(e);
-    // }
-    // useEffect(()=>{
-    //     console.log("user",user);
-    // // navigate('/')
-    // },[])
+    const [user, setuser] = useState({});
+    const userevent = (e) => {
+        setuser(e);
+    }
+    useEffect(()=>{
+        console.log("user",user);
+    // navigate('/')
+    },[])
     const api = axios.create({
         baseURL: `http://3.84.110.201:3001/`
       })
@@ -48,7 +48,7 @@ const RoutingPage = () => {
         <Route path="/" element={<LoginPage
           api={api}
           logoutbuttonevent={logoutbuttonevent}
-        //   userevent={userevent}
+          userevent={userevent}
         />
         }
         />

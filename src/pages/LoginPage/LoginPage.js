@@ -12,7 +12,6 @@ const LoginPage = ({
   let navigate = useNavigate();
   const [logindata, setlogindata] = useState();
   const [user, setuser] = useState({});
-  console.log("user", user);
   const onChangeEvent = (event) => {
     setlogindata({ ...logindata, [event.target.name]: event.target.value });
   }
@@ -30,6 +29,7 @@ const LoginPage = ({
           api.get(`/employees/profile/${res.data[0].id}`, {})
             .then((res) => {
               setuser(res.data);
+              userevent(res.data);
             })
           navigate('/main');
         }
@@ -41,7 +41,7 @@ const LoginPage = ({
   return (
     <div>
       <div>
-        <Header />
+        <Header user={user} />
       </div>
       <div className="loginPageContainer">
         <div className="loginPageContainerChild">
