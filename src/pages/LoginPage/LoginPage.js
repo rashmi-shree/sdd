@@ -27,6 +27,7 @@ const LoginPage = ({
           logoutbuttonevent(true);
           console.log("res.data[0].username",res.data[0].username)
           console.log("res.data",res.data)
+          console.log("res.data",res.data[0].id)
           setuserid(res.data[0].id)
           navigate('/main');
         }
