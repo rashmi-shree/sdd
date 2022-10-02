@@ -11,7 +11,8 @@ const LoginPage = ({
  }) => {
   let navigate = useNavigate();
   const [logindata, setlogindata] = useState();
-  const [userid, setuserid] = useState();
+  const [user, setuser] = useState({});
+  console.log("user", user);
   const onChangeEvent = (event) => {
     setlogindata({ ...logindata, [event.target.name]: event.target.value });
   }
@@ -25,10 +26,10 @@ const LoginPage = ({
       .then((res) => {
         if (res.data.length > 0) {
           logoutbuttonevent(true);
-          setuserid(res.data[0].id);
+          // setuserid(res.data[0].id);
           api.get(`/employees/profile/${res.data[0].id}`, {})
             .then((res) => {
-                userevent(res.data);
+              setuser(res.data);
             })
           navigate('/main');
         }
