@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TextAndTextInput from "../../components/molecules/TextAndTextInput/TextAndTextInput";
 import { useNavigate } from 'react-router-dom';
 import Header from "../Header/Header";
@@ -11,6 +11,7 @@ const LoginPage = ({
  }) => {
   let navigate = useNavigate();
   const [logindata, setlogindata] = useState();
+  const [userid, setuserid] = useState();
   const onChangeEvent = (event) => {
     setlogindata({ ...logindata, [event.target.name]: event.target.value });
   }
@@ -26,12 +27,7 @@ const LoginPage = ({
           logoutbuttonevent(true);
           console.log("res.data[0].username",res.data[0].username)
           console.log("res.data",res.data)
-          api.get(`/employees/profile/${res.data[0].id}`, {})
-          .then((res) => {
-              console.log("profile", res.data)
-          })
-          // window.localStorage.setItem('adminloggedin', res.data[0].username);
-          // userevent(res.data[0].username);
+          setuserid(res.data[0].id)
           navigate('/main');
         }
         else{
@@ -39,6 +35,13 @@ const LoginPage = ({
         }
       })
   }
+  useEffect(()=>{
+    api.get(`/employees/profile/${userid}`, {})
+    .then((res) => {
+        console.log("profile", res)
+        console.log("profile", res.data)
+    })
+  },[])
   return (
     <div>
       <div>
