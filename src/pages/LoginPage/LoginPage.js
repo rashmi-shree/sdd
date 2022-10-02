@@ -15,7 +15,8 @@ const LoginPage = ({
   const onChangeEvent = (event) => {
     setlogindata({ ...logindata, [event.target.name]: event.target.value });
   }
-  const onSubmitLogin = () => {
+  const onSubmitLogin = (event) => {
+    event.preventDefault();
     api.post('/users/login', {
       params: {
         logindata
