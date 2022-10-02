@@ -54,7 +54,7 @@ const LoginPage = ({
       </div>
       <div className="loginPageContainer">
       <form onSubmit={onSubmitLogin} className="inputandsubmitdesign">
-      <div>
+      <div className="inputstyle">
         <p>USER NAME:-<input
           type="text"
           name="username"
@@ -62,7 +62,7 @@ const LoginPage = ({
           autoComplete="off"
         /></p>
         </div>
-        <div>
+        <div className="inputstyle">
         <p>PASSWORD:-<input
           type="password"
           name="password"
@@ -71,8 +71,8 @@ const LoginPage = ({
         />
         </p>
         </div>
-        <div>
-        <button type="submit">Submit</button>
+        <div className="loginPageBtnContainer">
+          <button type="submit">Submit</button>
         </div>
       </form>
       </div>

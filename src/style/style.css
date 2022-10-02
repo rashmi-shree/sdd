@@ -17,11 +17,11 @@ input::-webkit-outer-spin-button,
 .tableContainer{
     margin-left: 4rem;
 }
-.inputandsubmitdesign{
-    border: 2px solid black;
-}
 .inputandsubmitdesign div{
     border: 2px solid black;
+}
+.inputstyle p{
+    color: red;
 }
 .addemployeestyle{
     display: flex;
