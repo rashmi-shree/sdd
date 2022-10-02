@@ -6,7 +6,8 @@ import '../../style/style.css';
 
 const LoginPage = ({ 
   api,
-  logoutbuttonevent
+  logoutbuttonevent,
+  userevent
  }) => {
   let navigate = useNavigate();
   const [logindata, setlogindata] = useState();
@@ -24,6 +25,7 @@ const LoginPage = ({
         if (res.data.length > 0) {
           logoutbuttonevent(true);
           window.localStorage.setItem('adminloggedin', res.data[0].username);
+          userevent(res.data[0].username);
           navigate('/main');
         }
         else{
