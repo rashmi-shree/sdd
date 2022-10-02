@@ -36,6 +36,7 @@ const LoginPage = ({
         }
       })
   }
+  console.log("userid",userid );
   useEffect(()=>{
     api.get(`/employees/profile/${userid}`, {})
     .then((res) => {
