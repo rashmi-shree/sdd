@@ -17,10 +17,10 @@ import Footer from '../Footer/Footer';
 import { useNavigate } from 'react-router-dom';
 
 const RoutingPage = () => {
-    let navigate = useNavigate();
-    useEffect(()=>{
-    navigate('/')
-    },[])
+    // let navigate = useNavigate();
+    // useEffect(()=>{
+    // navigate('/')
+    // },[])
     const api = axios.create({
         baseURL: `http://3.84.110.201:3001/`
       })
