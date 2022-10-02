@@ -23,6 +23,9 @@ input::-webkit-outer-spin-button,
 .inputstyle p{
     color: red;
 }
+.BtnContainerstyle{
+    border: 2px solid black;
+}
 .addemployeestyle{
     display: flex;
     justify-content: space-evenly;
