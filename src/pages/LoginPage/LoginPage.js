@@ -28,7 +28,12 @@ const LoginPage = ({
           console.log("res.data[0].username",res.data[0].username)
           console.log("res.data",res.data)
           console.log("res.data",res.data[0].id)
-          setuserid(res.data[0].id)
+          setuserid(res.data[0].id);
+          api.get(`/employees/profile/${res.data[0].id}`, {})
+            .then((res) => {
+                console.log("profile", res)
+                console.log("profile", res.data)
+            })
           navigate('/main');
         }
         else{
@@ -37,13 +42,13 @@ const LoginPage = ({
       })
   }
   console.log("userid",userid );
-  useEffect(()=>{
-    api.get(`/employees/profile/${userid}`, {})
-    .then((res) => {
-        console.log("profile", res)
-        console.log("profile", res.data)
-    })
-  },[])
+  // useEffect(()=>{
+  //   api.get(`/employees/profile/${userid}`, {})
+  //   .then((res) => {
+  //       console.log("profile", res)
+  //       console.log("profile", res.data)
+  //   })
+  // },[])
   return (
     <div>
       <div>
