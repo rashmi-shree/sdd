@@ -59,7 +59,7 @@ const LoginPage = ({
           // id="first"
           name="username"
           // value={first}
-          onChangeEvent={onChangeEvent}
+          onChange={onChangeEvent}
           autoComplete="off"
         />
         PASSWORD:-<input
@@ -67,7 +67,7 @@ const LoginPage = ({
           // id="last"
           name="password"
           // value={last}
-          onChangeEvent={onChangeEvent}
+          onChange={onChangeEvent}
           autoComplete="off"
         />
 
