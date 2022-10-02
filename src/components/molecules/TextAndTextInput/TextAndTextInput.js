@@ -8,7 +8,8 @@ const TextAndTextInput = ({
     inputChangeEvent,
     onChangeEvent,
     type,
-    typeofinput
+    typeofinput,
+    onKeyPress
 }) => {
     return(
         <div className='textandtextcontainer'>
@@ -18,6 +19,7 @@ const TextAndTextInput = ({
                 typeofinput={typeofinput}
                 onHandleChangeEvent={onChangeEvent}
                 inputChangeEvent={inputChangeEvent}
+                onKeyPress={onKeyPress}
             />
         </div>
     );

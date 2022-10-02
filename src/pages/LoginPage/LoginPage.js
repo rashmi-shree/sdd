@@ -56,12 +56,16 @@ const LoginPage = ({
               onChangeEvent={onChangeEvent}
               type="username"
               typeofinput="text"
-              textname="USER NAME:-" />
+              textname="USER NAME:-" 
+              onKeyPress={handleKeypress}              
+              />
             <TextAndTextInput
               onChangeEvent={onChangeEvent}
               type="password"
               typeofinput="password"
-              textname="PASSWORD:-" />
+              textname="PASSWORD:-" 
+              onKeyPress={handleKeypress}
+              />
           </div>
           <div className="loginPageBtnContainer">
             <a
