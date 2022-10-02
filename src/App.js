@@ -8,11 +8,11 @@ import RoutingPage from "./pages/RoutingPage/RoutingPage";
 // import GenerateReport from './pages/GenerateReport/GenerateReport';
 // import EmployeeManagementPage from './pages/EmployeeManagementPage/EmployeeManagementPage';
 // import Footer from './pages/Footer/Footer';
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route
-// } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
 // import axios from 'axios';
 // import { useState, useEffect } from 'react';
 // const api = axios.create({
@@ -32,7 +32,9 @@ function App() {
   // }, [logoutbtn]);
   
   return (
-    <RoutingPage />
+    <Router>
+      <RoutingPage />
+    </Router>
     // <Router>
     //   <Routes>
     //     <Route path="/" element={<LoginPage
