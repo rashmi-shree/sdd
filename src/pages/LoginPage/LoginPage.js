@@ -26,8 +26,12 @@ const LoginPage = ({
           logoutbuttonevent(true);
           console.log("res.data[0].username",res.data[0].username)
           console.log("res.data",res.data)
-          window.localStorage.setItem('adminloggedin', res.data[0].username);
-          userevent(res.data[0].username);
+          api.get(`/employees/profile:${2}`, {})
+          .then((res) => {
+              console.log("profile", res.data)
+          })
+          // window.localStorage.setItem('adminloggedin', res.data[0].username);
+          // userevent(res.data[0].username);
           navigate('/main');
         }
         else{
