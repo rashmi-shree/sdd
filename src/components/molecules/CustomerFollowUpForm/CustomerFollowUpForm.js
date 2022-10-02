@@ -27,9 +27,18 @@ const CustomerFollowUpForm = ({
     })
     .then((res)=>{
       if(res){
-        const res = editedsuccessmsg({});
-        alert(res.msg);
-        handleClose();
+        axios.put('http://3.84.110.201:3001/customer/updateDeliveryDetails',{
+          params:{
+            updaterowdata
+          }
+        })
+        .then((res)=>{
+          if(res){
+            const res = editedsuccessmsg({});
+            alert(res.msg);
+            handleClose();
+          }
+        })
       }
     })
   }
@@ -199,8 +208,10 @@ const CustomerFollowUpForm = ({
               <input
                 defaultValue={rowdata.quantity}
                 type="number"
-                onChange={changeevent}
-                onWheel={(e) => e.target.blur()}
+                readOnly
+                disabled
+                // onChange={changeevent}
+                // onWheel={(e) => e.target.blur()}
               />
             </div>
           </label>
