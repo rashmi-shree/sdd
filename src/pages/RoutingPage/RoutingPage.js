@@ -17,7 +17,7 @@ import Footer from '../Footer/Footer';
 import { useNavigate } from 'react-router-dom';
 
 const RoutingPage = () => {
-    // let navigate = useNavigate();
+    const navigate = useNavigate();
     // useEffect(()=>{
     // navigate('/')
     // },[])
