@@ -14,8 +14,13 @@ import GenerateInvoice from '../GenerateInvoice/GenerateInvoice';
 import GenerateReport from '../GenerateReport/GenerateReport';
 import EmployeeManagementPage from '../EmployeeManagementPage/EmployeeManagementPage';
 import Footer from '../Footer/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const RoutingPage = () => {
+    let navigate = useNavigate();
+    useEffect(()=>{
+    navigate('/')
+    },[])
     const api = axios.create({
         baseURL: `http://3.84.110.201:3001/`
       })
@@ -24,12 +29,12 @@ const RoutingPage = () => {
   const logoutbuttonevent = (e) => {
     setlogoutbtn(e);
   }
-  useEffect(() => {
-    setlogoutbtn(JSON.parse(window.localStorage.getItem('logoutbtn')));
-  }, []);
-  useEffect(() => {
-    window.localStorage.setItem('logoutbtn', logoutbtn);
-  }, [logoutbtn]);
+//   useEffect(() => {
+//     setlogoutbtn(JSON.parse(window.localStorage.getItem('logoutbtn')));
+//   }, []);
+//   useEffect(() => {
+//     window.localStorage.setItem('logoutbtn', logoutbtn);
+//   }, [logoutbtn]);
     return(
        <Router>
       <Routes>

@@ -24,15 +24,15 @@ const AddCustomerPage = ({
     const [modalview, setModalview] = useState('');
     const [purchasemsg, setpurchasemsg] = useState();
     const [query, setQuery] = useState('');
-    const [check, setcheck] = useState(false);
-    useEffect(() => {
-      setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
-    }, []);
-    useEffect(()=>{
-      if(check == null){
-        navigate('/');
-      }
-    },[check])
+    // const [check, setcheck] = useState(false);
+    // useEffect(() => {
+    //   setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
+    // }, []);
+    // useEffect(()=>{
+    //   if(check == null){
+    //     navigate('/');
+    //   }
+    // },[check])
     const setpurchasemsgevent = (e) =>{
       setpurchasemsg(e)
     }
