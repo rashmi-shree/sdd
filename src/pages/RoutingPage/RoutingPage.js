@@ -36,7 +36,9 @@ const RoutingPage = () => {
 //     window.localStorage.setItem('logoutbtn', logoutbtn);
 //   }, [logoutbtn]);
     return(
-       <Router>
+    //    <Router>
+    <div>
+    <>
       <Routes>
         <Route path="/" element={<LoginPage
           api={api}
@@ -68,7 +70,10 @@ const RoutingPage = () => {
       <div>
         <Footer />
       </div>
-    </Router>
+      </>
+      </div>
+    // </Router>
+    
     );
 }
 export default RoutingPage;
