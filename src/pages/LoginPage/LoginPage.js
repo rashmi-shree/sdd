@@ -38,18 +38,19 @@ const LoginPage = ({
         }
       })
   }
-     const handleKeypress = (e) => {
-      //it triggers by pressing the enter key
-    if (e.key === 'Enter') {
-      console.log("enter clicked");
-      onSubmitLogin();
-    }
-  };
+  //    const handleKeypress = (e) => {
+  //     //it triggers by pressing the enter key
+  //   if (e.key === 'Enter') {
+  //     console.log("enter clicked");
+  //     onSubmitLogin();
+  //   }
+  // };
   return (
     <div>
       <div>
         <Header user={user} />
       </div>
+      <form onSubmit={onSubmitLogin}>
       <div className="loginPageContainer">
         <div className="loginPageContainerChild">
           <div className="usernameandpass">
@@ -58,27 +59,29 @@ const LoginPage = ({
               type="username"
               typeofinput="text"
               textname="USER NAME:-" 
-              onKeyPress={handleKeypress}              
+              // onKeyPress={handleKeypress}              
               />
             <TextAndTextInput
               onChangeEvent={onChangeEvent}
               type="password"
               typeofinput="password"
               textname="PASSWORD:-" 
-              onKeyPress={handleKeypress}
+              // onKeyPress={handleKeypress}
               />
           </div>
           <div className="loginPageBtnContainer">
-            <a
+            <button type="submit">Submit</button>
+            {/* <a
               onClick={() => {
                 onSubmitLogin();
               }}
             >
               Login
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
+      </form>
     </div>
   );
 }
