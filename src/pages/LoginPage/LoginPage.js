@@ -13,7 +13,6 @@ const LoginPage = ({
   const [logindata, setlogindata] = useState();
   const [user, setuser] = useState({});
   const onChangeEvent = (event) => {
-    console.log("event", event.target.name, event.target.value)
     setlogindata({ ...logindata, [event.target.name]: event.target.value });
   }
   const onSubmitLogin = (event) => {
@@ -44,7 +43,6 @@ const LoginPage = ({
   //    const handleKeypress = (e) => {
   //     //it triggers by pressing the enter key
   //   if (e.key === 'Enter') {
-  //     console.log("enter clicked");
   //     onSubmitLogin();
   //   }
   // };

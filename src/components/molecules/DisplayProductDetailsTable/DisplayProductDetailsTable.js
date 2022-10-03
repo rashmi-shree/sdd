@@ -21,7 +21,6 @@ const DisplayProductDetailsTable = ({
     const [open, setOpen] = useState(false);
     const [query, setQuery] = useState('');
     const [productdeletehsncode, setproductdeletehsncode] = useState();
-    console.log("productsdetailsdata",productsdetailsdata);
     const openevent = (e) => {
         setOpen(e)
     }

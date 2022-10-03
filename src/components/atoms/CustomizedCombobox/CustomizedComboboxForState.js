@@ -33,7 +33,6 @@ if(selectedowner == "SRI PARAMANANDA ENTERPRISES"){
     }
   },[comboboxdata,selectedowner, dvaluestate, dvaluestate_code])
   const handleChange = e => {
-    console.log("inside combo state onchange", e);
     setdefaultvalue(e);
     selectevent(e);
   }

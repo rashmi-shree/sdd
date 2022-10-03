@@ -19,7 +19,6 @@ const CustomerFollowUpForm = ({
     setUpdaterowdata(rowdata);
   }, [])
   const submiteventclicked = () => {
-    console.log("updaterowdata",updaterowdata);
     axios.put('http://3.84.110.201:3001/customer/updateCustomerDetails',{
       params:{
         updaterowdata

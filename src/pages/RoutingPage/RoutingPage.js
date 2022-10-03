@@ -23,7 +23,7 @@ const RoutingPage = () => {
         setuser(e);
     }
     useEffect(()=>{
-        console.log("user",user);
+        // console.log("user",user);
     // navigate('/')
     },[])
     const api = axios.create({

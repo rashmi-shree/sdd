@@ -8,7 +8,6 @@ import CustomizedComboboxAll from "../../atoms/CustomizedCombobox/CustomizedComb
 import '../../../style/style.css';
 const AddProductForm = ({ handleClose }) => {
   const [customerdata, setcustomerdata] = useState();
-  console.log("customerdata",customerdata);
   const [productstatus, setproductstatus] = useState(['Available', 'Not Available']);
   const [errors, seterrors] = useState({
     commonError:"please enter all important fields"
