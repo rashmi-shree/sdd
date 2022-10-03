@@ -8,6 +8,7 @@ import CustomizedComboboxAll from "../../atoms/CustomizedCombobox/CustomizedComb
 import '../../../style/style.css';
 const AddProductForm = ({ handleClose }) => {
   const [customerdata, setcustomerdata] = useState();
+  console.log("customerdata",customerdata);
   const [productstatus, setproductstatus] = useState(['Available', 'Not Available']);
   const [errors, seterrors] = useState({
     commonError:"please enter all important fields"
@@ -121,6 +122,50 @@ const AddProductForm = ({ handleClose }) => {
                 type="text"
                 onChange={changeevent}
               /> */}
+            </div>
+          </label>
+        </div>
+        <div className="nameandinputcontainer">
+          <label className="formdatalabelstyle">
+            <div className="formnamestyle">
+            <sup className="asteriskstyle">*</sup>Owner Address:
+            </div>
+            <div className="formdatainputstyle">
+              <textarea
+                name="owner_address"
+                type="text"
+                onChange={changeevent}
+              />
+            </div>
+          </label>
+        </div>
+        <div className="nameandinputcontainer">
+          <label className="formdatalabelstyle">
+            <div className="formnamestyle">
+            <sup className="asteriskstyle">*</sup>Owner Contact One:
+            </div>
+            <div className="formdatainputstyle">
+              <input
+                name="owner_contact_one"
+                type="number"
+                onWheel={(e) => e.target.blur()}
+                onChange={changeevent}
+              />
+            </div>
+          </label>
+        </div>
+        <div className="nameandinputcontainer">
+          <label className="formdatalabelstyle">
+            <div className="formnamestyle">
+            <sup className="asteriskstyle">*</sup>Owner Contact Two:
+            </div>
+            <div className="formdatainputstyle">
+              <input
+                name="owner_contact_two"
+                type="number"
+                onWheel={(e) => e.target.blur()}
+                onChange={changeevent}
+              />
             </div>
           </label>
         </div>
