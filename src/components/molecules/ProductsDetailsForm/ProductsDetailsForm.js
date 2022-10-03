@@ -102,7 +102,7 @@ const ProductsDetailsForm = ({ rowdata, handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-            <sup className="asteriskstyle">*</sup>Owner Address:
+            Owner Address:
             </div>
             <div className="formdatainputstyle">
               <textarea
@@ -116,7 +116,7 @@ const ProductsDetailsForm = ({ rowdata, handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-            <sup className="asteriskstyle">*</sup>Owner Contact One:
+            Owner Contact One:
             </div>
             <div className="formdatainputstyle">
               <input
@@ -131,7 +131,7 @@ const ProductsDetailsForm = ({ rowdata, handleClose }) => {
         <div className="nameandinputcontainer">
           <label className="formdatalabelstyle">
             <div className="formnamestyle">
-            <sup className="asteriskstyle">*</sup>Owner Contact Two:
+            Owner Contact Two:
             </div>
             <div className="formdatainputstyle">
               <input

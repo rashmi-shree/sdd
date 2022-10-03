@@ -38,7 +38,8 @@ const AddProductForm = ({ handleClose }) => {
     let ce = "";
     if (!customerdata || !customerdata.product_name || !selectedowner || !customerdata.product_hsn_code ||
       !customerdata.product_description || !customerdata.unit_of_measure || !customerdata.rate_per_unit ||
-      !customerdata.gst_rate || !customerdata.product_status || !customerdata.product_status ||
+      !customerdata.gst_rate || !customerdata.product_status || !customerdata.product_status || 
+      !customerdata.owner_address || !customerdata.owner_contact_one || !customerdata.owner_contact_two ||
       !customerdata.stock || !customerdata.discount 
       ){
       ce = "please enter all important fields";
