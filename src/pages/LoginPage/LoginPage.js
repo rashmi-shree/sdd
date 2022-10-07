@@ -33,10 +33,15 @@ const LoginPage = ({
               // setuser(res.data);
               // userevent(res.data);
               let a = res.data
-              a.map((data)=>{
-                console.log("a", data.id);
+              let username = a.map((data)=>{
+                return (data.username)
               })
-              window.localStorage.setItem('userid', res.data);
+              // Encode the String
+              var encodedStringBtoA = btoa(username);
+
+              console.log(encodedStringBtoA);
+              
+              window.localStorage.setItem('user', encodedStringBtoA);
             })
           navigate('/main');
         }
