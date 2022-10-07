@@ -38,13 +38,14 @@ const AddCustomerPage = ({
       }
     },[check])
     useEffect(()=>{
+      var dec = decodeURI(user);
      // Define the string
-    var encodedStringAtoB = user;
+    // var encodedStringAtoB = user;
 
     // Decode the String
-    var decodedStringAtoB = atob(encodedStringAtoB);
+    // var decodedStringAtoB = atob(encodedStringAtoB);
 
-    console.log(decodedStringAtoB);
+    console.log(dec);
     },[user])
     const setpurchasemsgevent = (e) =>{
       setpurchasemsg(e)
