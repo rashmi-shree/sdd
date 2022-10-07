@@ -18,6 +18,7 @@ const Header = () => {
                 <CustomizedLogOutIcon onClick={()=>{
                         navigate('/');
                         window.localStorage.setItem('logoutbtn', null);
+                        window.localStorage.setItem('adminloggedin', null);
                     }} />
             </div>
         </div>
