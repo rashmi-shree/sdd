@@ -34,7 +34,7 @@ const LoginPage = ({
               // userevent(res.data);
               let a = res.data
               a.map((data)=>{
-                console.log("a", a.id);
+                console.log("a", data.id);
               })
               window.localStorage.setItem('userid', res.data);
             })
