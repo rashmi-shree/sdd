@@ -38,7 +38,7 @@ const LoginPage = ({
               })
               
               // Encode the String
-              var encodedStringBtoA = btoa(username);
+              var encodedStringBtoA = window.btoa(username);
 
               console.log(encodedStringBtoA);
               
