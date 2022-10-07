@@ -32,8 +32,10 @@ const LoginPage = ({
             .then((res) => {
               // setuser(res.data);
               // userevent(res.data);
-              console.log(res.data);
-              console.log(res.data.id);
+              let a = res.data
+              a.map((data)=>{
+                console.log("a", a.id);
+              })
               window.localStorage.setItem('userid', res.data);
             })
           navigate('/main');
