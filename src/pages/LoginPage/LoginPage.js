@@ -36,13 +36,13 @@ const LoginPage = ({
               let username = a.map((data)=>{
                 return (data.username)
               })
-              var enc = encodeURI(username);
-              // Encode the String
-              // var encodedStringBtoA = btoa(username);
-
-              console.log(enc);
               
-              window.localStorage.setItem('user', enc);
+              // Encode the String
+              var encodedStringBtoA = btoa(username);
+
+              console.log(encodedStringBtoA);
+              
+              window.localStorage.setItem('user', encodedStringBtoA);
             })
           navigate('/main');
         }
