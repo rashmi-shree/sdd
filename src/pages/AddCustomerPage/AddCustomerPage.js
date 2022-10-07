@@ -30,7 +30,7 @@ const AddCustomerPage = ({
       setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
     }, []);
     useEffect(() => {
-      setcheck(JSON.parse(window.localStorage.getItem('user')));
+      setuser(window.localStorage.getItem('user'));
     }, []);
     useEffect(()=>{
       if(check == null){
@@ -39,13 +39,13 @@ const AddCustomerPage = ({
     },[check])
     useEffect(()=>{
      // Define the string
-    var encodedStringAtoB = check;
+    var encodedStringAtoB = user;
 
     // Decode the String
     var decodedStringAtoB = atob(encodedStringAtoB);
 
     console.log(decodedStringAtoB);
-    },[check])
+    },[user])
     const setpurchasemsgevent = (e) =>{
       setpurchasemsg(e)
     }
