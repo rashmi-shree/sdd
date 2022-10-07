@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import CustomizedSearchBar from '../../components/atoms/CustomizedSearchBar/CustomizedSearchBar';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import OpenModal from '../../components/molecules/OpenModal/OpenModal';
 import { useNavigate } from 'react-router-dom';
 import HeaderWithLogout from '../../pages/Header/HeaderWithLogout';
-import CustomizedBtn from "../../components/atoms/CustomizedBtn/CustomizedBtn";
 import moment from 'moment';
 import FullScreenModal from "../../components/molecules/FullScreenModal/FullScreenModal";
 import '../../style/style.css';
@@ -41,24 +39,6 @@ const ViewInvoicePage = ({
             setInvoiceData(res.data);
         })
     },[])
-    // const goEventClicked = () => {
-    //     api.post('/delivery/getInvoices', {
-    //         params: {
-    //             searchData
-    //         }
-    //     }
-    //     )
-    //     .then((res) => {
-    //         setInvoiceData(res.data);
-    //     })
-    // }
-    // const handleKeypress = (e) => {
-    //     //it triggers by pressing the enter key
-    //   if (e.key === 'Enter') {
-    //     goEventClicked();
-    //     e.preventDefault();
-    //   }
-    // };
     const openinvoiceevent = (invoiceNo) => {
         api.post('/delivery/getDeliveryReportData', {
             params: {
@@ -93,14 +73,6 @@ const ViewInvoicePage = ({
                     onChange={(e)=>setQuery(e.target.value)}
                 />
                 </div>
-                {/* <CustomizedSearchBar
-                    onHandleChangeEvent={onHandleChangeEvent}
-                    onKeyPress={handleKeypress}
-                    type="search"
-                    goEventClicked={goEventClicked}
-                    labelname="phone number / Invoice Number"
-                    Btnname="search"
-                /> */}
                 <div className="displayContainer">
                     <div className="backarrow">
                         <p
@@ -153,25 +125,13 @@ const ViewInvoicePage = ({
                                                         onClick={()=>{
                                                             openinvoiceevent(data.invoice_no);
                                                         }}
-                                                        // className="btnstyle"
                                                         >
                                                             View Invoice
                                                     </Button>
                                                 </div>
                                                     <FullScreenModal 
                                                        api={api}
-                                                    //    modalview={modalview}
-                                                    //    open={open}
-                                                    //    openevent={openevent}
                                                        invoiceFormData={invoiceFormData}                                                    />
-                                                {/* <CustomizedBtn 
-                                                    BtnName="View Invoice"
-                                                    onClick={()=>{
-                                                        openinvoiceevent(data.invoice_no);
-                                                        setModalview("invoiceformat");
-                                                        openevent(true);
-                                                    }}
-                                                /> */}
                                                 </td>
                                             </tr>
                                         ))

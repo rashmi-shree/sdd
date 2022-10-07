@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 import CustomizedLogo from '../../components/atoms/CustomizedLogo/CustomizedLogo';
 import CustomizedLogOutIcon from '../../components/atoms/CustomizedLogOutIcon/CustomizedLogOutIcon';
 import { useNavigate } from 'react-router-dom';

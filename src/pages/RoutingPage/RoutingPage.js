@@ -1,6 +1,5 @@
 import React from "react";
 import {
-    BrowserRouter as Router,
     Routes,
     Route
   } from 'react-router-dom';
@@ -22,11 +21,6 @@ const RoutingPage = () => {
     const userevent = (e) => {
         setuser(e);
     }
-    // console.log("user",user);
-    // useEffect(()=>{
-    //     console.log("user",user);
-    // navigate('/')
-    // },[])
     const api = axios.create({
         baseURL: `http://3.84.110.201:3001/`
       })
@@ -40,8 +34,10 @@ const RoutingPage = () => {
   useEffect(() => {
     window.localStorage.setItem('logoutbtn', logoutbtn);
   }, [logoutbtn]);
+  useEffect(() => {
+    window.localStorage.setItem('adminloggedin', null);
+  }, []);
     return(
-    //    <Router>
     <div>
     <>
       <Routes>
@@ -78,8 +74,6 @@ const RoutingPage = () => {
       </div>
       </>
       </div>
-    // </Router>
-    
     );
 }
 export default RoutingPage;

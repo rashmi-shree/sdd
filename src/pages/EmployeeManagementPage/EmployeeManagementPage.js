@@ -41,8 +41,7 @@ const EmployeeManagementPage = ({api}) => {
         username: "",
         password: ""
       });
-    const handleEditFormSubmit = (event) => {
-        // event.preventDefault();
+    const handleEditFormSubmit = () => {
         api.put('/employees/edituserdata', {
             params: {
                 id:EditId,
@@ -155,9 +154,6 @@ const EmployeeManagementPage = ({api}) => {
                         />
                         </div>
                     </div>
-
-
-                    {/* <form onSubmit={handleEditFormSubmit}> */}
                     <div className="table-responsive">
                         {
                             employees.length != 0 &&
@@ -196,10 +192,9 @@ const EmployeeManagementPage = ({api}) => {
                                 </table>
                         }
                     </div>
-                    {/* </form> */}
                     {
                         employees.length === 0 &&
-                        <p> no data found! </p>
+                        <p> No data found! </p>
                     }
                 </div>
         </div>

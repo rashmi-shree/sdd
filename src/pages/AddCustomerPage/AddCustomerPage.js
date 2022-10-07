@@ -24,28 +24,15 @@ const AddCustomerPage = ({
     const [modalview, setModalview] = useState('');
     const [purchasemsg, setpurchasemsg] = useState();
     const [query, setQuery] = useState('');
-    // const [user, setuser] = useState();
     const [check, setcheck] = useState(false);
     useEffect(() => {
       setcheck(JSON.parse(window.localStorage.getItem('logoutbtn')));
     }, []);
-    // useEffect(() => {
-    //   setuser(window.localStorage.getItem('user'));
-    // }, []);
     useEffect(()=>{
       if(check == null){
         navigate('/');
       }
     },[check])
-    // useEffect(()=>{
-    //  // Define the string
-    // var encodedStringAtoB = user;
-
-    // // Decode the String
-    // var decodedStringAtoB = window.atob(encodedStringAtoB);
-
-    // console.log(decodedStringAtoB);
-    // },[user])
     const setpurchasemsgevent = (e) =>{
       setpurchasemsg(e)
     }
@@ -204,9 +191,6 @@ const AddCustomerPage = ({
           setCustomertable(tabledata);
         })
     }
-    const modalviewchange = () => {
-        setChangedmodalview("addcustomerform");
-    }
     let finalCustomerRefNo = '';
     const generateCustomerReferenceNo = () => {
         let s1 = "CUST2022";
@@ -251,18 +235,6 @@ const AddCustomerPage = ({
           setCustomertable(tabledata)
         })
     }
-    const onHandleChangeEvent = (event) => {
-        setSearchData(event.target.value);
-    }
-    // console.log(customertable.filter(user=>
-    //   user.customer_name.toLowerCase().includes("r") ));
-  //   const handleKeypress = (e) => {
-  //     //it triggers by pressing the enter key
-  //   if (e.key === 'Enter') {
-  //     goEventClicked();
-  //     e.preventDefault();
-  //   }
-  // };
     return (
       <div>
         <div>
@@ -280,13 +252,6 @@ const AddCustomerPage = ({
                 onChange={(e)=>setQuery(e.target.value)}
               />
             </div>
-            {/* <CustomizedSearchBar
-                onKeyPress={handleKeypress}
-                onHandleChangeEvent={onHandleChangeEvent}
-                goEventClicked={goEventClicked}
-                labelname="phone number/ customer name"
-                Btnname="search"
-            /> */}
             <div className="modalandback">
               <CustomizedBtn 
               BtnName="Add Customer"
@@ -407,32 +372,6 @@ const AddCustomerPage = ({
                                               }}
                                               />
                                               </span>
-                                              {/* <span>
-                                              <Button 
-                                                        id="btn"
-                                                        // type="button" 
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal"
-                                                        onClick={()=>{
-                                                          currentCustomerRefNo(data.customer_reference_no);
-                                                          fetchupdateddatafromcust(data.customer_reference_no);
-                                                        }}
-                                                        // className="btnstyle"
-                                                        >
-                                                            Check
-                                                    </Button>
-                                                    <FullScreenModalOne
-                                                      api={api}
-                                                      modalview={modalview}
-                                                      displaycustomerfollowupevent={displaycustomerfollowupevent}
-                                                      open={open}
-                                                      openevent={openevent}
-                                                      purchasestatus={purchasestatus}
-                                                      bookingstatus={bookingstatus}
-                                                      currentCustomerReferenceNo={currentCustomerReferenceNo}
-                                                      setpurchasemsgevent={setpurchasemsgevent}
-                                                    />
-                                              </span> */}
                                           </div>
                                           }
                                         </td>

@@ -11,7 +11,6 @@ const LoginPage = ({
  }) => {
   let navigate = useNavigate();
   const [logindata, setlogindata] = useState();
-  // const [user, setuser] = useState({});
   const onChangeEvent = (event) => {
     setlogindata({ ...logindata, [event.target.name]: event.target.value });
   }
@@ -27,22 +26,9 @@ const LoginPage = ({
         if (res.data.length > 0) {
           logoutbuttonevent(true);
           window.localStorage.setItem('adminloggedin', res.data[0].username);
-          // setuserid(res.data[0].id);
           api.get(`/employees/profile/${res.data[0].id}`, {})
             .then((res) => {
-              // setuser(res.data);
               userevent(res.data);
-              // let a = res.data
-              // let username = a.map((data)=>{
-              //   return (data.username)
-              // })
-              
-              // Encode the String
-              // var encodedStringBtoA = window.btoa(username);
-
-              // console.log(encodedStringBtoA);
-              
-              // window.localStorage.setItem('user', encodedStringBtoA);
             })
           navigate('/main');
         }
@@ -51,17 +37,10 @@ const LoginPage = ({
         }
       })
   }
-  //    const handleKeypress = (e) => {
-  //     //it triggers by pressing the enter key
-  //   if (e.key === 'Enter') {
-  //     onSubmitLogin();
-  //   }
-  // };
   return (
     <div>
       <div>
-        <Header 
-        // user={user} 
+        <Header
         />
       </div>
       <div className="loginPageContainer">
@@ -88,36 +67,6 @@ const LoginPage = ({
         </div>
       </form>
       </div>
-      {/* <div className="loginPageContainer">
-        <div className="loginPageContainerChild">
-          <div className="usernameandpass">
-            <TextAndTextInput
-              onChangeEvent={onChangeEvent}
-              type="username"
-              typeofinput="text"
-              textname="USER NAME:-" 
-              // onKeyPress={handleKeypress}              
-              />
-            <TextAndTextInput
-              onChangeEvent={onChangeEvent}
-              type="password"
-              typeofinput="password"
-              textname="PASSWORD:-" 
-              // onKeyPress={handleKeypress}
-              />
-          </div>
-          <div className="loginPageBtnContainer">
-            <button type="submit">Submit</button>
-             <a
-              onClick={() => {
-                onSubmitLogin();
-              }}
-            >
-              Login
-            </a> 
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 }
