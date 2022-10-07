@@ -18,10 +18,10 @@ import { useNavigate } from 'react-router-dom';
 
 const RoutingPage = () => {
     let navigate = useNavigate();
-    // const [user, setuser] = useState({});
-    // const userevent = (e) => {
-    //     setuser(e);
-    // }
+    const [user, setuser] = useState({});
+    const userevent = (e) => {
+        setuser(e);
+    }
     // console.log("user",user);
     // useEffect(()=>{
     //     console.log("user",user);
@@ -48,7 +48,7 @@ const RoutingPage = () => {
         <Route path="/" element={<LoginPage
           api={api}
           logoutbuttonevent={logoutbuttonevent}
-        //   userevent={userevent}
+          userevent={userevent}
         />
         }
         />

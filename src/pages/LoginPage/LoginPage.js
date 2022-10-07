@@ -31,18 +31,18 @@ const LoginPage = ({
           api.get(`/employees/profile/${res.data[0].id}`, {})
             .then((res) => {
               // setuser(res.data);
-              // userevent(res.data);
-              let a = res.data
-              let username = a.map((data)=>{
-                return (data.username)
-              })
+              userevent(res.data);
+              // let a = res.data
+              // let username = a.map((data)=>{
+              //   return (data.username)
+              // })
               
               // Encode the String
-              var encodedStringBtoA = window.btoa(username);
+              // var encodedStringBtoA = window.btoa(username);
 
-              console.log(encodedStringBtoA);
+              // console.log(encodedStringBtoA);
               
-              window.localStorage.setItem('user', encodedStringBtoA);
+              // window.localStorage.setItem('user', encodedStringBtoA);
             })
           navigate('/main');
         }
