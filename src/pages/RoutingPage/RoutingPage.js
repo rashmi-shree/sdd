@@ -25,6 +25,7 @@ const RoutingPage = () => {
         baseURL: `http://3.84.110.201:3001/`
       })
       const [logoutbtn, setlogoutbtn] = useState(false);
+      const [adminloggedin, setadminloggedin] = useState(false);
   const logoutbuttonevent = (e) => {
     setlogoutbtn(e);
   }
@@ -32,11 +33,14 @@ const RoutingPage = () => {
     setlogoutbtn(JSON.parse(window.localStorage.getItem('logoutbtn')));
   }, []);
   useEffect(() => {
+    setadminloggedin(JSON.parse(window.localStorage.getItem('adminloggedin')));
+  }, []);
+  useEffect(() => {
     window.localStorage.setItem('logoutbtn', logoutbtn);
   }, [logoutbtn]);
   useEffect(() => {
-    window.localStorage.setItem('adminloggedin', null);
-  }, []);
+    window.localStorage.setItem('adminloggedin', adminloggedin);
+  }, [adminloggedin]);
     return(
     <div>
     <>
