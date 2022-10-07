@@ -22,9 +22,10 @@ const RoutingPage = () => {
     const userevent = (e) => {
         setuser(e);
     }
+    console.log("user",user);
     useEffect(()=>{
-        // console.log("user",user);
-    // navigate('/')
+        console.log("user",user);
+    navigate('/')
     },[])
     const api = axios.create({
         baseURL: `http://3.84.110.201:3001/`
