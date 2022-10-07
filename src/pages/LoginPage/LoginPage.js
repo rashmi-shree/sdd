@@ -11,7 +11,7 @@ const LoginPage = ({
  }) => {
   let navigate = useNavigate();
   const [logindata, setlogindata] = useState();
-  const [user, setuser] = useState({});
+  // const [user, setuser] = useState({});
   const onChangeEvent = (event) => {
     setlogindata({ ...logindata, [event.target.name]: event.target.value });
   }
@@ -30,8 +30,11 @@ const LoginPage = ({
           // setuserid(res.data[0].id);
           api.get(`/employees/profile/${res.data[0].id}`, {})
             .then((res) => {
-              setuser(res.data);
-              userevent(res.data);
+              // setuser(res.data);
+              // userevent(res.data);
+              console.log(res.data);
+              console.log(res.data.id);
+              window.localStorage.setItem('userid', res.data);
             })
           navigate('/main');
         }
@@ -49,7 +52,9 @@ const LoginPage = ({
   return (
     <div>
       <div>
-        <Header user={user} />
+        <Header 
+        // user={user} 
+        />
       </div>
       <div className="loginPageContainer">
       <form onSubmit={onSubmitLogin} className="inputandsubmitdesign">

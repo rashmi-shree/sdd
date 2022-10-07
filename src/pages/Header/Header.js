@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../../style/style.css';
 
 const Header = ({
-    user
+    // user
 }) => {
     let navigate = useNavigate();
     return (
@@ -16,12 +16,12 @@ const Header = ({
                     }}
                 />
                 <div className="companyname">SHREE PARAMANANDA ENTERPRISES</div>
-                {
+                {/* {
                     user && user.length &&
                     user.map((data)=>{
                         <p>{data.username}</p>
                     })
-                }
+                } */}
             </div>
         </div>
     );
