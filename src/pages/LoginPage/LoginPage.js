@@ -25,6 +25,7 @@ const LoginPage = ({
       .then((res) => {
         if (res.data.length > 0) {
           logoutbuttonevent(true);
+          window.localStorage.setItem('logoutbtn', "true");
           window.localStorage.setItem('adminloggedin', res.data[0].username);
           api.get(`/employees/profile/${res.data[0].id}`, {})
             .then((res) => {
