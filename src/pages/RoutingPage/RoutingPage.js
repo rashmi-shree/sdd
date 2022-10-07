@@ -33,7 +33,7 @@ const RoutingPage = () => {
     setlogoutbtn(JSON.parse(window.localStorage.getItem('logoutbtn')));
   }, []);
   useEffect(() => {
-    setadminloggedin(JSON.parse(window.localStorage.getItem('adminloggedin')));
+    setadminloggedin(window.localStorage.getItem('adminloggedin'));
   }, []);
   useEffect(() => {
     window.localStorage.setItem('logoutbtn', logoutbtn);
