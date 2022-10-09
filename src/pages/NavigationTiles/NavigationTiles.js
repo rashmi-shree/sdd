@@ -5,14 +5,38 @@ import AddReactionIcon from '@mui/icons-material/AddReaction';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import { useNavigate } from 'react-router-dom';
 import HeaderWithLogout from '../../pages/Header/HeaderWithLogout';
+import {decode as base64_decode, encode as base64_encode} from 'base-64';
 import '../../style/style.css';
 
-const NavigationTiles = () => {
+const NavigationTiles = ({
+  api
+}) => {
   let navigate = useNavigate();
   const [adminloggedin, setadminloggedin] = useState();
+  const [employees, setemployees] = useState();
+  const [employeearray, setemployeearray] = useState();
     useEffect(() => {
-      setadminloggedin(window.localStorage.getItem('adminloggedin'));
+      var user = window.localStorage.getItem('adminloggedin');
+      setadminloggedin(base64_decode(user))
     }, []);
+    useEffect(()=>{
+      getemployeesonly();
+    },[])
+    const getemployeesonly = () => {
+      api.get('/employees/getemployeesonly')
+      .then((res) => {
+          setemployees(res.data);
+      })
+  }
+  useEffect(()=>{
+    var array = [];
+    if(employees){
+      employees.map((data)=>{
+        array.push(data.username);
+      })
+    }
+    setemployeearray(array);
+  },[employees])
   return (
     <nav>
       <div>
@@ -57,7 +81,8 @@ const NavigationTiles = () => {
             />
           </div>
           {
-            adminloggedin == "Admin"
+            employeearray && employeearray.length &&
+            (!(employeearray.includes(adminloggedin)) && adminloggedin == "Admin")
             ? 
               <div className="col-md-6 col-sm-6">
               <CustomizedCard

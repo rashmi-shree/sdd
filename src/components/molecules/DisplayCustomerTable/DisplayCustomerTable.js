@@ -5,6 +5,7 @@ import CustomizedPrint from '../../atoms/CustomizedPrint/CustomizedPrint';
 import {CSVLink} from "react-csv";
 import OpenModal from '../../molecules/OpenModal/OpenModal';
 import CustomizedEditIcon from '../../atoms/CustomizedEditIcon/CustomizedEditIcon';
+import {decode as base64_decode, encode as base64_encode} from 'base-64';
 import moment from 'moment';
 
 
@@ -94,6 +95,11 @@ const DisplayCustomerTable = ({
     e.preventDefault();
   }
 };
+const [adminloggedin, setadminloggedin] = useState();
+    useEffect(() => {
+        var user = window.localStorage.getItem('adminloggedin');
+        setadminloggedin(base64_decode(user))
+      }, []);
     return(
         <div>
              <OpenModal 
@@ -120,8 +126,11 @@ const DisplayCustomerTable = ({
             /> */}
             <div>
                 {
+                    adminloggedin == "Admin"
+                    ?
                     tabledata && tabledata.length ? 
                     <CSVLink {...csvReport}><CustomizedDownload/></CSVLink> : null
+                    : null
                 }
                 {/* <CustomizedPrint /> */}
             </div>

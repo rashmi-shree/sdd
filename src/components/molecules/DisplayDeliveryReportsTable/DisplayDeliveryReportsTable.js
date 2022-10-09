@@ -4,6 +4,7 @@ import OpenModal from '../OpenModal/OpenModal';
 import CustomizedEditIcon from "../../atoms/CustomizedEditIcon/CustomizedEditIcon";
 import { CSVLink } from "react-csv";
 import CustomizedDownload from "../../atoms/CustomizedDownload/CustomizedDownload";
+import {decode as base64_decode, encode as base64_encode} from 'base-64';
 import moment from 'moment';
 
 const DisplayDeliveryReportsTable = ({
@@ -135,6 +136,11 @@ const DisplayDeliveryReportsTable = ({
             displayDeliveryReportsData();
         }
     }, [searchvalue])
+    const [adminloggedin, setadminloggedin] = useState();
+    useEffect(() => {
+        var user = window.localStorage.getItem('adminloggedin');
+        setadminloggedin(base64_decode(user))
+      }, []);
     return (
         <div>
             <OpenModal
@@ -161,8 +167,12 @@ const DisplayDeliveryReportsTable = ({
             /> */}
             <div>
                 {
+                    adminloggedin == "Admin"
+                    ?
                     tabledata && tabledata.length ?
                         <CSVLink {...csvReport}><CustomizedDownload /></CSVLink> : null
+                        :
+                        null
                 }
             </div>
             <div className='table-responsive'>

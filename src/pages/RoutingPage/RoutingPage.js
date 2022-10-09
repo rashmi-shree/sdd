@@ -35,6 +35,7 @@ const RoutingPage = () => {
         }
         />
         <Route path="/main" element={<NavigationTiles
+        api={api}
         />}
         />
         <Route path="/viewinvoice" element={<ViewInvoicePage
