@@ -32,7 +32,7 @@ const LoginPage = ({
       .then((res) => {
         if (res.data.length > 0) {
           window.localStorage.setItem('logoutbtn', "true");
-          window.localStorage.setItem('adminloggedin', res.data[0].username);
+          window.localStorage.setItem('adminloggedin', base64_decode(res.data));
           navigate('/main');
         }
         else{
