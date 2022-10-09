@@ -5,8 +5,7 @@ import {decode as base64_decode, encode as base64_encode} from 'base-64';
 import '../../style/style.css';
 
 const LoginPage = ({ 
-  api,
-  userevent
+  api
  }) => {
   let navigate = useNavigate();
   const [logindata, setlogindata] = useState();
@@ -34,14 +33,10 @@ const LoginPage = ({
         if (res.data.length > 0) {
           window.localStorage.setItem('logoutbtn', "true");
           window.localStorage.setItem('adminloggedin', res.data[0].username);
-          api.get(`/employees/profile/${res.data[0].id}`, {})
-            .then((res) => {
-              userevent(res.data);
-            })
           navigate('/main');
         }
         else{
-          alert(res.data.msg);
+          alert(res.data.message);
         }
       })
   }
