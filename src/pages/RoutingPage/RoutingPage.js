@@ -22,7 +22,7 @@ const RoutingPage = () => {
         setuser(e);
     }
     const api = axios.create({
-        baseURL: `http://51.20.133.36:80/`
+        baseURL: `http://51.20.133.36:5001/`
       })
     return(
     <div>
