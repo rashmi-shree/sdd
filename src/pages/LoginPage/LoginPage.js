@@ -14,7 +14,6 @@ const LoginPage = ({
     password:""
   });
   useEffect(()=>{
-    console.log("logindata",logindata);
     if(logindata){
       setlogindataalter({...logindataalter, "username":base64_encode(logindata?.username), "password":base64_encode(logindata?.password)})
     }
