@@ -16,11 +16,10 @@ const LoginPage = ({
   useEffect(()=>{
     console.log("logindata",logindata);
     if(logindata){
-      setlogindataalter({...logindataalter, "username":base64_encode(logindata.username), "password":base64_encode(logindata.password)})
+      setlogindataalter({...logindataalter, "username":base64_encode(logindata?.username), "password":base64_encode(logindata?.password)})
     }
   },[logindata])
   const onChangeEvent = (event) => {
-    console.log("onchange", event.target);
     setlogindata({ ...logindata, [event.target.name]: event.target.value });
   }
   const onSubmitLogin = (event) => {
@@ -29,8 +28,8 @@ const LoginPage = ({
     // Assuming logindataalter is an object with login credentials
     const loginData = {
       // Assuming logindataalter has properties like username and password
-      username: logindataalter.username,
-      password: logindataalter.password,
+      username: logindataalter?.username,
+      password: logindataalter?.password,
     };
   
     api.post('/users/login', loginData)
