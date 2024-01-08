@@ -4,7 +4,6 @@ import {
     Route
   } from 'react-router-dom';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
 import LoginPage from '../LoginPage/LoginPage';
 import NavigationTiles from '../NavigationTiles/NavigationTiles';
 import ViewInvoicePage from '../ViewInvoicePage/ViewInvoicePage';
@@ -13,16 +12,13 @@ import GenerateInvoice from '../GenerateInvoice/GenerateInvoice';
 import GenerateReport from '../GenerateReport/GenerateReport';
 import EmployeeManagementPage from '../EmployeeManagementPage/EmployeeManagementPage';
 import Footer from '../Footer/Footer';
-import { useNavigate } from 'react-router-dom';
 
 const RoutingPage = () => {
-    let navigate = useNavigate();
-    const [user, setuser] = useState({});
-    const userevent = (e) => {
-        setuser(e);
-    }
     const api = axios.create({
-        baseURL: `http://51.20.133.36:5001/`
+      // production
+        baseURL: `http://51.20.133.36:5001/`,
+        // localhost
+        // baseURL: `http://localhost:5001/`
       })
     return(
     <div>
@@ -30,7 +26,6 @@ const RoutingPage = () => {
       <Routes>
         <Route path="/" element={<LoginPage
           api={api}
-          userevent={userevent}
         />
         }
         />
