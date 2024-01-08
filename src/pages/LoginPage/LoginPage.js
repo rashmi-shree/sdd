@@ -14,11 +14,13 @@ const LoginPage = ({
     password:""
   });
   useEffect(()=>{
+    console.log("logindata",logindata);
     if(logindata){
       setlogindataalter({...logindataalter, "username":base64_encode(logindata.username), "password":base64_encode(logindata.password)})
     }
   },[logindata])
   const onChangeEvent = (event) => {
+    console.log("onchange", event.target);
     setlogindata({ ...logindata, [event.target.name]: event.target.value });
   }
   const onSubmitLogin = (event) => {
