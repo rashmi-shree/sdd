@@ -16,9 +16,9 @@ import Footer from '../Footer/Footer';
 const RoutingPage = () => {
     const api = axios.create({
       // production
-        baseURL: `http://51.20.133.36:5001/`,
+        // baseURL: `http://51.20.133.36:5001/`,
         // localhost
-        // baseURL: `http://localhost:5001/`
+        baseURL: `http://localhost:5001/`
       })
     return(
     <div>

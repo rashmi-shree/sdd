@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Header from "../Header/Header";
-import {decode as base64_decode, encode as base64_encode} from 'base-64';
+import { encode as base64_encode} from 'base-64';
 import '../../style/style.css';
 
 const LoginPage = ({ 
@@ -21,53 +21,26 @@ const LoginPage = ({
   const onChangeEvent = (event) => {
     setlogindata({ ...logindata, [event.target.name]: event.target.value });
   }
+  
   const onSubmitLogin = (event) => {
     event.preventDefault();
-  
-    // Assuming logindataalter is an object with login credentials
-    const loginData = {
-      // Assuming logindataalter has properties like username and password
-      username: logindataalter?.username,
-      password: logindataalter?.password,
-    };
-  
-    api.post('/users/login', loginData)
+    api.post('/users/login', {
+      params: {
+        logindataalter
+      }
+    }
+    )
       .then((res) => {
-        if (res.data && res.data.loggedIn) {
-          // Adjust this condition based on the structure of your response
-          window.localStorage.setItem('logoutbtn', 'true');
-          window.localStorage.setItem('adminloggedin', JSON.stringify(res.data)); // Assuming res.data is an object
+        if (res.data.length > 0) {
+          window.localStorage.setItem('logoutbtn', "true");
+          window.localStorage.setItem('adminloggedin', res.data);
           navigate('/main');
-        } else {
-          alert(res.data.message); // Display the error message if login fails
+        }
+        else{
+          alert(res.data.message);
         }
       })
-      .catch((error) => {
-        console.error('Login request error:', error);
-        // Handle error scenarios (e.g., network issue, server error) here
-        alert('An error occurred during login. Please try again.');
-      });
-  };
-  
-  // const onSubmitLogin = (event) => {
-  //   event.preventDefault();
-  //   api.post('/users/login', {
-  //     params: {
-  //       logindataalter
-  //     }
-  //   }
-  //   )
-  //     .then((res) => {
-  //       if (res.data.length > 0) {
-  //         window.localStorage.setItem('logoutbtn', "true");
-  //         window.localStorage.setItem('adminloggedin', res.data);
-  //         navigate('/main');
-  //       }
-  //       else{
-  //         alert(res.data.message);
-  //       }
-  //     })
-  // }
+  }
   return (
     <div>
       <div>
